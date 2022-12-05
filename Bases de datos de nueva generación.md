@@ -12,7 +12,7 @@
 - Desarrollar algoritmos y usar de tecnologías para el acceso a bases de datos de nueva generación.
 
 # Unidad 1. Introducción a nuevas arquitecturas de modelos de datos
-### 28/11/22
+#### 21/11/22
 
 ## Objetivos
 1. Comprender la evolución de las BBDD a lo largo de la historia.
@@ -41,9 +41,9 @@
 
 Un sistema de BBDD se compone de los siguientes elementos: 
 
-1. **BBDD. **Las bases de datos, o la información. 
-2. **SGBD/DBMS **Un sistema de Gestión de Bases de Datos o DBMS (Database Management System) Es el software que administra la BD y donde el personal técnico realiza consultas directas a la BD. 
-3. **Aplicación. **Es el interfaz donde el usuario final interactúa con la BD sin tener conocimientos de programación o ser consciente que está interactuando con ella. 
+1. **BBDD.** Las bases de datos, o la información. 
+2. **SGBD/DBMS** Un sistema de Gestión de Bases de Datos o DBMS (Database Management System) Es el software que administra la BD y donde el personal técnico realiza consultas directas a la BD. 
+3. **Aplicación.** Es el interfaz donde el usuario final interactúa con la BD sin tener conocimientos de programación o ser consciente que está interactuando con ella. 
 
 Vamos a enfocarnos a hablar de los DBMS. Sus características son: 
 
