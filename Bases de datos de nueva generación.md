@@ -2,8 +2,8 @@
 
 ## Competencias específicas 
 
-- ** Diseñar, implantar y administrar redes e infraestructuras físicas **para el tratamiento de grandes volúmenes de datos distribuidos.
-- Diseñar y ejecutar un **proceso completo de descubrimiento de conocimiento, **incluyendo las fases de almacenamiento, procesamiento y visualización de los datos.
+- **Diseñar, implantar y administrar redes e infraestructuras físicas** para el tratamiento de grandes volúmenes de datos distribuidos.
+- Diseñar y ejecutar un **proceso completo de descubrimiento de conocimiento,** incluyendo las fases de almacenamiento, procesamiento y visualización de los datos.
 - Aplicar las bases técnicas del funcionamiento de sistemas distribuidos de altas prestaciones, sus entornos de desarrollo y bases de datos (SQL y noSQL).
 
 ## Resultados del aprendizaje 
