@@ -41,9 +41,9 @@
 
 Un sistema de BBDD se compone de los siguientes elementos: 
 
-1. **BBDD. **Las bases de datos, o la información. 
-2. **SGBD/DBMS **Un sistema de Gestión de Bases de Datos o DBMS (Database Management System) Es el software que administra la BD y donde el personal técnico realiza consultas directas a la BD. 
-3. **Aplicación. **Es el interfaz donde el usuario final interactúa con la BD sin tener conocimientos de programación o ser consciente que está interactuando con ella. 
+1. **BBDD.** Las bases de datos, o la información. 
+2. **SGBD/DBMS** Un sistema de Gestión de Bases de Datos o DBMS (Database Management System) Es el software que administra la BD y donde el personal técnico realiza consultas directas a la BD. 
+3. **Aplicación.** Es el interfaz donde el usuario final interactúa con la BD sin tener conocimientos de programación o ser consciente que está interactuando con ella. 
 
 Vamos a enfocarnos a hablar de los DBMS. Sus características son: 
 
