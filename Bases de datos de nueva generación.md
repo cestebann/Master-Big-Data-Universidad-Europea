@@ -84,6 +84,7 @@ Las bases de datos se pueden clasificar de tres maneras:
 - **BBDD Centralizadas.**  Son BBDD que corren en un único servidor, esto simplifica la capa de software de control de la BBDD ya que no tiene que gestionar interconexiones, seguridad, puntos de fallo, etc. A la hora de crecer debemos de aumentar los recursos de servidor central, esto tiene sus implicaciones como
 - **BBDD Distribuidas.**  Son BBDD que distribuyen sus datos en varios servidores con el objetivo de aumentar su rendimiento. Implican un software más complejo para poder gestionar los diferentes servidores y la comunicación entre ellos.
 
+!['Tipos de BBDD según la ubicación de los servidores'](/img/tipos_BBDD.png.png)
 
 
 # Unidad 2. Introducción a las bases de datos distribuidas y el teorema de CAP
