@@ -12,7 +12,7 @@
 - Desarrollar algoritmos y usar de tecnologías para el acceso a bases de datos de nueva generación.
 
 # Unidad 1. Introducción a nuevas arquitecturas de modelos de datos
-### 28/11/22
+#### 21/11/22
 
 ## Objetivos
 1. Comprender la evolución de las BBDD a lo largo de la historia.
