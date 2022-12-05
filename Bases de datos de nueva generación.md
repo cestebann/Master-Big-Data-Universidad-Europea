@@ -94,6 +94,18 @@ Las bases de datos se pueden clasificar de tres maneras:
 
 !['Tipos de BBDD según la ubicación de los servidores'](/img/tipos_BBDD.png)
 
+## BBDD Relacionales
+### Um modelo estándar
+### Diseño conceptual 
+### Formas normales
+### Transacciones y propiedades ACID
+### Escalabilidad y modelos distribuidos 
+
+## Siglo XXI - Aparación BBDD NoSQL y persistencia políglota
+
+### Motivación BBDD NoSQL
+### Tipos de BBDD NoSQL
+
 
 # Unidad 2. Introducción a las bases de datos distribuidas y el teorema de CAP
 
