@@ -70,7 +70,13 @@ Las bases de datos se pueden clasificar de tres maneras:
 -- Tuplas: Son las filas en una tabla.
 -- Claves primarias: le dan un identificador único a la tupla. 
 -- Claves foráneas: permiten relacionar dos tablas entre sí. 
+
+!['Tipos de BBDD según la ubicación de los servidores'](/img/bbdd_rela.png)
+
 - **BBDD Multidimensionales.** Se aplica mucho en el BI y el ámbito empresarial. La información se estructura en cubos. Está orientada para bases de datos transaccionales. Permiten consultas completas en línea de una manera rápida. Se liga a herramientas de reporting/visualización de datos.
+
+!['Tipos de BBDD según la ubicación de los servidores'](/img/bbdd_multidim.png)
+
 - **BBDD orientadas a Objetos.** Su objetivo es poder representar la estructura completa de un objeto y todas sus propiedades en el modelo de datos. Este tipo de BBDD simplifica mucho la labor del desarrollador al tener una relación uno a uno entre registros de las BBDD y objetos en su código.
 - **BBDD Deductivas.** Tienen la capacidad de extraer conclusiones a través de ciertas reglas. 
 
@@ -78,6 +84,8 @@ Las bases de datos se pueden clasificar de tres maneras:
 - **Estructuradas.** Hace referencia a la información que se almacena en tablas mediante filas y columnas bien definidas. Su rigidez proporciona que el esquema de cada uno de los registros facilite la gestión y explotación de la información.
 - **Semiestructuradas.** Cuentan con cierta organización pero sin ser tan estricta. Se encuentran en los lenguajes de marcado como XML o JSON. 
 - No estructuradas. BBDD en los que la información no sigue ningún tipo de rigidez. Ejemplos son videos, fotos, llamadas telefónicas, etc. 
+
+!['Tipos de BBDD según la ubicación de los servidores'](/img/estructura_bbdd.png)
 
 #### BBDD según la ubicación de los servidores
 
