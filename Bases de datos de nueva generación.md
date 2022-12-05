@@ -61,6 +61,51 @@ Las bases de datos se pueden clasificar de tres maneras:
 - En cuanto a la estructura de los datos
 - En cuanto a la ubicaicón de los servidores 
 
+#### BBDD según el modelo
 
+- ** BBDD Jerárquicas.** Fueron los primeros tipos de BBDD pero ahora es un modelo obsoleto. Este tipo de BBDD almacenaban la información jerárquicamente en forma de árbol invertido. Recorre en un solo sentido. Tiene una estructura inmutable. Un nodo hijo tiene un solo padre. 
+- ** BBDD en Red. **  Tiene una mayor flexibilidad que las jerárquicas debido a que rompen la limitación de que un nodo hijo solo pueda tener un nodo padre, permitiendo de este modo las relaciones muchos a muchos (aunque resulta compleja de implementar entre nodos de distintos niveles). 
+- ** BBDD Relacionales ** Los datos se organizan por medio del modelo entidad-relación. La BBDD relacionales proporcionan al usuario una forma de acceso a los datos eficiente y flexible
+-- Columnas: Son las entidades. 
+-- Tuplas: Son las filas en una tabla.
+-- Claves primarias: le dan un identificador único a la tupla. 
+-- Claves foráneas: permiten relacionar dos tablas entre sí. 
+- ** BBDD Multidimensionales** Se aplica mucho en el BI y el ámbito empresarial. La información se estructura en cubos. Está orientada para bases de datos transaccionales. Permiten consultas completas en línea de una manera rápida. Se liga a herramientas de reporting/visualización de datos.
+- ** BBDD orientadas a Objetos. ** Su objetivo es poder representar la estructura completa de un objeto y todas sus propiedades en el modelo de datos. Este tipo de BBDD simplifica mucho la labor del desarrollador al tener una relación uno a uno entre registros de las BBDD y objetos en su código.
+- ** BBDD Deductivas ** Tienen la capacidad de extraer conclusiones a través de ciertas reglas. 
+
+#### BBDD según la estructura
+- ** Estructuradas. ** Hace referencia a la información que se almacena en tablas mediante filas y columnas bien definidas. Su rigidez proporciona que el esquema de cada uno de los registros facilite la gestión y explotación de la información.
+- ** Semiestructuradas. ** Cuentan con cierta organización pero sin ser tan estricta. Se encuentran en los lenguajes de marcado como XML o JSON. 
+- No estructuradas. BBDD en los que la información no sigue ningún tipo de rigidez. Ejemplos son videos, fotos, llamadas telefónicas, etc. 
+
+#### BBDD según la ubicación de los servidores
+
+- ** BBDD Centralizadas. **  Son BBDD que corren en un único servidor, esto simplifica la capa de software de control de la BBDD ya que no tiene que gestionar interconexiones, seguridad, puntos de fallo, etc. A la hora de crecer debemos de aumentar los recursos de servidor central, esto tiene sus implicaciones como
+- ** BBDD Distribuidas. **  Son BBDD que distribuyen sus datos en varios servidores con el objetivo de aumentar su rendimiento. Implican un software más complejo para poder gestionar los diferentes servidores y la comunicación entre ellos.
+
+
+
+# Unidad 2. Introducción a las bases de datos distribuidas y el teorema de CAP
+
+## ¿Cómo distribuimos nuestros datos?
+
+Conoforme van creciento nuestros datos, las escabilidad vertican no es una opción, hemos llegado a los discos máximos y los recursos para aumentar el espacio son muy costosos. El dpto. IT nos da la opción de aumentar espacio con 3 servidores adicionales pequeños. 
+
+1. Distribuimos la información de nuestros clientes (clusterizada, es decir, toda la info de los clientes va unida) uniformememente en los 3 servidores. 
+2. Ubicamos la información de nuestros clientes por medio de un índice o con una función definida a la hora de crear la tabla. 
+
+
+## Sharding
+
+Este es un concepto fundamental 
+
+
+ - Permite escalar horizontalmente
+ - "Tolerancia a fallos"
+ - Particionado
+ - Enrutamiento 
+ - Resharding / Mantiene uniformidad
+ - Permite consultas analíticas
 
 
