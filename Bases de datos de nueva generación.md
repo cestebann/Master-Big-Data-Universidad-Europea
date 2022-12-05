@@ -14,7 +14,7 @@
 # Unidad 1. Introducción a nuevas arquitecturas de modelos de datos
 ### 28/11/22
 
-##Objetivos
+## Objetivos
 1. Comprender la evolución de las BBDD a lo largo de la historia.
 2. Identificar los distintos tipos de BBDD.
 3.  Entender qué es un sistema de gestión de BBDD.
@@ -33,9 +33,9 @@
 2. **BBDD jerárquicas.** En los años 60s aparecieron los discos duros y se populariza el uso de BBDD que almacenaban la información en red o en modo de lista de árboles (jerárquicas). El objetivo era crear una capa independiente entre el SO y el aplicativo,  abstrayendo al aplicativo de la complejidad de acceso a la información. 
 
 3. **Modelo relacional. ** En 1970 Edgar Codd publica un manifiesto que normaliza el modelo relacional de BBDD y pasa a convertirse en el paradigma predominante. 
-4. ** Creación del lenguaje SQL. ** Durante la década de los 80s se desarrolló el lenguaje SQL *(Structured Query Language)*, un lenguaje declarativo, fácil de aprender que permite crear y hacer consultas en BBDD de una manera simple, y que pasó a convertirse en un estándar en las BBDD relacionales gracias al apoyo de ISO y ANSI. 
+4. **Creación del lenguaje SQL.** Durante la década de los 80s se desarrolló el lenguaje SQL *(Structured Query Language)*, un lenguaje declarativo, fácil de aprender que permite crear y hacer consultas en BBDD de una manera simple, y que pasó a convertirse en un estándar en las BBDD relacionales gracias al apoyo de ISO y ANSI. 
 
-5. **BBDD orientadas a objetos . **En los años 90s aparece el modelo de programación orientada a objetos, que desbanca la programación estructurada, cuyo objetivo es simplifcar la arquitectura.
+5. **BBDD orientadas a objetos.** En los años 90s aparece el modelo de programación orientada a objetos, que desbanca la programación estructurada, cuyo objetivo es simplifcar la arquitectura.
 
 
 
