@@ -106,7 +106,7 @@ El modelo relacional ha tenido mucha popularidad y uso porque:
 
 A continuación, la estructura de una tabla relacional. 
 
-![](/img/Modelo_relacional_estructura.png
+![](/img/Modelo_relacional_estructura.png)
 
 ### Diseño conceptual 
 
