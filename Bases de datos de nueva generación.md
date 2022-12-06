@@ -117,9 +117,9 @@ Los diagramas E/R se componen de:
 - Atributos. Son cualidades o propiedades de las entidades. Se representran con un óvalo. 
 - Relaciones. Describen la conexión entre dos entidades, normalmente son verbos y se representan por medio de rombos. 
 - Cardinalidad. Hace referencia al número de entidades con la que otra entidad puede asociarse mediante una relación binaria. 
-    -- Uno a varios (1:*)
-    -- Uno a uno (1:1)
-    -- Muchos a muchos (* : *)
+    - Uno a varios (1:*)
+    - Uno a uno (1:1)
+    - Muchos a muchos (* : *)
 
 **El diseño conceptual es independiente del modelo de BBDD que se use, por ello es recomendable su uso aun cuando decidamos usar una BBDD no relacional.**
 
