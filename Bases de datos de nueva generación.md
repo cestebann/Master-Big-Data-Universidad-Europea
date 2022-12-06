@@ -149,7 +149,24 @@ La tabla de abajo no está en primera forma normal.
 
 
 ### Transacciones y propiedades ACID
+
+> "Una transacción se trata de la unidad básica de modificación desde el punto de vista del SGBD." - Ramakrishnan y Gerhke, *Sistemas de Bases de Datos*
+
+!['ACID'](/img/ACID.png)
+
+- **Atomicidad** La transacción se ejecuta por completo o no se ejecuta. Una transacción es una unidad indivisible, aunque esté formada por diferentes operaciones. 
+- **Consistencia** Al ejecutar la transacción debemos partir de un estado válido de la BBDD y concluir en otro estado igualmente. 
+- **Aislamiento** La ejecución de una transacción no debe afectar a otras transacciones. 
+- **Durabilidad** Nos garantiza que una vez que se ha realizado una transacción, debe persistir en la BBDD y no se podrá deshacer incluso ante un fallo del sistema. 
+
 ### Escalabilidad y modelos distribuidos 
+
+Escalabilidad: Capacidad que tiene un sistema para crecer aumentando las capacidades de sí mismo. Existen dos tipos: 
+- **Escalabilidad vertical** Añadir más recursos a un equipo existente. Es la forma más sencilla de implementar ya que seguimos trabajando en el mismo servidor, no requiere cambios en las apps y hasta un límite es una solución económica. No obstante, es una solución limitada ya que no se puede disponer de infinitos recursos para un mismo recurso y a partir de un punto el coste se vuelve demasiado alto. 
+
+- **Escalabilidad horizontal** Consiste en añadir nuevos equipos multiplicando de este modo los recursos disponibles. Podemos escalar horizontalmente infinitamente en la teoría. Este modelo requiere que el software sea capaz de trabajar sobre un **modelo distirbuido** y esta es una tarea bastante compleja. 
+
+Debido al alto coste y la alta complejidad para mantener las propiedades ACID en un sistema de BBDD incremental, nuevos modelos horizontales han surgido para resolver estas problemáticas. 
 
 ## Siglo XXI - Aparación BBDD NoSQL y persistencia políglota
 
