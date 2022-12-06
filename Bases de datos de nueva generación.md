@@ -71,11 +71,11 @@ Las bases de datos se pueden clasificar de tres maneras:
 -- Claves primarias: le dan un identificador único a la tupla. 
 -- Claves foráneas: permiten relacionar dos tablas entre sí. 
 
-!['Tipos de BBDD según la ubicación de los servidores'](/img/bbdd_rela.png)
+!['Ejemplo de una BBDD relacional'](/img/bbdd_rela.png)
 
 - **BBDD Multidimensionales.** Se aplica mucho en el BI y el ámbito empresarial. La información se estructura en cubos. Está orientada para bases de datos transaccionales. Permiten consultas completas en línea de una manera rápida. Se liga a herramientas de reporting/visualización de datos.
 
-!['Tipos de BBDD según la ubicación de los servidores'](/img/bbdd_multidim.png)
+!['BBDD multidimensionales'](/img/bbdd_multidim.png)
 
 - **BBDD orientadas a Objetos.** Su objetivo es poder representar la estructura completa de un objeto y todas sus propiedades en el modelo de datos. Este tipo de BBDD simplifica mucho la labor del desarrollador al tener una relación uno a uno entre registros de las BBDD y objetos en su código.
 - **BBDD Deductivas.** Tienen la capacidad de extraer conclusiones a través de ciertas reglas. 
@@ -85,7 +85,7 @@ Las bases de datos se pueden clasificar de tres maneras:
 - **Semiestructuradas.** Cuentan con cierta organización pero sin ser tan estricta. Se encuentran en los lenguajes de marcado como XML o JSON. 
 - No estructuradas. BBDD en los que la información no sigue ningún tipo de rigidez. Ejemplos son videos, fotos, llamadas telefónicas, etc. 
 
-!['Tipos de BBDD según la ubicación de los servidores'](/img/estructura_bbdd.png)
+![](/img/estructura_bbdd.png)
 
 #### BBDD según la ubicación de los servidores
 
@@ -95,9 +95,59 @@ Las bases de datos se pueden clasificar de tres maneras:
 !['Tipos de BBDD según la ubicación de los servidores'](/img/tipos_BBDD.png)
 
 ## BBDD Relacionales
-### Um modelo estándar
+
+
+### Un modelo estándar
+
+El modelo relacional ha tenido mucha popularidad y uso porque: 
+
+- es un modelo que los desarrolladores y profesionales de BBDD pueden aprenderlo con relativa facilidad y aplicarlo en varios proyectos. 
+- La mayoría de SGBD relacionales utilizan SQL, que permite a los desarrolladores utilizar una *lingua franca* que les permitirá interaccionar con varios SGBD. 
+
+A continuación, la estructura de una tabla relacional. 
+
+![](/img/Modelo_relacional_estructura.png
+
 ### Diseño conceptual 
+
+Antes de crear la BBDD es necesario elaborar el diseño de la misma. Los diagramas más utilizados para crear el modelo conceptual son los **diagramas entidad/relación.**
+
+Los diagramas E/R se componen de: 
+- Entidades. Representadas por rectángulos. Normalmente son sustantivos. 
+- Atributos. Son cualidades o propiedades de las entidades. Se representran con un óvalo. 
+- Relaciones. Describen la conexión entre dos entidades, normalmente son verbos y se representan por medio de rombos. 
+- Cardinalidad. Hace referencia al número de entidades con la que otra entidad puede asociarse mediante una relación binaria. 
+    -- Uno a varios (1:*)
+    -- Uno a uno (1:1)
+    -- Muchos a muchos (* : *)
+
+**El diseño conceptual es independiente del modelo de BBDD que se use, por ello es recomendable su uso aun cuando decidamos usar una BBDD no relacional.**
+
 ### Formas normales
+
+Para asegurar la normalización de las BBDD se han postulado las formas normales. Si se cumplen, es casi garantizado evitar determinados problemas, como la redundancia de datos o inconsistencias a la hora de modificar. Las formas normales van siendo cada vez más restrictivas conforme aumentan de nivel. Aunque en la actualidad hay 6FN, una BBDD se considera que está normalizada si tiene 3FN. 
+
+**Primera forma normal**. 
+
+La tabla de abajo no está en primera forma normal. 
+
+!['1FN'](/img/1FN.png)
+
+**Segunda forma normal.** 
+
+!['tabla antes de 2FN'](/img/2FN_antes.png)
+
+
+!['tabla con 2FN'](/img/2FN_despu%C3%A9s.png)
+
+**Tercera forma normal**
+
+!['tabla antes de 2FN'](/img/3FN_antes.png)
+
+
+!['tabla antes de 2FN'](/img/3FN_despu%C3%A9s.png)
+
+
 ### Transacciones y propiedades ACID
 ### Escalabilidad y modelos distribuidos 
 
