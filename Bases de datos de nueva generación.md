@@ -37,6 +37,8 @@
 
 5. **Desarrollo de BBDD orientadas a objetos.** En los años 90s aparece el modelo de programación orientada a objetos, que desbanca la programación estructurada, cuyo objetivo es simplifcar la arquitectura.
 
+![](/img/bd_nuevas/orden_cronolo.png)
+
 ### Sistemas de Gestión de BBDD (DBMS)
 
 Un sistema de BBDD se compone de los siguientes elementos: 
@@ -60,6 +62,8 @@ Las bases de datos se pueden clasificar de tres maneras:
 - En cuanto al modelo 
 - En cuanto a la estructura de los datos
 - En cuanto a la ubicaicón de los servidores 
+
+![](/img/bd_nuevas/tipos_bd_carac.png)
 
 #### BBDD según el modelo
 
@@ -96,6 +100,7 @@ Las bases de datos se pueden clasificar de tres maneras:
 
 ## BBDD Relacionales
 
+![](/img/bd_nuevas/filas_tuplas.png)
 
 ### Un modelo estándar
 
@@ -126,6 +131,8 @@ Los diagramas E/R se componen de:
 ### Formas normales
 
 Para asegurar la normalización de las BBDD se han postulado las formas normales. Si se cumplen, es casi garantizado evitar determinados problemas, como la redundancia de datos o inconsistencias a la hora de modificar. Las formas normales van siendo cada vez más restrictivas conforme aumentan de nivel. Aunque en la actualidad hay 6FN, una BBDD se considera que está normalizada si tiene 3FN. 
+
+![](/img/bd_nuevas/FN.png)
 
 **Primera forma normal**. 
 
@@ -171,8 +178,139 @@ Debido al alto coste y la alta complejidad para mantener las propiedades ACID en
 ## Siglo XXI - Aparación BBDD NoSQL y persistencia políglota
 
 ### Motivación BBDD NoSQL
+
+Pese a las numerosas ventajas de las BBDD relacionales, existen algunas limitaciones:
+
+- **Adaptación entre objeto-relacional** No existe correspondencia entre los objetos de las aplicaciones y su representación en las BBDD. Los registros de lenguajes orientados a objetos no se adaptan bien a las BBDD relacionales porque no contienen atributos complejos (registros anidados, listas...). Las BBDD orientadas a objetos surgieron para resolver este problema, pero era tal la popularidad de las BBDD relacionales y su lenguaje de consultas estándar, SQL, que se relegaron a un segundo plano. 
+
+- **BBDD Integración vs. Aplicación** Una de las razones por las que las BBDD orientadas a objetos no reemplazaron a las relacionales, es debido al carácter integrador de estas últimas. No obstante, con el surgimiento de otros mecanismos de integración como los servicios web, los desarrolladores obtienen una alta oferta de tipos de BBDD que se adaptan mejor a la aplicación que se le quiere dar a su sistema. Es por ello que, claramente se prioriza la BBDD según la aplicación que se le quiera dar, al carácter integrador de la BBDD, que al final del día, no es algo que el cliente final sea consciente o valorice.
+
+- **Escalabilidad.** Con la explosión incremental de datos ligada a la web2.0, surge la necesidad de implementar sistemas que sean capaces de correr de forma *distribuida* sobre clústeres de servicios. 
+
+Es a partir de 2009 en San Francisco cuando Johan Orkarsson acuña el término NoSQL, refiriéndose a BBDD Not Only SQL. 
+
+> **BBDD NoSQL**: aquellas BBDD, en su mayoría *open source* surgidas en el siglo XXI que no poseen una estructura fija y que están diseñadas para correr en clúster de forma distribuida (exceptuando las BBDD NoSQL de grafos que utilizan un modelo basado en relaciones). 
+
+
+El surgimiento de las BBDD NoSQL no significa que van a desbancar a las relacionales de su trono, más bien, se amplía la gama de opciones a los desarrolladores y empresas para escoger la BBDD de acuerdo a sus necesidades y circunstancias, permitiéndole a la empresa centrarse en la función de la aplicación de cara al usuario final y otorgándole prestaciones superiores, y paralelamente del lado interno, haciendo imperativa la **persistencia políglota** de los equipos en el manejo de los sistemas de BBDD.
+
+
 ### Tipos de BBDD NoSQL
 
+Se pueden clasificar en si están pensadas en escalar por medio de un clúster o no. 
+- BBDD de agregados. 
+- BBDD de grafos. 
+
+### BBDD de agregados
+
+No almacenan la información en tuplas con tablas estrcuturadas, formadas por atributos fijos, sino que se almacena por medio de objetos anidados o listas semiestructuradas (tipo documentos JSON o XML).
+
+La información se coloca de manera desnormalizada. 
+
+Los agregados aparecen debido a la necesidad contextual/ semántica de la aplicación que va a utilizar el usuario final, la bddd no tiene una estructura tan rígida. 
+
+![](/img/bd_nuevas/agregado_vs_relacional.png)
+
+A diferencia de los modelos relacionales, con el paradigma de agregados únicamente podremos acceder a una perspectiva por agregado por lo que tendremos que diseñar nuestro agregado en función de cómo los datos sean accedidos por el cliente final. Por ejemplo, en la imagen de abajo vemos la estructura de un documento en función del cliente y la misma información pero en función del contenido. 
+
+![](/img/bd_nuevas/estructura_agregado.png)
+
+![](/img/bd_nuevas/agregado_contenido.png)
+
+Las implicaciones directas de trabajar con agregados son: 
+- No existe un único modo o manera correcta de crear un agregado. Se pierde la normalización de la estructura.
+- Contienen una clave que facilitará la tarea de distribución de los datos en los servidores. 
+- Las transacciones y propiedades ACID se van a ver afectadas negativamente. 
+- Las BBDD tienen un esquema flexible o simplemente no tenerlo. 
+- El desarrollador tendrá complejidad de procesar y consultar la BBDD en función de cuán semiestructurada sea la información.
+
+![](/img/bd_nuevas/los_agregados.png)
+
+![](/img/bd_nuevas/BBDD_transaccionales.png)
+
+![](/img/bd_nuevas/ausencia_esquema.png)
+
+
+Ahora vamos a ver algunos tipos de agregados. 
+
+#### Clave-valor
+
+- Es una tabla con dos valores por registro: un ID (clave) y un valor. 
+- El cliente solo puede interactuar con la BD por medio de la clave. 
+- Tienen gran rendimiento y fácil escalabilidad. 
+
+![](/img/bd_nuevas/clave_valor.png)
+
+Ejemplos comerciales de estas BBDD son: 
+- Redis
+- Riak
+- Memcached
+- Dynamodb 
+
+#### Columna ancha
+
+Son como los clave-valor, pero los valores pueden a su vez actuar como claves de otros valores denominados familia de columna (*column family*). Se podría ver como una BD clave-valor de dos dimensiones. 
+
+![](/img/bd_nuevas/columna_ancha.png)
+
+Ejemplos comerciales de este tipo son: 
+- Cassandra
+- Hbase
+- Hypertable
+- SimpleDB
+
+#### Documental
+
+- El agregado está compuesto por documentos (tipo JSON o XML).
+- Permite definir estructuras jerárquicas o listas. 
+- Diferentes documentos guardados en la misma "tabla" no tienen por qué contener los mismos atributos. 
+- Los documentos cuentan con un id que nos ayudará a distribuirlos. 
+- A diferencia de los clave-valor, en las BBDD documentales sí conocemos la estructura del documento a nivel de cliente (se pueden hacer consultas con esa granularidad). 
+
+Ejemplos comerciales: 
+- MongoDB
+- CouchDB
+- Raven DB
+
+![](/img/bd_nuevas/documental.png)
+
+#### Motores de búsqueda 
+
+- Aunque son similares a las BBDD documentales, están optimizadas para consultas complejas en tiempos de respuesta del orden de milisegundos. 
+- Son capaces de indexar y realizar búsquedas sobre texto libre con gran eficiencia y devolviendo los resultados más relevantes en cada caso (trabajan muy parecido a los motores de búsqueda web).
+
+Ejemplos comerciales: 
+
+- Elasticsearch
+- SolR
+- Splunk
+- OpenSearch
+
+![](/img/bd_nuevas/motores_busqueda.png)
+
+![](/img/bd_nuevas/full_text.png)
+
+
+### BBDD de Grafos
+
+Aunque se sale del alcance de esta asignatura, se aborda este tema a grosso modo. 
+
+Al igual que las BBDD relacionales, son un modelo en el que existen relaciones, sin embargo, son capaces de representar interconexiones mucho más complejas que las BBDD relacionales.
+
+En la imagen de abajo se pueden ver las aplicaciones comunes. 
+
+![](/img/bd_nuevas/grafos_usos.png)
+
+Ejemplos comerciales: 
+
+- Neo4J (!!)
+- Microsoft Azure Cosmos DB
+- Arango
+
+En la clase se visualizó una simulación usando Neo4J para hacer recomendaciones, utilizando a Tom Hanks como referencia.
+
+
+![](/img/bd_nuevas/neo4j.png)
 
 # Unidad 2. Introducción a las bases de datos distribuidas y el teorema de CAP
 
@@ -182,6 +320,7 @@ Conoforme van creciento nuestros datos, las escabilidad vertican no es una opci�
 
 1. Distribuimos la información de nuestros clientes (clusterizada, es decir, toda la info de los clientes va unida) uniformememente en los 3 servidores. 
 2. Ubicamos la información de nuestros clientes por medio de un índice o con una función definida a la hora de crear la tabla. 
+
 
 
 ## Sharding
