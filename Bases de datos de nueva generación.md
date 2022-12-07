@@ -83,7 +83,7 @@ Las bases de datos se pueden clasificar de tres maneras:
 #### BBDD según la estructura
 - **Estructuradas.** Hace referencia a la información que se almacena en tablas mediante filas y columnas bien definidas. Su rigidez proporciona que el esquema de cada uno de los registros facilite la gestión y explotación de la información.
 - **Semiestructuradas.** Cuentan con cierta organización pero sin ser tan estricta. Se encuentran en los lenguajes de marcado como XML o JSON. 
-- No estructuradas. BBDD en los que la información no sigue ningún tipo de rigidez. Ejemplos son videos, fotos, llamadas telefónicas, etc. 
+- **No estructuradas.** BBDD en los que la información no sigue ningún tipo de rigidez. Ejemplos son videos, fotos, llamadas telefónicas, etc. 
 
 ![](/img/estructura_bbdd.png)
 
