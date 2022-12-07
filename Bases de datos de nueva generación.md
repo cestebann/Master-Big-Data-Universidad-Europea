@@ -339,9 +339,44 @@ Falso. El surgimiento de las BBDD NoSQL no significa que van a desbancar a las r
 
 Falso. Debido al alto coste de la escalabilidad vertical llegado un umbral y la alta complejidad para mantener las propiedades ACID en un sistema de BBDD relacional en un modelo horizontal, las BBDD NoSQL de agregados, atacan estos problemas de raíz compatibilizando la escalabilidad horizontal.  
 
-# Ejercicio 2 (50%)
+## Ejercicio 2 (50%)
 
+ > La empresa de juegos de mesa “Dragones y Mazmorras S.A.” tuvo un crecimiento fortísimo a raíz del confinamiento y necesita mejorar sus sistemas para adaptarse a este nuevo volumen de ventas. Para ello ha decidido contratarte como arquitecto de BBDD para que les ayudes a diseñar sus BBDD y encontrar la mejor solución para cada caso de uso. Las peticiones de la empresa son las siguientes:
 
+### Realizar un diagrama Entidad/Relación (10%)
+
+*Se pide realizar un diseño conceptual mediante un diagrama E/R que recoja los siguientes requisitos:*
+- *“Dragones y Mazmorras S.A.” solo realiza **ventas** a través de tiendas físicas.*
+-  *La empresa tiene **tiendas** ubicadas en diferentes **ciudades.***
+-  *Un **cliente** únicamente está dado de alta en una tienda física.*
+-  *Almacenamos como datos de los clientes su dirección (lo consideramos un único campo), su dni, su nombre y su teléfono.*
+- *Los **juegos** se encuentran categorizados por **géneros** (educativos, RPG, estrategia…).*
+- *Los géneros poseen un nombre único y una descripción del mismo.*
+- *Los juegos poseen un identificador único, un nombre, una descripción y un precio de venta al público.*
+- *Las **ventas** se producen cuando un cliente compra un juego o varios en una **tienda** específica.*
+- *Cada **venta** posee un domicilio, una fecha de venta y un descuento total (puede ser 0).*
+
+*Para simplificar el ejercicio se han identificado en negrita las entidades a representar, será necesario definir sus relaciones (con su cardinalidad) y sus atributos.*
+
+## Construir el modelo relacional (10%)
+
+## Agregados y perspectivas (15%)
+
+## Persistencia políglota (15%)
+
+ > “Dragones y mazmorras SA” está empeñada en convertirse, con tu ayuda, en un referente a nivel nacional, por ello y una vez le has explicado la importancia de la persistencia políglota, te pide una recomendación de qué BBDD (de las vistas en la unidad 1) usar en cada caso de uso.
+
+- *La organización ha crecido mucho y el departamento de BI quiere tener la capacidad de poder analizar de una manera ágil las ventas realizadas y poder realizar consultas interactivas mediante dashboards usando herramientas de reporting. ¿Qué tipo de BBDD recomendaríais?*
+
+Motores de búsqueda 
+
+- *La empresa cree que poniendo en contacto a los usuarios con gustos similares podría incrementar su volumen de ventas. Para ello quiere crear grupos en su web y quiere contar con una BBDD que le facilite tanto encontrar estos usuarios como almacenar las relaciones entre ellos a través de los grupos. ¿Cuál crees que sería la mejor opción de BBDD?*
+
+BBDD basadas en grafos. 
+
+- *En 2023 se celebra la conferencia mundial “Dice Rolling” y “Dragones y mazmorras SA” va a ser el encargado de construir la BBDD para el evento. Esta BBDD no tiene que cumplir las propiedades ACID, pero necesita poder escalar con facilidad para poder satisfacer los accesos de los usuarios. Gracias a la tecnología Cloud usada por la empresa podemos añadir nuevos servidores de forma instantánea, pero necesitamos una BBDD que se adapte bien a este crecimiento. ¿Qué tipo de BBDD recomendarías?*
+
+Le recomendaría una BBDD clave-valor o columna ancha, depende del nivel de granularidad que van a tener los atributos de los usuarios. 
 
 # Unidad 2. Introducción a las bases de datos distribuidas y el teorema de CAP
 
