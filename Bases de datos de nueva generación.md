@@ -175,6 +175,7 @@ Escalabilidad: Capacidad que tiene un sistema para crecer aumentando las capacid
 
 Debido al alto coste y la alta complejidad para mantener las propiedades ACID en un sistema de BBDD incremental, nuevos modelos horizontales han surgido para resolver estas problemáticas. 
 
+
 ## Siglo XXI - Aparación BBDD NoSQL y persistencia políglota
 
 ### Motivación BBDD NoSQL
@@ -311,6 +312,36 @@ En la clase se visualizó una simulación usando Neo4J para hacer recomendacione
 
 
 ![](/img/bd_nuevas/neo4j.png)
+
+# Actividad 1
+
+## Ejercicio 1 (30%)
+
+>  Tras lo visto en la primera unidad “Introducción a nuevas arquitecturas de modelos de datos” responda si las siguientes afirmaciones son verdaderas o falsas e intente razonarlas.
+
+1. *Cuando diseñamos una BBDD relacional solemos apoyarnos en diagramas (E/R, UML…) para la realización del diseño conceptual. Sin embargo, en las BBDD NoSQL no es recomendable el uso de este tipo de diseños y se suele operar directamente con el SGBD.*
+
+Falso. El diseño conceptual es independiente al modelo que se use.
+
+2. *Una de las ventajas de las BBDD NoSQL de agregados es que al permitir estructuras de datos más complejas que las BBDD relacionales nos permiten acceder a los datos desde diferentes perspectivas con un único agregado.*
+
+Falso. A diferencia de los modelos relacionales, con el paradigma de agregados únicamente podremos acceder a una perspectiva por agregado por lo que tendremos que diseñar nuestro agregado en función de cómo los datos sean accedidos por el cliente final.
+
+3. *La ausencia de esquemas en muchas BBDD NoSQL de agregados puede suponer un problema para los desarrolladores a la hora de acceder o recuperar la información.*
+
+Verdadero. La mayor libertad a la hora de definir las propiedades de cada uno de los registros también provoca que aumente su complejidad, ya que al extraer los registros no sabemos qué información vamos a recibir.
+
+4. *El crecimiento de las BBDD NoSQL a lo largo del siglo XXI está provocando que la mayoría de las grandes empresas reemplacen todas sus BBDD relacionales por BBDD de este tipo.*
+
+Falso. El surgimiento de las BBDD NoSQL no significa que van a desbancar a las relacionales de su trono, más bien, se amplía la gama de opciones a los desarrolladores y empresas para escoger la BBDD de acuerdo a las necesidades y circunstancias del cliente, permitiéndole a la empresa centrarse en la función de la aplicación de cara al usuario final y otorgándole prestaciones específicas.
+
+5. *Una de las ventajas de las BBDD NoSQL de agregados es que, a diferencia de las BBDD relacionales, podemos mejorar su rendimiento aumentando los recursos (RAM, CPU…) del servidor.*
+
+Falso. Debido al alto coste de la escalabilidad vertical llegado un umbral y la alta complejidad para mantener las propiedades ACID en un sistema de BBDD relacional en un modelo horizontal, las BBDD NoSQL de agregados, atacan estos problemas de raíz compatibilizando la escalabilidad horizontal.  
+
+# Ejercicio 2 (50%)
+
+
 
 # Unidad 2. Introducción a las bases de datos distribuidas y el teorema de CAP
 
