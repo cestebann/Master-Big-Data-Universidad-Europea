@@ -358,9 +358,54 @@ Falso. Debido al alto coste de la escalabilidad vertical llegado un umbral y la 
 
 *Para simplificar el ejercicio se han identificado en negrita las entidades a representar, será necesario definir sus relaciones (con su cardinalidad) y sus atributos.*
 
-## Construir el modelo relacional (10%)
+![](/img/bd_nuevas/modelo_conceptual.png)
 
-## Agregados y perspectivas (15%)
+### Construir el modelo relacional (10%)
+
+> Realizar el modelo relacional a partir del diagrama E/R construido en el ejercicio anterior. Las tablas deben estar definidas en tercera forma normal. Únicamente será necesario especificar las tablas, nombres de columnas, claves primarias y claves foráneas.
+
+![](/img/bd_nuevas/modelo_fisico.png)
+
+
+### Agregados y perspectivas (15%)
+
+> El equipo encargado de la web de “Dragones y Mazmorras SA” se apoya en una BBDD de aplicación propia y han elegido para ello utilizar la BBDD NoSQL documental MongoDB. Para una nueva funcionalidad que están construyendo quieren crear un servicio que devuelva a partir del DNI del cliente los juegos que ha comprado y su género. Y como experto en BBDD acuden a ti en busca de consejo:
+
+- **¿Podrías poner un ejemplo de cómo sería un agregado/documento? Es necesario especificar también su clave.** *(Se tendrá en cuenta únicamente el diseño del agregado y no si tienen sentido los registros, por ejemplo, catalogar - “La Oca” como juego de rol será válido siempre que el diseño sea correcto).*
+
+![](/img/bd_nuevas/primer_agregado.png)
+
+-  *Si tuvieran que crear un nuevo servicio que devolviera a partir del identificador de un juego los clientes que lo han comprado. **¿Podrían reaprovechar el agregado anterior? De no ser así, ¿Cómo sería el nuevo agregado?***
+
+No, habría que hacer otra estructura. 
+
+![](/img/bd_nuevas/segundo_agregado.png)
+
+
+- *Mediante una BBDD relacional, **¿sería posible responder a estas preguntas sin modificar su esquema? De ser así, ¿Cuáles serían las sentencias SQL necesarias?***
+
+Sí. 
+
+Para acceder a los videojuegos y géneros que ha comprado el cliente: 
+
+```
+SELECT j.nombre as "Nombre del videojuego", g.genero as "Género"
+FROM juegos j, clientes c
+INNER JOIN generos g,
+ON g.ID_genero = j.ID_genero
+WHEN c.DNI="1234567T"
+```
+
+Para consultar la lista de clientes que han comprado un determinado videojuego: 
+
+```
+SELECT c.nombre as "Nombre del cliente"
+FROM clientes c, ventas v, 
+INNER JOIN generos g,
+ON g.ID_genero = j.ID_genero
+WHEN c.DNI="1234567T"
+```
+
 
 ## Persistencia políglota (15%)
 
