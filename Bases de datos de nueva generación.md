@@ -430,7 +430,7 @@ Le recomendaría una BBDD clave-valor por el alto rendimiento que tiene para cre
 
 ## Ejercicio 3 (20%)
 
-<Desde su explosión a partir de los 2.000 las BBDD NoSQL han crecido exponencialmente en las empresas hasta el día de hoy, permitiéndoles llevar a cabo diferentes casos de uso. Se pide que encontréis algún caso de éxito del modelo NoSQL (puede ser BBDD de agregados o de grafo), y que argumentéis por qué en ese caso era más conveniente un enfoque NoSQL y sus ventajas frente al modelo relacional.
+> Desde su explosión a partir de los 2.000 las BBDD NoSQL han crecido exponencialmente en las empresas hasta el día de hoy, permitiéndoles llevar a cabo diferentes casos de uso. Se pide que encontréis algún caso de éxito del modelo NoSQL (puede ser BBDD de agregados o de grafo), y que argumentéis por qué en ese caso era más conveniente un enfoque NoSQL y sus ventajas frente al modelo relacional.
 
  [Toyota Material Handling Europa utilizando MongoDB](https://www.mongodb.com/blog/post/video-toyota-industry-40-creating-smart-factory-moving-from-monolithic-code-base-microservices-mongodb-atlas-microsoft-azure)
 
