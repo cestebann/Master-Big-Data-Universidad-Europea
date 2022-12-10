@@ -427,6 +427,31 @@ BBDD basadas en grafos.
 
 Le recomendaría una BBDD clave-valor por el alto rendimiento que tiene para crecer horizontalmente. 
 
+
+## Ejercicio 3 (20%)
+
+ < Desde su explosión a partir de los 2.000 las BBDD NoSQL han crecido exponencialmente en las empresas hasta el día de hoy, permitiéndoles llevar a cabo diferentes casos de uso. Se pide que encontréis algún caso de éxito del modelo NoSQL (puede ser BBDD de agregados o de grafo), y que argumentéis por qué en ese caso era más conveniente un enfoque NoSQL y sus ventajas frente al modelo relacional.
+
+ [Toyota Material Handling Europa utilizando MongoDB](https://www.mongodb.com/blog/post/video-toyota-industry-40-creating-smart-factory-moving-from-monolithic-code-base-microservices-mongodb-atlas-microsoft-azure)
+
+ Toyota Material Handling Europa es un conglomerado de la corporación Toyota que fabrica y comercializa carretillas, montacargas, AGVs y otros productos de logística avanzada. 
+
+La decisión de utilizar MongoDB en Toyota surgió por cumplir el objetivo de trascender a la Industria 4.0. Este consiste en implementar  Internet de las Cosas (IoT) en todos sus productos y dispositivos que le permitirá a la fábrica ser más autónoma (de carretilleros y operarios de primer nivel), inteligente y segura. La imagen de abajo describe cómo estarían interconectados todos los artefactos de la fábrica a un servidor.
+
+![](/img/bd_nuevas/actividad_1_toyota.png)
+
+ Evidentemente, para el correcto tratamiento de la información de todos los múltiples dispositivos conectados, se necesitaba la arquitectura que capture, almacene, administre y analice las información entrante y la mejor solución en el mercado para cumplir estos criterios fue MongoDB. La imagen de abajo ilustra los objetivos de Toyota. 
+
+![](/img/bd_nuevas/actividad_1.png)
+
+Las razones por las que es más conveniente implementar una base de datos NoSQL en este caso son:
+
+ - **Big Data.** El tratamiento de grandes volúmenes de datos obliga a buscar bases de datos autoadministradas, flexibles y escalables. Durante 8 años, Toyota ha procesado la información de 80k montacargas. Con el debido cuidado, la información se puede utilizar para generar patrones y luego predicciones que le permitan a la fábrica disponer únicamente de montacargas autónomos porque van a saber cuándo y dónde desplazarse.  
+ - **Recolección de información semiestructurada.** La recolección y almacenamiento de datos de IoT viene como      sensores y vehículos debe ser en una base de datos flexible que no ponga restricciones a la entrada de datos con una estructura líquida. 
+ - **Rápida escalabilidad  y rendimiento.** El almacenamiento de información en tiempo real de múltiples fuentes (ya no solo tablets y laptops) produce la necesidad de utilizar una base de datos que se adapte fácilmente al crecimiento constante y rápido.  
+ - **Fuerte enfoque en la aplicación.** Mantenimiento y operaciones back-end automáticas que les permite a los desarrolladores enfocarse en las aplicaciones de uso, más que en la administración de la base de datos.  "La parte más hermosa es el modelo de datos. Todo es un documento JSON natural. Así que, para los desarrolladores, es fácil, muy fácil para ellos trabajar rápidamente. Dedicar tiempo a generar valor comercial, en lugar de modelar datos".
+
+
 # Unidad 2. Introducción a las bases de datos distribuidas y el teorema de CAP
 
 ## ¿Cómo distribuimos nuestros datos?
