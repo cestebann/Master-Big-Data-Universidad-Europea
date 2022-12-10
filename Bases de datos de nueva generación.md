@@ -28,7 +28,7 @@
 > "Una base de datos es una recopilación organizada de información o datos estructurados, que normalmente se almacena de forma electrónica en un sistema informático."- Oracle
 
 ### Cronología de la evolución de las BBDD
-1. **Invención de la máquina tabuladora.** Hermann Hollerith inventa la máquina tabuladora y la patenta en 1889. 
+1. **Invención de la máquina tabuladora.** Hermann Hollerith inveta la máquina tabuladora y la patenta en 1889. 
 
 2. **Desarrollo de BBDD jerárquicas.** En los años 60s aparecieron los discos duros y se populariza el uso de BBDD que almacenaban la información en red o en modo de lista de árboles (jerárquicas). El objetivo era crear una capa independiente entre el SO y el aplicativo,  abstrayendo al aplicativo de la complejidad de acceso a la información. 
 
@@ -337,7 +337,7 @@ Verdadero. La mayor libertad a la hora de definir las propiedades de cada uno de
 
 4. *El crecimiento de las BBDD NoSQL a lo largo del siglo XXI está provocando que la mayoría de las grandes empresas reemplacen todas sus BBDD relacionales por BBDD de este tipo.*
 
-Falso. El surgimiento de las BBDD NoSQL no significa que van a desbancar a las relacionales de su trono, más bien, se amplía la gama de opciones a los desarrolladores y empresas para escoger la BBDD de acuerdo a las necesidades y circunstancias del cliente, permitiéndole a la empresa centrarse en la función de la aplicación de cara al usuario final y otorgándole prestaciones específicas.
+Falso. El surgimiento de las BBDD NoSQL no significa que van a desbancar a las relacionales de facto, más bien, se amplía la gama de opciones a los desarrolladores y empresas para escoger la BBDD de acuerdo a las necesidades y circunstancias del cliente, permitiéndole a la empresa centrarse en la función de la aplicación de cara al usuario final y otorgándole prestaciones específicas.
 
 5. *Una de las ventajas de las BBDD NoSQL de agregados es que, a diferencia de las BBDD relacionales, podemos mejorar su rendimiento aumentando los recursos (RAM, CPU…) del servidor.*
 
@@ -392,7 +392,7 @@ Sí.
 
 Para acceder a los videojuegos y géneros que ha comprado el cliente: 
 
-```
+``` sql
 SELECT j.nombre as "Nombre del videojuego", g.genero as "Género"
 FROM juegos j, clientes c
 INNER JOIN generos g,
@@ -402,7 +402,7 @@ WHEN c.DNI="1234567T"
 
 Para consultar la lista de clientes que han comprado un determinado videojuego: 
 
-```
+``` sql
 SELECT c.nombre as "Nombre del cliente"
 FROM clientes c, ventas v, 
 INNER JOIN generos g,
