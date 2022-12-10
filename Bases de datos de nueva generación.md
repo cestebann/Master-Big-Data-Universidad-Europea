@@ -392,7 +392,7 @@ Sí.
 
 Para acceder a los videojuegos y géneros que ha comprado el cliente: 
 
-```
+``` sql
 SELECT j.nombre as "Nombre del videojuego", g.genero as "Género"
 FROM juegos j, clientes c
 INNER JOIN generos g,
@@ -402,7 +402,7 @@ WHEN c.DNI="1234567T"
 
 Para consultar la lista de clientes que han comprado un determinado videojuego: 
 
-```
+``` sql
 SELECT c.nombre as "Nombre del cliente"
 FROM clientes c, ventas v, 
 INNER JOIN generos g,
