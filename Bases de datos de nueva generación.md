@@ -238,6 +238,7 @@ Ahora vamos a ver algunos tipos de agregados.
 
 - Es una tabla con dos valores por registro: un ID (clave) y un valor. 
 - El cliente solo puede interactuar con la BD por medio de la clave. 
+- Manejan los diccionarios de manera excepcional.
 - Tienen gran rendimiento y fácil escalabilidad. 
 
 ![](/img/bd_nuevas/clave_valor.png)
@@ -279,6 +280,7 @@ Ejemplos comerciales:
 
 - Aunque son similares a las BBDD documentales, están optimizadas para consultas complejas en tiempos de respuesta del orden de milisegundos. 
 - Son capaces de indexar y realizar búsquedas sobre texto libre con gran eficiencia y devolviendo los resultados más relevantes en cada caso (trabajan muy parecido a los motores de búsqueda web).
+- Se utilizan bastante para aplicaciones de BI y Machine Learning. 
 
 Ejemplos comerciales: 
 
@@ -296,7 +298,9 @@ Ejemplos comerciales:
 
 Aunque se sale del alcance de esta asignatura, se aborda este tema a grosso modo. 
 
-Al igual que las BBDD relacionales, son un modelo en el que existen relaciones, sin embargo, son capaces de representar interconexiones mucho más complejas que las BBDD relacionales.
+- Al igual que las BBDD relacionales, son un modelo en el que existen relaciones, sin embargo, son capaces de representar interconexiones mucho más complejas que las BBDD relacionales. 
+- Simulan las redes neuronales. 
+- Bastante uso en la IA. 
 
 En la imagen de abajo se pueden ver las aplicaciones comunes. 
 
@@ -421,7 +425,7 @@ BBDD basadas en grafos.
 
 - *En 2023 se celebra la conferencia mundial “Dice Rolling” y “Dragones y mazmorras SA” va a ser el encargado de construir la BBDD para el evento. Esta BBDD no tiene que cumplir las propiedades ACID, pero necesita poder escalar con facilidad para poder satisfacer los accesos de los usuarios. Gracias a la tecnología Cloud usada por la empresa podemos añadir nuevos servidores de forma instantánea, pero necesitamos una BBDD que se adapte bien a este crecimiento. ¿Qué tipo de BBDD recomendarías?*
 
-Le recomendaría una BBDD clave-valor o columna ancha, depende del nivel de granularidad que van a tener los atributos de los usuarios. 
+Le recomendaría una BBDD clave-valor por el alto rendimiento que tiene para crecer horizontalmente. 
 
 # Unidad 2. Introducción a las bases de datos distribuidas y el teorema de CAP
 
