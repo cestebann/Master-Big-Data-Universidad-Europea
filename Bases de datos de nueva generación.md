@@ -393,21 +393,26 @@ Sí.
 Para acceder a los videojuegos y géneros que ha comprado el cliente: 
 
 ``` sql
-SELECT j.nombre as "Nombre del videojuego", g.genero as "Género"
-FROM juegos j, clientes c
-INNER JOIN generos g,
-ON g.ID_genero = j.ID_genero
-WHEN c.DNI="1234567T"
+SELECT C.nombre AS 'Cliente', j.nombre AS 'Videojuego', g.nombre AS 'Género'
+FROM cliente c, venta v, juego j, genero g, venta_juego vj
+WHERE c.dni='0000000X'
+AND c.dni = v.dni
+AND v.numero_factura = vj.numero_factura
+AND j.idjuego = vj.idjuego
+AND j.idgenero = g.idgenero; 
 ```
 
 Para consultar la lista de clientes que han comprado un determinado videojuego: 
 
 ``` sql
-SELECT c.nombre as "Nombre del cliente"
-FROM clientes c, ventas v, 
-INNER JOIN generos g,
-ON g.ID_genero = j.ID_genero
-WHEN c.DNI="1234567T"
+SELECT C.nombre AS 'Cliente'
+FROM cliente c, venta v, juego j, genero g, venta_juego vj
+WHERE j.idjuego=0
+AND c.dni = v.dni
+AND v.numero_factura = vj.numero_factura
+AND j.idjuego = vj.idjuego
+AND j.idgenero = g.idgenero; 
+
 ```
 
 
