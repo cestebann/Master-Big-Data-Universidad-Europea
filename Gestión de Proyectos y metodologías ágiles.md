@@ -118,3 +118,59 @@ El Scrum Master, vela por las buenas prácticas, resolver los bloqueos/obstácul
 - El Scrum Master no es el responsable del equipo. Es un coach que ayuda al equipo a tomar las mejores decisiones.
 - No obstante, no todas las decisiones están en manos del equipo de desarrollo. Todos los eventos y artefactos Scrum no son opcionales y el equipo aquí no es autónomo. 
 
+## 3. Roles y responsabilidades en un entorno ágil 
+
+### El product owner
+
+- Define las funcionalidades (el qué) del producto
+- Decide la fecha del lanzamiento del sprint y/o la versión y el contenido
+- Será responsable de la rentabilidad del proceso (ROI).
+- Define y prioriza las funcionalidades de acuerdo al valor que aportan al cliente. 
+- Ajusta las funcionalidades y su prioridad en cada interacción. 
+- Acepta o rechaza los resultados. 
+
+Para tener autoridad sobre algo debo ser responsable del producto. 
+Si puedo decidir también tengo accountability. 
+
+#### El product owner y la priorización del backlog 
+
+**¿Qué es el backlog?** --> 
+
+![](img/agile/funciones_po.png)
+
+### Priorización del backlog
+
+![](img/agile/priorizacion_backlog.png)
+
+
+### 3. El scrum master y el equipo de desarrollo 
+
+![](img/agile/scrum_master_equipo.png)
+
+### 4. El agile y la mejora continua
+
+Uno de los principios ágiles es buscar la mejora continua. Para ello se deben compartir tanto las buenas como las malas prácticas. 
+
+Dentro de los equipos Scrum, esto puede realizarse tanto en los Daily Scrum como en las Retrospectivas de Sprint, pero ¿cómo se hace entre células organizacionales? --> por medio de Comunidades de Prácticas. 
+
+
+### 5. Comunidad de prácticas 
+
+Es un grupo de personas que desempeña **el mismo rol o responsabilidad profesional desde la experiencia, no la opinión**, que profundiza en un conocimiento o pericia en un asunto a través de una interacción continuada. 
+
+#### Estructura
+- **Moderador**. Se asegura que las actividades se lleven a cabo y promueve la participación de los miembros. 
+- **Líder**. Tiene claro hacia donde quiere llevar la comunidad. 
+- **Miembros**. Participan activamente, generan ideas, dan feedback. 
+
+#### Cómo funciona una comunidad de prácticas 
+
+Se inicia en una fundación, consiste en una reunión de 2 horas. 
+
+![](img/agile/fundacion_comu_colaborativa.png)
+
+#### Cómo se gestiona y prioriza el backlog en una comunidad de prácticas 
+
+Sin una comunidad de prácticas es imposible escalar una metodología ágil e implementar mejora continua. 
+
+![](img/agile/gestion_backlog_comunidad_practicas.png)
