@@ -76,6 +76,10 @@ Conocer la ubicación de los datos será fundamental. Usar este nuevo modelo imp
 
 ## Introducción a los sistemas distribuidos
 
+A día de hoy, los sistemas distribuidos son una parte fundamental de cualquier infraestructura computacional. Desde teléfonos inteligentes a los grandes sistemas de cómputo, los sistemas deben estar interconectados para llevar a cabo acciones complejas.
+
+En este tema se abordarán **cuáles son los factores necesarios para el diseño de un sistema altamente conectado y eficiente.** Todos los sistemas existentes de procesamiento masivo de datos están basados en sistemas distribuidos, desde Apache Hadoop a Apache Spark. Por lo tanto, conocer el funcionamiento de los sistemas distribuidos es un factor clave para entender el movimiento de datos y la computación masivamente distribuida.
+
 ### Inicio de los sistemas distribuidos 
 
 La era de la informática moderna comenzó a partir de 1945. Hasta 1985, las computadoras eran grandes y caras, además por falta de conectarlas entre sí, actuaban de manera independiente. Sin embargo, dos factores tecnológicos cambiaron esta situación: 
@@ -150,3 +154,33 @@ Existen diferentes técnicas para el aumento de escalabilidad en los sistemas, c
 - Caching y su respectivo problema de consistencia de datos. 
 - Distribución de carga entre los distintos nodos que conforman el sistema distribuido.
 
+### Teorema del CAP
+
+Antes, el aumento de rendimiento en un sistema era simple: por medio de la escalabilidad vertical o mejorando la aplicación para optimizar su funcionamiento (ajuste de rendimiento). No obstante, cada vez fue necesario incoporar una tercera opción, la escalabilidad horizontal debido al creciente procesamiento de datos, que ya no podía ser solucionado con las dos primeras opciones. 
+
+En casos de Big Data, ya no es aceptable ejecutar un único servidor, con una sola base de datos, en un único centro de datos adyacente a la sede de su empresa. Se necesitan entornos verdaderamente distribuidos para afrontar los retos empresariales actuales.
+
+No obstante, los sistemas distribuidos añaden más variables a la ecuación que producen un costo y una complejidad adicional. 
+
+A raíz de la formulación para obtener la mejor configuración y solventar los problemas, nace el Teorema del CAP (Consistency, Availability, Partition tolerance), Consistencia, Disponibilidad, tolerancia a la Partición. 
+
+![](/img/computacion/CSP.png)
+
+1. **Tolerancia a la partición:** el sistema continúa funcionando a pesar del particionamiento arbitrario debido a fallos de red.
+2. **Disponibilidad:** cada solicitud recibida por un nodo no fiable en el sistema, debe resultar en una respuesta sin errores.
+3. **Consistencia:** todos los nodos ven los mismos datos, al mismo tiempo.
+
+### Tipos de sistemas distribuidos 
+
+- **Sistemas clusters y supercomputadores (sistemas informáticos distribuidos)**. Un cluster de cómputo se define como un conjunto de máquinas conectadas entre sí, que permiten resolver un problema de forma distribuida, ofreciendo una alta capacidad de cómputo.Los sistemas cluster son sistema centralizados, basados en la agrupación de computadores genéricos (commodity) de forma barata y ampliable. En prácticamente todos los casos, la computación de clusters se utiliza para la programación paralela en la que un único programa, de computación intensiva, se ejecuta en paralelo en múltiples máquinas.
+- **Grid Computing (sistemas de información distribuidos)**. En 1999, Ian Foster y Carl Kesselman plantearon un sistema distribuido como una analogía con el suministro eléctrico: el usuario debe tener acceso a los recursos computacionales en condiciones similares a las que tiene para utilizar la energía eléctrica, es decir, desde cualquier sitio (geográficamente dispersos), con una interfaz uniforme, pudiendo confiar en su funcionamiento (fiables, robustos) y a un coste asequible. Este concepto se basa en agregar y compartir recursos en un ecosistema distribuido.
+- **Cloud Computing (sistemas omnipresentes)***. El cloud computing se caracteriza por un conjunto fácilmente utilizable y accesible de recursos virtualizados. Los recursos y cómo se utilizan pueden configurarse de forma dinámica, proporcionando la base para la escalabilidad, si se necesita más trabajo, un cliente puede simplemente adquirir más recursos. Estos sistemas pueden proporcionar un beneficio mutuo o bidireccional a las empresas. Empresas con exceso de capacidad de cómputo pueden, de forma rentable, dejar usar sus sistemas a distintos clientes. Por otro lado, las empresas con demanda de capacidad de cómputo, pueden buscar alquilar la infraestructura de quién le ofrezca mejor precio, servicio o relación entre ellos.
+
+### Sistemas de almacenamiento distribuido
+
+- **Almacenamiento en infraestructura cloud:** esta aproximación ofrece las ventajas de la virtualización y el aislamiento de los datos almacenados. 
+- **Almacenamiento secundario:** esta solución tiene como principal ventaja la protección de los datos. Los datos pueden estar organizados en base de datos in-memory como pueden ser: Cassandra, MongoDB, Memcached o BigTable. Una de las técnicas más empleadas en este tipo de sistema de almacenamiento es la deduplicación. La dedupliucación elimina los datos redundantes almacenados, guardando una única copia idéntica de los datos.
+- **Almacenamiento en capas (jerarquía de dispositivos):** estos sistemas se componen por sistemas lentos (almacenamiento en cintas), por sistemas como discos magnéticos, pasando por almacenamiento en estado sólido (SSDs), hasta llegar al almacenamiento en memoria (in-memory).
+- **Storage-as-a-Service:** sistemas de almacenamiento basados en cloud computing, por ejemplo, Amazon S3.
+
+Otro de los factores críticos a la hora de diseñar un sistema cluster es la elección de la tecnología de interconexión. Se puede encontrar en el mercado soluciones como Ethernet (1 Gbps o 10 Gbps), InfiniBand (hasta 50 Gbps) o fibra (+100Gbps).
