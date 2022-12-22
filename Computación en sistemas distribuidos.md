@@ -1,39 +1,39 @@
 
 # Índice
 
-Unidad 0. Objetivos del curso
-- Competencias específicas
-- Resultados del aprendizaje
-Unidad 1. Sistemas altamente distribuidos
-- Los sistemas distribuidos en el mundo Big Data
-- Introducción a los sistemas distribuidos
-- Paradigma de programación paralela
-- Tolerancia a fallos en sistemas distribuidos
-Unidad 2. Sistemas cloud y virtualización de servicios
-- Computación y almacenamiento en la nube
-- Consolidación de servicios
-- Amazon AWS
-- Google Web Services
-Unidad 3. Hadoop como sistema de cómputo en plataformas Big Data
-- Apache Hadoop
-- Hadoop Distributed File System
-- Arquitectura de cómputo de Hadoop.
-- Ejecución de aplicaciones en Apache Hadoop.
-Unidad 4. Programación en Scala
-- Introducción al lenguaje Scala
-- Estructuras de control y definición de funciones
-- Listas y contenedores
-- Programación funcional
-Unidad 5. Computación distribuida con Apache Spark
-- Introducción a Apache Spark
-- Programación de aplicaciones con Apache Spark
-- Acceso a fuentes de datos con Apache Spark
-- Gestión de trabajos Spark con Apache YARN
-Unidad 6. Apache Spark avanzado
-- Spark Streaming
-- Ingestión de datos de Twitter mediante Apache Streaming
-- Aprendizaje automático con Mllib
-- Despliegue de aplicaciones con Maven y SBT
+- Unidad 0. Objetivos del curso
+    - Competencias específicas
+    - Resultados del aprendizaje
+- Unidad 1. Sistemas altamente distribuidos
+    - Los sistemas distribuidos en el mundo Big Data
+    - Introducción a los sistemas distribuidos
+    - Paradigma de programación paralela
+    - Tolerancia a fallos en sistemas distribuidos
+- Unidad 2. Sistemas cloud y virtualización de servicios
+    - Computación y almacenamiento en la nube
+    - Consolidación de servicios
+    - Amazon AWS
+    - Google Web Services
+- Unidad 3. Hadoop como sistema de cómputo en plataformas Big Data
+    - Apache Hadoop
+    - Hadoop Distributed File System
+    - Arquitectura de cómputo de Hadoop.
+    - Ejecución de aplicaciones en Apache Hadoop.
+- Unidad 4. Programación en Scala
+    - Introducción al lenguaje Scala
+    - Estructuras de control y definición de funciones
+    - Listas y contenedores
+    - Programación funcional
+- Unidad 5. Computación distribuida con Apache Spark
+    - Introducción a Apache Spark
+    - Programación de aplicaciones con Apache Spark
+    - Acceso a fuentes de datos con Apache Spark
+    - Gestión de trabajos Spark con Apache YARN
+- Unidad 6. Apache Spark avanzado
+    - Spark Streaming
+    - Ingestión de datos de Twitter mediante Apache Streaming
+    - Aprendizaje automático con Mllib
+    - Despliegue de aplicaciones con Maven y SBT
 
 # Unidad 0. Objetivos del curso
 
@@ -45,7 +45,7 @@ grandes volúmenes de datos distribuidos.
 fases de almacenamiento, procesamiento y visualización de los datos.
 - Aplicar las bases técnicas del funcionamiento de plataformas cloud computing y virtualizadas.
 
-# Resultados de aprendizaje:
+## Resultados de aprendizaje:
 - Aplicar las bases técnicas y funcionales de sistemas distribuidos de altas prestaciones
 - Desarrollar algoritmos y usar de tecnologías para el acceso a bases de datos de nueva generación.
 - Planificar e integrar bases de datos de nueva generación en sistemas distribuidos.
@@ -166,8 +166,8 @@ A raíz de la formulación para obtener la mejor configuración y solventar los 
 
 ![](/img/computacion/CSP.png)
 
-1. **Tolerancia a la partición:** el sistema continúa funcionando a pesar del particionamiento arbitrario debido a fallos de red.
-2. **Disponibilidad:** cada solicitud recibida por un nodo no fiable en el sistema, debe resultar en una respuesta sin errores.
+1. **Tolerancia a la partición:** el sistema continúa funcionando a pesar del particionamiento arbitrario debido a fallos de red (fallos de comunicación entre nodos del sistema).
+2. **Disponibilidad:** Se refiere a la medida en que cualquier cliente que realice una solicitud de datos obtiene una respuesta, independientemente de que hayan nodos fallando. Como consecuencia, en el diseño del sistema, se asume que el fallo será inminente y por lo tanto entre más nodos, más disponible será el sistema. 
 3. **Consistencia:** todos los nodos ven los mismos datos, al mismo tiempo.
 
 ### Tipos de sistemas distribuidos 
@@ -184,3 +184,72 @@ A raíz de la formulación para obtener la mejor configuración y solventar los 
 - **Storage-as-a-Service:** sistemas de almacenamiento basados en cloud computing, por ejemplo, Amazon S3.
 
 Otro de los factores críticos a la hora de diseñar un sistema cluster es la elección de la tecnología de interconexión. Se puede encontrar en el mercado soluciones como Ethernet (1 Gbps o 10 Gbps), InfiniBand (hasta 50 Gbps) o fibra (+100Gbps).
+
+13/12/22
+
+**Middleware:** Un middleware es un software que facilita la conexión de aplicaciones que no fueron diseñadas para conectarse entre sí, brindando una funcionalidad mayor que operando independientemente. 
+Ejemplo: en un ecommerce 
+
+16/22/22
+
+NetBIOS es el protocolo de unidades de red que implementa Windows, y es el software que hace visible los recursos de un equipo a través de la red para que lo utilicen otros, para compartir de un PC a otros. Linux y la comunidad hicieron algo parecido, SAMBA, no solo se puede compartir recursos y ficheros entre SOs Windows, sino también entre SOs Linux y Windows. NFS (Network File System) es un protocolo que permite compartir recursos entre SO Linux. 
+
+¿Qué es YARN? - Es el clúster que Permite que las aplicaciones que corren en el clúster tengan alta disponibilidad independientemente de los fallos que ocurran, por medio de los nodos en el sistema. 
+
+¿Qué es Hadoop? - Es el sistema de ficheros distribuido. Es la implementación que nos va a permitir que los nodos compartan sus recursos como si fuesen uno solo disco virtual. Permite que los nodos se interconecten y se compartan los recursos de estos. Permite replicar los datos entre cada uno de los datos, trocearlos y replicarlos, para que en caso de fallo de uno de los nodos, podamos recuperar un fichero completamente siempre.  
+
+En Hadoop, tenemos 
+- **Namenodes.** Es el nodo que actúa como *master* o coordinador general, es el nodo maestro. 
+- **Datanodes.** Nodos que comparten recursos. 
+
+![](/img/computacion/hadoop.png)
+
+
+Cada cierto tiempo Yarn va a mandarle una llamada a cada uno de los nodos para ver si están funcionando correctamente. Si el nodo no respondiera, el namenode va a mandarle un par de señales más. Si no contesta, el namenode lo va a desconectar, lo va a dar por perdido. 
+
+Vamos a ver los comandos para que podamos navegar por Hadoop. 
+
+Los sistemas Hadoop se diseñaron especialmente para funcionar con sistemas de disco. La información se lee y se graba en un disco. La arquitectura distribuida en Hadoop consiste en trocear un problema, distribuirlo a diferentes nodos (map), resolver una solución parcial local y luego ensamblar las soluciones parciales en una solución global (reduce). Esto se realiza gracias a **map reduce**. *Map* es aplicar a los nodos una función troceada y *Reduce* significa una vez tengo las soluciones parciales, reducirlas a una sola solución. 
+
+Protocolo SSL. Es un protocolo de seguridad para encriptar la información. 
+
+
+Hay varios formatos de ficheros  de interacambio de información (JSON, XML,CSV), pero no son óptimos para consultas. 
+
+En el mundo Big Data se utilizan consultas de ficheros en disco, directamente consultar los ficheros sin cargar la info en la BBDD. Para este tipo de arquitectura se guarda la info en formatos .parquet y .orc. El formato parquet admite metadatos, y la información se guarda en columnas (formato columnar). La información no está optimizada para el almacenamiento de datos sino para su consulta. Ejemplos que usan el formmato columnar son AWS y BigQuery. La consulta en el formato columnar es mucho más rápida. 
+
+Aparte de permitir la consulta rápida, el formato columnar permite comprimir en disco y ahorrar mucho espacio. 
+
+
+Comandos que permiten la configuración del servicio 
+
+
+```bash
+
+vi core-site.yml
+vi hdfs-site.yml
+vi yarn-site.yml
+vi mapred-site.yml
+
+```
+
+Los comnados para entornos de servicios: Configurar o definir cómo se conectan los servicios (.sh/.cmd)
+
+```bash
+hadoop-env.sh (Entornos Linux)
+hadoop-env.cmd (Entornos Windows)
+mapred-env.sh
+mapred-env.cmd 
+yarn-env.cmd 
+yarn-env.sh
+```
+
+
+
+
+
+
+
+20/12/22
+YAM
+Hadoop. Es el sistema de gestión de datos, no tiene nada que ver con el clúster. 

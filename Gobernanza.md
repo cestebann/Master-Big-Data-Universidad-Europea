@@ -149,3 +149,56 @@ Son cualquier dato que se utiliza para caracterizar, clasificar y catalogar otro
 ![](/img/gobernanza/beneficios_dreferencia.png)
 
 ![](/img/gobernanza/ciclo_metadatos.png)
+
+
+
+**Sesión 5. 15/12/2022 pendiente**
+
+
+Sesión 6. 22/12/2022
+
+# Ciclo de vida del dato y modelos analíticos 
+
+## Ciclo de vida del dato
+
+![](/img/gobernanza/ciclo-de-vida.png)
+
+### Tipos de datos
+
+- **Datos calientes.** Se refiere a los datos almacenados en la plataforma por un tiempo determinado y durante ese tiempo nunca se borran. 
+- **Datos fríos.** orientado a datos históricos, hacen referencia a los datos de que pasado un tiempo sin uso no requieren ocupar espacio en el almacén de datos calientes, por lo que pasan a un estado de almacenamiento secundario.
+
+## Gestión de Modelos de Aprendizaje Automático (MLOps)
+
+> Es un conjunto de prácticas que tiene como objetivo implementar y mantener modelos de aprendizaje automático en producción de manera confiable y eficiente. La palabra es un compuesto de aprendizaje automático y la práctica de desarrollo continuo de DevOps en el campo de software. 
+
+### Fases de un modelo de aprendizaje automático 
+
+1. **Reprocesamiento de datos.**
+2. **Separación del conjunto de datos.**
+3. **Entrenamiento del modelo.**
+4. **Evaluación del modelo.**
+5. **Ajustes de hiperparámetros.**
+6. **Evaluación final y despliegue.**
+
+- Matriz de confusión
+
+![](/img/computacion/matriz_confusion.png)
+
+### Elementos de un modelo analítico 
+
+![](/img/gobernanza/elementos_modelo_analitico.png)
+
+### Entrenamiento 
+
+![](/img/gobernanza/entrenamiento.png)
+
+### Ejecución de un modelo analítico
+
+El modelo ya compara datos reales, está ya desplegado
+
+![](/img/gobernanza/ejecucion_m_analitico.png)
+
+### Ciclo de vida de un modelo analítico 
+
+![](/img/gobernanza/ciclo-de-vida-m-analitico.png)

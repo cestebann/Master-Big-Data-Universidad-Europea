@@ -174,3 +174,45 @@ Se inicia en una fundación, consiste en una reunión de 2 horas.
 Sin una comunidad de prácticas es imposible escalar una metodología ágil e implementar mejora continua. 
 
 ![](img/agile/gestion_backlog_comunidad_practicas.png)
+
+## Unidad 3. Inicio ágil de proyectos
+Los objetivos son: 
+- Conocer en qué consiste el Inception Deck
+
+les. 
+
+
+### Inicio ágil de proyectos (Inception deck)
+
+#### Qué es
+
+> Agile Inception, también conocida como Inception Deck o simplemente Inception, es un conjunto de dinámicas orientadas a enfocar a todas las personas involucradas en un proyecto hacia un mismo objetivo, reduciendo muchas de las incertidumbres, ayudando a explicitar los riesgos más evidentes y poniendo en común las expectativas de todos”.
+
+Es similar a lo que se conoce en una metodología clásica como el *kickoff* de un proyecto, aplica para cualquier metodología no solo para los proyectos ágil. 
+
+![](/img/agile/inception_deck.png)
+
+Roles que participan en un Inception Deck
+
+
+![](/img/agile/quien_participa_inception.png)
+
+
+
+
+#### Secuencia de actividades
+
+1. Introducción al proyecto. *Why are we here* 
+2. Explicar el proyecto. *Elevator pitch*
+3. Diseñar el *Product Box*
+4. Acotar el alcance. *NOT list*
+5. Identificar stakeholders.  *Meet the neighbors*
+6. Explicar el alcance. *Show the soluction* 
+7. Identificar riesgos. *Up at night*
+8. Estimar el proyecto. *Size it up*
+9. Acordar las prioridades. *Trade-off*
+10. Planifica el proyecto. *User Story Mapping*
+
+
+#### Descripción de actividades 
+
