@@ -198,6 +198,10 @@ NetBIOS es el protocolo de unidades de red que implementa Windows, y es el softw
 
 ¿Qué es Hadoop? - Es el sistema de ficheros distribuido. Es la implementación que nos va a permitir que los nodos compartan sus recursos como si fuesen uno solo disco virtual. Permite que los nodos se interconecten y se compartan los recursos de estos. Permite replicar los datos entre cada uno de los datos, trocearlos y replicarlos, para que en caso de fallo de uno de los nodos, podamos recuperar un fichero completamente siempre.  
 
+- YARN: Gestor del clúster. Keep Alive. Sistema distrbuidor de cargas, se encarga de mantener y distribuir las cargas en los diferentes nodos del clúster. Ahora Hadoop recomienda no utilizar Yarn. 
+- HDFS: Sistema de gestión de ficheros. Se encarga de generar réplicas en distintos nodos, gestiona el acceso a los datos. Tiene su propio formato. 
+
+
 En Hadoop, tenemos 
 - **Namenodes.** Es el nodo que actúa como *master* o coordinador general, es el nodo maestro. 
 - **Datanodes.** Nodos que comparten recursos. 
@@ -209,7 +213,7 @@ Cada cierto tiempo Yarn va a mandarle una llamada a cada uno de los nodos para v
 
 Vamos a ver los comandos para que podamos navegar por Hadoop. 
 
-Los sistemas Hadoop se diseñaron especialmente para funcionar con sistemas de disco. La información se lee y se graba en un disco. La arquitectura distribuida en Hadoop consiste en trocear un problema, distribuirlo a diferentes nodos (map), resolver una solución parcial local y luego ensamblar las soluciones parciales en una solución global (reduce). Esto se realiza gracias a **map reduce**. *Map* es aplicar a los nodos una función troceada y *Reduce* significa una vez tengo las soluciones parciales, reducirlas a una sola solución. 
+Los sistemas Hadoop se diseñaron especialmente para funcionar con sistemas de disco. La información se lee y se graba en un disco. La arquitectura distribuida en Hadoop consiste en trocear un problema, distribuirlo a diferentes nodos (map), resolver una solución parcial local y luego ensamblar las soluciones parciales en una solución global (reduce). Esto se realiza gracias a **map reduce**. *Map* es aplicar a los nodos una función troceada.  En Map pasas una función y una lista a la que hay que aplicarle la función y el sistema itera en cada uno de los índices de la lista aplicándole la función. *Reduce* significa una vez tengo las soluciones parciales, reducirlas a una sola solución.
 
 Protocolo SSL. Es un protocolo de seguridad para encriptar la información. 
 
@@ -247,9 +251,54 @@ yarn-env.sh
 
 
 
-
-
-
 20/12/22
-YAM
-Hadoop. Es el sistema de gestión de datos, no tiene nada que ver con el clúster. 
+
+## Tolerancia a fallos en sistemas distribuidos
+
+Las empresas se han dado cuenta que necesitan algo más que crear una infraestructura confiable para resistir y sobrevivir las amenazas, respaldar el crecimiento y proteger la información. Esto implica que no sólo estamos hablando de desastres naturales como un huracán o un tornado, sino también y principalmente de ataques cibernéticos. 
+
+Plan de Continuidad del Negocio vs Plan de Recuperación ante Desastres 
+
+- **Business Continuity Plan:** Qué condiciones y recursos debo disponer para que  los usuarios y servidores no perciban un desastre en caso de que ocurra.  Debo identificar los nodos que deben permanecer inalterados. Es un proceso muy caro.  
+- **Disaster Recovery Plan:** Qué condiciones mínimas necesito para que mi negocio siga trabajando tras un desastre.
+
+
+
+### Disaster Recovery Plan 
+
+- Busca restablecer los servicios básicos lo antes posible para que el negocio pueda operar. No solo incluye estrategias de hardware y software sino también involucra operaciones manuales. 
+
+### Business Continuity Plan
+
+> Es un plan que describe cómo la empresa continuará operando incluso ante la aparición de un problema, que, teóricamente hablando, produciría una interrupción no planificada en el servicio. Busca que el negocio no se detenga. 
+
+
+¿Por qué es importante tener un Business Continuity Plan?
+
+Es importante para evaluar la resiliencia y la sincronización entre los procesos del negocio, las aplicaciones y la infraestructura de TI. 
+
+ 1. En caso de una eventualidad la empresa deja de producir valor y recibir ingresos. 
+ 2. Genera desprestigio. 
+
+#### Aspectos principales a tomar en cuenta 
+- **Alta disponibilidad**. Busca proporcionar las capacidades y procesos necesarios para que una empresa tenga acceso a las aplicaciones clave independientemente de los fallos acaecidos. Estos fallos pueden ser físicos, en el proceso, en el hardware o software. 
+- **Operaciones continuas**. Protegen la capacidad de mantener los sistemas en funcionamiento tanto durante las interrupciones planificadas como las no planificadas. 
+- **Recuperación ante desastres**
+
+### Motivación de tener un BCP
+
+- El BCP surgió de la planificación para la recuperación ante desastres a principios de los 70s. 
+- Organizaciones como bancos y aseguradoras invirtieron en colocar copias de seguridad en emplazamientos alternativos. 
+- En los 80s aparecieron proveedores comerciales que prestaban servicios de respaldo de IT. 
+- Con la creciente globalización en los 90s, surgió la necesidad del acceso a los datos desde varios emplazamientos situados en largas distancias. Se dejó de pensar en un DCP y se comenzó a considerar el BCP de una manera más holística. 
+
+### La transformación digital y la hiperconvergencia
+
+Crean puertas de acceso no deseadas y con ella nuevos riesgos, vulnerabilidades, ataques y puntos de fallo. 
+Los BCP están contemplando cada vez más la eventualidad de un ciberataque. 
+
+Los planes de contingencia han de incluir formas de defenderse contra esos riesgos, proteger aplicaciones y datos críticos y ser capaces de recuperarse de ataques o fallos de manera controlada y medible. 
+Otro problema añadido es el del aumento exponencial de los volúmenes de datos. 
+
+RPO (Objetivo de Punto de Recupeación ): Es la cantidad máxima de datos, medida en el tiempo, qu una organización puede perder sin causar daños irreversibles a su negocio. 
+RTO (Objetivo de Tiempo de Recuperación): Es el tiempo máximo tolerable que una computadora, sistema o red puede estar fuera de servicio después de que ocurre un fallo o desastre. (minutos, segundos, horas o días.)

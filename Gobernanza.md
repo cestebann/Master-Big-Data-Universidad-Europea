@@ -201,4 +201,22 @@ El modelo ya compara datos reales, está ya desplegado
 
 ### Ciclo de vida de un modelo analítico 
 
+Esta metodología tiene partes en común con las buenas prácticas de devops y es a veces llamada MLOps (Machine Learning Operations), pues estandariza todo el proceso de gestión el ciclo de vida de los proyectos analíticos, dentro de los cuales se generan activos analíticos. También está alineada con las formas de trabajo ágiles, pudiendo ser el objetivo de un sprint el recorrer al menos una vez todo el ciclo e ir mejorando el modelo continuamente, sprint a sprint. El siguiente diagrama ilustra la metodología, poniendo de relieve la naturaleza iterativa del proceso:
+
 ![](/img/gobernanza/ciclo-de-vida-m-analitico.png)
+
+
+### MLflow 
+
+Es una plataforma de código abierto para administrar el ciclo de vida de ML, incluida la experimentación
+
+## Control de versiones 
+
+> El método de git-flow
+
+
+
+- El examen son 20 preguntas tipo test. (Son 4 opciones, solo hay una opción correcta )
+- No hay factor de corrección.
+- Para estudiar el examen lo mejor es estudiar los PDFs. 
+

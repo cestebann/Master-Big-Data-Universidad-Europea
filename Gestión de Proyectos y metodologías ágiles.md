@@ -6,11 +6,48 @@
 
 ### Qué es agile
 
+Las metodologías ágiles son una filosofía de trabajo que facilita el proceso de creación y entrega de valor continuo en proyectos de desarrollo de software.
+
+Es la habilidad para crear productos y responder al cambio. 
+Agile está centrado en las personas.
+
+El principio de Agile se basa en la habilidad para crear productos que responden a las necesidades específicas de un cliente, tomando en cuenta un escenario particular: si las necesidades o los requerimientos del cliente, el negocio o el mercado cambian, el producto se adapta.
+
+Esta capacidad de adaptación al cambio y la entrega de valor constante forman parte de los principios de las metodologías ágiles.
+
+> "Estamos descubriendo formas mejores de desarrollar software tanto por nuestra propia experiencia como ayudando a terceros" - Agile Manifesto
+
+
 #### Objetivos
 
 - Entender por qué las organizaciones buscan aproximaciones ágiles a la ejecución de proyectos.
 - Conocer como *Agile* pretende maximizar la entrega de valor al cliente.
 - Aprender cuáles son las principales palancas y barreras para el despliegue de *Agile* en las organizaciones.
+
+#### Qué es Scrum
+
+Un Scrum en el rugby, es cuando todo el equipo colabora por obtener el balón. 
+
+Es un marco de trabajo por el cual las personas pueden abordar problemas complejos adaptativos, a la vez que entregan productos del máximo valor posible productiva y creativamente. 
+Entreva valor lo más rápido posible. 
+Una de las claves de Scrum es que es un equipo pequeño (3-10 personas). Esto es para preservar que sea altamente flexible y adaptativo. 
+
+##### Teoría de Scrum 
+
+Se basa en la teoría de control de procesos empírica: el conocimiento procede de la experiencia. 
+
+Los pilares de Scrum son: 
+- Transparencia
+- Inspección
+- Adaptación
+
+Los valores de Scrum son: 
+1. Compromiso. En la iteración total del proyecto, no solo en sus tareas directas. 
+2. Coraje. 
+3. Enfoque. 
+4. Apertura. 
+5. Respeto. 
+
 
 ### Agile, una palanca para el cambio
 
@@ -26,6 +63,38 @@
 ![](img/agile/modelo_tradicional.png)
 
 El alcance de un proyecto/un producto es variable, vamos a estar en continua retroalimentación con el cliente para saber si con las prestaciones que tiene el producto es suficiente para satisfacer sus necesidades/deseos. 
+
+#### Grupos de trabajo 
+- Agile propone dividir el equipo en organizaciones celulares multifuncionales y autosuficientes.
+- Tiempos de iteración cortos. 
+- Iteración: Tiempo de desarrollo de una funcionalidad del producto (p. ejem. 2 semanas). Cada equipo de trabajo va a tener un objetivo claro. 
+
+#### Requerimientos 
+- Se genera una lista de requerimientos, que se valida con el cliente y se vuelve la lista de quehaceres. 
+- División de los requerimientos en listas más pequeñas para trabajar durante cada iteración
+- Objetivos de desarrollo claros
+
+
+#### Generación del valor. 
+
+Estamos acostumbrados a entregarle al cliente el producto terminado cuando hemos completado la totalidad de la lista de requerimientos y puede que hayan cambios que haya que hacer. En cambio, Agile propone que entregues al cliente el producto al final de la iteración en el estado en el que se encuentra. 
+
+### 12 principios ágiles
+
+12 Principios Agile:
+
+1. Satisfacción al cliente: Entrega de valor al cliente.
+2. Cambios: Cambios son bienvenidos. Mientras mas rápido se acepten los cambios.
+3. Software funcional: Software que pueda ser usado por el cliente y en periodos cortos de tiempo.
+4. Colaboración: Como interactuas y te comunicas con el cliente.
+5. Individuos motivados: Dar un buen entorno, independencia y autoridad de tomar sus propias decisiones.
+6. Comunicación cara a cara: Método mas eficiente, estar con el cliente y leer su lenguaje corporal.
+7. Progreso: El software funcionando es la medida principal de progreso.
+8. Desarrollo sostenible: El desarrollo a lo largo del proceso sea constante en cada una de las iteraciones.
+9. Mejora continua: Como son iterativas se puede ver que se hizo bien y que se puede mejorar para la próxima iteración.
+10. Simplicidad: Priorizar y hacer el trabajo que esta bien definido en ese preciso momento.
+11. Auto-organización: Que el equipo sea capas de tomar sus propias decisiones.
+12. Auto-evaluación: Que el equipo sea capaz de ajustar y perfeccionar su comportamiento para mejorar.
 
 ![](img/agile/modelo_tradicional_2.png)
 
@@ -60,6 +129,11 @@ Depende del producto que desarrolles debes seleccionar por dónde empezar. Tambi
 - La capacidad real de entregar el valor de manera incremental.
 
 - Sponsoring adecuado para vencer la resistencia interna, cohesionar a la organización en la iniciativa y lidiar con resistencia de los proveedores externos. 
+
+### 12 Principios Ágiles
+
+![](/img/agile/manifiestO-agil-12pr.webp)
+
 
 ## 2. Roles
 
