@@ -1288,41 +1288,207 @@ Cassandra está bastante optimizada para escritura, porque se esribe en memoria.
 
 Cuando escribimos un dato tenemos un número de partición (hash). Va a escribir en memoria en una tabla denominada Memtable, y en disco va a aparecer como un log de transacciones, que es un fichero de solo Append.
 
-Cuando se llena la memoria RAM o tras un periodo determinado se ejecuta un flush o volcado de memoria en una estructura en disco denominado SSable, que es inmutable. Esto tiene algunas implicaciones: estamos escibiendo sin ver lo que estamos grabando en disco, vamos a escribir a alta velocidad, no vamos a poder verificar si un dato ya existe; durante un insert y un update no sabemos si existe el dato. 
+Cuando se llena la memoria RAM o tras un periodo determinado se ejecuta un "flush" o volcado de memoria en una estructura en disco denominado SSable, que es inmutable. Esto tiene algunas implicaciones: estamos escibiendo sin ver lo que estamos grabando en disco, vamos a escribir a alta velocidad, no vamos a poder verificar si un dato ya existe durante un *update* o un *insert*.
         
 ### Escritura - Actualizaciones y borrados
 
 Si en el Update, el registro no existe, el sistema lo va a crear. Y si existe, lo va a actualizar. 
-Similar es el procedimiento con el borrado (no vamos a comprobar si lo estamos borrando), donde le genera un Tombstone (una x. )
+Similar es el procedimiento con el borrado (no vamos a comprobar si lo estamos borrando), donde le genera un Tombstone (una marca de que queremos eliminarlo como una x).
 
 30/01/23
 
 ### Escrituras Memtable y SSTables
 
-En cada flush se crea un SSTable. COnseguimos una lista de SSTables
+Cuando la *Memtable* se llena o en un periodo de tiempo, se ejecuta un flush que crea un SSTable. Conseguimos una lista de SSTables
 
 ![](/img/bd_nuevas/Escrituras_mmtables_SStables.png)
 
-Esta es la estructura de 
- - Primary key compuesta por un partition key + columnas de clustering (permite ordenar los registros dentro de la partición). 
+Esta es la estructura de una SS Table: 
+
+ - Primary key, compuesta por dos partes.
+    - Partition key (obligatorio.)
+    - Columnas de clustering (permite ordenar los registros dentro de la partición, opcional).
+
 
 ### Lectura 
 
-Primero el cliente va a ir a caché para ver si está su consulta ahí para no tener que ir a la BBDD. Si no está en caché luego irá a Membtables. Si no está ahí entonces deberá recorrer SSTables. Ahí nos encontraremos con las SSTables que se han ido escribiendo, y se van a tener que recorrer una a una. 
+Primero el cliente va a ir a caché para ver si está su consulta ahí para no tener que ir a la BBDD. Si no está en caché, va a comprobar si la consulta está ahí (eso aplica para las consultas frecuentes o hotspots), luego irá a Memtables. Si no está ahí, entonces deberá recorrer SSTables en disco. Ahí nos encontraremos con las SSTables que se han ido escribiendo, y se van a tener que recorrer una a una. 
 
 ![](/img/bd_nuevas/cassandra_13.png)
 
 Para ser más eficientes, la estructura de las SSTable tienen la siguiente esctructura. 
 
-- Bloom filter: Indica si es proabable que un fichdro esté contenido o no. 
-- Caché de claves: Las claves de partición que más se acceden y su ubicación dentro de la SSTable. 
-- Partition summary Muestreo de la SSTable, que indica la ubicación de esa muestra.
-- En disco se encuentra el Partiition Disk, que es un índice, e indice el offset exacto en el que se encuentra una clave. 
+-**Bloom filter:** Indica si es prabable que un fichero esté en la SSTable o no. 
+- **Caché de claves:** Las claves de partición que más frecuentemente se acceden y su ubicación dentro de la SSTable. 
+- **Partition summary:** Muestreo de la SSTable, que indica la ubicación de esa muestra.
+- **En disco se encuentra el Partition Index**, que es un índice, e indice el offset exacto en el que se encuentra una clave. 
 
-![](/img/bd_nuevas/cassandra15)
+![](/img/bd_nuevas/cassandra15.png)
 
 Lo ideal es no tener más de 4 SSTables. Cassandra resuelve el número creciente de SSTables por medio de compactaciones, cuyo objetivo es reducir el número de SSTables. A partir de dos SSTables, las fusiona y las convierte en una sola. 
 
 Por ejemplo, Cuando aparece una segunda Tabla, en cada celda Cassandra también agrega un timestamp, que es la última vez que un registro se escribió. 
 
 
+![](/img/bd_nuevas/cassandra_16.png)
+
+### Compactación - En una partición 
+
+El mecanismo para contrarrestar la ralentización de lecturas debido a un alto volumen de SSTables, es la compactación, que es una agrupación/fusión de SSTables, con el objetivo de reducir la cantidad.
+
+Un ejemplo de cómo funciona esto es el siguiente: 
+
+
+Tenemos una partición 1 que está en dos SSTables y queremos fusionarlas. Tenemos dos registros que tienen diferentes valores, además Cassandra imprime un timestamp que indica la última vez que el registro se escribió. 
+
+
+El timestamp de Sofía tiene un timestamp mayor que el de Juan (ya que significa más reciente), por lo tanto el registro que se queda es "Sofía". 
+
+En el caso de la fila 3, hemos borrado un registro para la SSTable 2 (como vimos anteriormente el espacio no se elimina porque le generamos una marca o un tombstone), el grace_period se ha pasado. Como consecuencia, el registro correspondiente a Ana, no se incluiría en la compactación. 
+
+![](/img/bd_nuevas/cassandra_17.png)
+
+### Compactación completa 
+
+A la hora de hacer la compactación, vamos a ir cogiendo diferentes particiones de las SSTables y las vamos a escribir.
+
+En el caso particular de la nueva partición 9 (ver imagen abajo), puede que la compactación se vuelva más corta que sus antecesoras,debido a que estas tenían registros borrados que ocupan espacio. 
+
+**¿Cuál es la diferencia con la sección anterior?** 
+
+![](/img/bd_nuevas/cassandra_19.png)
+
+### Clúster ejemplo desplegado 
+
+Vamos a desplegar un clúster con esta estructura 
+
+![](/img/bd_nuevas/cassandra_18.png)
+
+- Nodetool status : ver el estatus de nuestros nodos. 
+    - El número de token son los rangos que cada nodo va a tener. 
+    - Cassandra no da un rango, da 16 rangos por defecto. 
+    - La columna Owns indica la ocupación relativa de archivos
+- Nodetool describecluster
+    - Aquí podemos ver el snitch 
+    - Podemos ver el particionador (por defecto es Murmur3)
+    - Nos dice el número de nodos
+    - Cuántos Data centers tenemos 
+    - Keyspaces
+- nodetool info: extraemos información propia del nodo
+    - nodetool info -T: nos indica lso rangos con detalle de cuáles son. 
+- nodetool gossip info: Tenemos información de los Ips de los diferentes nodos, racks y tokens que se van mandando entre nodos para que siempre sepan donde está ubicado cada dato. 
+- nodetool ring: vemos el anillo completo
+    - Se fragmenta por los Data Centers, y cada nodo aparece 16 veces, indica qué rango tiene y qué cantidad de datos tiene. 
+
+#### Para entrar a la consola de Cassandra: 
+
+- cqlsh: entrar a Casandra
+-  CREATE KEYSPACE <bbddng WITH replicacion = {'class':'NetworkTopologyStrategy','DC1':3,'DC2':1}>; : Crear un kesypace
+- nodetool describering <nombre, en este caso bbddng>: información de todas las réplicas (cuáles son los documentos, en qué rack están y en qué Data Center)
+- use bbdng: para usar el bbdng
+- // Crea una tabla con un comando bastante largo, que me imagino que nos va a compartir, que se llama Spacecraft_journey_catalog
+- Para que dos columnas sean la clave de partición tenemos que poner doble columnas, p. ej: "PRIMARY KEY((columna_1, columna_2));
+- Vamos a poblar nuestra bbdd. Para ello en la consola de Cassandra referimos un archivo que tiene todos los registros clave-valor. 
+    - cqlsh 
+    - use bbddng; 
+    - SOURCE /<ruta del archivo/archivo>; //con esto se debería cargar todo
+    - SELECT * FROM <nombre_archivo> LIMIT 2;
+
+![](/img/bd_nuevas/cassandra_20.png)
+
+Como podemos ver en la imagen de arriba (ver declaración de abajo), tuvimos un error a la hora de insertar el valor (ojo que utlizamos UPDATE y no INSERT), porque solo colocamos el "Journey_ID" como partition key y se nos olvidó que el primary key está compuesta por un *Partition Key" y un "Column Key", por lo que obligatoriamente debemos agregar dos campos como mínimo. 
+
+Ahora haremos una sobreescritura:
+
+![](/img/bd_nuevas/cassandra_21.png)
+
+Con la declaración INSERT, nos pasa lo mismo que con UPDATE. Debemos agregar las dos claves que componen la clave primaria o nos devolverá un error. 
+
+Aunque existen inserciones masivas (batch), no optimizan Cassandra, por lo que no lo vamos a ver. 
+
+Vamos a entrar a otro nodo y vamos a ver cómo funciona la consistencia. 
+
+![](/img/bd_nuevas/cassandra_22.png)
+
+Vamos a crear un Keyspace que solo se replica en un datacenter. 
+
+![](/img/bd_nuevas/cassandra_23.png)
+
+Cassandra nos permite jugar con varios niveles de conssitencia de dos, vamos a tener una consistencia fuerte y vamos a leer la última lectura, pero en caso de caída no vamos a tener disponibilidad a los ficheros. 
+No obstante, si tenemos una concistencia de nivel uno, vamos a tener siempre garantizada la disponibilidad de los datos aunque no sean los más actualizados. 
+
+![](/img/bd_nuevas/cassandra_24.png)
+
+Cassandra está optimizada para ofrecer un sistema donde prime la disponibilidad sobre la consistencia. 
+
+Por defecto Cassandra tiene hasta 4 SSTables y después hace MemTables. 
+
+#### Agregaciones
+
+![](/img/bd_nuevas/cassandra_25.png)
+
+### Anti-patterns
+
+Evitar en la medida de lo posible cuando trabajemos en Cassandra. 
+
+- Full scans: Esto ralentiza el sistema porque implica recorrer todos los servidores. 
+- Leer antes de escribir. No es una buena práctica aunque Cassandra te dé la opción. 
+- Allow Filtering: Te permite lanzar cualquier query a Cassandra. 
+- Abusar de índices Secundarios
+- Abusar de las colecciones no inmutables o no Frozen. 
+- No tener en cuenta los Deletes, cuando borramos aumentamos los SSTables, es mejor borrar una partición por completo .
+- Aumentar el timeout del cliente. 
+
+### Soluciones comerciales 
+
+![](/img/bd_nuevas/cassandra_26.png)
+
+Hay una empresa detrás que es DataStax, que ofrece 
+
+- Herramientas de gestión
+- Funciones avanzadas de memoria
+- Analíticas con Spark 
+- Monitorización más visual
+- Atención al cliente y apoyo técnico. 
+
+
+Cassandra tiene la escalabilidad más lineal que MongoDB, pero a cambio de una simplicidad máxima. 
+
+## Astra DB. Cassandra as a Service
+
+Es análoga a MongoDB Compass. 
+
+![](/img/bd_nuevas/cassandra_27.png)
+
+
+![](/img/bd_nuevas/cuestionario81.png)
+
+La respuesta correcta es peer-to-peer. 
+
+![](/img/bd_nuevas/cuestionario82.png)
+
+![](/img/bd_nuevas/cuestionario83.png)
+
+![](/img/bd_nuevas/cuestionario84.png)
+![](/img/bd_nuevas/cuestionario85.png)
+![](/img/bd_nuevas/cuestionario86.png)
+![](/img/bd_nuevas/cuestionario87.png)
+
+Esto es porque con la clave secundaria va a acceder a todos los servidores y esto sería ineficiente. 
+
+![](/img/bd_nuevas/cuestionario88.png)
+
+
+## Motores de Búsqueda 
+
+![](/img/bd_nuevas/motores_busqueda_2.png)
+
+Nos permite funcionalidades más allá de una BBDD convencional. Podemos hacer consultas más complejas de als que harías mos en otra BBDD. 
+
+Lo que pretendemos con búsquedas de texto libre es que podamos hacer consultas que no han sido categorizadas previamente. 
+
+Los primeros resultadoas son los que más se encajan dentro de la consulta que estoy buscando. 
+
+### De Lucene a Elasticsearch
+
+![](/img/bd_nuevas/motores_busqueda_3.png)
