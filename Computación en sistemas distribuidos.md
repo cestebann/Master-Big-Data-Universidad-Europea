@@ -88,10 +88,19 @@ La era de la informática moderna comenzó a partir de 1945. Hasta 1985, las com
 - **Redes informáticas de alta velocidad.** 
     - LAN (Local Area Networks). Permiten que varios dispositivos en una casa, una oficina o un edificio estén conectados. 
     - WAN (Wide Area Networks). Cientos de millones dispositivos conectados globalmente a velocidades del orden de cientos de millones bps. 
+    - MPLS. Lo instala la compañía telefónica, instala un gran ancho de banda, que luego fragmenta en tuberías virtualizadas para venderlo a clientes individuales. Como consecuencia, es muy fácil crear recursos o desensamblar la red.  
 
 Paralelamente a estos factores, se ha ido desarrollando la **miniaturización** de los sistemas informáticos, siendo el resultado más deslumbrante el *smartphone*. 
 
 Como consecuencia, no sólo es fácil sino también factible construir un sistema distribuido, que consiste en una red de computadoras dispersas geográficamente. El tamaño puede ser de un puñado a millones de nodos y la red de interconexión puede ser cableada, inalámbrica o un híbrido. 
+
+### Protocolos TCP y/o Modelos de Operación
+
+Los sistemas distribuidos y Cloud existen porque se han dado las condiciones. Entre ellas están los protocolos de red. 
+
+Es importante porque seguramente si trabajamos con una app Cloud como AWS, a la hora de hacer un despliegue en una infraestructura, con toda seguridad vamos a tener que instalar una VPC y subredes; segmentar una subred para poder tener direcciones de red suficientes; saber abrir puertos. 
+
+
 
 ### Definición 
 
@@ -108,15 +117,42 @@ Los sistemas distribuidos están commpuestos por los siguientes elementos:
 -**Protocolo**: Un conjunto de reglas e instrucciones que gobiernan la comunicación en un sistema distribuido, es decir, el intercambio de mensajes.
 -**Middleware**: Software que soporta la ejecución de aplicaciones distribuidas.
 
+16/11/22 
+
 #### Ventajas 
 - Compartir recursos (HW, SW, datos)
-- Ofrecer una buena relación coste-rendimiento
-- Aumentar la capacidad de crecimiento.
+- Ofrecer una buena relación coste-rendimiento. Trabajan con el objetivo de disminuir la latencia, tiempo de respuesta, ancho de banda y capacidad de proceso. Esto se logra gracias al uso de hardware commodity (productos no diferenciados)
+- Escalabilidad. Aumentar la capacidad de crecimiento.
 - Ofrecen una solución para la tolerancia a fallos, disponibilidad, replicación y escalabilidad. 
-- En sistemas de gran escala, son un excelente modelo para la distribución de carga de trabajo
+- Rendimiento mejorado. En sistemas de gran escala, son un excelente modelo para la distribución de carga de trabajo
 - Es capaz de ofrecer servicios a múltiples clientes de manera simultánea. 
 
+#### Desventajas
+- Complejidad. Son difíciles de implementar. mantener y solucionar. No solo se limita al hardware, sino también al software. Varios sistemas trabajando al mismo tiempo (leyendoo y escribiendo) pueden provocar fallos en el sistema e inconsistencias en los datos. 
+- Coste de entrada inicial alto 
+- Cuellos de botella en transferencia de red. Cuando los datos se distribuyen entre varios nodos, es necesario moverlos.
+- Fallos debido a errores humanos. Con múltiples componentes el factor de error aumenta. 
+
+### Sistemas distribuidos vs. Computación Paralela
+
+En una topología de procesamiento en paralelo: 
+- La carga de trabajo se distribuye en varios procesadores en una o más computadoras, denominadas nodos de cómputo. 
+- Los entornos de procesamiento en paralelo se clasifican como: 
+    - Sistemas de multiprocesamiento simétrico (symmetric multiprocessing, SMP).  Uno o más procesadores que comparten componentes de hardware. 
+    - Procesamiento paralelo masivo (massively parallel processing, MPP). Es una arquitectura donde hay muchas computadoras alojadas físicamente en un mismo chasis. Son las famosas supercomputadoras. 
+
+#### MPP 
+
+Un sistema MPP, está físicamente disperso. 
+- El rendimiento mejora al no compartir recursos físicos. 
+- El sistema escala agregando commputadoras, disco y memoria. 
+- Un sistema de archivos se comparte por medio de red. 
+- Los archivos de programa se pueden compartir en el sistema en lugar de copiarse en cada disco individual .
+
+
 ### Sistemas distribuidos y middlewares
+
+**Middleware:** Un middleware es un software que facilita la conexión de aplicaciones que no fueron diseñadas para conectarse entre sí, brindando una funcionalidad mayor que operando independientemente. Es capaz de asegurar que múltiples procesos ocurriendo sobre un mismo recurso no corrompe los datos. 
 
 > El middleware actúa como un puente entre tecnologías, herramientas y bases de datos diversas para que pueda integrarlas sin dificultad en un único sistema. - AWS 
 
@@ -129,6 +165,14 @@ Las funciones de un middleware son:
 - Ocultar el carácter "distribuido" de los nodos y la heterogeneidad de los componentes. 
 - Ofrecer interfaces de alto nivel de estándar y uniformes para el desarollo de apps. 
 - Ofrecer servicios comunes para facilitar la comunicación entre aplicaciones. 
+
+#### Tipos de middleware
+
+- Servidores de aplicación web o middleware de dispositivos móviles.
+- *Integración basada en la nube como servicio* (Integration Platform as a Service, IPaaS) es una solución basada en la nube que simplifica la integración en entornos locales (on-premises ) y en la nube. Es una solución de autoservicio
+- bus de servicio empresarial (Enterpise Service Bus, EBS)
+- *Message brokers.* Son una tecnología de comunicación de aplicaciones para ayudar a construir un mecanismo de integración común para admitir arquitecturas de nube nativas. 
+- iP
 
 ### Diseño de sistemas distribuidos
 
@@ -172,9 +216,13 @@ A raíz de la formulación para obtener la mejor configuración y solventar los 
 
 ### Tipos de sistemas distribuidos 
 
+- **Almacenamiento en capas**
+
 - **Sistemas clusters y supercomputadores (sistemas informáticos distribuidos)**. Un cluster de cómputo se define como un conjunto de máquinas conectadas entre sí, que permiten resolver un problema de forma distribuida, ofreciendo una alta capacidad de cómputo.Los sistemas cluster son sistema centralizados, basados en la agrupación de computadores genéricos (commodity) de forma barata y ampliable. En prácticamente todos los casos, la computación de clusters se utiliza para la programación paralela en la que un único programa, de computación intensiva, se ejecuta en paralelo en múltiples máquinas.
 - **Grid Computing (sistemas de información distribuidos)**. En 1999, Ian Foster y Carl Kesselman plantearon un sistema distribuido como una analogía con el suministro eléctrico: el usuario debe tener acceso a los recursos computacionales en condiciones similares a las que tiene para utilizar la energía eléctrica, es decir, desde cualquier sitio (geográficamente dispersos), con una interfaz uniforme, pudiendo confiar en su funcionamiento (fiables, robustos) y a un coste asequible. Este concepto se basa en agregar y compartir recursos en un ecosistema distribuido.
 - **Cloud Computing (sistemas omnipresentes)***. El cloud computing se caracteriza por un conjunto fácilmente utilizable y accesible de recursos virtualizados. Los recursos y cómo se utilizan pueden configurarse de forma dinámica, proporcionando la base para la escalabilidad, si se necesita más trabajo, un cliente puede simplemente adquirir más recursos. Estos sistemas pueden proporcionar un beneficio mutuo o bidireccional a las empresas. Empresas con exceso de capacidad de cómputo pueden, de forma rentable, dejar usar sus sistemas a distintos clientes. Por otro lado, las empresas con demanda de capacidad de cómputo, pueden buscar alquilar la infraestructura de quién le ofrezca mejor precio, servicio o relación entre ellos.
+
+![](/img/computacion/almacenamiento_cloud.png)
 
 ### Sistemas de almacenamiento distribuido
 
@@ -185,10 +233,6 @@ A raíz de la formulación para obtener la mejor configuración y solventar los 
 
 Otro de los factores críticos a la hora de diseñar un sistema cluster es la elección de la tecnología de interconexión. Se puede encontrar en el mercado soluciones como Ethernet (1 Gbps o 10 Gbps), InfiniBand (hasta 50 Gbps) o fibra (+100Gbps).
 
-13/12/22
-
-**Middleware:** Un middleware es un software que facilita la conexión de aplicaciones que no fueron diseñadas para conectarse entre sí, brindando una funcionalidad mayor que operando independientemente. 
-Ejemplo: en un ecommerce 
 
 16/22/22
 
@@ -300,5 +344,184 @@ Los BCP están contemplando cada vez más la eventualidad de un ciberataque.
 Los planes de contingencia han de incluir formas de defenderse contra esos riesgos, proteger aplicaciones y datos críticos y ser capaces de recuperarse de ataques o fallos de manera controlada y medible. 
 Otro problema añadido es el del aumento exponencial de los volúmenes de datos. 
 
-RPO (Objetivo de Punto de Recupeación ): Es la cantidad máxima de datos, medida en el tiempo, qu una organización puede perder sin causar daños irreversibles a su negocio. 
+RPO (Objetivo de Punto de Recuperación ): Es la cantidad máxima de datos, medida en el tiempo, qu una organización puede perder sin causar daños irreversibles a su negocio. 
 RTO (Objetivo de Tiempo de Recuperación): Es el tiempo máximo tolerable que una computadora, sistema o red puede estar fuera de servicio después de que ocurre un fallo o desastre. (minutos, segundos, horas o días.)
+
+
+10/01/2023
+
+## Computación paralela vs. Computación en serie
+
+### Computación en serie
+
+Tradicionalmente el software se ha escrito para el **cálculo en serie**: Un proble se divide en una serie discreta de instrucciones. La sinstrucciones se ejecutan secuencialmente una tras otras ejecutándose en un solo procesador, solo se puede ejecutar una instrucción en cada momento. 
+
+![](/img/computacion/computacion_serie.png)
+
+
+### Computación en paralelo 
+
+La carga de de cada trabajo se distribuye entre varios procesadores en una o más computadoras denominadas nodos de cómputo. 
+
+Los entornos de procesamiento paralela se clasifican como: 
+- Sistemas de procesamiento en paralelo (SMP) 
+- Procesamiento paralelo masivo (MPP)
+
+
+![](/img/computacion/computacion_paralela.png)
+
+### Características de la computación paralela
+
+En el sentido más estricto, es el uso simultáneo de múltiples recuross informáticos para resolver un problemas computacional
+
+- Un problema se divide en partes discretas que se pueden resolver al mismo tiempo
+- Cada parte se divide en una serie de instrucciones. 
+- Las instrucciones de cada parte se ejecutan simultáneamente diferentes procesadores. 
+ 
+ El problema dque se trata de computar debe ser capaz de: dfescomponerse en partes discretas de trabajo que puedan resolverse simultáneamente. Ejecutar múltiples instrucciones del probgrama en cualquier momento. Debe de poder se resuelto en menos tiempo con varios recursos informáticos que un único recurso. 
+
+ Los recurso sinformáticos suelen ser: Una sola computadora con mútliples procesadores/núcleos. Un número artbitrario de tales computadoras conectas por una red. 
+
+### Cómo puede una computadora procesar en paralelo 
+
+Desde la perspectiva del hardware prácticamente todas las computadoras hoy en día tienen capacidad de proceso en paralelo: múltiples unidades funcionales (caché L1 y L2, decodificación, punto flutante, procesamiento de gráficos (GPU), entero, etc.). No es lo mismo hacer cálculos con números enteros, con números de coma flotante. Actualmente tenemos múltiples unidades/núcleos/cores de ejecución. El hardware tiene una capacacidad para múltiples subprocesos/threads
+
+No obstante, para algunos software no por tener mútltiples núcleos la máquina puede ir más rápido, más bien a veces puede ir más lento. Por ejemplo, los videojuegos. 
+
+*La memoria caché (oculto, escondido en francés) es información, instrucciones, procedimientos que se guardan de forma temporal y se usan de manera frecuente. Se guarda una copia cerca del procesador para que sea más rápido obtener esa información y así no deba consultar a los servidores origen. Los beneficios son que el rendimiento mejora. No obstante, la saturación de la memoria puede volverse contraproducente, por lo que es deseable y necesario que se vaya eliminando de tanto en cuando. Tiene que buscarse el tiempo óptimo de eliminación ya que si la eliminación es muy frecuente entonces el procesador no va a tener copias a las cuales consultar y por lo tanto el procedimiento de consulta va a ser lento.*
+
+*Tenemos dos tipos de memoria caché: web y disco. La memoria caché web almacena las páginas web que visitamos frecuentemente para agilizar la carga de dichas páginas y así ahorrar ancho de banda o datos, y la caché disco tiene un significado parecido a lo explicado arriba*.
+
+### ¿Por qué utilizar la computación paralela?
+
+-El mundo real es enormemente complejo, se simula mejor en procesos paralelos que en serie. 
+- En teoría es bastante eficiente y ahorra tiempo y dinero para solucionar una tarea que debe resolverse en un tiempo corto. En pocas palabras, trabajar en paralelo acorta el tiempo de ejecución. 
+
+![](/img/computacion/computacion_paralela_beneficios.png)
+
+
+## La ley de Amdahl
+
+> La fórmula de la ley de Amdahl sirver para definir si la introducción de una mejora en sus sistema merece o no la pena. 
+
+Calcula la mejora esperada de un sistema si se mejora una única parte de la misma. Esto quiere decir que hay una parte del código que se ejecuta en serie y no vamos a poder optimizar, mientras que hay otra parte que se puede o ya se ejecuta en paralelo. 
+
+![](/img/computacion/amdahl.png)
+
+- *Smax* es la mejora posible del sistema global y se expresa como un numero decimal mayor que 1. Entre más grande mejor. 
+- *p* es la parte del sistema que se trata de mejorar, expresada como un númeroentre [0,1]. En otras palabras, es la fracción paralela del código. Por lo tanto 1-p es la fracción serie del código. 
+- *s* es el factor de mejora de p, expresado como el factor de veces que p puede ser ejecutado más rápidamente. Es el número de procesadores o mejora de velocidad en la parte paralela. 
+
+
+![](/img/computacion/amdahl_2.png)
+
+![](/img/computacion/amdahl_3.png)
+
+![](/img/computacion/amdahl_4.png)
+
+10 veces más ciclo de reloj o que la capacidad/cache/arquitectura del hardware permiten que la ejecución del servidor web sea más rápido. 
+
+![](/img/computacion/amdahl_5.png)
+
+Tenemos un software que el 80% del programa es paralizado, tenemos un único procesador. Ahora queremos incorporar 4 procesadores para ejecutar la versión paralela del programa. Vale la pena invertir en esta mejora'
+
+Esta ley tiene algunas limitaciones, por lo que ha dado lugar a otras leyes
+
+## Ley de Gustafson 
+
+
+Es una ley en informática que dice que los cálculos que involucran conjuntos de daots arbitrariamente grandes se pueden paralelizar de manera eficiente. En pocas palbras, cualquier problema suficientemente grande pude ser eficientemente paralelizado. 
+
+Gustafson le dice a Amdahl que da igual la parte en serie, si la cantidad de datos es grande, la paralización de procesos va a ser beneficiosa. 
+
+![](/img/computacion/gustafson.png)
+
+- *S* es la aceleración teórica del programa con paralelismo
+- *N* es el número de procesadores 
+- *s* y *p* son las gracciones dedicadas a ejecutar las partes en serei y en paralelo del programa en un sistema paralelo, donde s+p =1. 
+
+## ¿Qué es el desarrollo en paralelo?
+
+- Es el desarrollo simultáneo de más de una versión de un objeto. 
+
+Tipos de desarrollo paralelo: 
+- Desarrollo concurrente paralelo (Parallel concurrent development)
+- Desarollo de plataforma paralela (Parallel platform development)
+- Desarrollo de versiones paralelas (Parallel release development)
+
+### Desarrollo concurrente paralelo 
+
+Ocurre cuando varios desarrolladores desarrollan sus propias versiones del trabajo del mismo objeto (Git, GitHub). Frecuentamente es que cada desarrollador trabaje en diferentes secciones del código (ramas). Una vez que los desarrolladores completan su trabajo, las versiones del código se fusionan. 
+
+### Desarollo de plataforma paralela
+
+Ocurre cuando varios desarrolladores están trabajando en diferentes versiones del mismo objeto para diferentes plataformas de hardware o SO (aplicaciones para iOS y Android). Normalmente no se fusionan. 
+
+### Desarrollo de versiones paralelas 
+
+Ocurre cuando una organzación necesita producir simultáneamente varias versiones de su producto de software.
+
+**pedirle el dataset que utilizó en esta clase** 
+
+
+14/01/2023
+
+``` bash
+
+- Recuperar la configuración inicial del sistema y el URL que debemos introducir para acceder: hdfs getconf -confKey fs.defaultFS (p.ejem. "hudfs://tucan:9000)
+- Recuperar el punto de acceso al clúster (en  proceso de extinción): hdfs getconf -confKey fs.default.name
+- Observar el nombre de los namenodes: hdfs getconf -namenodes
+- Lisa de comandos: hdfs dfs 
+- Enlistar los archivos de Hadoop: hdfs dfs -ls <ruta>
+- Crear un diretorio: hdfs dfs -mkdir <ruta> <nombre de la carpeta>
+- Reemplazar un directorio existente: hdfs dfs -mkdir -p <ruta/nombre de la carpeta>
+- Enlistar los ficheros con sus tamaños correspondientes: hdfs fs -ls -h <ruta>
+- Listar todos los ficheros y directorios recursivamente (con subdirectorios): hdfs dfs -ls -R /
+- Crear un archivo vacío: Hdfs dfs -touchz <ruta> <nombre>.txt
+- Copiar de un sistema local a Hadoop: hdfs dfs -copyFromLocal 
+- Subir un archivo a HDFS: hdfs dfs -put <ruta/nombre del archivo> <ruta de destino>
+- Sobrescribir un archivo existente a HDFS: hdfs dfs -put -f /home/file1 /hadoop
+- Copiar el fichero ‘file1’ de hdfs al sistema de ficheros local: hdfs dfs -get /file1 /home/ <ruta destino>	
+- Leer un archivo de Hadoop: hdfs dfs -cat <ruta/nombre del texto>
+- Eliminar un fichero: rm <ruta/nombre del archivo>
+- Copiar el fichero ‘file1’ del sistema de ficheros local a hdfs y luego lo borra del sist. ficheros local: hdfs dfs -moveFromLocal <ruta/nombre del archivo>
+- Copiar un archivo dentro Hadoop: hdfs dfs -cp <ruta/nombre archivo origen> <ruta/nombre archivo destino>
+- Mover un archivo dentro Hadoop: hdfs dfs -mv <ruta/nombre archivo origen> <ruta/nombre archivo destino>
+- Borrar ficheros en un directorio remoto: hdfs dfs -rm -r <ruta/nombre del archivo>
+- Ver el tamaño de los ficheros y directorios: hdfs dfs -du <ruta/nombre>
+- Ver el tamaño de los ficheros: hdfs dfs -du -s  <ruta/nombre> /* The -s option will result in an aggregate summary of file lengths being displayed, rather than the individual files. */
+- Ver los metadatos de los ficheros: hdfs dfs -stat <ruta>/*  /* el asterisco sirve para que nos dé los metadatos individualmente para cada directorio o fichero individualmente contenido en la ruta. 
+- Cambiar el factor de replicación recursiamente : hdfs dfs -setrep -w <número de réplicas> <ruta/nombre archivo> /* La w es de Wait y solicita que se espere a la finalización de las réplicas para que el commando se complete. /*
+ 
+```
+
+## Consolidación de servicios
+
+### ¿Qué es la virtualización de los servidores? 
+
+Es un proceso que permite una utilización más eficiente de hardware físico y es la base de la computación en la nube. 
+
+La virtualización utiliza software para crear una capa de abstracción sobre le hardware de la computadora tal que permite que los elementos de hardware se dividan en varias ocmputaodras virtuales comúnmente llamadas máquinas virtuales
+
+![](/img/computacion/consolidacion.png)
+
+Cada máquina virtual ejecuta su propio sistema operativo y se comporta como una computadora independiente, aunque solo tiene acceso a una parte del hardware de la computadora subyacente real. 
+
+De lo anterior se deduce que la virtualización permite una utilización m+ás eficiente del hardware físico y con ello un mayor retorno de la inversión del hardware de una empresa. 
+
+### ¿Cuáles son los beneficios de la virtualización?
+
+La virtualización asporta varios beneficios a los operadores de centros de datos y proveeedores de servicios: 
+- Eficiencia de los recursos: Cada servidor de aplicacione srequería su propia CPU física dedicada. Ls recursos sobrantes no se aprovechaban cuando estaban separados.
+- Administración mpas sencilla. Reemplazar las computaodras físicas con máquinas virtuales definidas por software facilita el uso y la administración del software. 
+- Tiemmpo de inactividad mínimo: Los fallos del SO y de las aplicaciones pueden causar tiempo de inactividad e interrumpir 
+- Aprovisionamiento más rápido: Comprar, instalar y configurar hardware para cada aplicación requiere mucho tiempo. Si se dispone de hardware ya instalado, el aprovisionamiento de máquinas virutales es significativamente más rápido. Incluso puede automatizarse utilizando un software de gestión e integrarlo en los flujos de trabajo existentes. 
+
+### ¿Cuántas soluciones de virtualización conoces? 
+
+- **VMware** especializada en virtualización de servidores, escritorios, redes y almacenamiento. 
+- **Microsoft Hyper-V** se enfoca en virtualización de servidores y PCs de escriotrio. 
+- **Citrix** tiene su nicho en la virtualización de aplicaciones, también ofrece virtualización de servidores y soluciones de escritorio virtual. 
+- **Oracle VirtualBox** es un hipervisor que permite crear máquinas x86 virtuales. 
+- **IBM Linux for System z** permite ejecutar Linux en un sistema S/390 o System Z
+
