@@ -464,7 +464,7 @@ Ocurre cuando una organzación necesita producir simultáneamente varias version
 **pedirle el dataset que utilizó en esta clase** 
 
 
-14/01/2023
+17/01/2023
 
 ``` bash
 
@@ -525,3 +525,8 @@ La virtualización asporta varios beneficios a los operadores de centros de dato
 - **Oracle VirtualBox** es un hipervisor que permite crear máquinas x86 virtuales. 
 - **IBM Linux for System z** permite ejecutar Linux en un sistema S/390 o System Z
 
+24/01/2023
+
+Se puso a hablar de bare-metal hypervisor
+
+![](/img/computacion/bare-metal-hypervisor.png)

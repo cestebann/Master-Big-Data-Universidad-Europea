@@ -1492,3 +1492,13 @@ Los primeros resultadoas son los que más se encajan dentro de la consulta que e
 ### De Lucene a Elasticsearch
 
 ![](/img/bd_nuevas/motores_busqueda_3.png)
+
+Lucene es una librería Java, no es una base de datos ni un motor distribuido, que nos permite indexar información y luego realizar búsquedas sobre esa información. Se usa en LinkedIn, Netflix, etc. No obstante, es complicada de utlizar, que requiere programación. 
+
+Elasticsearch utiliza Lucene pero nos proporciona una gran capa de abstracción y actúa commo una BBDD, no so lo como una librería. 
+
+### You know for Search 
+
+Cuando clasifica la información, Elasticsearch indexa los archivos. 
+
+### Index vs. Index vs. Index
