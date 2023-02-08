@@ -525,8 +525,86 @@ La virtualización asporta varios beneficios a los operadores de centros de dato
 - **Oracle VirtualBox** es un hipervisor que permite crear máquinas x86 virtuales. 
 - **IBM Linux for System z** permite ejecutar Linux en un sistema S/390 o System Z
 
+## ¿Cuál es la virtualización de redes SAN?
+
+una red de área de almacenamiento (storage area network, SAN) es una red o subred dedicada de alta velocidad que se interconecta y presenta grupos ocmapartidos de dispositovs de almacenamiento a varios servidores. 
+
+
+![](/img/computacion/san.png)
+
+
 24/01/2023
 
 Se puso a hablar de bare-metal hypervisor
 
 ![](/img/computacion/bare-metal-hypervisor.png)
+
+"Vamos a ver la parte que nos quedaba de los comandos de Hadoop."
+
+Comienza así: 
+- Listar el contenido del sistema de ficheros de HDFS - hdfs dfs -ls
+-hdfs dfs -setrep -w (el white [-w] sirve para que cuando cambiamos el factor de replicacioón el sistema se queda pensando y no devuelve el control de la terminal, hasta haber completado la operación) 6 <ruta/nombre_fichero>
+- para savber el factor de replicación: hdfs dfs -stat %r
+
+
+#### Cómo ejecutamos trabajos en Hadoop 
+
+Vamos a ver cómo se ejecutan problemas en Hadoop...
+
+Un ejemplo es clásico, estre programa permite hacer wordcounts. Tenemos diferentes infraestructuras que generan ficheros de logs. Lo que podemos hacer es que las cadenas de textos vuelquen en un directorio concreto. Vamos a buscar dentro de esos ficheros de textos, palabras como "Attention", "Error", "Warning".
+
+Cada uno de los nodos hace una búsqueda de las cadenas que les hemos pedido que busquen y las cuentan, luego el sistema nos devuelve la suma de las sumas. 
+
+Vamos a crear un directorio en Hadoop llamado "Entrada" y otro llamado "Salida". 
+
+hdfs dfs -put Word_count1.txt grupo2/entradas | estoy desplazando un fichero de mi servidor local a HDFS
+
+vamos a agregar un fichero jar (fichero compilado)
+
+ls /usr/local/hadoop/share/hadoop/mapreduce
+hadoop jar /usr/local/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-examples-3.2.1.jar wordcount <ruta/nombre_archivo>
+
+- Hadoop jar para indicarle un fichero ya compilado
+- Ruta donde se encuentre el fichero
+- Clase que queremos que se ejecute 
+- Darle 3 parámetros: la clase, la ruta del fichero de entrada y la ruta del fichero de salida.
+
+Se mete a Yarn. 
+
+Vemos los archivos que devolvió en la carpeta 
+- hdfs dfs -ls grupo_2/salida (para ver los ficheros de salida)
+
+Los sistemas de alta disponibilidad particionan los ficheros. Como el acceso a disco es muy lento, particionan para que no haya concurrencia, para que el procesamiento sea lo más fluido posible. 
+
+*ahora vamos a abrir algo en Yarn*
+
+HDFS no tiene capacidad sobre sí mismo, le entrega las tareas o aplicaciones a ejecutar al clúster de Yarn. 
+
+yarn jar /usr/local/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-examples-3.2.1.jar wordcount <ruta/nombre_archivo>
+
+Con este comando, yarn ejecuta la tarea en lugar de HDFS.
+
+## Computación Paralela y Computacion Heterogénea
+
+La computación heterogénea se refiere a sistemas que usan más de un tipo de procesador o núcleo. 
+La computación hetrogénea busca mejorar el rendimiento de los cálculos o la eficiencia energética al agregar co-procesadores diferentes. Agregar co-procesadores diferentes busca generalmente agregar capacidades de procesamiento especializadas para operaciones espec-ificas. 
+Es un conjunto de especificaciones desarrollada por varios proveedores de hardaware para permitir la integración de unidades de CPUs y GPUs en un mismo bus, compartiendo memoria y tareas de proceso. Por ejemplo, en los APU, teníamos en los mismos sockets la GPU y la CPU. 
+
+El objetivo de la Arquitectura de SIstema Heterogéneo es reducir la latencia de comunicación entre CPU y GPU, y otros dispositivos. 
+
+## Lenguajes de Computación Paralela y Heterogénea
+
+Lo más óptimo es que todas las operaciones se ejecuten en la CPU. A veces la GPU puede ser más rápida en ciertas tareas (tienen miles de cores). Toda la inforamción que el CPU le envía al GPU se hace por medio de un bus PCI, aunque son más rápidos que los USB, que la velocidad de procesmaiento de información del GPU . Tenemos que minimizar el tráfico lo máximo posible. 
+
+Tenemos diferentes lenguajes que nos permiten programar un diferentes tipos de procesadores a la vez o repartir las tareas en todos ellos. 
+
+OpenCL (Open Computing Language) es un cojjunto de bilbiotecas para desarrolllar software que pueda aprovchar infraestructursas heterogéneas como CPUs, GPus, etc. 
+
+Otro lenguaje que existe es el CUDA (Compute Unified Devvice Architecture) es un cojunto de bibliotecas y una interfaz de programación (API + SDK) de aplicaciones paralelas. Permite al software usar ciertos modleos de GPU facilitando la programación paralela incluyendo los recursos de GPUs disponibles. 
+
+OpenACC (Open Accelerators) es un estándar de porgramación para computación paralela. Fue desarrollado por Cray, Caps, Nvidia,y PGI. Está disepñado para la programación de sistemas heterogéneos CPU/GPU, etc. 
+
+OpenGL (no confundir con OpenCL, Opern Graphics Library) es una interfaz de programación de aplicaciones (API) multiplataforma y multilenguaje. Se usa para itneractuar con la GPU en el proceso de renderizado gráfico vertorizable 2D y 3D consiguiendo acelaración mediantte hardware. 
+
+OpenMP (Open Multi-Processing), son un cojunto de bilbiotecas, compilador, etc. que permiten el procesamiento multiplataforma en meoria compartida. Permite la programación multiplataforma: AIX, FreeBSD, HP-UX, Linux, macOS, Windows. 
+
