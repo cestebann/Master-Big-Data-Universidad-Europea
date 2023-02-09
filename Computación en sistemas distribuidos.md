@@ -532,6 +532,9 @@ una red de área de almacenamiento (storage area network, SAN) es una red o subr
 
 ![](/img/computacion/san.png)
 
+![](/img/computacion/san_2.png)
+
+
 
 24/01/2023
 
@@ -598,13 +601,144 @@ Lo más óptimo es que todas las operaciones se ejecuten en la CPU. A veces la G
 
 Tenemos diferentes lenguajes que nos permiten programar un diferentes tipos de procesadores a la vez o repartir las tareas en todos ellos. 
 
-OpenCL (Open Computing Language) es un cojjunto de bilbiotecas para desarrolllar software que pueda aprovchar infraestructursas heterogéneas como CPUs, GPus, etc. 
+- OpenCL (Open Computing Language) es un cojjunto de bilbiotecas para desarrolllar software que pueda aprovchar infraestructursas heterogéneas como CPUs, GPus, etc
+- Otro lenguaje que existe es el CUDA (Compute Unified Devvice Architecture) es un cojunto de bibliotecas y una interfaz de programación (API + SDK) de aplicaciones paralelas. Permite al software usar ciertos modleos de GPU facilitando la programación paralela incluyendo los recursos de GPUs disponibles. 
+- OpenACC (Open Accelerators) es un estándar de porgramación para computación paralela. Fue desarrollado por Cray, Caps, Nvidia,y PGI. Está disepñado para la programación de sistemas heterogéneos CPU/GPU, etc. 
+- OpenGL (no confundir con OpenCL, Opern Graphics Library) es una interfaz de programación de aplicaciones (API) multiplataforma y multilenguaje. Se usa para itneractuar con la GPU en el proceso de renderizado gráfico vertorizable 2D y 3D consiguiendo acelaración mediantte hardware. 
+- OpenMP (Open Multi-Processing), son un cojunto de bilbiotecas, compilador, etc. que permiten el procesamiento multiplataforma en meoria compartida. Permite la programación multiplataforma: AIX, FreeBSD, HP-UX, Linux, macOS, Windows. 
 
-Otro lenguaje que existe es el CUDA (Compute Unified Devvice Architecture) es un cojunto de bibliotecas y una interfaz de programación (API + SDK) de aplicaciones paralelas. Permite al software usar ciertos modleos de GPU facilitando la programación paralela incluyendo los recursos de GPUs disponibles. 
+31/01/2023
 
-OpenACC (Open Accelerators) es un estándar de porgramación para computación paralela. Fue desarrollado por Cray, Caps, Nvidia,y PGI. Está disepñado para la programación de sistemas heterogéneos CPU/GPU, etc. 
+## Computación y Almacenamiento en la Nube
 
-OpenGL (no confundir con OpenCL, Opern Graphics Library) es una interfaz de programación de aplicaciones (API) multiplataforma y multilenguaje. Se usa para itneractuar con la GPU en el proceso de renderizado gráfico vertorizable 2D y 3D consiguiendo acelaración mediantte hardware. 
+Objetivos: Hacer que la información sea localizable y accesible desde cualquier parte
 
-OpenMP (Open Multi-Processing), son un cojunto de bilbiotecas, compilador, etc. que permiten el procesamiento multiplataforma en meoria compartida. Permite la programación multiplataforma: AIX, FreeBSD, HP-UX, Linux, macOS, Windows. 
+La computación en la nube busca transformar la infraestructura de IT en un servicio que permita "conectarse" a la infraestructura desde cualquier parte, a trravés de Internet y usar los recuross TI sin tener que instalarlos ni mantenerlos en nuestras instalaciones. 
 
+Facilitan mucho el desarrollo de start-ups. Ahorra los costos de adquisición de recursos físicos para implementar productos y servicios (0 EUR de entrada y de instalación, solo pagas por los recursos que utilizas), dinamiza la apariciónd de empresas, la tecnología deja de ser una barrera inicial. 
+
+
+### ¿Qué persigue la computación en la nube?
+
+La computación en la nube es, acceso bajo demanda, a través de Internet, a recursos TI como aplicaciones, servidores (físico y/o virtuales), almacenamiento de datos, herramientas de desarrollo, elementos de red, etc. 
+
+### ¿Cuáles son las ventajas/inconvenientes de la computacion en la nube? 
+
+Si commparamos con una infraestructura IT local tradicional. 
+
+- Reduce los costes asociados a IT: ahorra el esfuerzo de comprar, instalar, configurar y administrar la instraestructura local. 
+- Mayor agilidad y el tiempo de creación de valor (time-to-value) con la nube, la organización puede comenzar a usar aplicaciones en minutos, en lugar de esperar semanas o meses a que IT responda a una solicitud, compre y configure hardware e instale software. 
+- Trabajar enn la nube también permite a ciertos usuarios, como desarrolladores, científicos de daots y usuarios avanzados, desplegar por sí mismos el software y la infraestructura de soporte. 
+- Desde el punto financiero, le permite traspsar este costo de un CapEx a OpEx. La compra de equipamiento técnico supone presupuesto CapEx, mientras que el uso de equipos arrendados supone presupuesto OpEx (gasto corriente). 
+
+### Servicios en la nube (x as a Service)
+
+![](/img/computacion/x_as_a_service.png)
+
+![](/img/computacion/x_as_a_service_2.png)
+
+#### ¿Qué es la IaaS?
+
+
+
+![](/img/computacion/IaaS.png)
+
+Es una forma  de computación en la nube que proporciona componentes informáticos virtualizados. 
+
+Los consumidores del IaaS no administran ni controlan la infraestructura física de la nube, pero tienen control sobre los SOs, el almacenamiento y las aplicaciones implementadas.
+
+Las empresas tradicionales que necesitan capacidad de cómputo para ejectuar cargas de trabajo variables/puntuales ocn un presupuesto ajustado  son casos de uso perfecto de adopción de Iaas, ya que sólo pagarán por los recursos que neceistan. 
+
+#### PaaS (Platform as a Service)
+
+Ofrece entornos operativos/de desarrollo como servicio. Un proveedor de PaaS aloja el hardware y el software en su infraestructura PaaS y libera a los usuarios de tener que instalar y administrar hardware y software internos. 
+
+#### SaaS (Software as a Service)
+
+![](/img/computacion/SaaS.png)
+
+![](/img/computacion/saas_2.png)
+
+Proporciona al consumidor la capacidad de utilizar las aplicaciones del proveedor de la infraestructura en la nube. Las aplicaciones puede ser accedidas desde dispositiovs de cliente a través de un navegador web (correo electrónico), dispositivos móviles, etc. 
+
+#### ¿Qué es el paradigma "Sin Servidor", o "Serverless Paradigm" y cuáles son sus características?
+
+**El paradigma Serverless**. Las dos formas más comunes de arquitecturas sin servidor son función como servicio (AWS Lambda, Google Cloud Funcions, Azure Funcitions, IBM OpenWhisk) y Backend como servicio (p.ej. EMR, Firebase, etc.)
+
+
+Los usuarios buscamos pagar el tiempo de uso pero no pagar por una permanencia de tener una plataforma, aunque esté en desuso/inactiva/apagada. 
+
+![](/img/computacion/serverless.png)
+
+![](/img/computacion/serverless_2.png)
+
+
+Hostless: La aplicación que he desarrollado en ningún servidor (ni virtual). 
+Elastic: Montable y desmontable. 
+Stateless: Generan un resultado y desaparecen. Los datos no se guardan en el propio servidor. 
+Event-driven. Reacciona un evento de una petición. Cuando recibe una petición se activa y cuando no se apaga. 
+Lego blocks. Diferentes máquinas virtuales que se están encendiendo en función de la cantidad de peticiones. 
+High Availability. 
+Usage-based cost. Pago por el tiempo de ejecución. 
+
+
+![](/img/computacion/serverless_3.png)
+
+
+##### Beneficios
+
+Desde la perspectiva empresarial... 
+
+- El coste se basa en el número de ejecuciones, medido en milisegundos vs. horas. 
+- Agilidad del proceso: entregas más rápida de funcioanlidades al mercado, aumenta la capacidad de adaptarse al cambio. 
+- El coste de contratar ingenieros de infrafrestructura back-end se reduce. 
+- Costes operativos reducidos. 
+
+Desde la perspectiva del desarrollador....
+- Responsabilidad reducida, sin infraestructura back-end de la que ser responsable. 
+- Cero administración del sistema. 
+- Gestión operativa más sencilla. 
+- Fomenta la dopción de Nanoservicios, Microservicios, Principios SOA. 
+- Configuración más rápida. 
+- Escalable. 
+- Monitorización de la instalación por defecto (out of the box). 
+- Fomenta la innovación. 
+
+Desde la perspectiva del usuario...
+- Implementar funcionalidades más rápido, los clientes recibirán nuevas funciones más rápido. 
+- Los usuarios pueden disponer de su propio back-end de almacenamiento (Dropbox, G Drive). 
+
+##### Inconvenientes. 
+
+Desde la perspectiva empresarial...
+- Reducción del control general. 
+- Dependencia total del proveedor. 
+- Riesgo de seguridad de datos. 
+- El coste es impredecible porque el número de ejecuciones no está predefinido. 
+
+Desde la perspectiva del usuario...
+- A menos que se diseñe correctamente, la experiencia del usuario puede ser deficiente ocmo resultado del aumento de la latencia de las solicitudes. 
+
+### ¿Qué es la FaaS, Function as a Service? 
+
+- Lo mejor de FaaS es que la lógica de negocio alojada, ej. en forma de script Node.js, es rápidamente escalable y fácil de operar. No necesitas más que desarrollar el código, no hay que crear nada ejecutable. Replicas el script en una Cloud y toda la configuración se despliega ahí, no hay que subirlas. 
+- Sin embargo, FaaS solo cubre la ejecución de código sin estado, lo que significa que se deben de orquestar diferentes servicios en la nube para manejar el almacenamiento de datos, la administración de usuarios, envío de notificaciones a clientes, etc. Cualquier cosa que guardes en local, lo pierdes de inmediato: lo que tienes es un script que se genere en un servidor con sus bibliotecas y sus compatibilidades, se ejecute y crea residente el propio script, nada más, lo que significa que tenemos que prestar otros servicios, y a veces debes depender de muchos proveedores Cloud. 
+
+Como consecuencia, el cliente debe comunicarse con muchas APIs diferentes. FaaS puede involucrar la gestión de varios servicios, lo que prácticamente se vuelve inviable de administrar. Aún así es muy interesante pero no es escalable. 
+
+![](/img/computacion/serverless_4.png)
+
+### Qué es el back-end como servicio, BaaS?
+
+Busca solucionar las limitaciónd el Funcion-as-a-Service. La idea es bcombinar la facilidad de la cunión como servicio con todas las API y capacidades que requieren los sitios web o las aplicaciones móviles típicas. 
+
+![](/img/computacion/BaaS.png)
+
+La información de terceros ya va paquetizada y libera el trajín de sincronización. No obstante, tu información se vuelve muy dependiente al proveedor.
+
+#### ¿Cuáles son los componentes típicos del BaaS?
+
+- Un BaaS normalmente estará compuesto por tres capas.
+    1.  El/la API. 
+    2. El hospedaje y entrega (hosting y delivery). 
+    3. Un API REST o un SDK. 
