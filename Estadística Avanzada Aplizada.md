@@ -192,3 +192,68 @@ Los problemas supervisados se pueden dividr a su vez en dos grandes gruopos:
 ## Regresión lineal univariable
 
 ### Introducción 
+
+## Regresión lineal multivariable y no lineal
+
+### Regresión lineal multivariable
+
+
+#### Introducción al problema e hipótesis
+
+> Un modelo multivariable es aquel en el que la variable respuesta depende de varias variable independientes o de entrada, también llamadas variables explicativas.
+
+#### Normalización o tipificación 
+
+La hipótesis del modelo de regresión lineal multivariable es:
+
+![](/img/estadistica_avanzada/lineal.png)
+
+Aquí, h𝜃(x) representa el valor predicho para la variable respuesta y, xi son
+las variables de entrada y 𝜃i son los parámetros a estimar mediante el algoritmo de ML.
+
+Las variables representan distintas magnitudes, por lo que su rango de valores puede ser muy distinto.
+
+![](/img/estadistica_avanzada/normalizaci%C3%B3n.png)
+
+ Para evitar los problemas que surgen de esto, lo que se hace es normalizar los datos, que consiste en hacer una
+transformación tal que los datos queden aproximadamente en el rango entre -1 y 1. Esto se puede conseguir de varias formas, siendo lo más común restar el valor medio y dividir por un estadístico que represente la dispersión de los datos, normalmente la desviación típica, pero también se usa el rango (la diferencia entre el valor máximo y el valor mínimo). 
+
+
+#### El problema de la colinealidad
+
+Una de las condiciones para que el modelo de regresión múltiple funcione correctamente es que las variables de entrada sean independientes entre sí. Matemáticamente, esto implica que una de ellas no pueda expresarse como como combinación lineal de otras. No obstante, aunque matemáticamente sean independientes, a veces existe una gran correlación entre dos variables, y este hecho puede dar lugar a problemas de colinealidad.
+
+La colinealidad es un efecto muy indeseable, ya que puede dar lugar a un mal ajuste del modelo, a valores de los parámetros muy inestables y a que la determinación de la importancia de cada variable de entrada sobre la de salida sea muy difícil de determinar.
+
+Una forma sencilla de determinar si existe colinealidad es calcular la matriz de correlación de las variables de entrada, y observar si el coeficiente de correlación es muy alto para algunas de ellas. Esto no resuelve en sí el problema, pero al menos ayuda a seleccionar mejor el modelo.
+
+
+## Regresión no lineal de una variable 
+
+### Introducción e hipótesis
+
+En muchas ocasiones, al representar los datos en un diagrama de dispersión, se aprecia claramente que los datos siguen una relación no lineal. Ésta puede ser cuadrática, cúbica, logarítmica, exponencial, etc…
+
+Los ajustes polinómicos de alto orden son una buena manera para parametrizar la línea de tendencia. 
+
+![](/img/estadistica_avanzada/relacion_no_lineal.png)
+
+
+![](/img/estadistica_avanzada/no_lineal.png)
+
+### Formulación del problema 
+
+La hipótesis del modelo se podría escribir como: 
+
+![](/img/estadistica_avanzada/no_lineal_2.png)
+
+donde cada variable xi representa cada uno de los términos no lineales de la variable x. Por tanto, a la hora de formular el problema no hay diferencia entre el problema lineal multivariable y el problema no lineal.
+
+![](/img/estadistica_avanzada/no_lineal_3.png)
+
+
+Conviene expresar el problema en forma matricial. Sea X una matriz de tamaño [m,n+1] donde cada columna es cada una de las variables explicativas/términos no lineales, y cada fila representa un experimento
+o una muestra.
+
+## Métodos de resolución 
+

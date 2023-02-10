@@ -739,6 +739,43 @@ La información de terceros ya va paquetizada y libera el trajín de sincronizac
 #### ¿Cuáles son los componentes típicos del BaaS?
 
 - Un BaaS normalmente estará compuesto por tres capas.
-    1.  El/la API. 
+    1.  El/la API. Permite almacenar y consultar datos, ejectuar código del lado del servidor, autenticar usuario, etc. Esto generalmente se implementa como un servicio "multi-tenant" (múltiples inquilinos) en un proveedor IaaS. 
     2. El hospedaje y entrega (hosting y delivery). 
     3. Un API REST o un SDK. 
+
+
+![](/img/computacion/baas_2.png)
+
+
+un BaaS también se encarga del alojamiento y la entrega (hosting and delivery). 
+
+En el caso de las aplicaciones web, esto significa que se almacenarán sus archivos HTML y otros elementos para ser consumidos por los usuarios. 
+Para el desarrollador, le permite crear su sitio web, app móvil, etc. utilizando una API REST o un SDK predefinido. 
+
+#### ¿ Cuáles son los Datos como Servicio, Data as a Service? 
+
+Son una estrategia de gestión de datos que utiliza la nube para ofrecer servicios de almacenamiento, integración, procesamiento o análisis de datos a través de Internet (Tableau, Power BI Server). 
+
+Externaliza/subcontrata la mayoría de las operaciones de almacenamiento, integración y procesamiento (ETL) de datos a la nube. 
+
+![](/img/computacion/bid_data_as_a_service.png)
+
+### ¿Qué es una red como servicio, NaaS (Network as a Service)?
+
+Es un modelo de nube que permite a los usuarios operar y trabajar con una red sin poseer, construir o mantener su propia infraestructura. NaaS puede reemplazar las VPN centradas en hardware, los balanceadores de carga, los dispositivos de firewall y las conexiones MPLS (Multiprotocol Label Switching). 
+
+
+ #### Red tradicional vs. NaaS
+
+
+![](/img/computacion/red-tradicional.png)
+
+
+![](/img/computacion/NaaS.png)
+
+![](/img/computacion/cisco_meraki.png)
+
+
+
+7/02/23
+
