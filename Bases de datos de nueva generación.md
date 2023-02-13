@@ -1479,7 +1479,7 @@ Esto es porque con la clave secundaria va a acceder a todos los servidores y est
 ![](/img/bd_nuevas/cuestionario88.png)
 
 
-## Motores de Búsqueda 
+# Motores de Búsqueda 
 
 ![](/img/bd_nuevas/motores_busqueda_2.png)
 
@@ -1489,7 +1489,7 @@ Lo que pretendemos con búsquedas de texto libre es que podamos hacer consultas 
 
 Los primeros resultadoas son los que más se encajan dentro de la consulta que estoy buscando. 
 
-### De Lucene a Elasticsearch
+#### De Lucene a Elasticsearch
 
 ![](/img/bd_nuevas/motores_busqueda_3.png)
 
@@ -1497,8 +1497,190 @@ Lucene es una librería Java, no es una base de datos ni un motor distribuido, q
 
 Elasticsearch utiliza Lucene pero nos proporciona una gran capa de abstracción y actúa commo una BBDD, no so lo como una librería. 
 
-### You know for Search 
+#### You know for Search 
 
 Cuando clasifica la información, Elasticsearch indexa los archivos. 
 
-### Index vs. Index vs. Index
+11/02/23
+
+
+
+### Elasticsearch - Clasificación de la información 
+
+La clasificación que se hace es que la información se almacena en índices. Comparándolo con la analogía en el modelo relacional, es lo equivalente a una tabla o a una conexión en MongoDB. 
+
+Por defecto todos los campos se indexan.
+
+Diferencias con BBDD documentales.
+- Toda la información que va en un documento se indexa, independientemente del tipo de campo. 
+- La información está esquematizada. Un índice tiene algo que se denomina mapping y define el esquema de los datos (todos los datos en un campo deben ser del mismo tipo). 
+
+Tenemos un campo ID que si no lo asignamos, el sistema lo va a asignar por defecto. 
+
+![](/img/bd_nuevas/elasticsearch.png)
+
+#### Index vs. Index vs. Index
+
+1. **Índice**: Colección de documentos. 
+2. **Indexar**: Insertar un documento. Cada campo es indexado. 
+3. **Shard**: Índice en Lucene. 
+
+### Estructura de los índices
+
+1. Configuración
+2. Mappings 
+    - Es parecido a deifnir las columnas en una tabla. La diferencia es que un mapping es dinámico. El índice va a determinar automáticamente el mapping en base a una serie de reglas que determinemos. 
+3. Alias
+    - Es análogo a las vistas en las bases de datos relacionales. 
+
+Todo esto se puede definir en un "index template" para replicar la estructura en diferentes bases de datos. 
+
+### Tipos de datos 
+
+![](/img/bd_nuevas/elasticsearch_2.png)
+
+### Elastic Stack 
+
+![](/img/bd_nuevas/elasticsearch_3.png)
+
+
+#### Casos de uso.
+
+![](/img/bd_nuevas/elasticsearch_4.png)
+
+## Arquitectura
+
+Los nodos principales son los nodos master y nodos de datos. 
+
+- Nodos máster: Mantienen metadatos del clúster (cluster-state) y aunque tenemos varios, tenemos uno que va a ser el nodo master activo. 
+- Nodos de datos. Guardan la información.
+
+Existen otros roles como el rol de coordinador (recibe las peticiones), ml, etc. Está configurado por defecto en todos los coordinadores. 
+
+
+![](/img/bd_nuevas/elasticsearch_5.png)
+
+
+### Sharding 
+
+No hay que confundir shard con lo visto en MongoDB. Es equivalente a un chunk o bloque. El número de chard se define a nivel índice y a priori no se puede modificar. 
+
+![](/img/bd_nuevas/elastic_search_6.png)
+
+### Cluster - state 
+
+![](/img/bd_nuevas/elasticsearch_7.png)
+
+Todos los nodos tienen una copia del cluster-state pero solo el nodo master activo tiene la capacidad de modificarlo. 
+
+### Réplicas 
+
+
+![](/img/bd_nuevas/elasticsearch_8.png)
+
+Elasticsearch sigue un modelo de maestro-esclavo pero la replicación es síncrona. El ACK, la confirmación al cliente, no se va a devolver hasta que la información esté replicada. Así se protege Elasticsearch de no dejar tareas de escritura/lectura pendientes. 
+
+
+Para cada shard vamos a tener un número de réplicas definido a nivel de índice. 
+Por cada grupo de réplicas va a existir un shard definido como primario, y es ahí donde se van a realizar las escrituras (como pasan en los modelos de replicación m-e), pero la lectura se va a poder ejecutar en cualquier nodo. 
+
+## Análisis de texto 
+
+
+Esta es una de las grandes fortalezas de los motores de búsqueda. 
+
+Elasticsearch hace uso de los índices invertidos. 
+
+> Índice invertido: Va a extraer diferentes térmminos o tokens que tenemos en la colección de documentos. Y nos va a decir dónde aparece un término para cada documento. 
+
+![](/img/bd_nuevas/elasticsearch_9.png)
+
+1. **Filtrado de caracteres**: Eliminación de caracteres especiales (p. ej. estamos indexando páginas web y nos encontramos muchas etiquetas). Esto se elimina. Podemos eliminar números, sustituir el "&" por una "y". 
+2. **Tokenizar**: Partir el doucmento en tokens. Diivide por un delimitador de espacios (espacios, guion, coma).
+3. **Token filter**: Una vez extraido el token, permite transformar la info, agregar sinónimos (p. ej. tratar "rápido" y "veloz" de la misma forma). 
+
+Cada vez que realizamos una búsqueda, Elasticsearch va a aplicar todo el proceso anterior para commpatibilizarlo con las reglas de análisis. 
+
+![](/img/bd_nuevas/elasticsearch_10.png)
+
+## Soluciones empresariales 
+
+Aunque es open-source, tenemos una empresa que brinda soporte técnico. Tenemos otras funcionalidades añadidas:
+- Seguridad, que nos mejoran la autenticación y para acceder a ciertos indices en función de los roles. 
+- Machine Learning
+- Detectar anomalías
+- Características especiales de mapas
+- Permite replicar entre clústers. 
+
+### Elastic as a Service
+
+Como en Cassandra y Mongo, existe Elastic as a Service. No es como Astra y Atlas que te registres y accedas a un clúster, pero es algo que despliegas y gestionas. Se puede desplegar en las principales Clouds, y en servidores propios. 
+
+Esta solución permite desplegar de forma sencilla 
+
+## Parte práctica 
+
+``` bash
+ kubectl exec -it <nombre del nodo> /bin/bash/ #esto es para entrar al nodo, cualquiera hace de coordinador. 
+ curl localhost:9200 #este es el puerto por defecto de Elasticsearch. Curl nos info del nodo y del clúster, la versión de Lucene, etc. 
+curl localhost:9200/_cluster/health #salud del clúster 
+curl localhost:9200/_cluster/health?pretty #nos da lo mismo de arriba pero mejor estructurado
+curl -XPUT localhost:9200/prueba #crea un índice 
+
+ ```
+
+Kubana tiene un DevTools. 
+
+![](/img/bd_nuevas/dev_tools_elasticsearch.png)
+
+
+## Cuestionario 
+
+![](/img/bd_nuevas/elasticsearch_10.png)
+![](/img/bd_nuevas/elasticsearch_11.png)
+![](/img/bd_nuevas/elasticsearch_12.png)
+![](/img/bd_nuevas/elasticsearch_13.png)
+![](/img/bd_nuevas/elasticsearch_14.png)
+![](/img/bd_nuevas/elasticsearch_15.png)
+![](/img/bd_nuevas/elasticsearch_16.png)
+![](/img/bd_nuevas/elasticsearch_17.png)
+![](/img/bd_nuevas/elasticsearch_18.png)
+
+
+# Sistemas de coles
+
+
+La idea de un sistema de colas es desacoplar el sistema de servicio. 
+
+![](/img/bd_nuevas/colas.png)
+
+El servicio puede ir consumiendo a su ritmo sin saturarse porque la cola atiende las peticiones de los clientes. A nivel de cliente, tenemos una alta disponibilidad.
+
+![](/img/bd_nuevas/colas_2.png)
+
+## Limitaciones del sistema de colas
+
+Cuando tenemos diferentes servicios que necesitamos el mismo contenido. 
+
+
+![](/img/bd_nuevas/colas_3.png)
+![](/img/bd_nuevas/colas_4.png)
+
+![](/img/bd_nuevas/colas_3.png)
+
+![](/img/bd_nuevas/colas_4.png)
+
+
+## Apache Kafka - Introducción 
+
+![](/img/bd_nuevas/colas_5.png)
+
+
+
+
+![](/img/bd_nuevas/colas_6.png)
+
+![](/img/bd_nuevas/colas_7.png)
+
+
+

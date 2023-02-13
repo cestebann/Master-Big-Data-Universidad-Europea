@@ -779,3 +779,15 @@ Es un modelo de nube que permite a los usuarios operar y trabajar con una red si
 
 7/02/23
 
+De cara a la segunda actividad, 
+
+- Conceptos de arquitectura, hacer una propuesta de una arquitectura Hadoop. 
+- Se tratas de decir número de nodos, cómo lo montaríamos , características de la arq. 
+- Ventajas e inconvenientes
+
+De cara al examen. 
+
+- Las ppts son complementarias al contenido oficial. Son temas prácticos. 
+- Pueden entrar comandos de Hadoop. 
+- El examen va a ser tipo test. 
+
