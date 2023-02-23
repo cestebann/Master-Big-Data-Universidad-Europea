@@ -791,3 +791,286 @@ De cara al examen.
 - Pueden entrar comandos de Hadoop. 
 - El examen va a ser tipo test. 
 
+# Unidad 3. Hadoop como sistema de cómputo en sistemas distribuidos
+
+Hadoop fue diseñado por Michael Carafella en 2005. 
+El equivalente a sistemas de ficheros Hadoop se inspiró inicialmente en el Google File System (GFS). 
+GFS fue reemplazado por Colossus en 2010
+Colossus es un sistema de ficheros orientado al procesamiento en Tiempo Real. 
+Colossus ya no usa la tecnología MapReduce para el cálculo de los índices de búscqueda, por estar orientado a procesos batch. 
+
+## Hadoop 
+
+Hadoop incorpora la tecnología Hadoop Distributed File System (HDFS) para el almacenamiento de grandes cantidades de datos, la tecnología Map Reudce para el procesamiento de la información YARN (Yet Another Resource Negotiatio) como gestior del clúster (a partir de la version 2.0). 
+
+![](/img/computacion/hadoop2.0.png)
+
+### Limitaciones de Hadoop 1.0
+- NameNode sin escalabilidad horizaontal 
+    - Metadatos almacenados en la memoria RAM del NameNode. 
+    - Cuellos de botella a partir de 4000 nodos. 
+- No permite la disponibilidad en el NameNode. 
+    - El NameNode no permite el modo de espera activo. 
+    - Conexión frecuente al NameNode. 
+
+## ¿Qué es la tecnología "Multi Tenancy" o multiusuario?
+
+La tenencia múltiple significa que varios clientes de un proveedor de la nube utlizan los mismos recuross informáticos. 
+A pesar de que comparten recursos, los clientes de la nube no se conocen entre sí. 
+
+
+### Hadoop 2.0 
+- Federación HDFS
+    - Varios NameNode y varios Namespaces
+- Alta disponibilidad del NameNode
+- Yarn 
+    - Mejor control de procesos
+- MultiTenancy 
+
+
+## ¿Cuáles son las características de Hadoop?
+La información en el mundo Big Data es por definición, distribuida y con frecuencia no estructurada. 
+La aplicación de MapReduce, permite la extracción de información desde datos distribuidos, estructurados o no. 
+La gestión del ancho de banda de Hadoop también ayuda en el proceso. 
+
+
+### Escalabilidad
+Los clústeres de Hadoop pueden ser ampliados fácilmente con la simple adición de nuevos nodos (escalado horizontal), esto permite crecer, a medida que crece el volumen de datos y no implica tener que modifciar la lógica de aplicación alguna. 
+
+### Tolerancia a fallos
+La información que reside en clústeres Hadoop se encuentra copiada en diferentes nodos por ello, ante la eventualidad del fallo en un nodo la información se encuentra a salvo y el proceso continua en cualquiera de los nodos activos. 
+
+
+![](/img/computacion/ecosistema_apache_hadoop.png)
+
+
+## ¿Cómo funciona el HDFS
+
+Hdfs es un sistema de archivos distribuidos qu egestiona grandes volúmenes de datos que se ejecuta en hardware de proósito general. Un solo clúster de Apacher Hadoop puede escalar a cientos o miles de nodos. 
+
+## ¿Cuáles son los objetivos de Hadoop?
+
+- Recuperaón rápida ente fallos de hardware
+- Acceso a transmisión de datos en tiempo real (streaming data)
+- Alojamiento de grandes conjutnos de datos. 
+- Portabilidad
+- Coherencia simple
+- Data-driven 
+
+**Acceso a la transmisión de datos o datos en streaming**
+Aunque HDFS está especialmente diseañdo para procesos batch más que el procesado interactivo en tiempo real, su arquitectura está pensada para proveer altos ratios de transferencia de datos, lo que le hace también apto, para procesado de datos en continuo (tiempo real). 
+
+Hadoop está optimizado para mejorar el ancho de banda. 
+
+
+**Alojamiento de grandes volúmenes de datos**
+HDFS esta pensado para tratar gigabytes y terabytes
+
+**Portabilidad**
+Con el fin de facilitar la adopción de HDFS este se diseñó ...
+
+**Coherencia Simple o Modelo de Coherencia Simple**
+- Las aplicaciones que emplean HDFS se basan en el modelo de acceso a datos "escribe una vez, lee múltiples veces" (write-once-read-many). 
+Simplificando mucho, indica que una vez que los datos son escritos, no se modifican solo se leen tantas veces como sea necesario. Este modelo facilita la coherencia de los dato. 
+
+**Data-Driven**
+
+
+## Cuál es la arcquitectura de HDFS?
+
+Sigue un paradigma maestro-esclavo. 
+
+![](/img/computacion/hadoop2.0.png)
+
+
+Un clúster HDFS consiste en un solo NameNode, el cual es un nodo (servidor) maestro que gestiona el sistema de ficheros (file system namespace) y regula el acceso de los usuarios a los ficheros. 
+El NameNode es el árbitro y responsable de la gestión de los metadatos del HDFS. 
+
+Además el clúster HDFS incorpora un número de DataNodes, generalmente un o por cada nodo del clúster, el cual gestional el almacenamiento físico de cada uno de los nodos del clúster. 
+Internamente cada fichero es dividido en bloques, y esto bloques son almacenados en un conjunto de DataNodes. Esto implica que un DataNode no almacena ficheros, almacena fragmentos. 
+
+El NameNode ejecuta operaciones del sistema de ficheros tales como apertura, cierre y renombrado de ficheros y directorios. 
+De la misma manera, determina la distribución de bloques en cada Datanode. 
+
+Los dataNodes son los responsalbes de servir las peticiones de lectura y escritura por parte de los usuarios. 
+Los dataNodes se encargan también de la creación de los bloques. 
+
+## ¿Cómo funciona el sistema de replicación en HDFS?
+
+
+
+![](/img/computacion/replicacion_bloques.png)
+
+HDFS almacena todos los ficheros en forma de secuencia de bloques. Todos los bloques, excepto el último, son del mismo tamaño. 
+
+La toleracioa a fallos se consigue copiando los bloques anteriroes en múltiples DataNodes. 
+El tamaño del bloque y el factor de replicación es configurable, a nivel de fichero. 
+Cada app puede determinar el número de réplicas de cada fichero. 
+
+El NameNode gestiona la réplica de los bloques mediante un "Heartbeat" y un "BlockReport". La recepción periódica de un Heartbeat desde un DataNode significa que este último funciona correctamente. 
+
+Por defecto, el tamaño de los bloques es de 64MB y el factor de replicación es 3. 
+
+## ¿Cuál es la importancia de las réplicas en HDFS¡
+El proceso de distribución de las réplicas de bloques crítico para la toleracia a fallos. 
+
+HDFS emplea una política denominada "rack-awareness¡
+
+## ¿Qué es Hadoop Rack y Rack awareness"?
+
+Un rack es una colección física de nodos en un clúster Hadoop. Un clúster de Hadoop puede constar de muchos racks. 
+El NameNode usa la información de estos racks para seleccionar el Datanode más cercano y con ello optimizar el proceso con ...
+
+
+La replicacion de datos en HDFS se realiza nodo a nodo. por lo tanto un arquitectura clúster de Hadoop necesa ser capaz de gestionar (de forma eficiente) grandes volúmenes de datos. 
+
+Cada rack de un clúster puede disponer de múltiple sdatanodes, almacenando bloques de daot sy sus réñlicas. 
+La capacidad de seleccionar el Data node  más cercano y más rápido ..
+
+Al ser HDFS un sistema de ficheros "Rack aware" y "layer 3 aware" conoce en todo momento la relación existente entre los servidores existentes en cada uno de los racks o cabinetes switcheches de red que los interconectan. 
+
+El hecho de ser "Layer 3 aware" le permite ser enrutable, es decir hacer uso de las direcciones IP. Esto le permite ser escalable a nivel de emplazamiento físico empleando una red con enrutamiento ECMP, y OSPF para pequeños clústers y BGP para grandes clúster
+
+## ¿Qué son los enrutamientos?
+
+Equal-cost multi-path routing (ECMP) es una estrategia de enrutamiento en la cual, paquetes de datos enviados a un mismo destinatario, pueden tener lugar a trabés de múltiples ruta permitiendo "load balancing" y "fault tolerance". 
+
+Open Shortest Path First (OSPF) forma parte del Interior Gateway Protocol (IGP), el cual ayuda encontrar la mejor ruta entre el origen .......
+
+Por otro lado, el Border Gareway Protocol (BGP) es protocolo que pemrite a Internet funcionar por medio del enrutameinto de la información. Internet es una red de redes, dividdida en millones de redes más pequeñas, las cuales son conocidas como sistemas autónomos (autonomous systemes Ases). 
+
+## ¿Qué son las políticas de rack awareness?
+Son aquellas que permiten conseuguir un anchod de bando óptima. 
+
+Por defecto son: 
+- No puede haber más de una copia de un bloque en un mismo Datanode. 
+No se permiten más de dos réplicas de un mismo bloque en un mismo rack. 
+El número de racks en un clúster ha de ser menor que el número de réplicas. 
+
+## ¿Cuáles son las ventajas del rack-awareness?
+
+### Qué es Hadoop YARN 
+
+Apache Hadoop Yarn (o simplemente, YARN) es un marco de cógido abierto para la programación de trabajos (job scheduler). 
+
+![](/img/computacion/yarn.png)
+
+
+YARN permite que diferentes motores de procesamiento de datos, como el procesamiento de gráficos (graph processing), el procesamiento interactivo (interactive processing)
+
+
+### ¿Cuáles son las características de YARN?
+
+ - Escalabilidad: el programador de recursos de YARN permite de forma sencilla, ampliar y gestionar la arquitectura Hadoop llegando a miles de nodos. 
+- Compatibilidad: YARN es compatible con las aplicaciones map reduce existentes en Hadoop 1.0 lo que permite compatibilidad de las apps existentes. 
+- Utilización del clúster: YARN permite la utilización dinámica de recursos del clúster, esto permite un más óptimo aprovechamiento de los datos. 
+- Multiusuario (Multi-tenancy): Permite el acceso a múltiples motores Hadoop, lo que brinda a las organizaciones la capacidad de configurarlso como multipropietario. Esto permite reducir costes. 
+
+
+
+### Cuáles son los componentes de YARN? 
+
+- **Cliente**: Es quien envía las tareas map-reduce (solo en v1.0).
+- **Gestor de recursos**: Es el responsable de la asignación y gestión de recursos entre las aplicaciones. Cuando recibe una petición, la envía al gestor de nodos (node manager) y provisiona los recuross necesarios para su ejecución. 
+    - Programador o schedular: es el responsable de la programación de trabajos en función de los recusos disponibles. Su función es la de puro programador. 
+    - Gestor de aplicaciones: es el repsonable del lanzamiento de la app y negociar con el gestor de recursos la creación del contenedor (container). Es también responsable de relanzar el contenedor maestro de la pp en caso de fallo (App Master Container).
+- Gestor de nodos: Es el responsable de la gestión de nodos individuales, así como de la gestión de las apps y flujos de trabajo en ese nodo. 
+- El gestor de aplicaciones: una app es un trabajo enviado a Hadoop para su ejecución. Es el responsable de la obtención de recursos del Gestor de recursos, supervisar el estado y progreso de una app. 
+- El contenedor: --.
+
+### Hadoop Map Reduce
+
+![](/img/computacion/sistema_tradicional.png)
+
+![](/img/computacion/hadoop_3.png)
+
+Map Reduce es la capa de procesos de datos de Hadoop. Es un framework diseñado para procesar ingentes volúmenes de información en paralelo. 
+
+![](/img/computacion/map_reduce.png)
+
+La función *map* es aplicar una función sobre el bloque para obtener una solución parcial. 
+
+En Map Reduce todas las entradas y salidad del sistema se realizan en forma de lista. Map Reduce divide cada trabajo en tareas independientes y posteriormente las procesa en los nodos esclavos. 
+La filosofía de operación de Map se basa en procesar la información, allí donde la información reside. Esto se conoce como estrategia "data-centric" o "data-driven". Es menos costoso enviar la computación/proceso a los nodos donde se encuentra la información, en lugar de traer los datos hacia donde se encuentra el procesamiento. 
+
+
+En la fase Map, las funciones definidas por el usuario procesasn l ainformación de netradas. Etas funciones incluyen la lógica de negocio. 
+En la fase Reduce, se compone de subfases: shuffle y reduce, propoiande deicha. La entrada a esta fase, se corresponde con los datos de salidad de la fase map anterior. Los datos recibidos desde el paso anterior map, son pasalos al Reducer. 
+
+
+# Apache Spark 
+
+Apache Spark es un motor multilingüe aplicado a la ingeniería de datos, ciencia de datos y el aprendizaje automático en volúmentes de datos big data. Spark puede ejecutarse en clústeres o máquinas de un solo nodo. 
+
+## Qué lenguajes admite Spark? 
+
+Spark corre con Java, pero admite los siguientes lenguajes: 
+
+- Java 
+- Scala 
+- SQL
+- Python
+- R
+
+## Cuál es el ecosistema de Spark?
+
+![](/img/computacion/ecosistema_spark.png)
+
+### Principales características
+
+- Análisis SQL: Ejecución de consultas SQL ANSI distribuidas. 
+
+## ¿Cuáles son los módulos que comprende Spark? 
+
+- Resilient Distributed Datasets (RDD): Es una colección distirbuida e inmutable de objetos. Cada conjunto de datos en un RDD se divide en particiones lógicas, permitiendo su procesado en paralelo en los diferentes nodos del clúster. Los RDD pueden contener cualquier tipo de objetos de Python, Java o Scala, incluidas clases definidas por el usuario. 
+
+## Apache Spark 
+
+![](/img/computacion/RDD.png)
+
+![](/img/computacion/apache_spark.png)
+
+Spark SQL es un módulo Spark para el procesamiento de datos estructurados. Permite la lectura y estructura de datos desde y hacia cualquiera de los siguientes formatos: CSV, XML y JSON, y los formatos de datos binarios más comunes como son Avro, Parquet y ORC. 
+
+Un DataFrame es una colección distribuida de datos cuya estructura está definida por un esquema. Es una colección distribuida de datos organizada en filas, cada fila consta de un conjunto de datos. 
+
+Los datasets son un oclección de datos inmutable y con fuerte control del tipo de datos. Como los DataFraemes, los datos se encuentrean siguiendo un esquema definida. Los datasets proporcionan seguridad en el momento de la compilación. Los datasets usan los llammados "encoders" para convertir los objetos definidos por el usuario.
+
+Esto se traduce en una reducción del uso de la memoria siempre y cuando un cojunto de datos quepa en la memoria caché, así como una reducción en la cantidad de datos que Spark necesiata mover ........
+
+### QUé es Spark Streaming?
+
+Spark streaming corresponde al análisis de información en tiempo real. 
+
+### Cuántas fuentes de Streaming existen? 
+
+Existen dos tipos de fuentes en Spark Streaming: 
+- Fuentes básicas: Forman parte del núcleo de Spark Streaming
+    - Socket Streaming (Puerto que estamos escuchando). 
+    - Ficheros (compatibles con HDFS). 
+- Fuentes Avanzadas: Requieren conectores epeciales para acceso a las mismas. Sismilar a los drivers de los SOs. 
+    - Apache Kafka
+    - AWS Kinesis.
+
+Spark streaming incoporora dos tipos de gestores de streamings: 
+- Spark Discretized Steams (Dstreams) basados en el concepto de RDDs. 
+- Structured Streaming, basado en los conceptos de DataFrames y Datasets. 
+
+![](/img/computacion/spark_streaming.png)
+
+Dstreams. Es un proceso discreto de Streaming, se representa como una secuencia de RDDs. 
+
+El streaming estructurado es un motore de proc
+
+## QUé es Spark MLlib?
+
+Su objetivo es hacer que en la práctica el aprendizaje automático sea escalable y fácil. 
+
+## Cuáles son los componentes princicpales?
+
+- 
+- Caracterización: Extracción de características, transformación, reducción de dimensionalidad, etc. 
+- Pipelines: herramientas para construir, evaluar y ajustar ML Pipelines. 
+- Persistencia: guardado y carga de algoritmos, modelos y pipelines. 
+- MLlib. A partir de SPark 2.x la biblioteca Mllib comenzó a ser relegada en vaor de Spark ML. Está basada en RDDs mientas que Spark ML está basada en DataFrames. 
+- Mllib al ser la primera está más evolucionada que los DataFrames. 

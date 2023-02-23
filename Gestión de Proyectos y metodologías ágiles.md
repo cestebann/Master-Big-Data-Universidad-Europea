@@ -696,10 +696,121 @@ Esta forma de trabajar permite que la información esté compartida y se detecte
 
 **Artefacto**: Es un elemento de Scrum que permite tangibilizar una actividad. 
 
+# Unidad 6 
 
-## Introducción al Escalado Ágil con SAFe
-
-### Contenidos
+## Introducción al Escalado Ágil con SAFE
 
 1. Objetivos
-2. El conce
+2. El concepto de Agilidad Empresarial
+3. Agilidad Empresarial vs Agile
+4. Qué es SAFe
+5. El concepto de Release Train
+6. Niveles de SAFe
+7. Roles de SAFe
+8. Iteraciones, Incrementos y Alineamiento en SAFe
+
+### 1. Objetivos
+
+- Conocer el concepto de escalado y su importancia para la Agilidad Empresarial
+- Integrar los concepto de Agile e Agilidad Empresarial y sus principales palancas
+- Entender los principios del marco de trabajo SAFey las estrategias para su implantación
+
+### 2. El concepto de Agilidad Empresarial
+
+Elconcepto de Agilidad Empresarial hacere ferenci a a la habilidad que poseen las organizaciones para responder y adaptarse a los cambios.
+
+Para que consiga un impacto práctica es importante que trabajen 3 dimensiones: 
+
+![](/img/agile/agilidad_empresarial.png)
+
+### 3. Agile vs. Agilidad Empresarial 
+
+![](/img/agile/agilevsagilidad.png)
+
+### 4. Qué es SAFe
+
+![](/img/agile/safe.png)
+
+### 5. El Concepto de Release Train
+
+SAFe entrega valor de manera paulatina como un tren. 
+
+El Agile Release Train(ART) hace referencia a un modo de planificar la entrega de producto según un calendario predeterminado y regular, como si de un «horario de trenes» se tratara.
+Este calendario es público para todos los equipos que deben contribuir a la entrega y representa un compromiso por su parte, pues el calendario debe ser cumplido
+Si usamos la metáfora: «el tren sellevará a los pasajeros que estén listos para viajar», es decir se integrará sólo el producto que esté listo para ser integrado. 
+
+### 6. Niveles de SAFe
+
+SAFe propone diferentees niveles a la hora de gestionar el escalado, que se agregan unos dentro de otros: 
+
+![](/img/agile/safe_2.png)
+
+
+#### Equipo 
+
+El equipo ágil es el elemento básico de SAFe. Con carácter general, los equipo ságiles de delivery (en los que se centra SAFe) pueden presentar dos arquetipos: 
+
+1. Arquetipo Scrum
+    - PO
+    - Scrum Master
+    - Dev Team
+2. Arquetipo Kanban. 
+    - PO
+    - Dev team
+
+#### Programa 
+
+Esta estructura está formada por equipos de equipos, cuya musión es asegurar el ART. Esta estructura es auto-organizada, planifica, compromete y ejecuta junta, compartiendo una misión común. Un pogrma es un tipo de organización virtual, consittuida por entre 5 a 12 equipos ágiles. 
+
+Esta estructura incorpora una serie de roles adicionales al equipo. 
+
+#### Portfolio 
+
+Este nivel aúna diferentes programas alrededor de una cadena de valor. Los temas estratégicos, el presupuesto y la gestión del portafolio (PPM) se organzian en este nivel. 
+
+![](/img/agile/scale_3.png)
+
+### Roles de SAFe
+
+#### Nivel Equipo 
+
+![](/img/agile/roles_safe.png)
+
+
+#### Roles de SAFe: Nivel programa
+
+1. Release Train Engineer: Hace la función de Scrum Master en el nivel de progrmaa, ayuda a los equipos a que sean auto-organziados y autogestionados. Sus principales funciones son solucionar impedimientos de los equipos y scrum masteres de nivel de equipo, además de facilitar varias reuniones entre las que destaca el scrum de scrums. 
+2. System Architect: gestiona la parte técnica y arquitectónica de las features, conoce y ayuda a definir la tecnología más apropiada para este nivel y participa en la definición de requisitos funcionales, no funcionales y features. Además, facilita y ayuda a los equipos para que trabajen cómodos con la tecnología elegida. 
+3. Product Management: Es el PO a nivel de programa, coordina a los product owners de cada equipo. El Product Manager conoce las caraterísticas de la solución a desarrollar y las necesidades de los clientes, así que se encarga de descomponer las Epics en Features y mantener y priorizar el Program Backlog. Además se encarga de crear el roadmap. 
+4. Business Owner: Son un grupo de ejecutivos con responsabilidades financieras del resultado de la solución implementada, es decir, son los encargados de hacer que se cumpla el ROI que se ha hecho para desarrollar la solución, y se encargan de conectar el nivel de programa con el portfolio. 
+
+#### Nivel Portfolio 
+
+1. Epic Owner: Es responsable de coordinar las Épicas del Portfolio a través del sistema Kanban de gestión del Portfolio. Al respecto es responsable de definir la Épica, su producto mínimo viable (MVP), así como asegurar la implanttación de este tras su aprobación. 
+2. Enterprise Architect: Promueve el diseño adaptativo y las prácticas de ingeniería e impulsa iniciativas de aruitectura a nivel de Portfolio. Además, las personas que desempeñan este rol también facilitan la reutilización de ideas, componentes, servicios y patrones probados en varias soluciones a nivel de Portfolio. 
+3. Lean Portfolio Management: Es la persona que tiene el nivel más alto en la toma de decisiones y ostenta responsabilidad financiera sobre los productos y soluciones en un Portfolio SAFe. Es un business owner de business owners. 
+
+### 8. Iteraciones, Incrementos y Alineamiento en SAFe
+
+Son análogos a los Sprints de Scrum. AL tener diferentes equipos realizando Scrum de manera simultánea, el concepto que cobra especial relevancia es el de alineamiento. 
+
+¿Cómo consigue SAFe este alineamiento? Sincronizando los Sprints de todos los equipos implicados en el ART, todos ellos empiezan el mismo día y tienen la misma duracion. Esto va en contra de la flexibilidad total, pero los beneficios son mayores que las pérdidas, pues incluso el acto de fijar fechas fomenta la comunicación entre equipos. 
+
+Existen otros dos factores que afectan el alineamiento y que resultan clave para conseguirlo: 
+- Tecnología 
+- Scrum de Scrums
+
+#### Scrum de Scrums
+
+Suformato es similar a la reunión diaria y se puede celebrar de forma diaria, dos veces a la semana o al menos una vez a la semana, al acabar al reunión diaria de cada uno de los equipos. 
+
+Al Scrum de Scrums acude un miembro por equipo, con poder de decisión  como equipo de desarrollo y que los compromisos adquiridos los adquira en nombre de su equipo. Cada representante responde a 4 preguntas: 
+1. ¿Qué hizo mi equipo de desarrollo desde la última reunión para lograr su objetiov del sprint? 
+2. ¿Qué hará mi equipo de desarrollo antes de la siguiente reunión para lograr su objetivo del sprint? 
+3. ¿Hay algún impedimiento que esté afectando negativamente a mi equipo de desarrollo y que impacte en el objetivo del sprint? 
+4. Hay algo de mi equipo de desarrollo que se pueda interponer o afectar al objetivo del sprint de los demás equipos? 
+
+A estas se le añade una conversación para tratar las dependencias y bloqueos que el trabajo de un equipo podría generar para los demás. Para reducir dependencias y bloqueos es una práctica esencial en escalado mantener las historias de usuario de pila de producto lo más independiente posible. 
+
+
+
