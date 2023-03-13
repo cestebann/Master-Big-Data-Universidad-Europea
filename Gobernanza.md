@@ -1,10 +1,10 @@
 # Contenido del curso 
 
-0. Objetivos del curso
+0. [Objetivos del curso](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/Gobernanza.md#objetivos-del-curso)
 1. [Gobierno del Dato](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/Gobernanza.md#1-gobierno-del-dato)
 - [Introducción al Gobierno del Dato](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/Gobernanza.md#11-introducci%C3%B3n-al-gobierno-del-dato)
 - [Glosario, Diccionario y Catálogo de Datos](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/Gobernanza.md#12-glosario-de-negocio-diccionario-de-datos-y-cat%C3%A1logo-de-datos)
-- Gestión de Metadatos y Linaje Técnico.
+- [Gestión de Metadatos y Linaje Técnico.](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/Gobernanza.md#objetivos-del-curso)
 - Gestión de la Calidad de Datos y Seguridad del Dato
 2. Modelos de gobernanza
 - Gestión de Datos Maestros (MDM) y Datos de Referencia.
