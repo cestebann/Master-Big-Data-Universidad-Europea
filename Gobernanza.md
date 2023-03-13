@@ -1,7 +1,7 @@
 # Contenido del curso 
 
 0. Objetivos del curso
-1. Gobierno del Dato
+1. [Gobierno del Dato](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/Gobernanza.md#1-gobierno-del-dato)
 - Introducción al Gobierno del Dato
 - Glosario, Diccionario y Catálogo de Datos.
 - Gestión de Metadatos y Linaje Técnico.
