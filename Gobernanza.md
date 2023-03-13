@@ -166,6 +166,99 @@ Existen dos tipos de estrategias para para implementar la estrategia, según el 
 - Organizaciones tradicionales en la gestión del dato. 
 - Organizaciones disruptivas en la gestión del dato. 
 
+## 1.3. Gestión de Metadatos y Linaje Técnico 
+
+### Objetivos
+
+Los objetivos que se pretenden alcanzar en este recurso son los siguientes:
+▪ Conceptos generales sobre qué es y cómo influye la gestión de metadatos.
+▪ Conceptos generales sobre qué es y por qué es importante el linaje técnico.
+
+### 1.3.1. Gestión de los metadatos
+
+La gestión de metadatos está compuesta por la generación, el almacenamiento, la vinculación y la supervisión de los metadatos en los sistemas de información. 
+
+La gestión de metadatos es una tarea dominada por las políticas y estándares del marco de los gobiernos del dato.
+
+**Los metadatos son conceptos que reflejan la información que existe alrededor de los datos y muestran las transacciones de su ciclo de vida a través de los flujos en los sistemas de información.**
+
+#### 1.3.1.1. Tipos de metadatos
+
+- Metadatos técnicos: hacen referencia principalmente a donde están alojados los datos.
+ -Identificación de campos de las fuentes de datos de origen.
+ - Nomenclaturas de tablas de datos, los datos claves PK, índices de tablas, formatos de los campos, etc.
+ - Metodología de las copias de seguridad para la recuperación de datos.
+ - Versiones e iteraciones que han sufrido los datos.
+- Metadatos funcionales:hacen referencia principalmente a los conceptos y terminologías de negocio.
+ - Descripción de los términos de negocio.
+ - Reglas de negocio aplicadas y a la calidad de los datos.
+ - Indicadores de la calidad de datos de negocio.
+ - Datos por los que está comos.puesto un cuadro de mando.
+ - Fechas de carga y creación de los datos.
+- Metadatos operativos
+ - Transformaciones en los procesos de los datos, conocido como linaje técnico y tiempo de ejecución.
+ - Fechas de los últimos cambios realizados en los datos.
+ - Calendarización de los procesos de transformación y almacenamiento.
+ - Usabilidad de acceso de los usuarios, frecuencia de uso por los usuarios y horas de mayor uso de los datos.
+- Metadatos adminsitrativos
+ - Personas responsables de la custodia de datos, como por ejemplo los Data Business Steward.
+ - Usuarios que han accedido a los datos.
+ -  Responsabilidades y políticas sobre los datos.
+ - Etiquetado de datos sobre características y peculiaridades de los mismos.
+ - Leyes, regulaciones y normativas sobre el tratamiento y la gestión del dato.
+
+#### 1.3.1.3. Arquitectura de metadatos
+
+Los tres enfoques arquitectónicos para el desarrollo del repositorio de metadatos global son la arquitectura de metadatos centralizada, la arquitectura de metadatos descentralizada y la arquitectura de metadatos híbrida.
+
+1. Arquitectura de metadatos centralizada: la arquitectura centralizada dispone de un único repositorio de metadatos con la información correspondiente a todos los sistemas de información.
+2.  Arquitectura de metadatos descentralizada: la arquitectura distribuida dispone de un único punto de acceso que conecta con los diferentes repositorios de metadatos, sin un repositorio persistente.
+3. Arquitectura híbrida:  la arquitectura híbrida es una mezcla entre la arquitectura centralizada y la arquitectura descentralizada, que traslada los metadatos directamente de los sistemas de información a un repositorio común de manera persistente.
+
+#### 1.3.1.4. Los beneficios de los metadatos
+
+1. **Mejora la toma de decisiones** respecto a los datos, al disponer de mayor información sobre el entorno de cada dato, potenciando su valor y aumentando el Data Value.
+2. **Disminuye los costes de personal y horas trabajadas**, al eliminar toda la documentación compleja y utilizando herramientas de gobierno de los datos más eficaces y con recopilación activa de metadatos, eliminando la maraña documental.
+3. **Apoya en la indagación sobre características relevantes y de gran importancia sobre los datos**, disminuyendo el tiempo de estudio para llegar a la conclusión u obtener mayor información sobre los datos.
+4. **Reduce el gap de conocimiento, colaboración y comunicación entre las partes de áreas de sistemas de la información y las áreas funcionales o de negocio**, aumentando la credibilidad y seguridad sobre los datos por esta última parte y agilizando las tareas técnicas de la primera parte.
+5. **Reduce el Time-To-Market de los desarrollos de productos de datos con plazos de entrega más cortos**, ciclos de vida más cortos y análisis de incidencias más cortos.
+6. **Detecta y ayuda a eliminar tablas, flujos y datos duplicados en procesos redundantes, así como a eliminar datos obsoletos y sin uso** por parte de la organización, ayudando a eliminar el síndrome de Diógenes de datos. 
+
+### 1.3.2. Linaje técnico
+
+La mayoría de organizaciones utilizan datos de diferentes sistemas de información y necesitan trasladarlos en diferentes softwares. En estos casos, para planificar la migración de los datos a su destino debemos conocer con claridad el mapeo de los datos.
+
+> El linaje o trazabilidad de datos es la materialización de los metadatos técnicos en un formato visual que permite dibujar un mapa que traza el origen del dato, sus transformaciones y el destino. 
+
+Aportan valor mediante el análisis de impacto y visibilidad del dato en el proceso end to end. 
+Facilita una mejor gobernabilidad, calidad y cumplimiento regulatorio.
+Es una herramienta con gran potencial para los usuarios, ya que pueden realizar un análisis de impacto detallado tanto en los datos ascendentes, como en los descendentes.
+
+#### 1.3.2.1. Operativa de la gestión de de metadatos del linaje técnico 
+
+las herramientas de gobierno son capaces de conectarse, escanear y representar de forma autónoma, lo que les permite convertirse en trabajos donde hay poca intervención humana. 
+
+- Origen: Fuente junto con el nombre del dataset del que proviene el dato. 
+- Tranformación: Contempla todos los componentes técnicos asociados. 
+- Destino:Fuente junto con el nombre del dataset hacia donde el dato viaja.
+
+#### 1.3.2.2. Obtención del linaje técnico
+
+Podemos utilizar las siguientes técnicas
+
+1. **Relaciones entre objetos**: obtener el linaje técnico a través de las relaciones entre objetos, las cuales vienen representadas a través de los metadatos. Esto es habitual en procesos de ETL
+2. **Código fuente:** obtener el linaje técnico a través del código fuente no es fácil de llevar a cabo y tiene una gran dependencia de las capacidades del perfil técnico asignado y del lenguaje de programación
+3. **Registros:** obtener el linaje técnico a través de los registros, integrando de forma nativa los repositorios de datos y las herramientas activando funciones como archive-log, para comprender y capturar la información de la metadata en los registros generados por los sistemas de información.
+
+#### 1.3.2.3. Beneficios de una correcta gestión del linaje técnico
+
+1. Mejora el conocimiento de la morfología de los flujos de datos a lo largo de toda la organización.
+2. Mejora la comprensión de la cadena de valor de los datos en toda la organización.
+3. Mejora la comprensión del ciclo de vida de los datos en toda la organización.
+4. Identifica las dependencias entre datos y procesos a lo largo del flujo de datos para la mejora de la gestión y actualizaciones.
+5. Proporciona una búsqueda de fallos en los procesos, problemas asociados a la calidad de los datos, etc.
+
+
 
 ## Gestión de la Calidad de Datos y Seguridad del Dato
 
