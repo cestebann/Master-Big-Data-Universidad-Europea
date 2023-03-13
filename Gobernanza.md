@@ -58,7 +58,9 @@ Data Sharing: término definido por el Centro de Apoyo al Intercambio de Datos c
 ### 1.1.2.1. Definición
 
 > "El Gobierno de Datos es el ejercicio de la autoridad y el control (planificación, el seguimiento y la aplicación) a través de la gestión de los activos de datos. La función de Gobierno de Datos sirve de guía de cómo se llevan a cabo todas las demás funciones de gestión de datos. El Gobierno de Datos es de alto nivel y administra ejecutivamente los datos”. - Asociación Internacional de Gestión de Datos, DAMA.
+
 > “El mapeo de los derechos de decisión y la posterior creación de un marco de responsabilidad para garantizar que se adoptan los comportamientos adecuados en la evaluación, producción, consumo y control de los datos y las prácticas analíticas relacionadas”. - Gartner
+
 > "“el proceso por el que una organización formaliza un deber fiduciario para gestionar los activos de datos críticos para su éxito” - Forrester
 
 #### 1.1.2.2. Áreas del gobierno de datos
@@ -98,6 +100,72 @@ El área de gobierno del dato es la autoridad y tiene las competencias sobre las
 4. Decentralizado y no centralizado
 5. Centrado en el empleado
 6. Sin parálisis burocráctica
+
+## 1.2. Glosario de negocio, diccionario de datos y catálogo de datos
+
+- Conceptos generales sobre qué es y cómo actúa un glosario de negocio.
+- Conceptos generales sobre qué es y cómo actúa un diccionario de datos.
+- Conceptos generales sobre qué es y cómo actúa un catálogo de datos. 
+- Conceptos generales de cómo implementar estas tres piezas en un gobierno del dato dentro de las organizaciones.
+
+### 1.2.1. Glosario de negocio
+
+**Glosario de negocio:** un listado de términos y definiciones que contextualizan y ayudan a las organizaciones a establecer conocimiento de negocio y definir los datos en todas las unidades de la organización y a todas las terceras partes externas a la organización.
+
+Un glosario de negocio ayuda a evitar confusiones y a crear un lenguaje común para que todas las personas conozcan y utilicen los mismos términos a la hora de referirse a un dato y a un elemento derivado del dato de la misma manera en toda la organización.
+
+#### 1.2.1.1. Engranajes del Glosario de negocio
+
+1. Términos de negocio. 
+2. Datos de referencia. 
+3. Políticas y estándares. 
+4. Clasificación de términos
+
+#### 1.2.1.2. Alfabetización de datos
+
+> Alfabetización de datos: “la capacidad de leer, escribir y comunicar datos en contexto, incluida la comprensión de las fuentes y construcciones de datos, los métodos analíticos y las técnicas aplicadas, y la capacidad de describir el caso de uso, la aplicación y el valor resultante”. - Gatner. 
+
+1. Comprensión de los datos:
+2. Visibilidad de los datos
+3. Colaboración con los datos
+4. Búsqueda de los datos
+5. Gobernanza de los Datos: El glosario de negocio, junto al diccionario de datos y catálogos de datos, actúa como herramientas para implementar un gobierno del dato de manera exitosa en las organizaciones.
+
+
+### 1.2.2. Diccionario de datos
+
+> **El diccionario de datos**: es una herramienta que recoge información técnica a nivel de conjunto de datos y de campos de datos, como por ejemplo el nombre físico, ID, sistema, tabla, formato, etc. Esta información se utiliza para contextualizar y ayudar a la correcta identificación de los datos dentro de las áreas de negocio u organizaciones.
+
+El diccionario de datos está compuesto por conjuntos de metadatos usados por los perfiles técnicos de la organización, identificando donde es necesario acceder a la información en cada momento.
+
+El **Technical Data Steward** y otros puestos de tecnologías de la información son el rol responsable del  diccionario de datos debido a  sus capacidades que les permiten interpretar los metadatos. 
+
+>**Metadatos**: "Los metadatos son información que describe varias facetas de un activo de información para mejorar su usabilidad a lo largo de su ciclo de vida. Son los metadatos los que convierten la información en un activo. En términos generales, cuanto más valioso es el activo de información, más crítico es administrar los metadatos sobre él, porque es la definición de metadatos la que proporciona la comprensión que desbloquea el valor de los datos”.
+
+### 1.2.2.1. Ejemplo de diccionario de datos
+#### 1.2.2.2. Beneficios del diccionario de datos
+
+1. Elimina documentación 
+2. Búsquedas de datos rápidas
+3. Detalles de características de datos: permite conocer casuísticas y detalles relevantes de los datos a través de los metadatos, y también permite conocer los flujos de procesos en los sistemas de información a través de diferentes artefactos y su frecuencia a través de todos esos procesos, generando un conocimiento exhaustivo del ciclo de vida de los datos a través de todos y cada uno de sus registros.
+4. Visión de alto nivel en la gestión: 
+conocer la índole de las transacciones llevadas a cabo por los sistemas de información y conocer qué área de negocio se encuentra más digitalizada y en qué nichos se concentran las operaciones de dichos sistemas y correspondientes datos. También permite conocer el volumen de datos en cada sistema de información y estimar su capacidad de procesamiento y almacenaje de datos, anticipando y previendo posibles fallos en los procesos.
+
+### 1.2.3. Catálogo de datos 
+
+El catálogo de datos es un directorio único y transversal a toda la organización, que pretende ser utilizado para buscar los datos como activos clave, disponiendo de todos los metadatos de cada dato y su correspondiente trazabilidad con el glosario de negocio y con el diccionario de datos. 
+
+Si una de estas tres piezas faltara en una organización, las otras dos piezas perderían gran valor y quedarían infrautilizadas. 
+
+Es preciso disponer de un catálogo de datos para generar sinergias entre todas las áreas interesadas en los datos en cuestión, mejorando la operativa del negocio, con los respectivos etiquetados de seguridad, ya que en muchas ocasiones no debe permitirse el visionado de todos los datos en el catálogo, debido a que las organizaciones deben someterse y aplicar las normativas vigentes en materia de datos, según su criticidad y contenido.
+
+
+#### 1.2.3.1. Aplicación del catálogo de datos en las organizaciones 
+
+Existen dos tipos de estrategias para para implementar la estrategia, según el tipo de organización: 
+- Organizaciones tradicionales en la gestión del dato. 
+- Organizaciones disruptivas en la gestión del dato. 
+
 
 ## Gestión de la Calidad de Datos y Seguridad del Dato
 
