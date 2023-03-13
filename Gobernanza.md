@@ -171,8 +171,8 @@ Existen dos tipos de estrategias para para implementar la estrategia, según el 
 ### Objetivos
 
 Los objetivos que se pretenden alcanzar en este recurso son los siguientes:
-▪ Conceptos generales sobre qué es y cómo influye la gestión de metadatos.
-▪ Conceptos generales sobre qué es y por qué es importante el linaje técnico.
+- Conceptos generales sobre qué es y cómo influye la gestión de metadatos.
+- Conceptos generales sobre qué es y por qué es importante el linaje técnico.
 
 ### 1.3.1. Gestión de los metadatos
 
@@ -185,27 +185,27 @@ La gestión de metadatos es una tarea dominada por las políticas y estándares 
 #### 1.3.1.1. Tipos de metadatos
 
 - Metadatos técnicos: hacen referencia principalmente a donde están alojados los datos.
- -Identificación de campos de las fuentes de datos de origen.
- - Nomenclaturas de tablas de datos, los datos claves PK, índices de tablas, formatos de los campos, etc.
- - Metodología de las copias de seguridad para la recuperación de datos.
- - Versiones e iteraciones que han sufrido los datos.
+  - Identificación de campos de las fuentes de datos de origen.
+  - Nomenclaturas de tablas de datos, los datos claves PK, índices de tablas, formatos de los campos, etc.
+  - Metodología de las copias de seguridad para la recuperación de datos.
+  - Versiones e iteraciones que han sufrido los datos.
 - Metadatos funcionales:hacen referencia principalmente a los conceptos y terminologías de negocio.
- - Descripción de los términos de negocio.
- - Reglas de negocio aplicadas y a la calidad de los datos.
- - Indicadores de la calidad de datos de negocio.
- - Datos por los que está comos.puesto un cuadro de mando.
- - Fechas de carga y creación de los datos.
+  - Descripción de los términos de negocio.
+  - Reglas de negocio aplicadas y a la calidad de los datos.
+  - Indicadores de la calidad de datos de negocio.
+  - Datos por los que está comos.puesto un cuadro de mando.
+  - Fechas de carga y creación de los datos.
 - Metadatos operativos
- - Transformaciones en los procesos de los datos, conocido como linaje técnico y tiempo de ejecución.
- - Fechas de los últimos cambios realizados en los datos.
- - Calendarización de los procesos de transformación y almacenamiento.
- - Usabilidad de acceso de los usuarios, frecuencia de uso por los usuarios y horas de mayor uso de los datos.
+  - Transformaciones en los procesos de los datos, conocido como linaje técnico y tiempo de ejecución.
+  - Fechas de los últimos cambios realizados en los datos.
+  - Calendarización de los procesos de transformación y almacenamiento.
+  - Usabilidad de acceso de los usuarios, frecuencia de uso por los usuarios y horas de mayor uso de los datos.
 - Metadatos adminsitrativos
- - Personas responsables de la custodia de datos, como por ejemplo los Data Business Steward.
- - Usuarios que han accedido a los datos.
- -  Responsabilidades y políticas sobre los datos.
- - Etiquetado de datos sobre características y peculiaridades de los mismos.
- - Leyes, regulaciones y normativas sobre el tratamiento y la gestión del dato.
+  - Personas responsables de la custodia de datos, como por ejemplo los Data Business Steward.
+  - Usuarios que han accedido a los datos.
+  -  Responsabilidades y políticas sobre los datos.
+  - Etiquetado de datos sobre características y peculiaridades de los mismos.
+  - Leyes, regulaciones y normativas sobre el tratamiento y la gestión del dato.
 
 #### 1.3.1.3. Arquitectura de metadatos
 
