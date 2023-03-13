@@ -34,7 +34,7 @@ prestaciones, incluyendo la privacidad y la protección de los datos.
 
 # 1. Gobierno del dato
 
-## Introducción al gobierno del dato
+## 1.1. Introducción al gobierno del dato
 
 ### Objetivos de la lección 
 
@@ -42,6 +42,62 @@ prestaciones, incluyendo la privacidad y la protección de los datos.
 - Conceptos generales de qué es un gobierno del dato.
 - Conceptos generales sobre los principios de un gobierno del dato.
 - Fundamentos sobre principales ventajas y desventajas.
+
+### 1.1.1. Contexto actual en la gestión del dato 
+
+Según Statista, el volumen de datos creados, capturados, copiados y consumidos en todo el mundo en 2025, será de 181 zeta bytes, lo que se duplicarían todos los datos mundiales en apenas 4 años.
+
+Debemos prepararnos para la gestión adecuada de todos estos datos, que debemos estimar que en las próximas décadas podrían llegar a cientos de miles o millones de zeta bytes. ¿Estamos preparados para dicha gestión? ¿Disponemos de metodologías al respecto? ¿Cómo podríamos dar respuesta para poner orden en todo este desorden anárquico digital? ¿Qué hacemos con la falta de microchips de procesadores que existe en el mercado actual? ¿Cuántos más datos mejor o peor? ¿Es sostenible este crecimiento?
+
+#### 1.1.1.1. Crecimiento de los datos abiertos
+
+Data Sharing: término definido por el Centro de Apoyo al Intercambio de Datos como: “recopilación de prácticas, tecnologías, elementos culturales y marcos jurídicos que son pertinentes para las transacciones en cualquier tipo de información en formato digital, entre distintos tipos de organizaciones”.
+
+### 1.1.2. ¿Qué es un Gobierno del dato?
+
+### 1.1.2.1. Definición
+
+> "El Gobierno de Datos es el ejercicio de la autoridad y el control (planificación, el seguimiento y la aplicación) a través de la gestión de los activos de datos. La función de Gobierno de Datos sirve de guía de cómo se llevan a cabo todas las demás funciones de gestión de datos. El Gobierno de Datos es de alto nivel y administra ejecutivamente los datos”. - Asociación Internacional de Gestión de Datos, DAMA.
+> “El mapeo de los derechos de decisión y la posterior creación de un marco de responsabilidad para garantizar que se adoptan los comportamientos adecuados en la evaluación, producción, consumo y control de los datos y las prácticas analíticas relacionadas”. - Gartner
+> "“el proceso por el que una organización formaliza un deber fiduciario para gestionar los activos de datos críticos para su éxito” - Forrester
+
+#### 1.1.2.2. Áreas del gobierno de datos
+
+- Gestión de arquitectura de datos.
+- Gestión de desarrollo de datos.
+- Gestión de operación de base de datos.
+- Gestión de seguridad de datos.
+- Gestión de datos maestro y de referencia.
+- Gestión de almacén de datos e inteligencia de negocio.
+- Gestión de documentos y contenido.
+- Gestión de metadatos.
+
+#### 1.1.2.3. Responsabilidades del gobierno del dato
+
+Los datos no son propiedad de las áreas de tecnologías de la información, sino que deben ser considerados como un activo estratégico de la organización.
+
+El área de gobierno del dato es la autoridad y tiene las competencias sobre las gestión del dato, su calidad, metadatos, seguridad, utilización y distribución, entre otras, sin competencia directa sobre los sistemas tecnológicos en los que se encuentran alojados.
+
+**Data steward**: En ellos recae la responsabilidad de que se asegure el control y uso de datos de manera eficiente en las organizaciones por áreas de negocio.
+- Es un perfil perteneciente al área en cuestión.
+- Tiene un alto grado de conocimiento funcional sobre los datos.
+- Es el encargado de gestionar y administrar los datos correspondientes a su área de experiencia y conocimiento.
+
+### 1.1.3. Principios del Gobierno del Dato
+
+1. **Gobernanza normativa:** Desarrollo y mantenimiento de las políticas, estándares, normativas, comités de gestión del dato de alto nivel.
+2. **Gobernanza técnica:** Desarrollo y mantenimiento de los metadatos, linaje técnico, calidad y seguridad de los datos, entre muchos otros, y todo lo relacionado con la gestión de datos desde el comienzo de flujo de datos desde la fuente de origen hasta la llegada de los datos al área funcional de la compañía.
+3. **Gobernanza funcional:** Desarrollo y mantenimiento de la gestión de los datos, desde la llegada a su área funcional o de negocio hasta la utilización por el usuario final, facilitando el entendimiento de los mismos mediante *diccionario de datos*, *glosario y catálogos de datos*, así como las personas autorizadas para su consulta.
+
+
+### 1.1.3.1. Objetivos del Gobierno del Dato
+
+1. Útil
+2. Focalizado al negocio y no a Tecnologías de Información
+3. Iterativo
+4. Decentralizado y no centralizado
+5. Centrado en el empleado
+6. Sin parálisis burocráctica
 
 ## Gestión de la Calidad de Datos y Seguridad del Dato
 
