@@ -259,21 +259,30 @@ Podemos utilizar las siguientes técnicas
 5. Proporciona una búsqueda de fallos en los procesos, problemas asociados a la calidad de los datos, etc.
 
 
+## 1.4. Gestión de la Calidad de Datos y Seguridad del Dato
 
-## Gestión de la Calidad de Datos y Seguridad del Dato
+### Objetivos
+
+
+Conceptos generales sobre las principales definiciones de calidad del dato.
+1. Conceptos generales sobre metodologías de controles de calidad.
+2. Conceptos generales sobre la implementación de reglas de calidad de datos.
+3. Conceptos generales sobre la monitorización de calidad de datos.
 
 Sesión 4. 9/12/2022
 
+De acuerdo con investigaciones de las consultoras internacionales Experian plc y Clear Strategic IT Partners, estiman que los costes de datos incorrectos suponen entre el 15% y el 25% de los ingresos para la mayoría de las organizaciones.
+
 Disponer de una buena gestión de datos y unos datos de calidad en los repositorios de la organización se ha convertido en una obligación, más que en un requisito con el creciente almacenamiento y procesamiento de grandes cantidades de datos. 
 
-### Calidad del dato
+### 1.4.1. Calidad del dato
 
 > **Calidad del dato** Se refiere al estado de la información cualitativa o cuantitativa. Los datos son de alta calidad si son *aptos para usos previstos en las operaciones, la toma de decisiones y la planificación.* 
 
 !   [](/img/gobernanza/propiedades_calidad_datos.png)
 
 
-#### Definiciones sobre calidad del dato
+#### 1.4.1.1. Definiciones sobre calidad del dato
 
 - **Regla de calidad**: la regla define la forma funcional de cómo deben estar presentes los datos para servir a los propósitos de las áreas de negocio.
 - **Control de calidad:** es la correlación de la regla de calidad con la información real;. Los controles son únicos y mantienen una relación uno a uno respecto a las notas de calidad (las KQI).
@@ -287,7 +296,7 @@ Ejemplo:
 
 ![](/img/gobernanza/google_dataprep.png)
 
-#### Metodología de control de calidad
+### 1.4.2. Metodología de control de calidad
 
 1. **Perfilado de datos**: proceso de estudio, análisis y creación de resúmenes de datos útiles, siendo generalmente el primer paso crítico para asegurar la calidad de los datos. Esto se restringe únicamente para los atributos críticos o que generan valor. 
 2. **Evaluación del perfilado:**  la identificación de los datos críticos y se analizan los resultados de aquellos conjuntos de datos que han obtenido un resultado que se aleja del estándar esperado.
@@ -301,12 +310,85 @@ Ejemplo:
 
 ![](/img/gobernanza/metologia_controles.png)
 
-#### Definición sobre cuadros de mando y monitorización 
+#### 1.4.1.1 Perfilado y Evaluación de los Datos
 
+La principal salida que presenta este proceso son resúmenes de datos (la media, moda, el mínimo, el máximo, el percentil, número de nulos, % de valores atípicos, distribución o la frecuencia) que serán de utilidad para la identificación de bloques de información críticos, así como un primer paso que active acciones básicas de limpieza y tratamiento de datos. 
+
+Adicionalmente, la información obtenida ayuda a identificar si los datos obtenidos y recibidos **son coherentes con lo esperado** y están alineados con los intereses y normas de las diferentes áreas de negocio de la organización.
+
+#### 1.4.1.2. Operativización del perfilado de datos
+
+Para llevar a cabo el proceso de perfilado y evaluación de datos se ejecutan los siguientes pasos:
+
+1. Selección del conjunto de datos
+2. Ejecución del perfilado de datos: es una acción automatizada. 
+  - Resumen general de tablas
+  - Análisis de variables
+4. Análisis de resultados: el resultado generado requiere del estudio y análisis del equipo de negocio conocedor de los datos y de los equipos técnicos para detectar inconsistencias. 
+  - Análisis de la estructura: Se evalúa la consistencia a nivel de dataset (número de filas/de campos, registros, rangos, campos nulos, etc).
+  - Análisis del contenido: máximo, mínimo, cuartiles, media, etc.
+  - Análisis de la relación: se aplican técnicas de descubrimiento de relación entre diferentes variables.
+6. Categorización de los bloques de información críticos: la identificación de la criticidad de los datos debe etiquetarse, categorizarse en base a los criterios de negocio que apliquen,
+7. Priorización de bloques críticos: El objetivo es que se mantenga el foco de la calidad en aquellos datos que son realmente importantes y, además, ayudan a mantener una relación coste-beneficio eficiente.
 
 ![](/img/gobernanza/dashboard_monitorizacion.png)
 
-#### Agregación de KQIs
+### 1.4.3. Implementación de Reglas de Calidad
+
+La definición de las pruebas de calidad que se quieren implementar empieza con **la identificación y definición de las reglas de negocio** para controlar la calidad de la información gestionada.
+
+Una vez categorizados los datos, según criticidad a través del perfilado, se debe decidir qué se necesita controlar (regla de calidad), cómo se debe controlar (control de calidad) y sobre qué entidad se debe controlar (dato, tabla, métrica, informe, etc.).
+
+#### Reglas técnicas
+- Completitud
+- Duplicidad 
+- Formato: garantizan la tipología de los datos
+
+#### Reglas de negocio: conocimiento funcional del negocio
+- Rango
+- Coherencia:validan la relación lógica entre dos o más campos
+- Distribución/tendencia
+- Conciliación 
+
+Con el fin de establecer un marco común de definición de reglas de calidad, se establecen los siguientes pasos para asegurar la correcta identificación, definición e implementación de reglas de calidad.
+
+#### 1.4.3.1. Operativización de las reglas de calidad
+
+1. Identificación de áreas/stakeholders involucrados: se debe localizar a todos los stakeholders productores de datos vinculados con el desarrollo, y que participan y dan soporte en la definición de reglas de negocio.
+2. Definición de las reglas de calidad: descripción funcional y técnica de las necesidades de negocio que sirvan como demanda de controles de calidad.
+  a. ID Regla de calidad (IDRX): identificador de la regla de calidad.
+  b. Descripción: definición funcional de la regla de calidad.
+  c. Dimensión de la regla: tipología de la regla (completitud, formato, rango, coherencia, métrica agregada, informe, etc.).
+4. Definición de los controles de calidad:acciones que se tienen que llevar a cabo para asegurar el cumplimiento de una regla de negocio. **El resultado de la aplicación del control es el KQI.**
+  a. ID control de calidad: identificador del control (IDCX).
+  b. Descripción: definición funcional del control.
+  c. Departamento responsable: área responsable del control, que identifica el área involucrada para la trazabilidad del control.
+  d. Responsable del control: persona responsable del control de calidad.
+  e. Tipología: control simple o agregado de otros controles.
+  f. Rangos: rango esperado que solo aplica a la dimensión de calidad “Rango”.
+  g. Controles asociados: niveles inferiores, solo aplica en controles agregados.
+  h. Umbral verde: rango de aceptación.
+  i. Umbral ámbar: rango de aviso.
+  j. Umbral rojo: rango de alerta.
+  k. Acción para tomar: definición de la acción a tomar específica según resultado.
+  l. Conjunto de datos del control: conjunto de datos sobre el que se aplica el control.
+  m. Tabla del control: tabla sobre la que se aplica el control.
+  n. Campo del control: campo sobre el que se aplica el control.
+  o. Algoritmo de cálculo: fórmula de cálculo de la nota.
+  p. Numerador: número de registros de control simple y sumatorio de indicadores clave de calidad con control agregado.
+  q. Denominador: número de registros totales de control simple y número de controles implicados con control agregado.
+  r. Indicador clave de calidad (KQI): resultado expresado en % y en positivo.
+  s. Periodicidad de cálculo: frecuencia de cálculo.
+  
+ ### 1.4.4. Monitorización de Calidad de Datos
+ 
+ Para tener disponibles los resultados de los procesos de calidad, se requiere de una visualización que permita monitorizar estos resultados, hacer analítica de los indicadores clave de calidad y accionar los planes de remediación.
+ 
+ #### 1.4.4.1. Metodología de Agrupación de las KQIs
+ 
+Wl proceso de visualización requiere la definición de una metodología de agrupación de las KQI. Este punto es crítico, puesto que permite la agregación y desagregación de indicadores clave de calidad, facilitando a las áreas de negocios un análisis de los problemas de calidad identificados en los cuadros de mando.
+ 
+ El objetivo es dotar a las áreas de negocio identificar ágilmente los problemas de calidad. 
 
 ![](/img/gobernanza/agregacion_kqi.png)
 
