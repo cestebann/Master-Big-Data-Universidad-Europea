@@ -5,7 +5,7 @@
 - [Introducción al Gobierno del Dato](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/Gobernanza.md#11-introducci%C3%B3n-al-gobierno-del-dato)
 - [Glosario, Diccionario y Catálogo de Datos](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/Gobernanza.md#12-glosario-de-negocio-diccionario-de-datos-y-cat%C3%A1logo-de-datos)
 - [Gestión de Metadatos y Linaje Técnico.](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/Gobernanza.md#objetivos-del-curso)
-- Gestión de la Calidad de Datos y Seguridad del Dato
+- [Gestión de la Calidad de Datos y Seguridad del Dato](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/Gobernanza.md#14-gesti%C3%B3n-de-la-calidad-de-datos-y-seguridad-del-dato)
 2. Modelos de gobernanza
 - Gestión de Datos Maestros (MDM) y Datos de Referencia.
 - Marcos y Estándares del gobierno del dato
