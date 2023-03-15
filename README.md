@@ -1,5 +1,5 @@
 # Master-Big-Data-Universidad-Europea
-Máster Big Data Analytics de la Universidad Europea de Madrid
+Máster Online Big Data Analytics de la Universidad Europea de Madrid 2022/23
 
 
 # Primer Semestre
