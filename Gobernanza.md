@@ -1,3 +1,8 @@
+# Gobernanza del Ciclo de Vida del Dato
+
+Profesor: Joaquín García Onrubia
+
+
 # Contenido del curso 
 
 0. [Objetivos del curso](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/Gobernanza.md#objetivos-del-curso)
