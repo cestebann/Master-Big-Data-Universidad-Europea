@@ -399,7 +399,9 @@ Wl proceso de visualización requiere la definición de una metodología de agru
 
 # 2. Modelos de gobernanza
 
-## Objetivos 
+## 2.1 Gestión de Datos Maestros (MDM) y Datos de Referencia
+
+### Objetivos 
 
 - Conceptos generales sobre la gestión de datos maestros.
 - Conceptos generales sobre metodologías de datos maestros.
@@ -407,7 +409,6 @@ Wl proceso de visualización requiere la definición de una metodología de agru
 - Conceptos generales sobre la gestión de datos de referencia.
 - Conceptos generales sobre los beneficios de la gestión de datos de referencia.
 
-## 2.1 Gestión de Datos Maestros (MDM) y Datos de Referencia
 
 ### 2.1.1. Definición de datos maestros
 
@@ -419,7 +420,7 @@ Un dato maestro es un dato relevante a la actividad de la compañía y es una fu
 
 > "**Los datos maestros** son el conjunto coherente y uniforme de identificadores y atributos ampliados que describen las **entidades principales de la empresa** (como clientes, clientes potenciales, ciudadanos, proveedores, centros, jerarquías y planes de cuentas)”. - Gartner 
 
-### 2.1.2. Metodología de la gestión de datos maestros
+#### 2.1.2. Metodología de la gestión de datos maestros
 
 El procedimiento debe asegurar la gestión, asegurando su actualización y calidad. 
 
@@ -433,12 +434,12 @@ Las tres fases principales para la gestión de datos maestros y de las diferente
 2.**Gestión de datos maestros**
 3. **Monitorización y tratamiento de datos maestros**: hace referencia a todas las actividades que se deben llevar a cabo para trabajar los datos maestros, tales como definición de atributos, gestión de la calidad de estos junto con la definición de las reglas de racionalización de los datos maestros. 
 
-#### Fase 0. Identificar datos maestros
+##### Fase 0. Identificar datos maestros
 
 ![](/img/gobernanza/fase0.descubrimiento_dmaestros.png)
 
 
-### 2.1.3. Beneficios de la gestión de los datos maestros
+#### 2.1.3. Beneficios de la gestión de los datos maestros
 
 ![](/img/gobernanza/beneficios_dmaestros.png)
 
@@ -451,11 +452,11 @@ Las tres fases principales para la gestión de datos maestros y de las diferente
 7. Pieza fundamental de organizaciones Data Driven
 8. Cumplimiento Normativo
 
-## 2.2. Gestión de Datos de Referencia
+##### 2.1.3 Gestión de Datos de Referencia
 
 > "la administración de datos referenciales es el control del dominio de los valores definidos (también conocido como vocabulario), incluyendo el control sobre los términos estándares, los valores de los códigos y otros identificadores únicos, las definiciones de negocio para cada valor, las relaciones de negocios dentro y entre las listas de los dominios de valores; así como también el uso consistente y compartido de los valores de los datos referenciales relevantes, precisos y **oportunos para la clasificación y categorización los datos**”.- DAMA
 
-### Diferencias entre un Dato de Referencia y Datos Maestros
+###### Diferencias entre un Dato de Referencia y Datos Maestros
 
 **IMPORTANTE** Los datos maestros representan términos claves para las áreas de negocio, con datos relacionados con clientes y actividades de negocio. Los datos de referencia representan un conjunto de datos aplicables y obtenidos de los datos maestros.
 
@@ -463,11 +464,46 @@ Son cualquier dato que se utiliza para caracterizar, clasificar y catalogar otro
 
 ![](/img/gobernanza/proceso_dmaestros.png)
 
-### Beneficios de Datos de Referencias 
+##### Beneficios de Datos de Referencias 
 
 ![](/img/gobernanza/beneficios_dreferencia.png)
 
 ![](/img/gobernanza/ciclo_metadatos.png)
+
+
+## 2.2. Gestión de Seguridad del Dato
+
+### Objetivos
+
+- Conceptos generales sobre la gestión de seguridad de los datos.
+-  Conceptos generales sobre la clasificación de datos.
+-  Conceptos generales sobre las anonimización de datos.
+- Conceptos generales sobre la gestión de equipos de trabajo.
+- Conceptos generales sobre la gestión de accesos y permisos.
+
+### 2.2.1. Gestión de Seguridad de Datos
+
+#### 2.2.1.1. Definiciones relevantes en el gobierno del dato
+
+1. **Clasificación de información:** Todo aquello que contenga información susceptible de ser protegida.
+2. **Clasificación de datos:** Los datos susceptibles de ser clasificados se recogen en el diccionario de dat
+3. **Uso público:** puede ser consultada o accedida por cualquier persona. Su divulgación no impacta negativamente en la organización ni en terceras partes interesadas.
+4.  **Uso interno:** la información que debe mantenerse dentro de la organización puede ser accesible por todos los empleados y colaboradores.
+5.  **Uso confidencial:** la información sensible que exclusivamente puede ser conocida y utilizada por determinadas personas.
+6.  **Confidencialidad:** la protección contra el acceso no autorizado.
+7.  **Integridad:** la protección contra modificaciones no autorizadas
+8.  **Disponibilidad:** la protección frente a las interrupciones en el acceso
+9.  **TIERS de gobierno de dato:** asignación de niveles de gobierno que deben ser aplicados a ciertos datos.
+
+#### 2.2.1.2. Metodología
+
+- **Metadatado de seguridad:** asignará en el diccionario de datos las etiquetas definidas en el procedimiento de clasificación según público, interno o confidencial.
+- **Creación de grupos de personas:** se asignarán usuarios a grupos de usuarios para controlar los accesos sobre diferentes datasets o datos en particular.
+- **Asociación de grupos a la etiqueta:** cada etiqueta de seguridad se acompaña de la etiqueta de los grupos de personas correspondientes. Los casos particulares de acceso extraordinario se analizarán uno a uno. 
+- **Workflow de aprobación:** Describe la gestión ágil de solicitud de acceso, validación/aprobación y monitorización del mismo. 
+- **Controles de seguridad:** Se crearán controles de seguridad que serán incluidos en el diccionario de datos bajo un código de seguridad.
+- **Requerimientos de seguridad:** Definir los requerimientos de seguridad para poder conceder un acceso en base a roles y propósitos de explotación de la información, así como a los tres principios de la seguridad de la información: Integridad, disponibilidad y confidencialidad junto con los diferentes estados en que se pueda encontrar el dato.
+
 
 
 Sesión 6. 22/12/2022
