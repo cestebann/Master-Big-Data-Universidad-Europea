@@ -504,7 +504,51 @@ Son cualquier dato que se utiliza para caracterizar, clasificar y catalogar otro
 - **Controles de seguridad:** Se crearán controles de seguridad que serán incluidos en el diccionario de datos bajo un código de seguridad.
 - **Requerimientos de seguridad:** Definir los requerimientos de seguridad para poder conceder un acceso en base a roles y propósitos de explotación de la información, así como a los tres principios de la seguridad de la información: Integridad, disponibilidad y confidencialidad junto con los diferentes estados en que se pueda encontrar el dato.
 
+#### 2.2.1.3. Proceso de la Clasificación de Datos
 
+1. Identificación de datos según clasificación de gobierno - Business Data Owners y Product Owner
+2. Etiquetado de datos en el diccionario de datos de acuerdo a la clasificación de privacidad
+3. Asignación de grupos de personas según el etiquetado asignado
+4. Análisis de riesgos (pérdida, robo, etc.), de acuerdo a la clasificación asignada - Data Owner, Technical Data Owner.
+5. Gestión de excepciones de controles de seguridad - Equipo de CISO
+6. Cambios en la arquitectura-análisis de riesgo y definición de controles de seguridad de los datos - Equipo de CISO
+7. Aplicación de los controles de seguridad - Technical Data Owner
+
+#### 2.2.1.4. Anonimización de los datos
+
+En los procesos de anonimización se debe ocultar la identificación de las personas. 
+Este flujo se compone de datos de identificación directa y de datos de identificación indirecta. 
+Los datos de identificación indirecta son los datos que, al relacionarlos con otros datos, permiten la reidentificación de los sujetos.
+
+##### 2.2.1.4.1. Principios de la anonimización de los datos
+
+1. Principio proactivo: Desde el diseño se toman las medidas para garantizar la privacidad de los sujetos.
+2. Privacidad por defecto 
+3. Privacidad objetiva: El índice de riesgo de reidentificación es asumido por el encargado del tratamiento de los datos como un peligro aceptable para el diseño del proceso de anonimización.
+4. Plena funcionalidad
+5. Privacidad en el ciclo de vida de la información
+6. Información y formación 
+
+#### 2.2.1.5. Definición del equipo de trabajo 
+
+las personas a tener en cuenta en los procesos de anonimización de los datos:
+
+1. Responsable de la custodia de los datos (Data Owner).Tiene un alto conocimiento funcional de los mismos. Habitualmente también desarrolla su actividad explotando los datos o como responsable de las personas que los explotan.
+2. Responsable del equipo técnico que desarrolla y mantiene los sistemas donde están alojados los datos. Diseña, mantiene y dirige la implantación de los sistemas de información donde estarán alojados los datos anonimizados o no anonimizados en una fase inicial.
+3. Responsable de la explotación de la información personal anonimizada. Encargado de evitar posibles brechas de seguridad en los datos a lo largo de su ciclo de vida.
+4. Responsables de la seguridad de la información de la organización (en muchas ocasiones estas personas se encuentran en los departamentos de ciberseguridad).
+5. Equipo de evaluación de riesgos (habitualmente pertenecientes al equipo de trabajan en asuntos relacionados con LOPD, legal, etc.). Responsables de velar por el cumplimiento de las normativas y estándares de seguridad y confidencialidad.
+6. Equipo de seguridad de la información (habitualmente pertenecientes al equipo que trabajan en asuntos relacionados con la seguridad de la información). Son los miembros dependientes del responsable de la seguridad de la información, y garantizan la seguridad, que es necesaria a lo largo del ciclo de vida de los datos anonimizados y durante los procesos de anonimización, disminuyendo las posibilidades de brechas en la seguridad.
+
+#### 2.2.1.6. Proceso de la gestión de accesos y permisos
+
+Se recomiendan los siguientes cinco procesos en la gestión de accesos, que son los siguientes:
+
+1. Creación de la solicitud para acceder a un conjunto de datos: los usuarios podrán solicitar acceso a datos.
+2. Activación del workflow de aprobación del acceso: la herramienta de gobierno disponible será capaz de activar un workflow de aprobación, que informará al Data Owner de la solicitud, siendo este en última instancia el responsable de su aprobación, declinación o revisión de la solicitud. 
+3. Escalar a comité de seguridad/gobierno en caso de necesidad de acceso para usuarios individuales: en caso de existir casuísticas que impidan la aprobación a usuarios debido a no pertenecer a un grupo con privilegios y permisos, se escalará la necesidad al departamento de ciberseguridad para estudiar la aprobación o inclusión en un grupo de usuarios con privilegios.
+4. Habilitación del acceso en las diferentes herramientas tecnológicas: una vez aprobado, se activa el acceso (de forma automática o manual) al dato y su explotación.
+5. Monitorización y seguimiento del correcto uso de los datos, así como controlar los accesos: Los Data Owners, como últimos responsables de los accesos a los datos, deben hacer seguimiento de quién tiene acceso a qué datos, la frecuencia de accesos, de los accesos y la eliminación de accesos cuando un usuario deja de pertenecer a un grupo de usuarios con privilegios y permisos.
 
 Sesión 6. 22/12/2022
 
