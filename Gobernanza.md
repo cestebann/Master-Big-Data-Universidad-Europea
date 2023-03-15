@@ -399,9 +399,17 @@ Wl proceso de visualización requiere la definición de una metodología de agru
 
 # 2. Modelos de gobernanza
 
-## Gestión de Datos Maestros (MDM) y Datos de Referencia
+## Objetivos 
 
-### Definición de datos maestros
+- Conceptos generales sobre la gestión de datos maestros.
+- Conceptos generales sobre metodologías de datos maestros.
+- Conceptos generales sobre los beneficios de datos maestros.
+- Conceptos generales sobre la gestión de datos de referencia.
+- Conceptos generales sobre los beneficios de la gestión de datos de referencia.
+
+## 2.1 Gestión de Datos Maestros (MDM) y Datos de Referencia
+
+### 2.1.1. Definición de datos maestros
 
 Un dato maestro es un dato relevante a la actividad de la compañía y es una fuente de verdad indiscutible (ingresos,)
 
@@ -411,9 +419,9 @@ Un dato maestro es un dato relevante a la actividad de la compañía y es una fu
 
 > "**Los datos maestros** son el conjunto coherente y uniforme de identificadores y atributos ampliados que describen las **entidades principales de la empresa** (como clientes, clientes potenciales, ciudadanos, proveedores, centros, jerarquías y planes de cuentas)”. - Gartner 
 
-### Metodología de la gestión de datos maestros
+### 2.1.2. Metodología de la gestión de datos maestros
 
-El procedimiento debe asegurar la gestión, asegurando su actualización y calidad.
+El procedimiento debe asegurar la gestión, asegurando su actualización y calidad. 
 
 Las tres fases principales para la gestión de datos maestros y de las diferentes actividades a llevar a cabo en cada una de ellas para una correcta gestión de datos maestros son las siguientes. 
 
@@ -421,17 +429,29 @@ Las tres fases principales para la gestión de datos maestros y de las diferente
 
 ![](/img/gobernanza/golden_record.png)
 
-#### Fase 0. Descubrimiento de datos maestros
+1. **Descubrimiento de datos maestros**: identificar qué datos maestros están siendo utilizados o se van a utilizar, o qué nuevos datos no están incluidos como datos maestros.
+2.**Gestión de datos maestros**
+3. **Monitorización y tratamiento de datos maestros**: hace referencia a todas las actividades que se deben llevar a cabo para trabajar los datos maestros, tales como definición de atributos, gestión de la calidad de estos junto con la definición de las reglas de racionalización de los datos maestros. 
+
+#### Fase 0. Identificar datos maestros
 
 ![](/img/gobernanza/fase0.descubrimiento_dmaestros.png)
 
-### Beneficios de la gestión de los datos maestros
+
+### 2.1.3. Beneficios de la gestión de los datos maestros
 
 ![](/img/gobernanza/beneficios_dmaestros.png)
 
+1. Aumenta el Valor del dato. 
+2. Aumenta la confianza en los datos
+3. Elimina silos informacionales.
+4. Visión 360º de los dominios funcionales
+5. Mayor usabilidad de los datos
+6. Favorece la gestión de sistemas multicloud e híbridos
+7. Pieza fundamental de organizaciones Data Driven
+8. Cumplimiento Normativo
 
-
-## Gestión de Datos de Referencia
+## 2.2. Gestión de Datos de Referencia
 
 > "la administración de datos referenciales es el control del dominio de los valores definidos (también conocido como vocabulario), incluyendo el control sobre los términos estándares, los valores de los códigos y otros identificadores únicos, las definiciones de negocio para cada valor, las relaciones de negocios dentro y entre las listas de los dominios de valores; así como también el uso consistente y compartido de los valores de los datos referenciales relevantes, precisos y **oportunos para la clasificación y categorización los datos**”.- DAMA
 
@@ -448,10 +468,6 @@ Son cualquier dato que se utiliza para caracterizar, clasificar y catalogar otro
 ![](/img/gobernanza/beneficios_dreferencia.png)
 
 ![](/img/gobernanza/ciclo_metadatos.png)
-
-
-
-**Sesión 5. 15/12/2022 pendiente**
 
 
 Sesión 6. 22/12/2022
