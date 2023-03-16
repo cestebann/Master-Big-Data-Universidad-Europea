@@ -14,8 +14,8 @@ Profesor: Joaquín García Onrubia
 2. [Modelos de gobernanza](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/Gobernanza.md#2-modelos-de-gobernanza)
 - [Gestión de Datos Maestros (MDM) y Datos de Referencia](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/Gobernanza.md#21-gesti%C3%B3n-de-datos-maestros-mdm-y-datos-de-referencia)
 - [Gestión y Seguridad del Dato](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/Gobernanza.md#22-gesti%C3%B3n-de-seguridad-del-dato)
-- Estrategia, Roles y Ámbitos de Actuación.
-- Herramientas de gobierno del dato
+- Organigrama del Gobierno del Dato
+- Herramientas de Gobierno del Dato
 3. Ciclo de Vida del Dato
 - Gestión del Ciclo de Vida del Dato
 - Gestión del Valor del Dato.
@@ -265,16 +265,14 @@ Podemos utilizar las siguientes técnicas
 
 
 ## 1.4. Gestión de la Calidad de Datos y Seguridad del Dato
+Sesión 4. 9/12/2022
 
 ### Objetivos
-
 
 Conceptos generales sobre las principales definiciones de calidad del dato.
 1. Conceptos generales sobre metodologías de controles de calidad.
 2. Conceptos generales sobre la implementación de reglas de calidad de datos.
 3. Conceptos generales sobre la monitorización de calidad de datos.
-
-Sesión 4. 9/12/2022
 
 De acuerdo con investigaciones de las consultoras internacionales Experian plc y Clear Strategic IT Partners, estiman que los costes de datos incorrectos suponen entre el 15% y el 25% de los ingresos para la mayoría de las organizaciones.
 
@@ -477,6 +475,7 @@ Son cualquier dato que se utiliza para caracterizar, clasificar y catalogar otro
 
 
 ## 2.2. Gestión de Seguridad del Dato
+Sesión 5. 15/12/22
 
 ### Objetivos
 
@@ -487,6 +486,8 @@ Son cualquier dato que se utiliza para caracterizar, clasificar y catalogar otro
 - Conceptos generales sobre la gestión de accesos y permisos.
 
 ### 2.2.1. Gestión de Seguridad de Datos
+
+> **Seguridad del dato:** La práctica de proteger la información de acceso no autorizado, corrupción o robo en todo su ciclo de vida. 
 
 #### 2.2.1.1. Definiciones relevantes en el gobierno del dato
 
@@ -555,6 +556,136 @@ Se recomiendan los siguientes cinco procesos en la gestión de accesos, que son 
 4. Habilitación del acceso en las diferentes herramientas tecnológicas: una vez aprobado, se activa el acceso (de forma automática o manual) al dato y su explotación.
 5. Monitorización y seguimiento del correcto uso de los datos, así como controlar los accesos: Los Data Owners, como últimos responsables de los accesos a los datos, deben hacer seguimiento de quién tiene acceso a qué datos, la frecuencia de accesos, de los accesos y la eliminación de accesos cuando un usuario deja de pertenecer a un grupo de usuarios con privilegios y permisos.
 
+## 2.3. Organigrama del Gobierno del Dato (Este tema no lo dio)
+
+### Objetivos 
+
+- Conceptos generales sobre roles áreas gobierno del dato.
+- Conceptos generales sobre principales responsabilidades de los roles.
+- Conceptos generales sobre los modelos de relación de los roles.
+
+### 2.3.1. Sobre roles de las áreas gobierno del dato
+
+A lo largo de este tema, se definirán los principales perfiles n necesarios para implementar un modelo de gobernanza descentralizado del dato Hub & Spoke, así como sus responsabilidades y relaciones mutuas. 
+
+#### 2.3.1.1. Director de Datos (CDO)
+
+Es el responsable de la estrategia de datos de toda la organización, la gobernanza, el control y el desarrollo las políticas y estándares. 
+
+
+#### 2.3.1.2. Arquitecto de Datos
+
+Principales responsabilidades del arquitecto de datos:
+
+- Responsable de la definición y evolución de la arquitectura de datos para el entorno informacional, tanto a nivel conceptual como lógico.
+- Colabora con el Technical Architect para entender las dependencias que pueda generar la arquitectura de técnica y de seguridad sobre la de datos.
+- Implementa y asegura el cumplimiento de las normas y directrices para apoyar la arquitectura de datos conceptuales y lógicos.
+- Implementa el roadmap de la arquitectura de datos de acuerdo con las normas y metodologías definidas.
+- Asegura que los diseños de la base de datos cumplen los requerimientos, incluyendo el volumen de datos, necesidades de frecuencia y crecimiento de datos a largo plazo.
+- Da soporte a los equipos de desarrollo y pruebas con la creación de los datos de prueba.
+
+
+#### 2.3.1.3. Gestor de datos maestros (MDM Master)
+
+Se encarga de liderar proyectos de transformación digital sobre distintos ámbitos de los datos. Lidera gran parte de la gestión de las actividades vinculadas a la orquestación del gobierno del dato entre áreas departamentales.
+
+Principales responsabilidades del gestor de datos maestros:
+- Define y evoluciona la estrategia organizativa de gobierno del dato.
+- Lidera el comité operativo del gobierno del dato y el despliegue del modelo de gobierno del dato junto con negocio y el Data Strategy Lead.
+-  Define las políticas y estándares del gobierno del dato para la organización, y es el Data Owner de la información transversal.
+- Define los procesos y herramientas de soporte requeridos para el correcto despliegue de la función de gobierno del dato.
+- Apoya en la nominación de Data Owners de negocio y les da soporte en el despliegue de su función para los casos de uso que se vayan acometiendo.
+- Lidera las acciones de capacitación y formación que pudieran requerirse en colaboración con organización.
+
+
+#### 2.3.1.4. Data Owner
+
+Último responsable de los datos del dominio o de la vertical de la organización, es el representante de área de negocio, dispone de un profundo conocimiento de los datos y de los procesos de negocio. Es capaz de identificar los requisitos y necesidades funcionales de negocio.
+
+Principales responsabilidades. 
+- Responsable de los datos de negocio en su dominio.
+- Responsable de la publicación y mantenimiento de los términos de negocio y metadatos.
+- Responsable de la calidad de la información en el proceso del dominio.
+-  Soporte en la definición de las condiciones de accesibilidad a la información propias de las áreas de negocio.
+- Asegurar la disponibilidad y accesibilidad del dato en base a la definición establecida para el uso de plataformas externas al área de negocio.
+- Identificación del catálogo de informes requeridos en el área de negocio.
+- Definición de los Data Sharing Agreements (DSA), contratos de uso de los conjuntos de datos por terceros.
+- Seguimiento de la información propia del vertical que se ha disponibilizado a otras áreas o internamente.
+- Asegura que los Process Owner siguen las políticas y estándares de datos definidos y que cumplen con sus responsabilidades.
+
+#### 2.3.1.5. Process Data Owner
+
+Es el rol que dispone del conocimiento de negocio que rodea a uno o varios procesos generadores de conjuntos de datos. Entiende el detalle último de la información, es referencia en la organización y es capaz de responder dudas relativas a su definición, cálculo, calidad y seguridad.
+
+- Responsable de un conjunto de datos de negocio.
+- Define los términos de negocio que formarán parte del glosario corporativo.
+- Identificación de los datos maestros en los conjuntos de datos.
+- Define los controles funcionales de calidad.
+- Define el acceso a los datos de los que es responsable.
+- Hace seguimiento del uso de los conjuntos de datos de manera interna o externa.
+- Monitorizar proactivamente la calidad funcional de los datos de los que es responsable.
+- Sirve como punto de contacto para el proceso de detección y resolución de problemas en los conjuntos de datos, colabora en su resolución con los equipos de tecnologías de la información que corresponda.
+- Cumple con la norma y los estándares de gobierno del dato.
+
+#### 2.3.1.6. Technical Data Steward 
+
+Es el rol que dispone del conocimiento de técnico que rodea a uno o varios conjuntos de datos. El rol debe tener acceso al detalle técnico de los conjuntos de datos, será referencia en los procesos consumidores de esos datos en la organización y será capaz de responder dudas relativas a su localización o metadato técnico. Este rol no está vinculado a fuentes de datos, sino a procesos
+
+Principales responsabilidades del Technical Data Steward:
+- Colabora con los equipos de desarrollo en la identificación de los mejores datos para el desarrollo del caso de uso.
+- Completar los metadatos de carácter técnico en el diccionario de datos, incluida la descripción de campos y tablas.
+- Validar los metadatos técnicos que se generan de forma automáticamente con la herramienta de gobierno del dato.
+- Validar la trazabilidad técnica hasta la fuente en la que se originan los conjuntos de datos.
+- Soporte en la aplicación del perfilado de datos e identificación de datos críticos.
+- Soporte en la definición de controles técnicos.
+- Implementación de los controles definidos.
+- Soporte en la definición de planes de remediación aportando su conocimiento técnico.
+- Cumple con la norma y los estándares de gobierno de la información.
+
+#### 2.3.1.7. Gestor del Valor
+
+El gestor del valor participa en la definición de los indicadores, además de registrarlos y de realizar un seguimiento de ellos, asegurando que todo lo que se está haciendo durante los casos de uso tiene un retorno.
+
+- Crea el value case, junto con el experto de negocio, encontrando y registrando los indicadores de valor que ayudan a identificar el valor que aporta el caso de uso.
+- Ayuda en la definición del listado de los KPI, indicadores o métricas para evaluar el valor/retorno. Ayuda a identificar aquellos datos necesarios para evaluar esos KPI, además de asignarles un grado de dificultad de medición u obtención. Gestiona las peticiones de alta, baja o modificación de los KPI.
+- Prioriza cuáles de esos KPI se van a medir. Los que no estén priorizados no se miden en ese momento, simplemente quedan registrados.
+- Realiza el seguimiento del estado de los casos de uso en todo el desarrollo, siguiendo la metodología de medición del valor definida. Esto se realiza con un cuadro de mando que contiene todos los KPI, indicadores o métricas.
+- Periódicamente, mide cada indicador, registra su avance y hace los cálculos necesarios (puede ser manual o automática la medición). Identifica si hay incidencias o discrepancias en valores objetivo de los KPI y, si es así, procede a informar a los implicados.
+
+#### 2.3.1.8. Product Owner 
+
+Será el responsable del producto desarrollado, además de ser la referencia dentro de la organización en caso de dudas respecto al producto.
+
+- Responsable de negocio de una solución de Data & Analytics.
+- Aporta experiencia y conocimiento del negocio, asegura una comprensión clara y completa de los objetivos, necesidades y requisitos.
+- Interviene como responsable del producto en los seguimientos del proyecto y supervisa el cumplimiento de los objetivos de negocio.
+- Define la solución analítica desde una perspectiva de negocio; en base a los requerimientos se crean las épicas y las historias de usuario a desarrollar.
+- Prioriza las historias de usuario de cada ciclo de desarrollo/sprint: las actividades y los recursos necesarios de negocio (procesos, adopción, seguimiento del valor…), analíticos (modelo de datos, métodos) y técnicos (herramientas, licencias…).
+
+#### 2.3.1.9. Experto de Negocio
+
+Es el rol encargado de identificar las necesidades de datos en el negocio; deberá tener una visión transversal del negocio.
+
+- Referencia en el spoke entorno a necesidades de Data & Analytics.
+- Asegura una comprensión clara y completa de los objetivos, necesidades y requisitos de su spoke, que conduzcan a cuestiones analíticas específicas.
+- Recoge, filtra y alinea las cuestiones de negocio de su spoke con los objetivos estratégicos del área.
+- Colabora en priorizar las cuestiones de negocio y asegura que los casos de valor sean relevantes para el mercado y escalables a otras áreas de negocio.
+- Crear el value case, identificar el valor de la solución analítica alineada con los objetivos estratégicos de la organización.
+- Identifica y asigna al Product Owner (para representar y proveer experiencia de negocio).
+- Monitoriza el valor aportado por las soluciones de Data & Analytics del spoke.
+- Monitoriza el cumplimiento de estándares y metodologías y escala problemas al comité de Data Strategy.
+
+#### 2.3.1.10. Científico de Datos
+
+Principales responsabilidades del científico de datos:
+- Desarrolla las soluciones y productos de analítica avanzada en todo su ciclo de vida: definición, desarrollo, test e industrialización.
+- Define y construye el modelo de datos y los modelos analíticos avanzados requeridos.
+- Sigue los estándares y metodologías de desarrollo definidas.
+- Ejecuta consultas complejas, sintetiza análisis, y prepara informes de negocio.
+- Analiza y soluciona actividades de negocio a través de la estructuración y definición de un flujo de información y decisiones.
+- Identifica las mejores prácticas en la modelización analítica y las aplica a las soluciones y productos analíticos en desarrollo.
+- Asegura que todas las soluciones analíticas muestran correctamente los datos y que las visualizaciones creadas revelan información de modelos complejos.
+
 Sesión 6. 22/12/2022
 
 # Ciclo de vida del dato y modelos analíticos 
@@ -604,6 +735,7 @@ El modelo ya compara datos reales, está ya desplegado
 Esta metodología tiene partes en común con las buenas prácticas de devops y es a veces llamada MLOps (Machine Learning Operations), pues estandariza todo el proceso de gestión el ciclo de vida de los proyectos analíticos, dentro de los cuales se generan activos analíticos. También está alineada con las formas de trabajo ágiles, pudiendo ser el objetivo de un sprint el recorrer al menos una vez todo el ciclo e ir mejorando el modelo continuamente, sprint a sprint. El siguiente diagrama ilustra la metodología, poniendo de relieve la naturaleza iterativa del proceso:
 
 ![](/img/gobernanza/ciclo-de-vida-m-analitico.png)
+
 
 
 ### MLflow 
