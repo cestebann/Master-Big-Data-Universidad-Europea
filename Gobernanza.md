@@ -686,9 +686,82 @@ Principales responsabilidades del científico de datos:
 - Identifica las mejores prácticas en la modelización analítica y las aplica a las soluciones y productos analíticos en desarrollo.
 - Asegura que todas las soluciones analíticas muestran correctamente los datos y que las visualizaciones creadas revelan información de modelos complejos.
 
-Sesión 6. 22/12/2022
+## 2.4. Herramientas de Gobierno del Dato
 
+- Conceptos generales sobre las herramientas de gobierno del dato.
+- Conceptos generales sobre variables relevantes en herramientas de gobierno del dato.
+- Conceptos generales sobre herramientas de gobierno del dato comerciales.
+- Conceptos generales sobre herramientas de gobierno del dato open source.
+
+### 2.4.1. Herramientas de gobierno de data 
+
+El gobierno del dato es la base sobre la que se apalancará el desarrollo de las diferentes capacidades.
+
+Las principales iniciativas comerciales actuales de gobierno del dato utilizan soluciones SaaS para su gestión, sin necesidad de implementar servidores por la organización.
+
+- **Facilidad:** las soluciones SaaS eliminan engorrosos procesos de instalación y mantenimiento.
+- **Usabilidad:** las herramientas orientadas a organizaciones, aumentan el autoservicio y la productividad de las personas
+- **Adaptabilidad:** desde la nube, son conectados a todos los sistemas de información de la organización mediante conexiones nativos auto-devops a sistemas On-Premise o en entornos cloud, controlando el consumo de recursos.
+
+#### 2.4.1.1. Requisitos de herramientas de gobierno del dato
+
+Como requisito indispensable, la herramienta de gobierno del dato debe ser plenamente compatible, configurada y parametrizada con el entorno de la organización, adaptada a su entorno tecnológico donde tiene alojados los sistemas de información. 
+
+La instalación se tendrá que coordinar con los equipos de sistemas de la información, ciberseguridad e infraestructuras para que todos los elementos dependientes estén alineados.
+
+### 2.4.2. Comparativas de herramientas de gobierno del dato
+
+1. **Glosario de términos de negocio:** Inventario de términos de negocio con sus definiciones semánticas, sus atributos, etiquetas, taxonomías y las relaciones entre los diferentes conceptos.
+2. **Gestión de metadatos, trazabilidad y linaje:** descripción detallada de todos los conjuntos de datos (datasets) y sus campos. Visualización de forma gráfica del camino que siguen los datos.
+3. **Modelo de gobierno. Gestión de workflows y procesos de negocio:** implementación de la estructura organizativa y del modelo definido. Herramienta de estados que ofrece la posibilidad de gestionar flujos de trabajo customizados en base a los procedimientos operativos definidos.
+4. **Calidad de datos y perfilado:** desde la definición de reglas de calidad por parte de negocio hasta el seguimiento de los resultados para las métricas definidas y los planes de remediación asociados.
+5. **Seguridad de datos:** control de los accesos a la información, identificación de los datos sensibles, sistema de ofuscación, visualización según permisos.
+6. **Soporte a la auditoría:** funcionalidades con el fin de verificar el cumplimiento de las políticas de gobierno de datos, obtención de evidencias y análisis de la historia de las acciones realizadas.
+7. **Gestión de datos maestros (MDM) y de referencia:** identificación de datos maestros, gestión de los datos de referencia, capacidad de limpieza de datos y multidominio.
+8. **Gestión de incidencias de datos:** gestión completa de las incidencias de los datos derivadas de problemas de calidad o de incidencias levantadas por usuarios, facilitando así su seguimiento hasta su resolución.
+9. **Marketplace de datos:** gestión de acceso a los conjuntos de datos y generación de flujos de solicitud de accesos de datos end-to-end al responsable técnico de generar el acceso a la herramienta. Se recomienda automatizar los procesos, para que, en el momento en el que el propietario de los datos apruebe el flujo, no sea necesaria la interacción humana.
+
+### 2.4.3. Configuración de los principales elementos
+
+1. Roles y permsisos
+2. Flujo de aprobación y avisos
+3. Estructura de atributos en cada tipo de objeto
+4. Configuración en base a la política, la norma y los procedimientos
+5. Creación de entidades: contratos de datos
+6. Cuadros de mando y Marketplace
+
+### 2.4.4. Herramientas comerciales 
+
+Las dos herramientas comerciales de gobierno del dato, principales y líderes, son las siguientes:
+
+1. **Axon Informatica:** “Axon Data Governance impulsa la primera solución de gobierno de datos empresarial verdadera, aprovechando toda la potencia de Informática Intelligent Data Platform para impulsar el valor al democratizar el acceso de su el acceso de su equipo a datos integrados de alta calidad que sean coherentes, fiables y estén protegidos. Solución totalmente integrada para potenciar la colaboración entre los líderes de negocio y de TI Axon Data Governance se integra de forma única con Informática Data Quality e Informática Enterprise Data Catalog para permitir un programa de gobierno de datos verdaderamente colaborativo entre los líderes de negocio y de TI.
+2. **Collibra:** “líder en gobierno de datos y software de catálogo, Collibra ayuda a las organizaciones de todo el mundo a obtener una ventaja competitiva, maximizando el valor de sus datos en toda la empresa. Collibra es la única solución creada específicamente para abordar la gama de necesidades de administración, gobierno y gestión de datos de las industrias más complejas y con uso intensivo de datos." Podríamos considerar a Collibra como una compañía nativa digital en la que su único cometido es desarrollar y evolucionar su plataforma de gobierno del dato, siendo este su único nicho de negocio.
+
+### 2.4.5. Herramientas open source de gobierno del dato
+
+Actualmente, muchas organizaciones optan por herramientas open source, ya que muchas veces estas herramientas son igual de solventes y no tan cerradas como las herramientas comerciales, permitiendo una mayor customización a las necesidades de la organización.
+
+La combinación de Apache Atlas y Amundsen es utilizada como suite completa de gobierno del dato por compañías como, por ejemplo, ING o Workday, entre otras.
+
+
+**Apache Atlas:** Es un conjunto escalable y extensible de servicios básicos de gobernanza, que permite cumplir con los requisitos de gobierno, orientada a Hadoop y que permite la integración con el ecosistema de datos. Ofrece capacidades abiertas de gestión de metadatos y gobernanza para construir un catálogo de los activos de datos, clasificación y gobierno de los activos, proporcionando capacidades de colaboración.
+**Amundsen:** Es un motor de descubrimiento de datos y metadatos para mejorar la productividad cuando se interactúa con los datos. Indexa los recursos de datos y potencia una búsqueda de estilo de rango de página basada en patrones de uso
+
+#### 2.4.5.1. Catálogos de datos en la nube
+
+Habitualmente funcionan por pago por uso y sin servidor.
+Aunque no construyen suites completas de gobierno del dato, permiten cubrir necesidades parciales de gobierno del dato de manera modular.
+
+- **Google Data Catalog:** 
+- **AWS Glue Data Catalog:**
+- **Microsoft Azure Data Catalog:**
+
+
+
+
+  
 # Ciclo de vida del dato y modelos analíticos 
+Sesión 6. 22/12/2022
 
 ## Ciclo de vida del dato
 
