@@ -27,8 +27,8 @@ Esta capacidad de adaptación al cambio y la entrega de valor constante forman p
 
 ### Agile, una palanca para el cambio
 
-1. Reduce el time to market. Reduce el tiempo de producción y desplieuge del producto al cliente final . 
-2. Disponer de un producto "clientecéntrico". 
+1. Reduce el time to market. Reduce el tiempo de producción y despliegue del producto al cliente final . 
+2. Disponer de un producto "cliente-céntrico". 
 3. Reducir los costes. 
 4. Mejora de la calidad de trabajo. Se amplía también su definición como la satisfacción del cliente con el producto. 
 5. Facilita la aglidad empresarial. Es la capacidad de una empresa a cambiar frente a factores internos y externos. 
@@ -59,18 +59,18 @@ Estamos acostumbrados a entregarle al cliente el producto terminado cuando hemos
 
 12 Principios Agile:
 
-1. Satisfacción al cliente: Entrega de valor al cliente.
-2. Cambios: Cambios son bienvenidos. Mientras mas rápido se acepten los cambios.
-3. Software funcional: Software que pueda ser usado por el cliente y en periodos cortos de tiempo.
-4. Colaboración: Como interactuas y te comunicas con el cliente.
-5. Individuos motivados: Dar un buen entorno, independencia y autoridad de tomar sus propias decisiones.
-6. Comunicación cara a cara: Método mas eficiente, estar con el cliente y leer su lenguaje corporal.
-7. Progreso: El software funcionando es la medida principal de progreso.
-8. Desarrollo sostenible: El desarrollo a lo largo del proceso sea constante en cada una de las iteraciones.
-9. Mejora continua: Como son iterativas se puede ver que se hizo bien y que se puede mejorar para la próxima iteración.
-10. Simplicidad: Priorizar y hacer el trabajo que esta bien definido en ese preciso momento.
-11. Auto-organización: Que el equipo sea capas de tomar sus propias decisiones.
-12. Auto-evaluación: Que el equipo sea capaz de ajustar y perfeccionar su comportamiento para mejorar.
+1. **Satisfacción al cliente**: Entrega de valor al cliente.
+2. **Cambios**: Cambios son bienvenidos. Mientras mas rápido se acepten los cambios.
+3. **Software funcional**: Software que pueda ser usado por el cliente y en periodos cortos de tiempo.
+4. **Colaboración**: Como interactuas y te comunicas con el cliente.
+5. **Individuos motivados**: Dar un buen entorno, independencia y autoridad de tomar sus propias decisiones.
+6. **Comunicación cara a cara**: Método mas eficiente, estar con el cliente y leer su lenguaje corporal.
+7. **Progreso**: El software funcionando es la medida principal de progreso.
+8. **Desarrollo sostenible**: El desarrollo a lo largo del proceso sea constante en cada una de las iteraciones.
+9. **Mejora continua**: Como son iterativas se puede ver que se hizo bien y que se puede mejorar para la próxima iteración.
+10. **Simplicidad**: Priorizar y hacer el trabajo que esta bien definido en ese preciso momento.
+11. **Auto-organización**: Que el equipo sea capaz de tomar sus propias decisiones.
+12. **Auto-evaluación**: Que el equipo sea capaz de ajustar y perfeccionar su comportamiento para mejorar.
 
 ![](img/agile/modelo_tradicional_2.png)
 
@@ -779,7 +779,7 @@ Este nivel aúna diferentes programas alrededor de una cadena de valor. Los tema
 
 #### Roles de SAFe: Nivel programa
 
-1. Release Train Engineer: Hace la función de Scrum Master en el nivel de progrmaa, ayuda a los equipos a que sean auto-organziados y autogestionados. Sus principales funciones son solucionar impedimientos de los equipos y scrum masteres de nivel de equipo, además de facilitar varias reuniones entre las que destaca el scrum de scrums. 
+1. Release Train Engineer: Hace la función de Scrum Master en el nivel de programa, ayuda a los equipos a que sean auto-organziados y autogestionados. Sus principales funciones son solucionar impedimientos de los equipos y scrum masteres de nivel de equipo, además de facilitar varias reuniones entre las que destaca el scrum de scrums. 
 2. System Architect: gestiona la parte técnica y arquitectónica de las features, conoce y ayuda a definir la tecnología más apropiada para este nivel y participa en la definición de requisitos funcionales, no funcionales y features. Además, facilita y ayuda a los equipos para que trabajen cómodos con la tecnología elegida. 
 3. Product Management: Es el PO a nivel de programa, coordina a los product owners de cada equipo. El Product Manager conoce las caraterísticas de la solución a desarrollar y las necesidades de los clientes, así que se encarga de descomponer las Epics en Features y mantener y priorizar el Program Backlog. Además se encarga de crear el roadmap. 
 4. Business Owner: Son un grupo de ejecutivos con responsabilidades financieras del resultado de la solución implementada, es decir, son los encargados de hacer que se cumpla el ROI que se ha hecho para desarrollar la solución, y se encargan de conectar el nivel de programa con el portfolio. 
