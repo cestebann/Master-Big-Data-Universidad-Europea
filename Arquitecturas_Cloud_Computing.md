@@ -1,10 +1,17 @@
 # Arquitecturas Cloud Computing
 
-Miguel Torres Porta
+Profesor: Miguel Torres Porta
 - Data Scientist at Cognizant
 
+## Distribución 
 
-# Contenidos 
+Lab 1 - Finales de febrero | 20%
+Lab 2 - Mediados de marzo  | 20% 
+Test / Examen Lab | 25/03  | 60%
+
+Grupos de 3 ó 4 personas    
+
+# Tabla de Contenidos 
 
 Unidad 1. Plataformas y Modelos de Servicio Cloud
 - Sistemas distribuidos
@@ -33,16 +40,7 @@ Unidad 3. Gestión de la infraestructura en Plataformas Cloud
 
 # Unidad 1. Plataformas y Modelos de Servicio Cloud
 
-## Distribución 
-
-Lab 1 - Finales de febrero | 20%
-Lab 2 - Mediados de marzo  | 20% 
-Test / Examen Lab | 25/03  | 60%
-
-Grupos de 3 ó 4 personas    
-
-
-# ¿Qué es el cloud computing? 
+## ¿Qué es el cloud computing? 
 
 Conjunto de recursos virtuales compartidos bajo demanda, que ofrecen servicios de computación, almacenamiento, bases de datos y redes. Estos servicios pueden ser desplegados rápidamente y a escala.
 
@@ -62,7 +60,7 @@ Conjunto de recursos virtuales compartidos bajo demanda, que ofrecen servicios d
     - Puede ser usada para casos de recuperación en en casos de desastres  o una migración. 
     - Normalmente usadas durante cortos periodos de tiempo. 
 
-## Concpetos importantes de Cloud
+## Conceptos importantes de Cloud
 
 - Recursos bajo demanda
 - Escalabilidad
@@ -82,4 +80,12 @@ Conjunto de recursos virtuales compartidos bajo demanda, que ofrecen servicios d
 ![](/img/arquitectura/AWS_foundations.png)
 
 
+## 1.1. Sistemas distribuidos
+
+### Objetivos 
+- Analizar el concepto de sistemas distribuidos
+- Introducir el concepto básico de clúster y sistemas mallados
+- Introducir el concepto de computación en la nube
+
+### 1.1.1. Sistemas distribuidos
 
