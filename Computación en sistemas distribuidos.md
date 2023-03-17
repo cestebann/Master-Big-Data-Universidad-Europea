@@ -1,5 +1,8 @@
+# Computación de Sistemas Distribuidos
 
-# Índice
+Profesor: Alfonso Antolínez García
+
+# Tabla de Contenidos
 
 - Unidad 0. Objetivos del curso
     - Competencias específicas
@@ -39,14 +42,12 @@
 
 ## Competencias específicas:
 - Aplicar las bases teórico-prácticas necesarias sobre Tecnologías de la Información y Comunicaciones de interés para el desarrollo e implantación de servicios de análisis y extracción de modelos a partir de los datos en infraestructuras de altas prestaciones.
-- Diseñar, implantar, y administrar redes e infraestructuras físicas para el tratamiento de
-grandes volúmenes de datos distribuidos.
-- Diseñar y ejecutar un proceso completo de descubrimiento de conocimiento, incluyendo las
-fases de almacenamiento, procesamiento y visualización de los datos.
+- Diseñar, implantar, y administrar redes e infraestructuras físicas para el tratamiento de grandes volúmenes de datos distribuidos.
+- Diseñar y ejecutar un proceso completo de descubrimiento de conocimiento, incluyendo las fases de almacenamiento, procesamiento y visualización de los datos.
 - Aplicar las bases técnicas del funcionamiento de plataformas cloud computing y virtualizadas.
 
 ## Resultados de aprendizaje:
-- Aplicar las bases técnicas y funcionales de sistemas distribuidos de altas prestaciones
+- Aplicar las bases técnicas y funcionales de sistemas distribuidos de altas prestaciones.
 - Desarrollar algoritmos y usar de tecnologías para el acceso a bases de datos de nueva generación.
 - Planificar e integrar bases de datos de nueva generación en sistemas distribuidos.
 
