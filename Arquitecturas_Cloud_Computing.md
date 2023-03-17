@@ -5,9 +5,9 @@ Profesor: Miguel Torres Porta
 
 ## Distribución de la calificación
 
--Lab 1 - Finales de febrero | 20%
--Lab 2 - Mediados de marzo  | 20% 
--Test / Examen Lab | 25/03  | 60%
+- Lab 1 - Finales de febrero | 20%
+- Lab 2 - Mediados de marzo  | 20% 
+- Test / Examen Lab | 25/03  | 60%
 
 Grupos de 3 ó 4 personas    
 
