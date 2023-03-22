@@ -673,7 +673,7 @@ Las SaaS están orientadas más al consumo que al desarrollo/despliegue de aplic
 
 #### ¿Qué es el paradigma "Sin Servidor", o "Serverless Paradigm" y cuáles son sus características?
 
-**El paradigma Serverless**. Las dos formas más comunes de arquitecturas sin servidor son función como servicio (AWS Lambda, Google Cloud Funcions, Azure Funcitions, IBM OpenWhisk) y Backend como servicio (p.ej. EMR, Firebase, etc.)
+**El paradigma Serverless**. Las dos formas más comunes de arquitecturas sin servidor son función como servicio (AWS Lambda, Google Cloud Functions, Azure Functions, IBM OpenWhisk) y Backend como servicio (p.ej. EMR, Firebase, etc.)
 
 
 Los usuarios buscamos pagar el tiempo de uso pero no pagar por una permanencia de tener una plataforma, aunque esté en desuso/inactiva/apagada. 
@@ -683,24 +683,24 @@ Los usuarios buscamos pagar el tiempo de uso pero no pagar por una permanencia d
 ![](/img/computacion/serverless_2.png)
 
 
-Hostless: La aplicación que he desarrollado en ningún servidor (ni virtual). 
-Elastic: Montable y desmontable. 
-Stateless: Generan un resultado y desaparecen. Los datos no se guardan en el propio servidor. 
-Event-driven. Reacciona un evento de una petición. Cuando recibe una petición se activa y cuando no se apaga. 
-Lego blocks. Diferentes máquinas virtuales que se están encendiendo en función de la cantidad de peticiones. 
-High Availability. 
-Usage-based cost. Pago por el tiempo de ejecución. 
+- Hostless: La aplicación que he desarrollado en ningún servidor (ni virtual). 
+- Elastic: Montable y desmontable. 
+- Stateless: Generan un resultado y desaparecen. Los datos no se guardan en el propio servidor. 
+- Event-driven. Reacciona un evento de una petición. Cuando recibe una petición se activa y cuando no se apaga. 
+- Lego blocks. Diferentes máquinas virtuales que se están encendiendo en función de la cantidad de peticiones. 
+- High Availability. 
+- Usage-based cost. Pago por el tiempo de ejecución. 
 
 
 ![](/img/computacion/serverless_3.png)
 
 
-##### Beneficios
+##### Beneficios de Serverless
 
 Desde la perspectiva empresarial... 
 
 - El coste se basa en el número de ejecuciones, medido en milisegundos vs. horas. 
-- Agilidad del proceso: entregas más rápida de funcioanlidades al mercado, aumenta la capacidad de adaptarse al cambio. 
+- Agilidad del proceso: entregas más rápida de funcionalidades al mercado, aumenta la capacidad de adaptarse al cambio. 
 - El coste de contratar ingenieros de infrafrestructura back-end se reduce. 
 - Costes operativos reducidos. 
 
@@ -708,7 +708,7 @@ Desde la perspectiva del desarrollador....
 - Responsabilidad reducida, sin infraestructura back-end de la que ser responsable. 
 - Cero administración del sistema. 
 - Gestión operativa más sencilla. 
-- Fomenta la dopción de Nanoservicios, Microservicios, Principios SOA. 
+- Fomenta la adopción de Nanoservicios, Microservicios, Principios SOA. 
 - Configuración más rápida. 
 - Escalable. 
 - Monitorización de la instalación por defecto (out of the box). 
@@ -718,7 +718,7 @@ Desde la perspectiva del usuario...
 - Implementar funcionalidades más rápido, los clientes recibirán nuevas funciones más rápido. 
 - Los usuarios pueden disponer de su propio back-end de almacenamiento (Dropbox, G Drive). 
 
-##### Inconvenientes. 
+##### Inconvenientes 
 
 Desde la perspectiva empresarial...
 - Reducción del control general. 
@@ -727,7 +727,7 @@ Desde la perspectiva empresarial...
 - El coste es impredecible porque el número de ejecuciones no está predefinido. 
 
 Desde la perspectiva del usuario...
-- A menos que se diseñe correctamente, la experiencia del usuario puede ser deficiente ocmo resultado del aumento de la latencia de las solicitudes. 
+- A menos que se diseñe correctamente, la experiencia del usuario puede ser deficiente como resultado del aumento de la latencia de las solicitudes. 
 
 ### ¿Qué es la FaaS, Function as a Service? 
 
@@ -738,9 +738,9 @@ Como consecuencia, el cliente debe comunicarse con muchas APIs diferentes. FaaS 
 
 ![](/img/computacion/serverless_4.png)
 
-### Qué es el back-end como servicio, BaaS?
+### ¿Qué es el back-end como servicio, BaaS?
 
-Busca solucionar las limitaciónd el Funcion-as-a-Service. La idea es bcombinar la facilidad de la cunión como servicio con todas las API y capacidades que requieren los sitios web o las aplicaciones móviles típicas. 
+Busca solucionar las limitaciones del Function-as-a-Service. La idea es combinar la facilidad de la funión como servicio con todas las API y capacidades que requieren los sitios web o las aplicaciones móviles típicas. 
 
 ![](/img/computacion/BaaS.png)
 
@@ -774,7 +774,6 @@ Externaliza/subcontrata la mayoría de las operaciones de almacenamiento, integr
 
 Es un modelo de nube que permite a los usuarios operar y trabajar con una red sin poseer, construir o mantener su propia infraestructura. NaaS puede reemplazar las VPN centradas en hardware, los balanceadores de carga, los dispositivos de firewall y las conexiones MPLS (Multiprotocol Label Switching). 
 
-
  #### Red tradicional vs. NaaS
 
 
@@ -785,7 +784,15 @@ Es un modelo de nube que permite a los usuarios operar y trabajar con una red si
 
 ![](/img/computacion/cisco_meraki.png)
 
+### Tipos de Cloud Computing 
 
+- Nube pública: un proveedor proporciona servicios de computación de forma abierta a todas las entidades que lo deseen, a cambio de una suscripción o pagar por uso. 
+- Nube privada: Cuando el proveedor realiza la implementación y la administración del sistema para la entidad que forma parte de ella. Esta decisión es apta cuando los clientes tienen un alto nivel de complejidad y necesitan centralizar sus recursos (grandes corporaciones o administraciones públicas). El sistema empleado más famoso para este tipo de aplicaciones es Openstack.
+- Nube híbrida
+
+![](/img/computacion/tipos_nubes.png)
+
+![](/img/computacion/nube_privada.png)
 
 16/12/22
 
