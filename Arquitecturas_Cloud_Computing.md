@@ -3,15 +3,15 @@
 Profesor: Miguel Torres Porta
 - Data Scientist at Cognizant
 
-## Distribución 
+## Distribución de la calificación
 
-Lab 1 - Finales de febrero | 20%
-Lab 2 - Mediados de marzo  | 20% 
-Test / Examen Lab | 25/03  | 60%
+- Lab 1 - Finales de febrero | 20%
+- Lab 2 - Mediados de marzo  | 20% 
+- Test / Examen Lab | 25/03  | 60%
 
 Grupos de 3 ó 4 personas    
 
-# Tabla de Contenidos 
+# Contenido del curso
 
 Unidad 1. Plataformas y Modelos de Servicio Cloud
 - Sistemas distribuidos
