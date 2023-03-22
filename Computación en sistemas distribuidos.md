@@ -10,10 +10,10 @@ Profesor: Alfonso Antolínez García
 - [Unidad 1. Sistemas altamente distribuidos](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/Computaci%C3%B3n%20en%20sistemas%20distribuidos.md#1-sistemas-altamente-distribuidos)
     - [Los sistemas distribuidos en el mundo Big Data](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/Computaci%C3%B3n%20en%20sistemas%20distribuidos.md#los-sistemas-distribuidos-en-el-mundo-del-big-data)
     - [Introducción a los sistemas distribuidos](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/Computaci%C3%B3n%20en%20sistemas%20distribuidos.md#introducci%C3%B3n-a-los-sistemas-distribuidos)
-    - Paradigma de programación paralela
-    - Tolerancia a fallos en sistemas distribuidos
-- Unidad 2. Sistemas cloud y virtualización de servicios
-    - Computación y almacenamiento en la nube
+    - [Paradigma de programación paralela](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/Computaci%C3%B3n%20en%20sistemas%20distribuidos.md#paradigma-de-programaci%C3%B3n-paralela)
+    - [Tolerancia a fallos en sistemas distribuidos](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/Computaci%C3%B3n%20en%20sistemas%20distribuidos.md#tolerancia-a-fallos-en-sistemas-distribuidos)
+- [Unidad 2. Sistemas cloud y virtualización de servicios](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/Computaci%C3%B3n%20en%20sistemas%20distribuidos.md#2-sistemas-cloud-y-virtualizaci%C3%B3n-de-servicios)
+    - [Computación y almacenamiento en la nube](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/Computaci%C3%B3n%20en%20sistemas%20distribuidos.md#computaci%C3%B3n-y-almacenamiento-en-la-nube)
     - Consolidación de servicios
     - Amazon AWS
     - Google Web Services
