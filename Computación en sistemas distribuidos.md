@@ -2,7 +2,7 @@
 
 Profesor: Alfonso Antolínez García
 
-# Tabla de Contenidos
+# Contenido del Curso
 
 - [Unidad 0. Objetivos del curso](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/Computaci%C3%B3n%20en%20sistemas%20distribuidos.md#unidad-0-objetivos-del-curso)
     - [Competencias específicas](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/Computaci%C3%B3n%20en%20sistemas%20distribuidos.md#unidad-0-objetivos-del-curso)
