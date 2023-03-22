@@ -1003,6 +1003,15 @@ En la fase Reduce, se compone de subfases: shuffle y reduce, propoiande deicha. 
 
 Apache Spark es un motor multilingüe aplicado a la ingeniería de datos, ciencia de datos y el aprendizaje automático en volúmentes de datos big data. Spark puede ejecutarse en clústeres o máquinas de un solo nodo. 
 
+Apache Spark es un framework de programación distribuida, que ofrece un alto rendimiento tanto para procesamiento por lotes como interactivo. Expone las API para Java, Python y Scala, y tiene una cantidad significativa de proyectos relacionados:
+
+![](/img/computacion/apache_spark_1.png)
+
+
+Para ejecutar aplicaciones distribuidas en un clúster, Spark requiere un administrador de clúster. Cuando se ejecuta en YARN, los procesos de la aplicación Spark son gestionados por los roles YARN ResourceManager y NodeManager.
+
+![](/img/computacion/arquitectura_spark.png)
+
 ## Qué lenguajes admite Spark? 
 
 Spark corre con Java, pero admite los siguientes lenguajes: 
@@ -1075,3 +1084,22 @@ Su objetivo es hacer que en la práctica el aprendizaje automático sea escalabl
 - Persistencia: guardado y carga de algoritmos, modelos y pipelines. 
 - MLlib. A partir de SPark 2.x la biblioteca Mllib comenzó a ser relegada en vaor de Spark ML. Está basada en RDDs mientas que Spark ML está basada en DataFrames. 
 - Mllib al ser la primera está más evolucionada que los DataFrames. 
+
+## Diferencias entre MapReduce y Apache Spark 
+
+
+Hadoop MapReduce y Apache Spark son dos frameworks de procesamiento de datos distribuidos ampliamente utilizados en el mundo de Big Data. Aquí están algunas diferencias clave entre ambos:
+
+- Arquitectura: Hadoop MapReduce sigue una arquitectura de procesamiento por lotes, mientras que Apache Spark tiene una arquitectura de procesamiento en tiempo real y también puede procesar datos en lotes.
+
+- Velocidad: Apache Spark es significativamente más rápido que Hadoop MapReduce debido a su capacidad para almacenar datos en memoria caché y procesarlos en paralelo.
+
+- Memoria: Hadoop MapReduce es un procesador de disco, lo que significa que todos los datos deben almacenarse en disco antes de procesarse. En contraste, Apache Spark utiliza memoria caché para almacenar datos en memoria, lo que acelera significativamente el proceso de procesamiento de datos.
+
+- Lenguajes de programación: Hadoop MapReduce admite Java, mientras que Apache Spark admite múltiples lenguajes de programación, incluidos Java, Scala, Python y R.
+
+- Ecosistema: Hadoop MapReduce se integra bien con el ecosistema de Hadoop, que incluye herramientas como HDFS, Hive y Pig. Apache Spark tiene su propio ecosistema de herramientas, incluidas Spark SQL, Spark Streaming y MLlib.
+
+- Flexibilidad: Apache Spark es más flexible que Hadoop MapReduce en términos de procesamiento de datos en diferentes formatos, como JSON, CSV y texto sin formato.
+
+En resumen, si la velocidad y la eficiencia son importantes, Apache Spark es la mejor opción. Si el ecosistema de Hadoop es importante para su organización, Hadoop MapReduce podría ser la mejor opción.

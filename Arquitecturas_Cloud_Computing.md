@@ -295,3 +295,204 @@ EC2 permite desplegar servidores virtuales en tu enorno AWS. Con las siguientes 
 - Sistema de almacenamietno de archvios. 
 - Permite la conexción de múltiples instancias en única instancia a través de los puntos de montaje. 
 
+# 3ra sesión: S3
+2/03/2023
+
+## Casos de Uso 
+
+- Snapchat: Optimiza costes, almacenado 1.5 trillones de fotos en Amazon S3 Glacier Instant Retrieval. 
+    - Analizanndo los patrones de acceso a los datos (los usuarios raramente accedían a sus fotos), necesitaban almacenar contenido que era accesidad una vez cada varios meses, con bajas latencias. 
+
+## Elastic Container Service (ECS)
+
+- Permite correr contenedores (Aplicaciones Docker) en un conjunto (clúster) de máquinas EC2.
+- Un contenedor contiene todo lo que la aplicación necesita para correr, sin incurrir un SO. Esto hace que tengan una alga portabilidad. 
+- Permite al usuario abstraerse de gestionar y administrar un clúster complejo 
+- La monitorizacion se hace a través de Amazon CloudWatch. 
+
+## Elastic Kubernetes Service (EKS)
+
+- Es una herramienta de orquestación de contenedores (va un poco más allá que ECS). 
+- Está diseñada para automatizar, desplegar, escalar y operar aplicaciones contenerizadas. 
+
+## Elastic Container Registry (ECR)
+- Repositorio de Contenedores Docker. 
+- Permite a lods desarrolladores a subir, bajar y gestionar su librería de imágenes Docker de manera segura y centralizada. 
+
+![](/img/arquitectura/ecr.png)
+
+## Simple Storage Service (S3)
+
+![](/img/arquitectura/s3.png)
+
+- Uno de los servicios de AWS más usados. 
+- Promovido para tener almacenamiento ilimitado, haciendo que sea altamente escalable (máx 5TB). 
+- Es un sistema de almacenamiento de objetos, y no de ficheros. **Cada objeto esta referenciado por una única URL. Internamente las "carpetas" (en realidad, buckets) están localizadas/indexadas por URL (o un identificador). 
+- No es un sistema jerárquico, como nuestros ordenadores. 
+- Sistema de almacenamiento por regiones. 
+- Amazon ofrece un durabilidad altísima. Debido a que guardan copia de los objetos en diferentes zonas de disponibilidad. 
+
+![](/img/arquitectura/s3_1.png)
+
+## Identity and Access Management (IAM) Service: Políticas de Acceso
+
+- Servicio de autenticación, autorización y gestión de acceso. 
+- Son documentos JSOn, que definien qué se puede acceder y qué no. 
+- Por ejemplo, dando permisos para acceder a ciertos servicios, recursos y regiones con el objetivo de garantizar el accceso apropiado a la infraestructura. Se puede gestionar por: 
+- Usuario 
+- grupos
+- Roles
+- **Políticas de acceso** las necesitamos para gestionar el acceso a los objetos que subamos a S3. 
+- Identity providers. Gestión de acceso para empresas terceras (Tableau, Google Analytics).
+
+## Handas On 
+
+- Creación de un bucket en S3
+- Generador de políticas
+- IP-based policies 
+- Encryption-based policies 
+
+``` bash
+
+aws ec2 describe instances | lista las máquinas virtuales 
+aws s3api list-buckets | enlista los buckets
+aws s3api create-bucket --bucket <nombre del bucket> | crea un bucket
+```
+
+
+## Examen
+
+- Teoría: 30%
+- Práctica: 30%
+- Lab 1: 20%
+- Lab 2: 20%
+
+
+
+- Teoría: PDFs 
+- Cómo crear una máquina
+- Jugar con las políticas de acceos 
+- Nos va a pedir que dibujemos una arquitectura usando Paint o Power Point. Hay que hacer una arquitectura a alto nivel. 
+- Leer la teoría: eso es más que suficiente. 
+- Las preguntas de toería son sobre los PDFs. 
+
+# 4ta sesión
+9/03/2023
+
+## Elastic Load Balancer (ELB)
+
+- Imagina que tennemos una app en EC2 y que diferentes usuarios acceden a ella. Puede fallar, dejar de estar operativa, no escala, etc. 
+
+Para manejar el acceso de usuarios, el ECB permite: 
+- Gestionar y controlar el flujo de entrada de peticiones a un grupo de máquinas, redistribuyendo las peticiones de manera equitativa. 
+- Puede ser EC2, lambda o contenedores. 
+- Es elástico por defecto. Escala por defecto para dar servicio al tráfico. 
+- Existen 3 tipos: aplicación, clásico y red. 
+
+## Lambda
+
+- Serverless o procesos sin servidor, que permiten ejecutar códigos sin necesidad de gestionar los recursos de (EC2). 
+- No hay necesidad de preocuparse por gestionar los recursos para ejecutar el código. AWS lo administra por el usuario 
+- Pago solo por el tiempo y el número de veces que se ejecuta el código. 
+- Lambda es un servicio altamente escalable de servicios serverless, con costes optimizados comparado con EC2. 
+
+### Componentes
+
+1. Función: es una compilación del código que has especificado, puede ser incluso hasta un contenedor. 
+2. Evento origen. Detonador que va a dar el origen para que la función se ejecute. 
+3. Disparador. Una operación generada por un evento origen que lanza la función. 
+4. Recursos: Los recursos necesarios para que la función se ejecute. 
+5. Log: Registros de los eventos que han ocurrido durante la ejecución. Guardados en AWS CloudWatch. 
+
+### Pasos esenciales
+
+1. Usar uno de los lenguajes soportados. 
+2. Configurar disparadores de ejecución. Eventos S3, Funciones de estado (Step Function).
+3. Cuando la función se ejecuta, solo se usarán los recursos que se hayan definido. 
+4. El tiempo de procesamiento se mide en ms y en el número de veces que se ha ejecutado la función. 
+
+## IAM: Roles
+
+
+## Hands-on 
+
+- Creación de políticas y roles. 
+- Creación de una fucnión lambda.
+- Integración de lambda con S3. 
+
+# 5ta sesión
+16/03/22
+## Teoría
+
+### Regiones en AWS
+
+### Virtual Private CLouds (VPC)
+
+AWS se compone de 4 grandes familias:
+1. Computación (máquinas virtuales y lambda)
+2. Almacenamiento (S3)
+3. BBDD
+4. Redes (VPC)
+
+- Son segmentos aislados en la nube pública, al que solo puede acceder el adminsrador y los usuarios que él designe. 
+- El objetivo es crear recursos en la VPC y que estos servicios no tengan acceso y manera de comunicarse a otros recursos fuera de ella. 
+- Se tiene que definir el rango de las IPs dentro de la VPC (usando bloques CIDR)
+- Internamente las VPCs se segmentan en subredes o subnets. 
+
+#### VPCs - Subnets 
+
+- Permiten segmentar las VPCs. 
+- Permiten una mejor gestión de los recursos y para aislar algunos recuross entre otors motivos. 
+- La distribución de IPs se hace usando notación CIDR (X.X.X.X/AA)
+
+#### Bloques CIDR 
+- Usados para seleccionar el rango de IPs disponible. 
+- La primera parte son grupos de direcciones (p. ej. 217.10.138.128, cada elemento no supera 255)  y comparten el mismo número de bits.
+- La notación incluye la máscara (/24) para indicar el número de direcciones reservadas. 
+- La direcciones IPs se utilizan para asignar recursos a nuestro sistema
+- Calculadora: (ipaddressguide.com/cide)
+
+
+### Bases de Datos 
+
+#### Amazon Relational Database Service (RDS)
+
+- Servicio  que hace que sea fácil configurar, operar y escalar una base de datos relaciona en la nube. 
+- Ofrecen servicios de replicación en caso de fallo en la base de datos. 
+- AWS gestiona la parte de back-ups y actualizaciones de las bases de datos. 
+- Ofrecen diferentes tipos de bases de datos relacionales como MySQL, MariaDB, ProsgresSQL, Aurora o SQL Server. 
+- Puedes eleegir el tamñao y tipo de dla instancia (como en EC2) en la que va a correr la BBDD. 
+-
+
+#### Dyanmo DB
+- Base de datos NoSql de tipo Clave-Valor
+- Los datos se almacenan de manera no estructurada
+- Alta capaicdad de datos no estructurados. 
+- Difícil manejo al no tener estándares definidos para las consultas. 
+
+
+
+
+# Hands-on
+
+- VPC creatio n
+- Elastic IP en instancias EC2
+- RDS
+
+
+- Dynamo DB
+
+# 6ta sesión
+21/03/22
+
+![](/img/arquitectura/pregunta_ejemplo.png)
+
+![](/img/arquitectura/pregunta_ejemplo_2.jpg)
+
+![](/img/arquitectura/pregunta_ejemplo_3.png)
+
+![](/img/arquitectura/pregunta_ejemplo_4.png)
+
+![](/img/arquitectura/pregunta_ejemplo_5.png)
+
+
