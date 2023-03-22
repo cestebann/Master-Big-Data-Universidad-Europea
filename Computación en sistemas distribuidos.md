@@ -2,14 +2,14 @@
 
 Profesor: Alfonso Antolínez García
 
-# Contenido del Curso
+# Tabla de Contenidos
 
-- [Unidad 0. Objetivos del curso](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/Computaci%C3%B3n%20en%20sistemas%20distribuidos.md#unidad-0-objetivos-del-curso)
-    - [Competencias específicas](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/Computaci%C3%B3n%20en%20sistemas%20distribuidos.md#unidad-0-objetivos-del-curso)
-    - [Resultados del aprendizaje](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/Computaci%C3%B3n%20en%20sistemas%20distribuidos.md#resultados-de-aprendizaje)
-- [Unidad 1. Sistemas altamente distribuidos](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/Computaci%C3%B3n%20en%20sistemas%20distribuidos.md#1-sistemas-altamente-distribuidos)
-    - [Los sistemas distribuidos en el mundo Big Data](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/Computaci%C3%B3n%20en%20sistemas%20distribuidos.md#los-sistemas-distribuidos-en-el-mundo-del-big-data)
-    - [Introducción a los sistemas distribuidos](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/Computaci%C3%B3n%20en%20sistemas%20distribuidos.md#introducci%C3%B3n-a-los-sistemas-distribuidos)
+- Unidad 0. Objetivos del curso
+    - Competencias específicas
+    - Resultados del aprendizaje
+- Unidad 1. Sistemas altamente distribuidos
+    - Los sistemas distribuidos en el mundo Big Data
+    - Introducción a los sistemas distribuidos
     - Paradigma de programación paralela
     - Tolerancia a fallos en sistemas distribuidos
 - Unidad 2. Sistemas cloud y virtualización de servicios
@@ -22,11 +22,11 @@ Profesor: Alfonso Antolínez García
     - Hadoop Distributed File System
     - Arquitectura de cómputo de Hadoop.
     - Ejecución de aplicaciones en Apache Hadoop.
-- <s>Unidad 4. Programación en Scala</s>
-    - <s>Introducción al lenguaje Scala</s>
-    - <s>Estructuras de control y definición de funciones</s>
-    - <s>Listas y contenedores</s>
-    - <s>Programación funcional</s>
+- Unidad 4. Programación en Scala
+    - Introducción al lenguaje Scala
+    - Estructuras de control y definición de funciones
+    - Listas y contenedores
+    - Programación funcional
 - Unidad 5. Computación distribuida con Apache Spark
     - Introducción a Apache Spark
     - Programación de aplicaciones con Apache Spark
@@ -636,7 +636,10 @@ Si comparamos con una infraestructura IT local tradicional:
 - Reduce los costes asociados a IT: ahorra el esfuerzo de comprar, instalar, configurar y administrar la instraestructura local. 
 - Mayor agilidad y el tiempo de creación de valor (time-to-value) con la nube, la organización puede comenzar a usar aplicaciones en minutos, en lugar de esperar semanas o meses a que IT responda a una solicitud, compre y configure hardware e instale software. 
 - Trabajar en la nube democractiza  la instalación y despligue del software y la infraestructura de soporte. 
-- Desde el punto financiero, le permite traspsar este costo de un CapEx a OpEx. La compra de equipamiento técnico supone presupuesto CapEx, mientras que el uso de equipos arrendados supone presupuesto OpEx (gasto corriente). 
+
+Desde el punto financiero, 
+
+- le permite traspsar este costo de un CapEx a OpEx. La compra de equipamiento técnico supone presupuesto CapEx, mientras que el uso de equipos arrendados supone presupuesto OpEx (gasto corriente). 
 
 ### Servicios en la nube (x as a Service)
 
@@ -644,9 +647,7 @@ Si comparamos con una infraestructura IT local tradicional:
 
 ![](/img/computacion/x_as_a_service_2.png)
 
-#### ¿Qué es la IaaS?
-
-
+#### ¿Qué es la IaaS (Infrastructure as a Service)?
 
 ![](/img/computacion/IaaS.png)
 
@@ -654,7 +655,7 @@ Es una forma  de computación en la nube que proporciona componentes informátic
 
 Los consumidores del IaaS no administran ni controlan la infraestructura física de la nube, pero tienen control sobre los SOs, el almacenamiento y las aplicaciones implementadas.
 
-Las empresas tradicionales que necesitan capacidad de cómputo para ejectuar cargas de trabajo variables/puntuales ocn un presupuesto ajustado  son casos de uso perfecto de adopción de Iaas, ya que sólo pagarán por los recursos que neceistan. 
+Las empresas tradicionales que necesitan capacidad de cómputo para ejectuar cargas de trabajo variables/puntuales con un presupuesto ajustado  son casos de uso perfecto de adopción de IaaS, ya que sólo pagarán por los recursos que necesitan. 
 
 #### PaaS (Platform as a Service)
 
@@ -667,6 +668,8 @@ Ofrece entornos operativos/de desarrollo como servicio. Un proveedor de PaaS alo
 ![](/img/computacion/saas_2.png)
 
 Proporciona al consumidor la capacidad de utilizar las aplicaciones del proveedor de la infraestructura en la nube. Las aplicaciones puede ser accedidas desde dispositiovs de cliente a través de un navegador web (correo electrónico), dispositivos móviles, etc. 
+
+Las SaaS están orientadas más al consumo que al desarrollo/despliegue de aplicaciones. 
 
 #### ¿Qué es el paradigma "Sin Servidor", o "Serverless Paradigm" y cuáles son sus características?
 
