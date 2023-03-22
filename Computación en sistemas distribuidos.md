@@ -794,103 +794,15 @@ Es un modelo de nube que permite a los usuarios operar y trabajar con una red si
 
 ![](/img/computacion/nube_privada.png)
 
-16/12/22
-
-NetBIOS es el protocolo de unidades de red que implementa Windows, y es el software que hace visible los recursos de un equipo a través de la red para que lo utilicen otros, para compartir de un PC a otros. Linux y la comunidad hicieron algo parecido, SAMBA, no solo se puede compartir recursos y ficheros entre SOs Windows, sino también entre SOs Linux y Windows. NFS (Network File System) es un protocolo que permite compartir recursos entre SO Linux. 
-
-¿Qué es YARN? - Es el clúster que Permite que las aplicaciones que corren en el clúster tengan alta disponibilidad independientemente de los fallos que ocurran, por medio de los nodos en el sistema. 
-
-¿Qué es Hadoop? - Es el sistema de ficheros distribuido. Es la implementación que nos va a permitir que los nodos compartan sus recursos como si fuesen uno solo disco virtual. Permite que los nodos se interconecten y se compartan los recursos de estos. Permite replicar los datos entre cada uno de los datos, trocearlos y replicarlos, para que en caso de fallo de uno de los nodos, podamos recuperar un fichero completamente siempre.  
-
-- YARN: Gestor del clúster. Keep Alive. Sistema distrbuidor de cargas, se encarga de mantener y distribuir las cargas en los diferentes nodos del clúster. Ahora Hadoop recomienda no utilizar Yarn. 
-- HDFS: Sistema de gestión de ficheros. Se encarga de generar réplicas en distintos nodos, gestiona el acceso a los datos. Tiene su propio formato. 
-
-
-En Hadoop, tenemos 
-- **Namenodes.** Es el nodo que actúa como *master* o coordinador general, es el nodo maestro. 
-- **Datanodes.** Nodos que comparten recursos. 
-
-![](/img/computacion/hadoop.png)
-
-
-Cada cierto tiempo Yarn va a mandarle una llamada a cada uno de los nodos para ver si están funcionando correctamente. Si el nodo no respondiera, el namenode va a mandarle un par de señales más. Si no contesta, el namenode lo va a desconectar, lo va a dar por perdido. 
-
-Vamos a ver los comandos para que podamos navegar por Hadoop. 
-
-Los sistemas Hadoop se diseñaron especialmente para funcionar con sistemas de disco. La información se lee y se graba en un disco. La arquitectura distribuida en Hadoop consiste en trocear un problema, distribuirlo a diferentes nodos (map), resolver una solución parcial local y luego ensamblar las soluciones parciales en una solución global (reduce). Esto se realiza gracias a **map reduce**. *Map* es aplicar a los nodos una función troceada.  En Map pasas una función y una lista a la que hay que aplicarle la función y el sistema itera en cada uno de los índices de la lista aplicándole la función. *Reduce* significa una vez tengo las soluciones parciales, reducirlas a una sola solución.
-
-Protocolo SSL. Es un protocolo de seguridad para encriptar la información. 
-
-
-Hay varios formatos de ficheros  de interacambio de información (JSON, XML,CSV), pero no son óptimos para consultas. 
-
-En el mundo Big Data se utilizan consultas de ficheros en disco, directamente consultar los ficheros sin cargar la info en la BBDD. Para este tipo de arquitectura se guarda la info en formatos .parquet y .orc. El formato parquet admite metadatos, y la información se guarda en columnas (formato columnar). La información no está optimizada para el almacenamiento de datos sino para su consulta. Ejemplos que usan el formmato columnar son AWS y BigQuery. La consulta en el formato columnar es mucho más rápida. 
-
-Aparte de permitir la consulta rápida, el formato columnar permite comprimir en disco y ahorrar mucho espacio. 
-
-
-Comandos que permiten la configuración del servicio 
-
-
-```bash
-
-vi core-site.yml
-vi hdfs-site.yml
-vi yarn-site.yml
-vi mapred-site.yml
-
-```
-
-Los comnados para entornos de servicios: Configurar o definir cómo se conectan los servicios (.sh/.cmd)
-
-```bash
-hadoop-env.sh (Entornos Linux)
-hadoop-env.cmd (Entornos Windows)
-mapred-env.sh
-mapred-env.cmd 
-yarn-env.cmd 
-yarn-env.sh
-```
-
-
-
-
-
-
-
-
-17/01/2023
-
-``` bash
-
-- Recuperar la configuración inicial del sistema y el URL que debemos introducir para acceder: hdfs getconf -confKey fs.defaultFS (p.ejem. "hudfs://tucan:9000)
-- Recuperar el punto de acceso al clúster (en  proceso de extinción): hdfs getconf -confKey fs.default.name
-- Observar el nombre de los namenodes: hdfs getconf -namenodes
-- Lisa de comandos: hdfs dfs 
-- Enlistar los archivos de Hadoop: hdfs dfs -ls <ruta>
-- Crear un diretorio: hdfs dfs -mkdir <ruta> <nombre de la carpeta>
-- Reemplazar un directorio existente: hdfs dfs -mkdir -p <ruta/nombre de la carpeta>
-- Enlistar los ficheros con sus tamaños correspondientes: hdfs fs -ls -h <ruta>
-- Listar todos los ficheros y directorios recursivamente (con subdirectorios): hdfs dfs -ls -R /
-- Crear un archivo vacío: Hdfs dfs -touchz <ruta> <nombre>.txt
-- Copiar de un sistema local a Hadoop: hdfs dfs -copyFromLocal 
-- Subir un archivo a HDFS: hdfs dfs -put <ruta/nombre del archivo> <ruta de destino>
-- Sobrescribir un archivo existente a HDFS: hdfs dfs -put -f /home/file1 /hadoop
-- Copiar el fichero ‘file1’ de hdfs al sistema de ficheros local: hdfs dfs -get /file1 /home/ <ruta destino>	
-- Leer un archivo de Hadoop: hdfs dfs -cat <ruta/nombre del texto>
-- Eliminar un fichero: rm <ruta/nombre del archivo>
-- Copiar el fichero ‘file1’ del sistema de ficheros local a hdfs y luego lo borra del sist. ficheros local: hdfs dfs -moveFromLocal <ruta/nombre del archivo>
-- Copiar un archivo dentro Hadoop: hdfs dfs -cp <ruta/nombre archivo origen> <ruta/nombre archivo destino>
-- Mover un archivo dentro Hadoop: hdfs dfs -mv <ruta/nombre archivo origen> <ruta/nombre archivo destino>
-- Borrar ficheros en un directorio remoto: hdfs dfs -rm -r <ruta/nombre del archivo>
-- Ver el tamaño de los ficheros y directorios: hdfs dfs -du <ruta/nombre>
-- Ver el tamaño de los ficheros: hdfs dfs -du -s  <ruta/nombre> /* The -s option will result in an aggregate summary of file lengths being displayed, rather than the individual files. */
-- Ver los metadatos de los ficheros: hdfs dfs -stat <ruta>/*  /* el asterisco sirve para que nos dé los metadatos individualmente para cada directorio o fichero individualmente contenido en la ruta. 
-- Cambiar el factor de replicación recursiamente : hdfs dfs -setrep -w <número de réplicas> <ruta/nombre archivo> /* La w es de Wait y solicita que se espere a la finalización de las réplicas para que el commando se complete. /*
- 
-```
-
 ## Consolidación de servicios
+
+La consolidación de servicios basada en máquinas virtuales (MV) es una técnica eficaz para mejorar la utilización de los recursos y reducir la huella energética en los centros de datos en la nube.
+
+### Objetivos 
+
+- Abordar el proceso de consolidación de servicios.
+- Comprender las consideraciones sobre la virtualización del almacenamiento y de la red.
+- Analizar el plan de ejecución en la consolidación de servidores.
 
 ### ¿Qué es la virtualización de los servidores? 
 
@@ -904,15 +816,26 @@ Cada máquina virtual ejecuta su propio sistema operativo y se comporta como una
 
 De lo anterior se deduce que la virtualización permite una utilización m+ás eficiente del hardware físico y con ello un mayor retorno de la inversión del hardware de una empresa. 
 
-### ¿Cuáles son los beneficios de la virtualización?
+La consolidación de servidores es un enfoque para el uso eficiente de los recursos de los servidores, con el objetivo de reducir el número total de servidores o ubicaciones de servidores que una organización necesita. Su implementación responde al problema de la **dispersión de servidores**, una situación en la que varios servidores infrautilizados ocupan más espacio y consumen más recursos de los que su carga de trabajo puede justificar.
+
+#### ¿Cuáles son los beneficios de la virtualización?
 
 La virtualización asporta varios beneficios a los operadores de centros de datos y proveeedores de servicios: 
-- Eficiencia de los recursos: Cada servidor de aplicacione srequería su propia CPU física dedicada. Ls recursos sobrantes no se aprovechaban cuando estaban separados.
-- Administración mpas sencilla. Reemplazar las computaodras físicas con máquinas virtuales definidas por software facilita el uso y la administración del software. 
-- Tiemmpo de inactividad mínimo: Los fallos del SO y de las aplicaciones pueden causar tiempo de inactividad e interrumpir 
+- Ahorro de recursos, coste y reinversión de los fondos: Cada servidor de aplicaciones requería su propia CPU física dedicada. Los recursos sobrantes no se aprovechaban cuando estaban separados.
+- Mejora de la administración de TI y mejora del proceso de toma de decisiones. Reemplazar las computaodras físicas con máquinas virtuales definidas por software facilita el uso y la administración del software. 
+- Tiempo de inactividad mínimo: Los fallos del SO y de las aplicaciones pueden causar tiempo de inactividad e interrumpir 
 - Aprovisionamiento más rápido: Comprar, instalar y configurar hardware para cada aplicación requiere mucho tiempo. Si se dispone de hardware ya instalado, el aprovisionamiento de máquinas virutales es significativamente más rápido. Incluso puede automatizarse utilizando un software de gestión e integrarlo en los flujos de trabajo existentes. 
+- Mejor seguridad
 
-### ¿Cuántas soluciones de virtualización conoces? 
+### Virtualización de servidores 
+
+Existen tres formas de crear servidores virtuales: 
+1. virtualización completa: usa un hipervisor. 
+2. paravirtualización: A diferencia de una v-completa, los servidores invitados en un sistema de paravirtualización son conscientes el uno del otro.
+3. virtualización de nivel de sistema operativo: No utiliza un hipervisor en absoluto. En cambio, la capacidad de virtualización es parte del SO anfitrión. El mayor inconveniente es que las VM huésped van a tener el mismo SO que el anfitrión. 
+
+
+#### ¿Cuántas soluciones de virtualización conoces? 
 
 - **VMware** especializada en virtualización de servidores, escritorios, redes y almacenamiento. 
 - **Microsoft Hyper-V** se enfoca en virtualización de servidores y PCs de escriotrio. 
@@ -920,9 +843,16 @@ La virtualización asporta varios beneficios a los operadores de centros de dato
 - **Oracle VirtualBox** es un hipervisor que permite crear máquinas x86 virtuales. 
 - **IBM Linux for System z** permite ejecutar Linux en un sistema S/390 o System Z
 
-## ¿Cuál es la virtualización de redes SAN?
+### Virtualización de la red de interconexión 
 
-una red de área de almacenamiento (storage area network, SAN) es una red o subred dedicada de alta velocidad que se interconecta y presenta grupos ocmapartidos de dispositovs de almacenamiento a varios servidores. 
+La virtualización de red es el proceso de combinar recursos de red de hardware y software en una única entidad administrativa basada en software.
+
+El objetivo de la virtualización de red es mejorar el rendimiento general de una red y su seguridad. 
+
+
+#### ¿Cuál es la virtualización de redes SAN?
+
+Una red de área de almacenamiento (Storage Srea network, SAN) es una red o subred dedicada de alta velocidad que se interconecta y presenta grupos compartidos de dispositvos de almacenamiento a varios servidores. 
 
 
 ![](/img/computacion/san.png)
@@ -930,77 +860,20 @@ una red de área de almacenamiento (storage area network, SAN) es una red o subr
 ![](/img/computacion/san_2.png)
 
 
+### Mecanismos de consolidación de servicios 
 
-24/01/2023
-
-Se puso a hablar de bare-metal hypervisor
-
-![](/img/computacion/bare-metal-hypervisor.png)
-
-"Vamos a ver la parte que nos quedaba de los comandos de Hadoop."
-
-Comienza así: 
-- Listar el contenido del sistema de ficheros de HDFS - hdfs dfs -ls
--hdfs dfs -setrep -w (el white [-w] sirve para que cuando cambiamos el factor de replicacioón el sistema se queda pensando y no devuelve el control de la terminal, hasta haber completado la operación) 6 <ruta/nombre_fichero>
-- para savber el factor de replicación: hdfs dfs -stat %r
+1. Consolidación física.
+2. Re-hosting.
+3. Consolidación lógica.
 
 
-#### Cómo ejecutamos trabajos en Hadoop 
+# 3. Hadoop como sistema de cómputo en sistemas distribuidos
 
-Vamos a ver cómo se ejecutan problemas en Hadoop...
+- Abordar el sistema de ficheros empleado por Apache Hadoop.
+- Analizar las características de HDFS.
+- Reconocer el modelo arquitectónico de HDFS.
 
-Un ejemplo es clásico, estre programa permite hacer wordcounts. Tenemos diferentes infraestructuras que generan ficheros de logs. Lo que podemos hacer es que las cadenas de textos vuelquen en un directorio concreto. Vamos a buscar dentro de esos ficheros de textos, palabras como "Attention", "Error", "Warning".
-
-Cada uno de los nodos hace una búsqueda de las cadenas que les hemos pedido que busquen y las cuentan, luego el sistema nos devuelve la suma de las sumas. 
-
-Vamos a crear un directorio en Hadoop llamado "Entrada" y otro llamado "Salida". 
-
-hdfs dfs -put Word_count1.txt grupo2/entradas | estoy desplazando un fichero de mi servidor local a HDFS
-
-vamos a agregar un fichero jar (fichero compilado)
-
-ls /usr/local/hadoop/share/hadoop/mapreduce
-hadoop jar /usr/local/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-examples-3.2.1.jar wordcount <ruta/nombre_archivo>
-
-- Hadoop jar para indicarle un fichero ya compilado
-- Ruta donde se encuentre el fichero
-- Clase que queremos que se ejecute 
-- Darle 3 parámetros: la clase, la ruta del fichero de entrada y la ruta del fichero de salida.
-
-Se mete a Yarn. 
-
-Vemos los archivos que devolvió en la carpeta 
-- hdfs dfs -ls grupo_2/salida (para ver los ficheros de salida)
-
-Los sistemas de alta disponibilidad particionan los ficheros. Como el acceso a disco es muy lento, particionan para que no haya concurrencia, para que el procesamiento sea lo más fluido posible. 
-
-*ahora vamos a abrir algo en Yarn*
-
-HDFS no tiene capacidad sobre sí mismo, le entrega las tareas o aplicaciones a ejecutar al clúster de Yarn. 
-
-yarn jar /usr/local/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-examples-3.2.1.jar wordcount <ruta/nombre_archivo>
-
-Con este comando, yarn ejecuta la tarea en lugar de HDFS.
-
-
-
-
-
-7/02/23
-
-De cara a la segunda actividad, 
-
-- Conceptos de arquitectura, hacer una propuesta de una arquitectura Hadoop. 
-- Se tratas de decir número de nodos, cómo lo montaríamos , características de la arq. 
-- Ventajas e inconvenientes
-
-De cara al examen. 
-
-- Las ppts son complementarias al contenido oficial. Son temas prácticos. 
-- Pueden entrar comandos de Hadoop. 
-- El examen va a ser tipo test. 
-
-# Unidad 3. Hadoop como sistema de cómputo en sistemas distribuidos
+## 1. Introducción a Hadoop Distributed File System (HDFS)
 
 Hadoop fue diseñado por Michael Carafella en 2005. 
 El equivalente a sistemas de ficheros Hadoop se inspiró inicialmente en el Google File System (GFS). 
@@ -1008,9 +881,25 @@ GFS fue reemplazado por Colossus en 2010
 Colossus es un sistema de ficheros orientado al procesamiento en Tiempo Real. 
 Colossus ya no usa la tecnología MapReduce para el cálculo de los índices de búscqueda, por estar orientado a procesos batch. 
 
-## Hadoop 
+Apache Hadoop es un proyecto de software *open source* para computación distribuida, escalable y de confianza. Además, ofrece un framework que permite la computación distribuida de grandes conjuntos de datos, usando clústeres de ordenadores y mediante el uso de modelos de programación simples.
 
-Hadoop incorpora la tecnología Hadoop Distributed File System (HDFS) para el almacenamiento de grandes cantidades de datos, la tecnología Map Reudce para el procesamiento de la información YARN (Yet Another Resource Negotiatio) como gestior del clúster (a partir de la version 2.0). 
+Apache Hadoop está diseñado para poder pasar de un solo servidor a miles de máquinas (scale-up), donde cada una ofrece tanto computación como capacidades de almacenamiento.
+
+El framework está diseñado para detectar y tratar fallos a nivel de aplicación. Esto permite ofrecer servicios con alta disponibilidad sobre un clúster de ordenadores, aunque estos presenten fallos durante la ejecución de las aplicaciones. Los fallos pueden ser debidos tanto por software, una mala implementación, o por hardware, fallo en algún componente, como la memoria o la red de interconexión.
+
+Actualmente, Hadoop es un proyecto de código abierto bajo licencia Apache.
+
+Hadoop se compone de tres elementos principales: 
+1. MapReduce
+2. Hadoop Common 
+3. HDFS.
+
+
+Hadoop incorpora la tecnología Hadoop Distributed File System (HDFS) para el almacenamiento de grandes cantidades de datos, la tecnología Map Reduce para el procesamiento de la información YARN (Yet Another Resource Negotiatior) como gestior del clúster (a partir de la version 2.0). 
+
+### 
+
+
 
 ![](/img/computacion/hadoop2.0.png)
 
@@ -1105,8 +994,6 @@ Los dataNodes son los responsalbes de servir las peticiones de lectura y escritu
 Los dataNodes se encargan también de la creación de los bloques. 
 
 ## ¿Cómo funciona el sistema de replicación en HDFS?
-
-
 
 ![](/img/computacion/replicacion_bloques.png)
 
@@ -1205,6 +1092,171 @@ La filosofía de operación de Map se basa en procesar la información, allí do
 
 En la fase Map, las funciones definidas por el usuario procesasn l ainformación de netradas. Etas funciones incluyen la lógica de negocio. 
 En la fase Reduce, se compone de subfases: shuffle y reduce, propoiande deicha. La entrada a esta fase, se corresponde con los datos de salidad de la fase map anterior. Los datos recibidos desde el paso anterior map, son pasalos al Reducer. 
+
+
+16/12/22
+
+NetBIOS es el protocolo de unidades de red que implementa Windows, y es el software que hace visible los recursos de un equipo a través de la red para que lo utilicen otros, para compartir de un PC a otros. Linux y la comunidad hicieron algo parecido, SAMBA, no solo se puede compartir recursos y ficheros entre SOs Windows, sino también entre SOs Linux y Windows. NFS (Network File System) es un protocolo que permite compartir recursos entre SO Linux. 
+
+¿Qué es YARN? - Es el clúster que Permite que las aplicaciones que corren en el clúster tengan alta disponibilidad independientemente de los fallos que ocurran, por medio de los nodos en el sistema. 
+
+¿Qué es Hadoop? - Es el sistema de ficheros distribuido. Es la implementación que nos va a permitir que los nodos compartan sus recursos como si fuesen uno solo disco virtual. Permite que los nodos se interconecten y se compartan los recursos de estos. Permite replicar los datos entre cada uno de los datos, trocearlos y replicarlos, para que en caso de fallo de uno de los nodos, podamos recuperar un fichero completamente siempre.  
+
+- YARN: Gestor del clúster. Keep Alive. Sistema distrbuidor de cargas, se encarga de mantener y distribuir las cargas en los diferentes nodos del clúster. Ahora Hadoop recomienda no utilizar Yarn. 
+- HDFS: Sistema de gestión de ficheros. Se encarga de generar réplicas en distintos nodos, gestiona el acceso a los datos. Tiene su propio formato. 
+
+
+En Hadoop, tenemos 
+- **Namenodes.** Es el nodo que actúa como *master* o coordinador general, es el nodo maestro. 
+- **Datanodes.** Nodos que comparten recursos. 
+
+![](/img/computacion/hadoop.png)
+
+
+Cada cierto tiempo Yarn va a mandarle una llamada a cada uno de los nodos para ver si están funcionando correctamente. Si el nodo no respondiera, el namenode va a mandarle un par de señales más. Si no contesta, el namenode lo va a desconectar, lo va a dar por perdido. 
+
+Vamos a ver los comandos para que podamos navegar por Hadoop. 
+
+Los sistemas Hadoop se diseñaron especialmente para funcionar con sistemas de disco. La información se lee y se graba en un disco. La arquitectura distribuida en Hadoop consiste en trocear un problema, distribuirlo a diferentes nodos (map), resolver una solución parcial local y luego ensamblar las soluciones parciales en una solución global (reduce). Esto se realiza gracias a **map reduce**. *Map* es aplicar a los nodos una función troceada.  En Map pasas una función y una lista a la que hay que aplicarle la función y el sistema itera en cada uno de los índices de la lista aplicándole la función. *Reduce* significa una vez tengo las soluciones parciales, reducirlas a una sola solución.
+
+Protocolo SSL. Es un protocolo de seguridad para encriptar la información. 
+
+
+Hay varios formatos de ficheros  de interacambio de información (JSON, XML,CSV), pero no son óptimos para consultas. 
+
+En el mundo Big Data se utilizan consultas de ficheros en disco, directamente consultar los ficheros sin cargar la info en la BBDD. Para este tipo de arquitectura se guarda la info en formatos .parquet y .orc. El formato parquet admite metadatos, y la información se guarda en columnas (formato columnar). La información no está optimizada para el almacenamiento de datos sino para su consulta. Ejemplos que usan el formmato columnar son AWS y BigQuery. La consulta en el formato columnar es mucho más rápida. 
+
+Aparte de permitir la consulta rápida, el formato columnar permite comprimir en disco y ahorrar mucho espacio. 
+
+
+Comandos que permiten la configuración del servicio 
+
+
+```bash
+
+vi core-site.yml
+vi hdfs-site.yml
+vi yarn-site.yml
+vi mapred-site.yml
+
+```
+
+Los comnados para entornos de servicios: Configurar o definir cómo se conectan los servicios (.sh/.cmd)
+
+```bash
+hadoop-env.sh (Entornos Linux)
+hadoop-env.cmd (Entornos Windows)
+mapred-env.sh
+mapred-env.cmd 
+yarn-env.cmd 
+yarn-env.sh
+```
+
+
+
+
+
+
+
+
+17/01/2023
+
+``` bash
+
+- Recuperar la configuración inicial del sistema y el URL que debemos introducir para acceder: hdfs getconf -confKey fs.defaultFS (p.ejem. "hudfs://tucan:9000)
+- Recuperar el punto de acceso al clúster (en  proceso de extinción): hdfs getconf -confKey fs.default.name
+- Observar el nombre de los namenodes: hdfs getconf -namenodes
+- Lisa de comandos: hdfs dfs 
+- Enlistar los archivos de Hadoop: hdfs dfs -ls <ruta>
+- Crear un diretorio: hdfs dfs -mkdir <ruta> <nombre de la carpeta>
+- Reemplazar un directorio existente: hdfs dfs -mkdir -p <ruta/nombre de la carpeta>
+- Enlistar los ficheros con sus tamaños correspondientes: hdfs fs -ls -h <ruta>
+- Listar todos los ficheros y directorios recursivamente (con subdirectorios): hdfs dfs -ls -R /
+- Crear un archivo vacío: Hdfs dfs -touchz <ruta> <nombre>.txt
+- Copiar de un sistema local a Hadoop: hdfs dfs -copyFromLocal 
+- Subir un archivo a HDFS: hdfs dfs -put <ruta/nombre del archivo> <ruta de destino>
+- Sobrescribir un archivo existente a HDFS: hdfs dfs -put -f /home/file1 /hadoop
+- Copiar el fichero ‘file1’ de hdfs al sistema de ficheros local: hdfs dfs -get /file1 /home/ <ruta destino>	
+- Leer un archivo de Hadoop: hdfs dfs -cat <ruta/nombre del texto>
+- Eliminar un fichero: rm <ruta/nombre del archivo>
+- Copiar el fichero ‘file1’ del sistema de ficheros local a hdfs y luego lo borra del sist. ficheros local: hdfs dfs -moveFromLocal <ruta/nombre del archivo>
+- Copiar un archivo dentro Hadoop: hdfs dfs -cp <ruta/nombre archivo origen> <ruta/nombre archivo destino>
+- Mover un archivo dentro Hadoop: hdfs dfs -mv <ruta/nombre archivo origen> <ruta/nombre archivo destino>
+- Borrar ficheros en un directorio remoto: hdfs dfs -rm -r <ruta/nombre del archivo>
+- Ver el tamaño de los ficheros y directorios: hdfs dfs -du <ruta/nombre>
+- Ver el tamaño de los ficheros: hdfs dfs -du -s  <ruta/nombre> /* The -s option will result in an aggregate summary of file lengths being displayed, rather than the individual files. */
+- Ver los metadatos de los ficheros: hdfs dfs -stat <ruta>/*  /* el asterisco sirve para que nos dé los metadatos individualmente para cada directorio o fichero individualmente contenido en la ruta. 
+- Cambiar el factor de replicación recursiamente : hdfs dfs -setrep -w <número de réplicas> <ruta/nombre archivo> /* La w es de Wait y solicita que se espere a la finalización de las réplicas para que el commando se complete. /*
+ 
+```
+
+
+24/01/2023
+
+Se puso a hablar de bare-metal hypervisor
+
+![](/img/computacion/bare-metal-hypervisor.png)
+
+"Vamos a ver la parte que nos quedaba de los comandos de Hadoop."
+
+Comienza así: 
+- Listar el contenido del sistema de ficheros de HDFS - hdfs dfs -ls
+-hdfs dfs -setrep -w (el white [-w] sirve para que cuando cambiamos el factor de replicacioón el sistema se queda pensando y no devuelve el control de la terminal, hasta haber completado la operación) 6 <ruta/nombre_fichero>
+- para savber el factor de replicación: hdfs dfs -stat %r
+
+
+#### Cómo ejecutamos trabajos en Hadoop 
+
+Vamos a ver cómo se ejecutan problemas en Hadoop...
+
+Un ejemplo es clásico, estre programa permite hacer wordcounts. Tenemos diferentes infraestructuras que generan ficheros de logs. Lo que podemos hacer es que las cadenas de textos vuelquen en un directorio concreto. Vamos a buscar dentro de esos ficheros de textos, palabras como "Attention", "Error", "Warning".
+
+Cada uno de los nodos hace una búsqueda de las cadenas que les hemos pedido que busquen y las cuentan, luego el sistema nos devuelve la suma de las sumas. 
+
+Vamos a crear un directorio en Hadoop llamado "Entrada" y otro llamado "Salida". 
+
+hdfs dfs -put Word_count1.txt grupo2/entradas | estoy desplazando un fichero de mi servidor local a HDFS
+
+vamos a agregar un fichero jar (fichero compilado)
+
+ls /usr/local/hadoop/share/hadoop/mapreduce
+hadoop jar /usr/local/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-examples-3.2.1.jar wordcount <ruta/nombre_archivo>
+
+- Hadoop jar para indicarle un fichero ya compilado
+- Ruta donde se encuentre el fichero
+- Clase que queremos que se ejecute 
+- Darle 3 parámetros: la clase, la ruta del fichero de entrada y la ruta del fichero de salida.
+
+Se mete a Yarn. 
+
+Vemos los archivos que devolvió en la carpeta 
+- hdfs dfs -ls grupo_2/salida (para ver los ficheros de salida)
+
+Los sistemas de alta disponibilidad particionan los ficheros. Como el acceso a disco es muy lento, particionan para que no haya concurrencia, para que el procesamiento sea lo más fluido posible. 
+
+*ahora vamos a abrir algo en Yarn*
+
+HDFS no tiene capacidad sobre sí mismo, le entrega las tareas o aplicaciones a ejecutar al clúster de Yarn. 
+
+yarn jar /usr/local/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-examples-3.2.1.jar wordcount <ruta/nombre_archivo>
+
+Con este comando, yarn ejecuta la tarea en lugar de HDFS.
+
+
+
+7/02/23
+
+De cara a la segunda actividad, 
+
+- Conceptos de arquitectura, hacer una propuesta de una arquitectura Hadoop. 
+- Se tratas de decir número de nodos, cómo lo montaríamos , características de la arq. 
+- Ventajas e inconvenientes
+
+De cara al examen. 
+
+- Las ppts son complementarias al contenido oficial. Son temas prácticos. 
+- Pueden entrar comandos de Hadoop. 
+- El examen va a ser tipo test. 
 
 
 # Unidad 4. Apache Spark 
@@ -1321,6 +1373,4 @@ Hadoop MapReduce y Apache Spark son dos frameworks de procesamiento de datos dis
 
 En resumen, si la velocidad y la eficiencia son importantes, Apache Spark es la mejor opción. Si el ecosistema de Hadoop es importante para su organización, Hadoop MapReduce podría ser la mejor opción.
 
-
-# Preguntas
 
