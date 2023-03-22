@@ -286,137 +286,26 @@ A raíz de la formulación para obtener la mejor configuración y solventar los 
 
 Otro de los factores críticos a la hora de diseñar un sistema cluster es la elección de la tecnología de interconexión. Se puede encontrar en el mercado soluciones como Ethernet (1 Gbps o 10 Gbps), InfiniBand (hasta 50 Gbps) o fibra (+100Gbps).
 
-
-
-
-16/12/22
-
-NetBIOS es el protocolo de unidades de red que implementa Windows, y es el software que hace visible los recursos de un equipo a través de la red para que lo utilicen otros, para compartir de un PC a otros. Linux y la comunidad hicieron algo parecido, SAMBA, no solo se puede compartir recursos y ficheros entre SOs Windows, sino también entre SOs Linux y Windows. NFS (Network File System) es un protocolo que permite compartir recursos entre SO Linux. 
-
-¿Qué es YARN? - Es el clúster que Permite que las aplicaciones que corren en el clúster tengan alta disponibilidad independientemente de los fallos que ocurran, por medio de los nodos en el sistema. 
-
-¿Qué es Hadoop? - Es el sistema de ficheros distribuido. Es la implementación que nos va a permitir que los nodos compartan sus recursos como si fuesen uno solo disco virtual. Permite que los nodos se interconecten y se compartan los recursos de estos. Permite replicar los datos entre cada uno de los datos, trocearlos y replicarlos, para que en caso de fallo de uno de los nodos, podamos recuperar un fichero completamente siempre.  
-
-- YARN: Gestor del clúster. Keep Alive. Sistema distrbuidor de cargas, se encarga de mantener y distribuir las cargas en los diferentes nodos del clúster. Ahora Hadoop recomienda no utilizar Yarn. 
-- HDFS: Sistema de gestión de ficheros. Se encarga de generar réplicas en distintos nodos, gestiona el acceso a los datos. Tiene su propio formato. 
-
-
-En Hadoop, tenemos 
-- **Namenodes.** Es el nodo que actúa como *master* o coordinador general, es el nodo maestro. 
-- **Datanodes.** Nodos que comparten recursos. 
-
-![](/img/computacion/hadoop.png)
-
-
-Cada cierto tiempo Yarn va a mandarle una llamada a cada uno de los nodos para ver si están funcionando correctamente. Si el nodo no respondiera, el namenode va a mandarle un par de señales más. Si no contesta, el namenode lo va a desconectar, lo va a dar por perdido. 
-
-Vamos a ver los comandos para que podamos navegar por Hadoop. 
-
-Los sistemas Hadoop se diseñaron especialmente para funcionar con sistemas de disco. La información se lee y se graba en un disco. La arquitectura distribuida en Hadoop consiste en trocear un problema, distribuirlo a diferentes nodos (map), resolver una solución parcial local y luego ensamblar las soluciones parciales en una solución global (reduce). Esto se realiza gracias a **map reduce**. *Map* es aplicar a los nodos una función troceada.  En Map pasas una función y una lista a la que hay que aplicarle la función y el sistema itera en cada uno de los índices de la lista aplicándole la función. *Reduce* significa una vez tengo las soluciones parciales, reducirlas a una sola solución.
-
-Protocolo SSL. Es un protocolo de seguridad para encriptar la información. 
-
-
-Hay varios formatos de ficheros  de interacambio de información (JSON, XML,CSV), pero no son óptimos para consultas. 
-
-En el mundo Big Data se utilizan consultas de ficheros en disco, directamente consultar los ficheros sin cargar la info en la BBDD. Para este tipo de arquitectura se guarda la info en formatos .parquet y .orc. El formato parquet admite metadatos, y la información se guarda en columnas (formato columnar). La información no está optimizada para el almacenamiento de datos sino para su consulta. Ejemplos que usan el formmato columnar son AWS y BigQuery. La consulta en el formato columnar es mucho más rápida. 
-
-Aparte de permitir la consulta rápida, el formato columnar permite comprimir en disco y ahorrar mucho espacio. 
-
-
-Comandos que permiten la configuración del servicio 
-
-
-```bash
-
-vi core-site.yml
-vi hdfs-site.yml
-vi yarn-site.yml
-vi mapred-site.yml
-
-```
-
-Los comnados para entornos de servicios: Configurar o definir cómo se conectan los servicios (.sh/.cmd)
-
-```bash
-hadoop-env.sh (Entornos Linux)
-hadoop-env.cmd (Entornos Windows)
-mapred-env.sh
-mapred-env.cmd 
-yarn-env.cmd 
-yarn-env.sh
-```
-
-
-
-
-20/12/22
-
-## Tolerancia a fallos en sistemas distribuidos
-
-Las empresas se han dado cuenta que necesitan algo más que crear una infraestructura confiable para resistir y sobrevivir las amenazas, respaldar el crecimiento y proteger la información. Esto implica que no sólo estamos hablando de desastres naturales como un huracán o un tornado, sino también y principalmente de ataques cibernéticos. 
-
-Plan de Continuidad del Negocio vs Plan de Recuperación ante Desastres 
-
-- **Business Continuity Plan:** Qué condiciones y recursos debo disponer para que  los usuarios y servidores no perciban un desastre en caso de que ocurra.  Debo identificar los nodos que deben permanecer inalterados. Es un proceso muy caro.  
-- **Disaster Recovery Plan:** Qué condiciones mínimas necesito para que mi negocio siga trabajando tras un desastre.
-
-
-
-### Disaster Recovery Plan 
-
-- Busca restablecer los servicios básicos lo antes posible para que el negocio pueda operar. No solo incluye estrategias de hardware y software sino también involucra operaciones manuales. 
-
-### Business Continuity Plan
-
-> Es un plan que describe cómo la empresa continuará operando incluso ante la aparición de un problema, que, teóricamente hablando, produciría una interrupción no planificada en el servicio. Busca que el negocio no se detenga. 
-
-
-¿Por qué es importante tener un Business Continuity Plan?
-
-Es importante para evaluar la resiliencia y la sincronización entre los procesos del negocio, las aplicaciones y la infraestructura de TI. 
-
- 1. En caso de una eventualidad la empresa deja de producir valor y recibir ingresos. 
- 2. Genera desprestigio. 
-
-#### Aspectos principales a tomar en cuenta 
-- **Alta disponibilidad**. Busca proporcionar las capacidades y procesos necesarios para que una empresa tenga acceso a las aplicaciones clave independientemente de los fallos acaecidos. Estos fallos pueden ser físicos, en el proceso, en el hardware o software. 
-- **Operaciones continuas**. Protegen la capacidad de mantener los sistemas en funcionamiento tanto durante las interrupciones planificadas como las no planificadas. 
-- **Recuperación ante desastres**
-
-### Motivación de tener un BCP
-
-- El BCP surgió de la planificación para la recuperación ante desastres a principios de los 70s. 
-- Organizaciones como bancos y aseguradoras invirtieron en colocar copias de seguridad en emplazamientos alternativos. 
-- En los 80s aparecieron proveedores comerciales que prestaban servicios de respaldo de IT. 
-- Con la creciente globalización en los 90s, surgió la necesidad del acceso a los datos desde varios emplazamientos situados en largas distancias. Se dejó de pensar en un DCP y se comenzó a considerar el BCP de una manera más holística. 
-
-### La transformación digital y la hiperconvergencia
-
-Crean puertas de acceso no deseadas y con ella nuevos riesgos, vulnerabilidades, ataques y puntos de fallo. 
-Los BCP están contemplando cada vez más la eventualidad de un ciberataque. 
-
-Los planes de contingencia han de incluir formas de defenderse contra esos riesgos, proteger aplicaciones y datos críticos y ser capaces de recuperarse de ataques o fallos de manera controlada y medible. 
-Otro problema añadido es el del aumento exponencial de los volúmenes de datos. 
-
-RPO (Objetivo de Punto de Recuperación ): Es la cantidad máxima de datos, medida en el tiempo, qu una organización puede perder sin causar daños irreversibles a su negocio. 
-RTO (Objetivo de Tiempo de Recuperación): Es el tiempo máximo tolerable que una computadora, sistema o red puede estar fuera de servicio después de que ocurre un fallo o desastre. (minutos, segundos, horas o días.)
-
-
+## Paradigma de programación paralela 
 10/01/2023
 
-## Computación paralela vs. Computación en serie
+### Objetivos
+- Comprender los distintos elementos que influyen en el rendimiento de un sistema distribuido orientado a entornos de Big Data.
+- Saber cómo medir el rendimiento de aplicaciones paralelas.
+- Enumerar y describir las métricas empleadas para el cálculo de rendimiento.
 
-### Computación en serie
+### ¿Qué es la computación paralela? 
 
-Tradicionalmente el software se ha escrito para el **cálculo en serie**: Un proble se divide en una serie discreta de instrucciones. La sinstrucciones se ejecutan secuencialmente una tras otras ejecutándose en un solo procesador, solo se puede ejecutar una instrucción en cada momento. 
+#### Computación en serie
+
+Tradicionalmente el software se ha escrito para el **cálculo en serie**: Un problema se divide en una serie discreta de instrucciones. Las instrucciones se ejecutan secuencialmente una tras otra ejecutándose en un solo procesador, solo se puede ejecutar una instrucción en cada momento. 
 
 ![](/img/computacion/computacion_serie.png)
 
 
-### Computación en paralelo 
+#### Computación en paralelo 
 
-La carga de de cada trabajo se distribuye entre varios procesadores en una o más computadoras denominadas nodos de cómputo. 
+En el sentido más estricto, es el uso simultáneo de múltiples recursos informáticos (o nodos ) para resolver un problema computacional simultáneamente. 
 
 Los entornos de procesamiento paralela se clasifican como: 
 - Sistemas de procesamiento en paralelo (SMP) 
@@ -425,21 +314,28 @@ Los entornos de procesamiento paralela se clasifican como:
 
 ![](/img/computacion/computacion_paralela.png)
 
-### Características de la computación paralela
 
-En el sentido más estricto, es el uso simultáneo de múltiples recuross informáticos para resolver un problemas computacional
+Algunos problemas se pueden resolver en una sola Unidad Central de Procesamiento (CPU), otros necesitan una computadora paralela que comprenda más de un procesador.
+
+El paralelismo es una forma de computación en la cual, varios cálculos pueden realizarse simultáneamente. El paralelismo está basado en el principio de dividir los problemas grandes para obtener varios problemas pequeños, que son posteriormente solucionados en paralelo.
+
+#### ¿Cuáles son las principales características de la computación paralela?
 
 - Un problema se divide en partes discretas que se pueden resolver al mismo tiempo
 - Cada parte se divide en una serie de instrucciones. 
-- Las instrucciones de cada parte se ejecutan simultáneamente diferentes procesadores. 
+- Las instrucciones de cada parte se ejecutan simultáneamente en diferentes procesadores. 
  
- El problema dque se trata de computar debe ser capaz de: dfescomponerse en partes discretas de trabajo que puedan resolverse simultáneamente. Ejecutar múltiples instrucciones del probgrama en cualquier momento. Debe de poder se resuelto en menos tiempo con varios recursos informáticos que un único recurso. 
+ El problema que se trata de computar debe ser capaz de: 
+ - Descomponerse en partes discretas de trabajo que puedan resolverse simultáneamente. 
+- Ejecutar múltiples instrucciones del programa en cualquier momento. 
+- Debe de poder se resuelto en menos tiempo con varios recursos informáticos que un único recurso. 
 
- Los recurso sinformáticos suelen ser: Una sola computadora con mútliples procesadores/núcleos. Un número artbitrario de tales computadoras conectas por una red. 
 
-### Cómo puede una computadora procesar en paralelo 
+- Los recursos informáticos suelen ser una sola computadora con mútliples procesadores/núcleos o un número artbitrario de tales computadoras conectas por una red. 
 
-Desde la perspectiva del hardware prácticamente todas las computadoras hoy en día tienen capacidad de proceso en paralelo: múltiples unidades funcionales (caché L1 y L2, decodificación, punto flutante, procesamiento de gráficos (GPU), entero, etc.). No es lo mismo hacer cálculos con números enteros, con números de coma flotante. Actualmente tenemos múltiples unidades/núcleos/cores de ejecución. El hardware tiene una capacacidad para múltiples subprocesos/threads
+#### ¿Cómo puede una computadora procesar en paralelo?
+
+Desde la perspectiva del hardware prácticamente todas las computadoras hoy en día tienen capacidad de proceso en paralelo: múltiples unidades funcionales (caché L1 y L2, decodificación, punto flutante, procesamiento de gráficos (GPU), entero, etc.). No es lo mismo hacer cálculos con números enteros, con números de coma flotante. Actualmente tenemos múltiples unidades/núcleos/cores de ejecución. El hardware tiene una capacacidad para múltiples subprocesos/threads.
 
 No obstante, para algunos software no por tener mútltiples núcleos la máquina puede ir más rápido, más bien a veces puede ir más lento. Por ejemplo, los videojuegos. 
 
@@ -447,15 +343,17 @@ No obstante, para algunos software no por tener mútltiples núcleos la máquina
 
 *Tenemos dos tipos de memoria caché: web y disco. La memoria caché web almacena las páginas web que visitamos frecuentemente para agilizar la carga de dichas páginas y así ahorrar ancho de banda o datos, y la caché disco tiene un significado parecido a lo explicado arriba*.
 
-### ¿Por qué utilizar la computación paralela?
+#### ¿Por qué utilizar la computación paralela?
 
--El mundo real es enormemente complejo, se simula mejor en procesos paralelos que en serie. 
-- En teoría es bastante eficiente y ahorra tiempo y dinero para solucionar una tarea que debe resolverse en un tiempo corto. En pocas palabras, trabajar en paralelo acorta el tiempo de ejecución. 
+-El mundo real es enormemente complejo, se simula mejor en procesos paralelos que en serie.
+- Problemas en tiempo real. 
+- Problemas de gran dimensión que se pueden dividir y que no son secuenciales.  
+-Trabajar en paralelo acorta el tiempo de ejecución. 
 
 ![](/img/computacion/computacion_paralela_beneficios.png)
 
 
-## La ley de Amdahl
+#### ¿Qué es la ley de Amdahl?
 
 > La fórmula de la ley de Amdahl sirver para definir si la introducción de una mejora en sus sistema merece o no la pena. 
 
@@ -482,10 +380,9 @@ Tenemos un software que el 80% del programa es paralizado, tenemos un único pro
 
 Esta ley tiene algunas limitaciones, por lo que ha dado lugar a otras leyes
 
-## Ley de Gustafson 
+#### Ley de Gustafson 
 
-
-Es una ley en informática que dice que los cálculos que involucran conjuntos de daots arbitrariamente grandes se pueden paralelizar de manera eficiente. En pocas palbras, cualquier problema suficientemente grande pude ser eficientemente paralelizado. 
+Es una ley en informática que dice que los cálculos que involucran conjuntos de datos arbitrariamente grandes se pueden paralelizar de manera eficiente. En pocas palabras, cualquier problema suficientemente grande pude ser eficientemente paralelizado. 
 
 Gustafson le dice a Amdahl que da igual la parte en serie, si la cantidad de datos es grande, la paralización de procesos va a ser beneficiosa. 
 
@@ -495,7 +392,28 @@ Gustafson le dice a Amdahl que da igual la parte en serie, si la cantidad de dat
 - *N* es el número de procesadores 
 - *s* y *p* son las gracciones dedicadas a ejecutar las partes en serei y en paralelo del programa en un sistema paralelo, donde s+p =1. 
 
-## ¿Qué es el desarrollo en paralelo?
+### Computación Paralela y Computacion Heterogénea
+
+#### ¿Qué es es el desarrollo paralelo/heterogéneo?
+
+- La **Computación Heterogénea** se refiere a sistemas que usan más de un tipo de procesador o núcleo. 
+- La **Computación heterogénea** busca mejorar el **rendimiento de los cálculos** o la **eficiencia energética** al agregar co-procesadores diferentes. Agregar co-procesadores diferentes busca generalmente agregar capacidades de procesamiento especializadas para operaciones específicas. 
+- La **Arquitectura de Sistema Heterogéneo**: Es un conjunto de especificaciones desarrollada por varios proveedores de hardware para permitir la integración de unidades de CPUs y GPUs en un mismo bus, compartiendo memoria y tareas de proceso. Por ejemplo, en los APU (Accelerated Processing Unit), teníamos en los mismos sockets la GPU y la CPU. El objetivo de la Arquitectura de Sistema Heterogéneo es reducir la latencia de comunicación entre CPU y GPU, y otros dispositivos. 
+
+
+#### Lenguajes de Computación Paralela y Heterogénea
+
+Lo más óptimo es que todas las operaciones se ejecuten en la CPU. A veces la GPU puede ser más rápida en ciertas tareas (tienen miles de cores). Toda la inforamación que el CPU le envía al GPU se hace por medio de un bus PCI, aunque son más rápidos que los USB, que la velocidad de procesamiento de información del GPU . Tenemos que minimizar el tráfico lo máximo posible. 
+
+Tenemos diferentes lenguajes que nos permiten programar un diferentes tipos de procesadores a la vez o repartir las tareas en todos ellos. 
+
+- OpenCL (Open Computing Language) es un conjunto de bibliotecas para desarrolllar software que pueda aprovechar infraestructursas heterogéneas como CPUs, GPUs, etc.
+- Otro lenguaje que existe es el CUDA (Compute Unified Devvice Architecture) es un cojunto de bibliotecas y una interfaz de programación (API + SDK) de aplicaciones paralelas. Permite al software usar ciertos modelos de GPU facilitando la programación paralela incluyendo los recursos de GPUs disponibles. 
+- OpenACC (Open Accelerators) es un estándar de programación para computación paralela. Fue desarrollado por Cray, Caps, Nvidia,y PGI. Está diseñado para la programación de sistemas heterogéneos CPU/GPU, etc. 
+- OpenGL (no confundir con OpenCL, Opern Graphics Library) es una interfaz de programación de aplicaciones (API) multiplataforma y multilenguaje. Se usa para itneractuar con la GPU en el proceso de renderizado gráfico vectorizable 2D y 3D consiguiendo acelaración mediante hardware. 
+- OpenMP (Open Multi-Processing), son un cojunto de bilbiotecas, compilador, etc. que permiten el procesamiento multiplataforma en meoria compartida. Permite la programación multiplataforma: AIX, FreeBSD, HP-UX, Linux, macOS, Windows. 
+
+#### <s> ¿Qué es el desarrollo en paralelo?</s>
 
 - Es el desarrollo simultáneo de más de una versión de un objeto. 
 
@@ -504,186 +422,220 @@ Tipos de desarrollo paralelo:
 - Desarollo de plataforma paralela (Parallel platform development)
 - Desarrollo de versiones paralelas (Parallel release development)
 
-### Desarrollo concurrente paralelo 
+#### <s> Desarrollo concurrente paralelo </s>
 
 Ocurre cuando varios desarrolladores desarrollan sus propias versiones del trabajo del mismo objeto (Git, GitHub). Frecuentamente es que cada desarrollador trabaje en diferentes secciones del código (ramas). Una vez que los desarrolladores completan su trabajo, las versiones del código se fusionan. 
 
-### Desarollo de plataforma paralela
+#### <s> Desarollo de plataforma paralela </s>
 
 Ocurre cuando varios desarrolladores están trabajando en diferentes versiones del mismo objeto para diferentes plataformas de hardware o SO (aplicaciones para iOS y Android). Normalmente no se fusionan. 
 
-### Desarrollo de versiones paralelas 
+#### <s> Desarrollo de versiones paralelas </s>
 
-Ocurre cuando una organzación necesita producir simultáneamente varias versiones de su producto de software.
-
-**pedirle el dataset que utilizó en esta clase** 
+Ocurre cuando una organización necesita producir simultáneamente varias versiones de su producto de software.
 
 
-17/01/2023
+#### Métricas
 
-``` bash
+La única métrica fiable para comparar el rendimiento de computadores es la ejecución de programas reales, cualquier otra métrica conduce a errores. 
 
-- Recuperar la configuración inicial del sistema y el URL que debemos introducir para acceder: hdfs getconf -confKey fs.defaultFS (p.ejem. "hudfs://tucan:9000)
-- Recuperar el punto de acceso al clúster (en  proceso de extinción): hdfs getconf -confKey fs.default.name
-- Observar el nombre de los namenodes: hdfs getconf -namenodes
-- Lisa de comandos: hdfs dfs 
-- Enlistar los archivos de Hadoop: hdfs dfs -ls <ruta>
-- Crear un diretorio: hdfs dfs -mkdir <ruta> <nombre de la carpeta>
-- Reemplazar un directorio existente: hdfs dfs -mkdir -p <ruta/nombre de la carpeta>
-- Enlistar los ficheros con sus tamaños correspondientes: hdfs fs -ls -h <ruta>
-- Listar todos los ficheros y directorios recursivamente (con subdirectorios): hdfs dfs -ls -R /
-- Crear un archivo vacío: Hdfs dfs -touchz <ruta> <nombre>.txt
-- Copiar de un sistema local a Hadoop: hdfs dfs -copyFromLocal 
-- Subir un archivo a HDFS: hdfs dfs -put <ruta/nombre del archivo> <ruta de destino>
-- Sobrescribir un archivo existente a HDFS: hdfs dfs -put -f /home/file1 /hadoop
-- Copiar el fichero ‘file1’ de hdfs al sistema de ficheros local: hdfs dfs -get /file1 /home/ <ruta destino>	
-- Leer un archivo de Hadoop: hdfs dfs -cat <ruta/nombre del texto>
-- Eliminar un fichero: rm <ruta/nombre del archivo>
-- Copiar el fichero ‘file1’ del sistema de ficheros local a hdfs y luego lo borra del sist. ficheros local: hdfs dfs -moveFromLocal <ruta/nombre del archivo>
-- Copiar un archivo dentro Hadoop: hdfs dfs -cp <ruta/nombre archivo origen> <ruta/nombre archivo destino>
-- Mover un archivo dentro Hadoop: hdfs dfs -mv <ruta/nombre archivo origen> <ruta/nombre archivo destino>
-- Borrar ficheros en un directorio remoto: hdfs dfs -rm -r <ruta/nombre del archivo>
-- Ver el tamaño de los ficheros y directorios: hdfs dfs -du <ruta/nombre>
-- Ver el tamaño de los ficheros: hdfs dfs -du -s  <ruta/nombre> /* The -s option will result in an aggregate summary of file lengths being displayed, rather than the individual files. */
-- Ver los metadatos de los ficheros: hdfs dfs -stat <ruta>/*  /* el asterisco sirve para que nos dé los metadatos individualmente para cada directorio o fichero individualmente contenido en la ruta. 
-- Cambiar el factor de replicación recursiamente : hdfs dfs -setrep -w <número de réplicas> <ruta/nombre archivo> /* La w es de Wait y solicita que se espere a la finalización de las réplicas para que el commando se complete. /*
- 
-```
+Tenemos dos tipos: 
+- Tiempo de respuesta: tiempo total transcurrido percibido por el usuario.
+- Tiempo de CPU: tiempo en que la CPU ha estado ocupada.
 
-## Consolidación de servicios
+#### Escalabilidad 
 
-### ¿Qué es la virtualización de los servidores? 
+Los usuarios elegirán el número de procesadores para que coincida con el tamaño del problema, o resolverán una serie de problemas cada vez más grandes sobre un número cada vez mayor de procesadores. 
 
-Es un proceso que permite una utilización más eficiente de hardware físico y es la base de la computación en la nube. 
+##### Escalabilidad fuerte 
+Se dice que un programa muestra una escalabilidad fuerte si, repartido sobre más y más procesadores, muestra una aceleración perfecta o casi perfecta.
 
-La virtualización utiliza software para crear una capa de abstracción sobre le hardware de la computadora tal que permite que los elementos de hardware se dividan en varias ocmputaodras virtuales comúnmente llamadas máquinas virtuales
+##### Escalabilidad débil
+A medida que el tamaño del problema y el número de procesadores crecen, de tal manera que la cantidad de datos por procesador permanece constante, la velocidad en las operaciones por segundo de cada procesador también permanece constante.
 
-![](/img/computacion/consolidacion.png)
+## Tolerancia a fallos en sistemas distribuidos 
+20/12/22
 
-Cada máquina virtual ejecuta su propio sistema operativo y se comporta como una computadora independiente, aunque solo tiene acceso a una parte del hardware de la computadora subyacente real. 
+### Objetivos 
 
-De lo anterior se deduce que la virtualización permite una utilización m+ás eficiente del hardware físico y con ello un mayor retorno de la inversión del hardware de una empresa. 
+- Comprender los conceptos básicos relacionados con sistemas de alta disponibilidad.
+- Reconocer las características principales del software y hardware de sistemas de alta disponibilidad.
 
-### ¿Cuáles son los beneficios de la virtualización?
+### Motivación de la fiabilidad y disponibilidad de los sistemas
 
-La virtualización asporta varios beneficios a los operadores de centros de datos y proveeedores de servicios: 
-- Eficiencia de los recursos: Cada servidor de aplicacione srequería su propia CPU física dedicada. Ls recursos sobrantes no se aprovechaban cuando estaban separados.
-- Administración mpas sencilla. Reemplazar las computaodras físicas con máquinas virtuales definidas por software facilita el uso y la administración del software. 
-- Tiemmpo de inactividad mínimo: Los fallos del SO y de las aplicaciones pueden causar tiempo de inactividad e interrumpir 
-- Aprovisionamiento más rápido: Comprar, instalar y configurar hardware para cada aplicación requiere mucho tiempo. Si se dispone de hardware ya instalado, el aprovisionamiento de máquinas virutales es significativamente más rápido. Incluso puede automatizarse utilizando un software de gestión e integrarlo en los flujos de trabajo existentes. 
+Las empresas se han dado cuenta que necesitan algo más que crear una infraestructura confiable para resistir y sobrevivir las amenazas, respaldar el crecimiento y proteger la información. Esto implica que no sólo estamos hablando de desastres naturales como un huracán o un tornado, sino también y principalmente de ataques cibernéticos. 
 
-### ¿Cuántas soluciones de virtualización conoces? 
+El tiempo de inactividad es el período de tiempo en que un sistema (o red) no está disponible para su uso.
 
-- **VMware** especializada en virtualización de servidores, escritorios, redes y almacenamiento. 
-- **Microsoft Hyper-V** se enfoca en virtualización de servidores y PCs de escriotrio. 
-- **Citrix** tiene su nicho en la virtualización de aplicaciones, también ofrece virtualización de servidores y soluciones de escritorio virtual. 
-- **Oracle VirtualBox** es un hipervisor que permite crear máquinas x86 virtuales. 
-- **IBM Linux for System z** permite ejecutar Linux en un sistema S/390 o System Z
+Hay dos tipos de tiempos de inactividad programados y no programados. Un tiempo de inactividad programado es el resultado de un mantenimiento, que es inevitable.
 
-## ¿Cuál es la virtualización de redes SAN?
+### Planes para evitar alcance de desasatres 
 
-una red de área de almacenamiento (storage area network, SAN) es una red o subred dedicada de alta velocidad que se interconecta y presenta grupos ocmapartidos de dispositovs de almacenamiento a varios servidores. 
+#### ¿Qué es un Disaster Recovery Plan (DRP)?
+
+- Busca restablecer los servicios básicos lo antes posible para que el negocio pueda operar. No solo incluye estrategias de hardware y software sino también involucra operaciones manuales. 
+
+#### ¿Qué es un Business Continuity Plan (BCP)?
+
+> Es un plan que describe cómo la empresa continuará operando incluso ante la aparición de un problema, que, teóricamente hablando, produciría una interrupción no planificada en el servicio. Busca que el negocio no se detenga. 
+
+Hay tres aspectos principales en un plan de continuidad del negocio respecto a las aplicaciones y procesos clave de la empresa:
+- Alta disponibilidad (de los sistemas y servicios): Busca proporcionar las capacidades y procesos necesarios para que una empresa tenga acceso a las aplicaciones clave independie
+- Operaciones continuas: Protegen la capacidad de mantener los sistemas en funcionamiento tanto durante las interrupciones planificadas como las no planificadas. 
+- Recuperación ante desastres.
 
 
-![](/img/computacion/san.png)
+#### ¿Por qué es importante tener un Business Continuity Plan?
 
-![](/img/computacion/san_2.png)
+Es importante para evaluar la resiliencia y la sincronización entre los procesos del negocio, las aplicaciones y la infraestructura de TI. 
 
+ 1. En caso de una eventualidad la empresa deja de producir valor y recibir ingresos. 
+ 2. Genera desprestigio. 
 
+ #### Plan de Continuidad del Negocio vs Plan de Recuperación ante Desastres 
 
-24/01/2023
+- **Business Continuity Plan:** Qué condiciones y recursos debo disponer para que  los usuarios y servidores no perciban un desastre en caso de que ocurra.  Debo identificar los nodos que deben permanecer inalterados. Es un proceso muy caro.  
+- **Disaster Recovery Plan:** Qué condiciones mínimas necesito para que mi negocio siga trabajando tras un desastre.
 
-Se puso a hablar de bare-metal hypervisor
-
-![](/img/computacion/bare-metal-hypervisor.png)
-
-"Vamos a ver la parte que nos quedaba de los comandos de Hadoop."
-
-Comienza así: 
-- Listar el contenido del sistema de ficheros de HDFS - hdfs dfs -ls
--hdfs dfs -setrep -w (el white [-w] sirve para que cuando cambiamos el factor de replicacioón el sistema se queda pensando y no devuelve el control de la terminal, hasta haber completado la operación) 6 <ruta/nombre_fichero>
-- para savber el factor de replicación: hdfs dfs -stat %r
+El plan de continuidad de negocio es más complejo y completo que un plan de recuperación ante desastres y define medidas de contingencia no sólo para procesos TI, sino también, fuerza comercial, activos de todo tipo, recursos humanos y proveedores.
 
 
-#### Cómo ejecutamos trabajos en Hadoop 
+#### Motivación de tener un BCP
 
-Vamos a ver cómo se ejecutan problemas en Hadoop...
+- El BCP surgió de la planificación para la recuperación ante desastres a principios de los 70s. 
+- Organizaciones como bancos y aseguradoras invirtieron en colocar copias de seguridad en emplazamientos alternativos. 
+- En los 80s aparecieron proveedores comerciales que prestaban servicios de respaldo de IT. 
+- Con la creciente globalización en los 90s, surgió la necesidad del acceso a los datos desde varios emplazamientos situados en largas distancias. Se dejó de pensar en un DCP y se comenzó a considerar el BCP de una manera más holística. 
 
-Un ejemplo es clásico, estre programa permite hacer wordcounts. Tenemos diferentes infraestructuras que generan ficheros de logs. Lo que podemos hacer es que las cadenas de textos vuelquen en un directorio concreto. Vamos a buscar dentro de esos ficheros de textos, palabras como "Attention", "Error", "Warning".
+#### La transformación digital y la hiperconvergencia
 
-Cada uno de los nodos hace una búsqueda de las cadenas que les hemos pedido que busquen y las cuentan, luego el sistema nos devuelve la suma de las sumas. 
+Crean puertas de acceso no deseadas y con ella nuevos riesgos, vulnerabilidades, ataques y puntos de fallo. 
+Los BCP están contemplando cada vez más la eventualidad de un ciberataque. 
 
-Vamos a crear un directorio en Hadoop llamado "Entrada" y otro llamado "Salida". 
+Los planes de contingencia han de incluir formas de defenderse contra esos riesgos, proteger aplicaciones y datos críticos y ser capaces de recuperarse de ataques o fallos de manera controlada y medible. 
+Otro problema añadido es el del aumento exponencial de los volúmenes de datos. 
 
-hdfs dfs -put Word_count1.txt grupo2/entradas | estoy desplazando un fichero de mi servidor local a HDFS
+#### ¿Qué es un RPO? 
+RPO (Objetivo de Punto de Recuperación): Es la cantidad máxima de datos en el tiempo, que una organización puede perder sin causar daños irreversibles a su negocio. 
 
-vamos a agregar un fichero jar (fichero compilado)
+#### ¿Qué es un RTO? 
+RTO (Objetivo de Tiempo de Recuperación): Es el tiempo máximo tolerable que una computadora, sistema o red puede estar fuera de servicio después de que ocurre un fallo o desastre. (minutos, segundos, horas o días.)
 
-ls /usr/local/hadoop/share/hadoop/mapreduce
-hadoop jar /usr/local/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-examples-3.2.1.jar wordcount <ruta/nombre_archivo>
+### Diseño de un sistema fiable
 
-- Hadoop jar para indicarle un fichero ya compilado
-- Ruta donde se encuentre el fichero
-- Clase que queremos que se ejecute 
-- Darle 3 parámetros: la clase, la ruta del fichero de entrada y la ruta del fichero de salida.
+![](/img/computacion/dise%C3%B1o_fiable.png)
 
-Se mete a Yarn. 
+### Redundancia estática en el software 
 
-Vemos los archivos que devolvió en la carpeta 
-- hdfs dfs -ls grupo_2/salida (para ver los ficheros de salida)
+### Redundancia dinámica en el software 
 
-Los sistemas de alta disponibilidad particionan los ficheros. Como el acceso a disco es muy lento, particionan para que no haya concurrencia, para que el procesamiento sea lo más fluido posible. 
+En la redundancia dinámica en el software, los componentes redundantes solo se ejecutan cuando se detecta un error. Esta técnica aplica 4 fases. 
 
-*ahora vamos a abrir algo en Yarn*
+1. Detección de errores
+2. Confinamiento y diagnóstico de daños 
+3. Recuperación de errores: Consiste en situar el sistema en un estado correcto desde el cual se puede seguir funcionando. (hacia atrás, o hacia adelante.)
+4. Tratamiento de fallos y servicio continuado. 
 
-HDFS no tiene capacidad sobre sí mismo, le entrega las tareas o aplicaciones a ejecutar al clúster de Yarn. 
+### ¿Cuáles son las mejores prácticas? 
 
-yarn jar /usr/local/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-examples-3.2.1.jar wordcount <ruta/nombre_archivo>
+Se recomienda implementar un sistema de alta disponibilidad. 
 
-Con este comando, yarn ejecuta la tarea en lugar de HDFS.
+#### Copias de seguridad 
 
-## Computación Paralela y Computacion Heterogénea
+La estrategia recomendada para mantener la integridad de los datos es crear una copia de seguridad completa de la base de datos primaria y luego, probar de forma incremental el servidor de origen en busca de daños en los datos
 
-La computación heterogénea se refiere a sistemas que usan más de un tipo de procesador o núcleo. 
-La computación hetrogénea busca mejorar el rendimiento de los cálculos o la eficiencia energética al agregar co-procesadores diferentes. Agregar co-procesadores diferentes busca generalmente agregar capacidades de procesamiento especializadas para operaciones espec-ificas. 
-Es un conjunto de especificaciones desarrollada por varios proveedores de hardaware para permitir la integración de unidades de CPUs y GPUs en un mismo bus, compartiendo memoria y tareas de proceso. Por ejemplo, en los APU, teníamos en los mismos sockets la GPU y la CPU. 
+#### Agrupación 
 
-El objetivo de la Arquitectura de SIstema Heterogéneo es reducir la latencia de comunicación entre CPU y GPU, y otros dispositivos. 
+La alta disponibilidad trata de entregar servicios de aplicaciones sin importar las fallos o errores. En caso de error, la agrupación en clúster puede proporcionar servicios instantáneos de aplicación de conmutación por error.
 
-## Lenguajes de Computación Paralela y Heterogénea
+Un servicio de aplicaciones que es compatible con clústeres es capaz de invocar recursos desde múltiples servidores, es decir, vuelve a un servidor secundario si el servidor principal se desconecta.
 
-Lo más óptimo es que todas las operaciones se ejecuten en la CPU. A veces la GPU puede ser más rápida en ciertas tareas (tienen miles de cores). Toda la inforamción que el CPU le envía al GPU se hace por medio de un bus PCI, aunque son más rápidos que los USB, que la velocidad de procesmaiento de información del GPU . Tenemos que minimizar el tráfico lo máximo posible. 
+#### Equilibrio de carga de red 
 
-Tenemos diferentes lenguajes que nos permiten programar un diferentes tipos de procesadores a la vez o repartir las tareas en todos ellos. 
+El equilibrio de carga es una forma efectiva de aumentar la disponibilidad de aplicaciones críticas basadas en la web. 
 
-- OpenCL (Open Computing Language) es un cojjunto de bilbiotecas para desarrolllar software que pueda aprovchar infraestructursas heterogéneas como CPUs, GPus, etc
-- Otro lenguaje que existe es el CUDA (Compute Unified Devvice Architecture) es un cojunto de bibliotecas y una interfaz de programación (API + SDK) de aplicaciones paralelas. Permite al software usar ciertos modleos de GPU facilitando la programación paralela incluyendo los recursos de GPUs disponibles. 
-- OpenACC (Open Accelerators) es un estándar de porgramación para computación paralela. Fue desarrollado por Cray, Caps, Nvidia,y PGI. Está disepñado para la programación de sistemas heterogéneos CPU/GPU, etc. 
-- OpenGL (no confundir con OpenCL, Opern Graphics Library) es una interfaz de programación de aplicaciones (API) multiplataforma y multilenguaje. Se usa para itneractuar con la GPU en el proceso de renderizado gráfico vertorizable 2D y 3D consiguiendo acelaración mediantte hardware. 
-- OpenMP (Open Multi-Processing), son un cojunto de bilbiotecas, compilador, etc. que permiten el procesamiento multiplataforma en meoria compartida. Permite la programación multiplataforma: AIX, FreeBSD, HP-UX, Linux, macOS, Windows. 
+#### Soluciones Failover
 
-31/01/2023
+La arquitectura de alta disponibilidad consiste en un conjunto de servidores débilmente acoplados, que tienen capacidades de failover. La conmutación por error es básicamente un modo operativo de respaldo, en el cual las funciones de un componente del sistema son asumidas por un sistema secundario, en caso de que el primario se desconecte, ya sea por falla o por un tiempo de inactividad planificado
+
+#### Plan de Contingencia
+
+Un plan de recuperación no solo debe estar bien documentado, sino que debe probarse regularmente para garantizar su practicidad cuando se trata de interrupciones no planificadas. 
+
+La capacitación del personal en ingeniería de disponibilidad mejora las habilidades en el diseño, implementación y mantenimiento de arquitecturas de alta disponibilidad. 
+
+También deben implementarse políticas de seguridad para frenar las incidencias de interrupciones del sistema debido a violaciones de seguridad.
+
+# 2. Sistemas Cloud y Virtualización de Servicios 
+
+Los objetivos que se pretenden alcanzar en este recurso son los siguientes:
+
+- Presentar el proceso de virtualización de servicios.
+- Definir el término cloud computing o computación en la nube, así como los tipos de despliegue de servicios en la nube.
+- Mostrar un ejemplo de despliegue de cloud privado.
+- Abordar las principales tendencias sobre la virtualización de servicios.
 
 ## Computación y Almacenamiento en la Nube
 
+31/01/2023
+
+### Objetivos
+
+- Presentar el proceso de virtualización de servicios.
+- Definir el término cloud computing o computación en la nube, así como los tipos de despliegue de servicios en la nube.
+- Mostrar un ejemplo de despliegue de cloud privado.
+- Abordar las principales tendencias sobre la virtualización de servicios.
+
+
+### ¿Qué es la virtualización?
+
+La virtualización consiste en la creación, a través de software, de una versión virtual de algún recurso tecnológico, como puede ser hardware, un sistema operativo, un dispositivo de almacenamiento u otros recursos de red.
+
+Existen dos tipos de virtualización: 
+1. Virtualización de plataforma:se lleva a cabo mediante un software específico en la máquina anfitrión, que simula un entorno computacional, también llamado máquina virtual o huésped (host).
+2. Virtualización de un recurso: capacidad de simular componentes de servicio, de modo que podamos validar el comportamiento y el rendimiento de cada uno de los componentes de un producto.
+
+#### Máquinas virtuales
+
+Las máquinas virtuales son computadoras alojadas en otra. 
+
+Los hipervisores utilizan dispositivos virtuales para acceder a los dispositivos físicos del anfitrión, a través de controladores virtuales. 
+
+Por ejemplo, se puede virtualizar un disco duro a través de un archivo alojado en la máquina anfitrión.
 Objetivos: Hacer que la información sea localizable y accesible desde cualquier parte
 
-La computación en la nube busca transformar la infraestructura de IT en un servicio que permita "conectarse" a la infraestructura desde cualquier parte, a trravés de Internet y usar los recuross TI sin tener que instalarlos ni mantenerlos en nuestras instalaciones. 
+![](/img/computacion/vm.png)
 
-Facilitan mucho el desarrollo de start-ups. Ahorra los costos de adquisición de recursos físicos para implementar productos y servicios (0 EUR de entrada y de instalación, solo pagas por los recursos que utilizas), dinamiza la apariciónd de empresas, la tecnología deja de ser una barrera inicial. 
+#### ¿Qué persigue la computación en la nube?
+
+Transformar la infraestructura de IT en un servicio que permita "conectarse" a la infraestructura desde cualquier parte, a través de Internet y usar los recursos TI sin tener que instalarlos ni mantenerlos en nuestras instalaciones. 
+
+Facilitan mucho el desarrollo de start-ups. Ahorra los costos de adquisición de recursos físicos para implementar productos y servicios (0 EUR de entrada y de instalación, solo pagas por los recursos que utilizas), dinamiza la aparición de empresas, la tecnología deja de ser una barrera inicial. 
 
 
-### ¿Qué persigue la computación en la nube?
+### ¿Qué es la computación en la nube?
 
-La computación en la nube es, acceso bajo demanda, a través de Internet, a recursos TI como aplicaciones, servidores (físico y/o virtuales), almacenamiento de datos, herramientas de desarrollo, elementos de red, etc. 
+Cloud computing se define como un uso de recursos computacionales escalables, accediendo a ellos por medio de Intenet y a través de pago por uso. 
+
+![](/img/computacion/cloud_computing.png)
+
+#### Características principales
+
+a. Autoservicio bajo demanda.
+b. Permitir el acceso desde la red, ya sea pública, privada, híbrida.
+c. La asignación de recursos en modo multi-usuario.
+d. La capacidad de rápido crecimiento.
+e. Servicio medido.
+f. Elasticidad y escalabilidad.
+g. Seguridad.
 
 ### ¿Cuáles son las ventajas/inconvenientes de la computacion en la nube? 
 
-Si commparamos con una infraestructura IT local tradicional. 
+Si comparamos con una infraestructura IT local tradicional:
 
 - Reduce los costes asociados a IT: ahorra el esfuerzo de comprar, instalar, configurar y administrar la instraestructura local. 
 - Mayor agilidad y el tiempo de creación de valor (time-to-value) con la nube, la organización puede comenzar a usar aplicaciones en minutos, en lugar de esperar semanas o meses a que IT responda a una solicitud, compre y configure hardware e instale software. 
-- Trabajar enn la nube también permite a ciertos usuarios, como desarrolladores, científicos de daots y usuarios avanzados, desplegar por sí mismos el software y la infraestructura de soporte. 
+- Trabajar en la nube democractiza  la instalación y despligue del software y la infraestructura de soporte. 
 - Desde el punto financiero, le permite traspsar este costo de un CapEx a OpEx. La compra de equipamiento técnico supone presupuesto CapEx, mientras que el uso de equipos arrendados supone presupuesto OpEx (gasto corriente). 
 
 ### Servicios en la nube (x as a Service)
@@ -829,6 +781,198 @@ Es un modelo de nube que permite a los usuarios operar y trabajar con una red si
 ![](/img/computacion/NaaS.png)
 
 ![](/img/computacion/cisco_meraki.png)
+
+
+
+16/12/22
+
+NetBIOS es el protocolo de unidades de red que implementa Windows, y es el software que hace visible los recursos de un equipo a través de la red para que lo utilicen otros, para compartir de un PC a otros. Linux y la comunidad hicieron algo parecido, SAMBA, no solo se puede compartir recursos y ficheros entre SOs Windows, sino también entre SOs Linux y Windows. NFS (Network File System) es un protocolo que permite compartir recursos entre SO Linux. 
+
+¿Qué es YARN? - Es el clúster que Permite que las aplicaciones que corren en el clúster tengan alta disponibilidad independientemente de los fallos que ocurran, por medio de los nodos en el sistema. 
+
+¿Qué es Hadoop? - Es el sistema de ficheros distribuido. Es la implementación que nos va a permitir que los nodos compartan sus recursos como si fuesen uno solo disco virtual. Permite que los nodos se interconecten y se compartan los recursos de estos. Permite replicar los datos entre cada uno de los datos, trocearlos y replicarlos, para que en caso de fallo de uno de los nodos, podamos recuperar un fichero completamente siempre.  
+
+- YARN: Gestor del clúster. Keep Alive. Sistema distrbuidor de cargas, se encarga de mantener y distribuir las cargas en los diferentes nodos del clúster. Ahora Hadoop recomienda no utilizar Yarn. 
+- HDFS: Sistema de gestión de ficheros. Se encarga de generar réplicas en distintos nodos, gestiona el acceso a los datos. Tiene su propio formato. 
+
+
+En Hadoop, tenemos 
+- **Namenodes.** Es el nodo que actúa como *master* o coordinador general, es el nodo maestro. 
+- **Datanodes.** Nodos que comparten recursos. 
+
+![](/img/computacion/hadoop.png)
+
+
+Cada cierto tiempo Yarn va a mandarle una llamada a cada uno de los nodos para ver si están funcionando correctamente. Si el nodo no respondiera, el namenode va a mandarle un par de señales más. Si no contesta, el namenode lo va a desconectar, lo va a dar por perdido. 
+
+Vamos a ver los comandos para que podamos navegar por Hadoop. 
+
+Los sistemas Hadoop se diseñaron especialmente para funcionar con sistemas de disco. La información se lee y se graba en un disco. La arquitectura distribuida en Hadoop consiste en trocear un problema, distribuirlo a diferentes nodos (map), resolver una solución parcial local y luego ensamblar las soluciones parciales en una solución global (reduce). Esto se realiza gracias a **map reduce**. *Map* es aplicar a los nodos una función troceada.  En Map pasas una función y una lista a la que hay que aplicarle la función y el sistema itera en cada uno de los índices de la lista aplicándole la función. *Reduce* significa una vez tengo las soluciones parciales, reducirlas a una sola solución.
+
+Protocolo SSL. Es un protocolo de seguridad para encriptar la información. 
+
+
+Hay varios formatos de ficheros  de interacambio de información (JSON, XML,CSV), pero no son óptimos para consultas. 
+
+En el mundo Big Data se utilizan consultas de ficheros en disco, directamente consultar los ficheros sin cargar la info en la BBDD. Para este tipo de arquitectura se guarda la info en formatos .parquet y .orc. El formato parquet admite metadatos, y la información se guarda en columnas (formato columnar). La información no está optimizada para el almacenamiento de datos sino para su consulta. Ejemplos que usan el formmato columnar son AWS y BigQuery. La consulta en el formato columnar es mucho más rápida. 
+
+Aparte de permitir la consulta rápida, el formato columnar permite comprimir en disco y ahorrar mucho espacio. 
+
+
+Comandos que permiten la configuración del servicio 
+
+
+```bash
+
+vi core-site.yml
+vi hdfs-site.yml
+vi yarn-site.yml
+vi mapred-site.yml
+
+```
+
+Los comnados para entornos de servicios: Configurar o definir cómo se conectan los servicios (.sh/.cmd)
+
+```bash
+hadoop-env.sh (Entornos Linux)
+hadoop-env.cmd (Entornos Windows)
+mapred-env.sh
+mapred-env.cmd 
+yarn-env.cmd 
+yarn-env.sh
+```
+
+
+
+
+
+
+
+
+17/01/2023
+
+``` bash
+
+- Recuperar la configuración inicial del sistema y el URL que debemos introducir para acceder: hdfs getconf -confKey fs.defaultFS (p.ejem. "hudfs://tucan:9000)
+- Recuperar el punto de acceso al clúster (en  proceso de extinción): hdfs getconf -confKey fs.default.name
+- Observar el nombre de los namenodes: hdfs getconf -namenodes
+- Lisa de comandos: hdfs dfs 
+- Enlistar los archivos de Hadoop: hdfs dfs -ls <ruta>
+- Crear un diretorio: hdfs dfs -mkdir <ruta> <nombre de la carpeta>
+- Reemplazar un directorio existente: hdfs dfs -mkdir -p <ruta/nombre de la carpeta>
+- Enlistar los ficheros con sus tamaños correspondientes: hdfs fs -ls -h <ruta>
+- Listar todos los ficheros y directorios recursivamente (con subdirectorios): hdfs dfs -ls -R /
+- Crear un archivo vacío: Hdfs dfs -touchz <ruta> <nombre>.txt
+- Copiar de un sistema local a Hadoop: hdfs dfs -copyFromLocal 
+- Subir un archivo a HDFS: hdfs dfs -put <ruta/nombre del archivo> <ruta de destino>
+- Sobrescribir un archivo existente a HDFS: hdfs dfs -put -f /home/file1 /hadoop
+- Copiar el fichero ‘file1’ de hdfs al sistema de ficheros local: hdfs dfs -get /file1 /home/ <ruta destino>	
+- Leer un archivo de Hadoop: hdfs dfs -cat <ruta/nombre del texto>
+- Eliminar un fichero: rm <ruta/nombre del archivo>
+- Copiar el fichero ‘file1’ del sistema de ficheros local a hdfs y luego lo borra del sist. ficheros local: hdfs dfs -moveFromLocal <ruta/nombre del archivo>
+- Copiar un archivo dentro Hadoop: hdfs dfs -cp <ruta/nombre archivo origen> <ruta/nombre archivo destino>
+- Mover un archivo dentro Hadoop: hdfs dfs -mv <ruta/nombre archivo origen> <ruta/nombre archivo destino>
+- Borrar ficheros en un directorio remoto: hdfs dfs -rm -r <ruta/nombre del archivo>
+- Ver el tamaño de los ficheros y directorios: hdfs dfs -du <ruta/nombre>
+- Ver el tamaño de los ficheros: hdfs dfs -du -s  <ruta/nombre> /* The -s option will result in an aggregate summary of file lengths being displayed, rather than the individual files. */
+- Ver los metadatos de los ficheros: hdfs dfs -stat <ruta>/*  /* el asterisco sirve para que nos dé los metadatos individualmente para cada directorio o fichero individualmente contenido en la ruta. 
+- Cambiar el factor de replicación recursiamente : hdfs dfs -setrep -w <número de réplicas> <ruta/nombre archivo> /* La w es de Wait y solicita que se espere a la finalización de las réplicas para que el commando se complete. /*
+ 
+```
+
+## Consolidación de servicios
+
+### ¿Qué es la virtualización de los servidores? 
+
+Es un proceso que permite una utilización más eficiente de hardware físico y es la base de la computación en la nube. 
+
+La virtualización utiliza software para crear una capa de abstracción sobre le hardware de la computadora tal que permite que los elementos de hardware se dividan en varias ocmputaodras virtuales comúnmente llamadas máquinas virtuales
+
+![](/img/computacion/consolidacion.png)
+
+Cada máquina virtual ejecuta su propio sistema operativo y se comporta como una computadora independiente, aunque solo tiene acceso a una parte del hardware de la computadora subyacente real. 
+
+De lo anterior se deduce que la virtualización permite una utilización m+ás eficiente del hardware físico y con ello un mayor retorno de la inversión del hardware de una empresa. 
+
+### ¿Cuáles son los beneficios de la virtualización?
+
+La virtualización asporta varios beneficios a los operadores de centros de datos y proveeedores de servicios: 
+- Eficiencia de los recursos: Cada servidor de aplicacione srequería su propia CPU física dedicada. Ls recursos sobrantes no se aprovechaban cuando estaban separados.
+- Administración mpas sencilla. Reemplazar las computaodras físicas con máquinas virtuales definidas por software facilita el uso y la administración del software. 
+- Tiemmpo de inactividad mínimo: Los fallos del SO y de las aplicaciones pueden causar tiempo de inactividad e interrumpir 
+- Aprovisionamiento más rápido: Comprar, instalar y configurar hardware para cada aplicación requiere mucho tiempo. Si se dispone de hardware ya instalado, el aprovisionamiento de máquinas virutales es significativamente más rápido. Incluso puede automatizarse utilizando un software de gestión e integrarlo en los flujos de trabajo existentes. 
+
+### ¿Cuántas soluciones de virtualización conoces? 
+
+- **VMware** especializada en virtualización de servidores, escritorios, redes y almacenamiento. 
+- **Microsoft Hyper-V** se enfoca en virtualización de servidores y PCs de escriotrio. 
+- **Citrix** tiene su nicho en la virtualización de aplicaciones, también ofrece virtualización de servidores y soluciones de escritorio virtual. 
+- **Oracle VirtualBox** es un hipervisor que permite crear máquinas x86 virtuales. 
+- **IBM Linux for System z** permite ejecutar Linux en un sistema S/390 o System Z
+
+## ¿Cuál es la virtualización de redes SAN?
+
+una red de área de almacenamiento (storage area network, SAN) es una red o subred dedicada de alta velocidad que se interconecta y presenta grupos ocmapartidos de dispositovs de almacenamiento a varios servidores. 
+
+
+![](/img/computacion/san.png)
+
+![](/img/computacion/san_2.png)
+
+
+
+24/01/2023
+
+Se puso a hablar de bare-metal hypervisor
+
+![](/img/computacion/bare-metal-hypervisor.png)
+
+"Vamos a ver la parte que nos quedaba de los comandos de Hadoop."
+
+Comienza así: 
+- Listar el contenido del sistema de ficheros de HDFS - hdfs dfs -ls
+-hdfs dfs -setrep -w (el white [-w] sirve para que cuando cambiamos el factor de replicacioón el sistema se queda pensando y no devuelve el control de la terminal, hasta haber completado la operación) 6 <ruta/nombre_fichero>
+- para savber el factor de replicación: hdfs dfs -stat %r
+
+
+#### Cómo ejecutamos trabajos en Hadoop 
+
+Vamos a ver cómo se ejecutan problemas en Hadoop...
+
+Un ejemplo es clásico, estre programa permite hacer wordcounts. Tenemos diferentes infraestructuras que generan ficheros de logs. Lo que podemos hacer es que las cadenas de textos vuelquen en un directorio concreto. Vamos a buscar dentro de esos ficheros de textos, palabras como "Attention", "Error", "Warning".
+
+Cada uno de los nodos hace una búsqueda de las cadenas que les hemos pedido que busquen y las cuentan, luego el sistema nos devuelve la suma de las sumas. 
+
+Vamos a crear un directorio en Hadoop llamado "Entrada" y otro llamado "Salida". 
+
+hdfs dfs -put Word_count1.txt grupo2/entradas | estoy desplazando un fichero de mi servidor local a HDFS
+
+vamos a agregar un fichero jar (fichero compilado)
+
+ls /usr/local/hadoop/share/hadoop/mapreduce
+hadoop jar /usr/local/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-examples-3.2.1.jar wordcount <ruta/nombre_archivo>
+
+- Hadoop jar para indicarle un fichero ya compilado
+- Ruta donde se encuentre el fichero
+- Clase que queremos que se ejecute 
+- Darle 3 parámetros: la clase, la ruta del fichero de entrada y la ruta del fichero de salida.
+
+Se mete a Yarn. 
+
+Vemos los archivos que devolvió en la carpeta 
+- hdfs dfs -ls grupo_2/salida (para ver los ficheros de salida)
+
+Los sistemas de alta disponibilidad particionan los ficheros. Como el acceso a disco es muy lento, particionan para que no haya concurrencia, para que el procesamiento sea lo más fluido posible. 
+
+*ahora vamos a abrir algo en Yarn*
+
+HDFS no tiene capacidad sobre sí mismo, le entrega las tareas o aplicaciones a ejecutar al clúster de Yarn. 
+
+yarn jar /usr/local/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-examples-3.2.1.jar wordcount <ruta/nombre_archivo>
+
+Con este comando, yarn ejecuta la tarea en lugar de HDFS.
+
+
 
 
 
