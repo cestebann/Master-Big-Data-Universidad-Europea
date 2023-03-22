@@ -14,7 +14,7 @@ Profesor: Alfonso Antolínez García
     - [Tolerancia a fallos en sistemas distribuidos](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/Computaci%C3%B3n%20en%20sistemas%20distribuidos.md#tolerancia-a-fallos-en-sistemas-distribuidos)
 - [Unidad 2. Sistemas cloud y virtualización de servicios](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/Computaci%C3%B3n%20en%20sistemas%20distribuidos.md#2-sistemas-cloud-y-virtualizaci%C3%B3n-de-servicios)
     - [Computación y almacenamiento en la nube](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/Computaci%C3%B3n%20en%20sistemas%20distribuidos.md#computaci%C3%B3n-y-almacenamiento-en-la-nube)
-    - Consolidación de servicios
+    - [Consolidación de servicios](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/Computaci%C3%B3n%20en%20sistemas%20distribuidos.md#consolidaci%C3%B3n-de-servicios)
     - Amazon AWS
     - Google Web Services
 - Unidad 3. Hadoop como sistema de cómputo en plataformas Big Data
@@ -22,11 +22,11 @@ Profesor: Alfonso Antolínez García
     - Hadoop Distributed File System
     - Arquitectura de cómputo de Hadoop.
     - Ejecución de aplicaciones en Apache Hadoop.
-- Unidad 4. Programación en Scala
-    - Introducción al lenguaje Scala
-    - Estructuras de control y definición de funciones
-    - Listas y contenedores
-    - Programación funcional
+- <s> Unidad 4. Programación en Scala </s>
+    - <s>Introducción al lenguaje Scala</s>
+    -<s> Estructuras de control y definición de funciones</s>
+    - <s>Listas y contenedores</s>
+    - <s>Programación funcional</s>
 - Unidad 5. Computación distribuida con Apache Spark
     - Introducción a Apache Spark
     - Programación de aplicaciones con Apache Spark
