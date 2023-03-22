@@ -95,15 +95,61 @@ Paralelamente a estos factores, se ha ido desarrollando la **miniaturización** 
 
 Como consecuencia, no sólo es fácil sino también factible construir un sistema distribuido, que consiste en una red de computadoras dispersas geográficamente. El tamaño puede ser de un puñado a millones de nodos y la red de interconexión puede ser cableada, inalámbrica o un híbrido. 
 
-### Protocolos TCP y/o Modelos de Operación
+#### ¿Qué es un sistema MainFrame? 
+
+![](/img/computacion/mainframe.png)
+
+Los clústeres de servidores se han convertido en el reemplazo de los mainframes en muchas grandes empresas, como Amazon y Google.
+
+#### ¿Qué son las redes de datos de alta velocidad? 
+
+Las redes de datos permiten conectar usuarios y “maquinas” a recursos que están alojados fuera de su entorno de trabajo. 
+
+#### ¿Qué protocolos de conexión física conoces?
+
+- IDE
+- USB
+- SATA
+- eSATA
+- PCI Express 1.0, 2.0 
+
+#### ¿Principales diferencias entre redes de datos y conexiones físicas? 
+
+- distancia a la que operan.
+- Protocolos de comunicación que utilizan. 
+
+#### ¿Qué topologías de datos conoces? 
+
+- Local area networks (LAN)
+- Metropolitan area networks (MAN)
+- Wide area networks (WAN)
+
+### Protocolos de Red
+
+#### ¿Qué son los protocolos de red y cuántos conoces? 
+
+Son estándares formales compuestos por reglas, metodología y configuracionesque definen la comunicación entre dos o más dispositivos a través de una red.
+Para poder enviar y recibir información, los dispositivos a la red deben seguir estos protocolos.
+
+- **Network Time Protocol (NTP):** es un protocolo que sincroniza los relojes de los sistemas informáticos a través de las redes de datos. NTP permite que los dispositivos conectados a la red sincronicen su configuración horaria con el servidor NTP.
+- **Domain Name System (DNS, Sistema de Nombres de Dominio)**: DNS traduce los nombres de dominio a direcciones IP. Resuelve un localizador uniforme de recursos o una dirección de sitio web en la dirección IP del sitio. 
+
+#### ¿Qué es un protocolo de enrutamiento?
+
+- **Routing Information Protocol (RIP)** es un protocolo de enrutamiento dinámico que utiliza el conteo de saltos como métrica de enrutamiento para encontrar la mejor ruta entre la red de origen y la de destino. Tiene un valor AD (Administrative Distance) de 120 y funciona en la capa de red del modelo OSI.
+- **AD (Administrative Distance)**, es un valor que representa la confiabilidad de un protocolo de enrutamiento específico. Cada protocolo de enrutamiento tiene su propia AD. Si un enrutador aprende una ruta de destino de dos o más protocolos de enrutamiento, selecciona la ruta del protocolo que tiene la distancia administrativa más pequeña.
+-**Dynamic Host Control Protocol (DHCP)** utiliza un servidor para asignar una dirección IP e información de configuración a los dispositivos de red. Como resultado, el dispositivo obtiene una hoja de permiso del servidor DHCP para usar la red. 
+
+#### ¿Qué son los Protocolos TCP y/o Modelos de Operación?
 
 Los sistemas distribuidos y Cloud existen porque se han dado las condiciones. Entre ellas están los protocolos de red. 
 
 Es importante porque seguramente si trabajamos con una app Cloud como AWS, a la hora de hacer un despliegue en una infraestructura, con toda seguridad vamos a tener que instalar una VPC y subredes; segmentar una subred para poder tener direcciones de red suficientes; saber abrir puertos. 
 
+TCP/IP define como se ha de transmitir la información entre el emisor y el receptor.
 
 
-### Definición 
+### ¿Cómo definirías el Concepto de Sistema Distribuido?
 
 > “A collection of independent computers that appear to the users of the system as a single computer.” - Tanenbaum 
 
@@ -117,24 +163,28 @@ Los sistemas distribuidos están commpuestos por los siguientes elementos:
 -**Red de computadoras**: Un conjunto de computadores conectados por una red de interconexión.
 -**Protocolo**: Un conjunto de reglas e instrucciones que gobiernan la comunicación en un sistema distribuido, es decir, el intercambio de mensajes.
 -**Middleware**: Software que soporta la ejecución de aplicaciones distribuidas.
+ 
+#### ¿Ventajas?
+- Compartir recursos (HW, SW, datos).
+- Ofrecer una buena relación coste-rendimiento: 
+    - Paralelismo: este modelo utiliza el "paralelismo“ en los procesos, en el que todas las computadoras del clúster gestionan simultáneamente un subconjunto de las tareas generales.
+    - Commodity Hardware.
+- Escalabilidad: aumentar la capacidad de crecimiento. 
+- Proporcionar tolerancia a fallos. 
+    - El sistema aplica la redundancia: Varias computadoras pueden brindar los mismos servicios, y además los datos (ficheros, carpetas, objetos) pueden estar replicados en distintos servidores para su lectura/escritura. 
+- Aumentar disponibilidad. 
+- En sistemas de gran escala, los sistemas distribuidos son una aproximación excelente para la distribución de la carga de trabajo y el aumento de la concurrencia con la que podemos ser capaces de ofrecer servicios a múltiples a usuarios de forma simultánea.
+- Agnósticos al proveedor de software/hardware y a protocolos. 
 
-16/11/22 
-
-#### Ventajas 
-- Compartir recursos (HW, SW, datos)
-- Ofrecer una buena relación coste-rendimiento. Trabajan con el objetivo de disminuir la latencia, tiempo de respuesta, ancho de banda y capacidad de proceso. Esto se logra gracias al uso de hardware commodity (productos no diferenciados)
-- Escalabilidad. Aumentar la capacidad de crecimiento.
-- Ofrecen una solución para la tolerancia a fallos, disponibilidad, replicación y escalabilidad. 
-- Rendimiento mejorado. En sistemas de gran escala, son un excelente modelo para la distribución de carga de trabajo
-- Es capaz de ofrecer servicios a múltiples clientes de manera simultánea. 
-
-#### Desventajas
-- Complejidad. Son difíciles de implementar. mantener y solucionar. No solo se limita al hardware, sino también al software. Varios sistemas trabajando al mismo tiempo (leyendoo y escribiendo) pueden provocar fallos en el sistema e inconsistencias en los datos. 
+#### ¿Desventajas?
+- Complejidad. Son difíciles de implementar. mantener y solucionar. No solo se limita al hardware, sino también al software. Varios sistemas trabajando al mismo tiempo (leyendo y escribiendo) pueden provocar fallos en el sistema e inconsistencias en los datos. 
 - Coste de entrada inicial alto 
 - Cuellos de botella en transferencia de red. Cuando los datos se distribuyen entre varios nodos, es necesario moverlos.
 - Fallos debido a errores humanos. Con múltiples componentes el factor de error aumenta. 
 
 ### Sistemas distribuidos vs. Computación Paralela
+
+#### ¿Cuáles son las diferencias entre un sistema distribuido y una computación paralela? 
 
 En una topología de procesamiento en paralelo: 
 - La carga de trabajo se distribuye en varios procesadores en una o más computadoras, denominadas nodos de cómputo. 
@@ -142,7 +192,11 @@ En una topología de procesamiento en paralelo:
     - Sistemas de multiprocesamiento simétrico (symmetric multiprocessing, SMP).  Uno o más procesadores que comparten componentes de hardware. 
     - Procesamiento paralelo masivo (massively parallel processing, MPP). Es una arquitectura donde hay muchas computadoras alojadas físicamente en un mismo chasis. Son las famosas supercomputadoras. 
 
-#### MPP 
+#### ¿Qué es un Sistemas de multiprocesamiento simétrico (SMP)?
+
+En un paradigma varios procesadores comparten los recursos hardware. Ej: Varios procesadores comparten la misma memoria y espacio en disco, y usan un solo sistema operativo. 
+
+#### ¿Qué es un Procesamiento paralelo masivo (MPP)?
 
 Un sistema MPP, está físicamente disperso. 
 - El rendimiento mejora al no compartir recursos físicos. 
@@ -150,10 +204,11 @@ Un sistema MPP, está físicamente disperso.
 - Un sistema de archivos se comparte por medio de red. 
 - Los archivos de programa se pueden compartir en el sistema en lugar de copiarse en cada disco individual .
 
+La computación paralela se enfoca en la realización de tareas computacionales individuales de manera más rápida mediante la división de la tarea en múltiples subprocesos que se ejecutan simultáneamente en múltiples dispositivos de procesamiento. Por otro lado, los sistemas distribuidos se enfocan en la coordinación de múltiples dispositivos de procesamiento para realizar tareas de manera distribuida, donde cada dispositivo procesa una parte diferente de la tarea.
 
-### Sistemas distribuidos y middlewares
+### ¿Qué es un middleware?
 
-**Middleware:** Un middleware es un software que facilita la conexión de aplicaciones que no fueron diseñadas para conectarse entre sí, brindando una funcionalidad mayor que operando independientemente. Es capaz de asegurar que múltiples procesos ocurriendo sobre un mismo recurso no corrompe los datos. 
+**Middleware:** Un middleware es un capa que facilita la conexión de aplicaciones que no fueron diseñadas para conectarse entre sí, brindando una funcionalidad mayor que operando independientemente. Es capaz de asegurar que múltiples procesos ocurriendo sobre un mismo recurso no corrompe los datos. 
 
 > El middleware actúa como un puente entre tecnologías, herramientas y bases de datos diversas para que pueda integrarlas sin dificultad en un único sistema. - AWS 
 
@@ -167,13 +222,13 @@ Las funciones de un middleware son:
 - Ofrecer interfaces de alto nivel de estándar y uniformes para el desarollo de apps. 
 - Ofrecer servicios comunes para facilitar la comunicación entre aplicaciones. 
 
-#### Tipos de middleware
+#### ¿Qué Tipos de middleware conoces?
 
 - Servidores de aplicación web o middleware de dispositivos móviles.
 - *Integración basada en la nube como servicio* (Integration Platform as a Service, IPaaS) es una solución basada en la nube que simplifica la integración en entornos locales (on-premises ) y en la nube. Es una solución de autoservicio
 - bus de servicio empresarial (Enterpise Service Bus, EBS)
-- *Message brokers.* Son una tecnología de comunicación de aplicaciones para ayudar a construir un mecanismo de integración común para admitir arquitecturas de nube nativas. 
-- iP
+- *Message brokers.* traducen mensajes entre diferentes protocolos de mensajería, permitiendo que los servicios interdependientes "hablen" entre sí directamente, incluso estando escritos en diferentes lenguaje y/o implementados en diferentes plataformas.
+
 
 ### Diseño de sistemas distribuidos
 
@@ -190,8 +245,7 @@ Aspectos a tener en cuenta los aspectos de diseño:
 - Escalabilidad: Es escalable si su capacidad de procesamiento puede crecer al añadir más usuarios, aumenta el rendimiento al aumentar el número de nodos, el tiempo de respuesta no aumenta y la fiabilidad no se degrada.
 - Seguridad: Confidencialidad, integridad, autenticación.
 - Tolerancia a fallos y disponiblidad: Al estar compuesto por varios elementos, naturalmente es más propenso a errores por su gran tamaño. Un sistema es tolerante a fallos si el sistema cumple sus especificaciones a pesar de la presencia de fallos. Por lo tanto, se debe asegurar **disponibilidad**, es decir, que los recursos son accesibles a pesar de que se presenten fallos, y que la consistencia de los recursos se asegurare a pesar de los fallos (atomicidad).
-
-
+- Control de concurrencia: Coordinar las acciones que ocurren al mismo tiempo en diferentes sistemas. 
 
 Existen diferentes técnicas para el aumento de escalabilidad en los sistemas, como son: 
 - Replicación de datos: múltiples copias del mismo dato. 
@@ -199,7 +253,7 @@ Existen diferentes técnicas para el aumento de escalabilidad en los sistemas, c
 - Caching y su respectivo problema de consistencia de datos. 
 - Distribución de carga entre los distintos nodos que conforman el sistema distribuido.
 
-### Teorema del CAP
+### ¿Qué es el Teorema del CAP? 
 
 Antes, el aumento de rendimiento en un sistema era simple: por medio de la escalabilidad vertical o mejorando la aplicación para optimizar su funcionamiento (ajuste de rendimiento). No obstante, cada vez fue necesario incoporar una tercera opción, la escalabilidad horizontal debido al creciente procesamiento de datos, que ya no podía ser solucionado con las dos primeras opciones. 
 
@@ -217,8 +271,6 @@ A raíz de la formulación para obtener la mejor configuración y solventar los 
 
 ### Tipos de sistemas distribuidos 
 
-- **Almacenamiento en capas**
-
 - **Sistemas clusters y supercomputadores (sistemas informáticos distribuidos)**. Un cluster de cómputo se define como un conjunto de máquinas conectadas entre sí, que permiten resolver un problema de forma distribuida, ofreciendo una alta capacidad de cómputo.Los sistemas cluster son sistema centralizados, basados en la agrupación de computadores genéricos (commodity) de forma barata y ampliable. En prácticamente todos los casos, la computación de clusters se utiliza para la programación paralela en la que un único programa, de computación intensiva, se ejecuta en paralelo en múltiples máquinas.
 - **Grid Computing (sistemas de información distribuidos)**. En 1999, Ian Foster y Carl Kesselman plantearon un sistema distribuido como una analogía con el suministro eléctrico: el usuario debe tener acceso a los recursos computacionales en condiciones similares a las que tiene para utilizar la energía eléctrica, es decir, desde cualquier sitio (geográficamente dispersos), con una interfaz uniforme, pudiendo confiar en su funcionamiento (fiables, robustos) y a un coste asequible. Este concepto se basa en agregar y compartir recursos en un ecosistema distribuido.
 - **Cloud Computing (sistemas omnipresentes)***. El cloud computing se caracteriza por un conjunto fácilmente utilizable y accesible de recursos virtualizados. Los recursos y cómo se utilizan pueden configurarse de forma dinámica, proporcionando la base para la escalabilidad, si se necesita más trabajo, un cliente puede simplemente adquirir más recursos. Estos sistemas pueden proporcionar un beneficio mutuo o bidireccional a las empresas. Empresas con exceso de capacidad de cómputo pueden, de forma rentable, dejar usar sus sistemas a distintos clientes. Por otro lado, las empresas con demanda de capacidad de cómputo, pueden buscar alquilar la infraestructura de quién le ofrezca mejor precio, servicio o relación entre ellos.
@@ -235,7 +287,9 @@ A raíz de la formulación para obtener la mejor configuración y solventar los 
 Otro de los factores críticos a la hora de diseñar un sistema cluster es la elección de la tecnología de interconexión. Se puede encontrar en el mercado soluciones como Ethernet (1 Gbps o 10 Gbps), InfiniBand (hasta 50 Gbps) o fibra (+100Gbps).
 
 
-16/22/22
+
+
+16/12/22
 
 NetBIOS es el protocolo de unidades de red que implementa Windows, y es el software que hace visible los recursos de un equipo a través de la red para que lo utilicen otros, para compartir de un PC a otros. Linux y la comunidad hicieron algo parecido, SAMBA, no solo se puede compartir recursos y ficheros entre SOs Windows, sino también entre SOs Linux y Windows. NFS (Network File System) es un protocolo que permite compartir recursos entre SO Linux. 
 
@@ -999,7 +1053,9 @@ En la fase Map, las funciones definidas por el usuario procesasn l ainformación
 En la fase Reduce, se compone de subfases: shuffle y reduce, propoiande deicha. La entrada a esta fase, se corresponde con los datos de salidad de la fase map anterior. Los datos recibidos desde el paso anterior map, son pasalos al Reducer. 
 
 
-# Apache Spark 
+# Unidad 4. Apache Spark 
+
+## Introducción a Apache Spark 
 
 Apache Spark es un motor multilingüe aplicado a la ingeniería de datos, ciencia de datos y el aprendizaje automático en volúmentes de datos big data. Spark puede ejecutarse en clústeres o máquinas de un solo nodo. 
 
@@ -1007,10 +1063,17 @@ Apache Spark es un framework de programación distribuida, que ofrece un alto re
 
 ![](/img/computacion/apache_spark_1.png)
 
+Se puede ejecutar aplicaciones Apache Spark localmente o distribuidas en un clúster, ya sea mediante el uso de un shell interactivo
 
 Para ejecutar aplicaciones distribuidas en un clúster, Spark requiere un administrador de clúster. Cuando se ejecuta en YARN, los procesos de la aplicación Spark son gestionados por los roles YARN ResourceManager y NodeManager.
 
 ![](/img/computacion/arquitectura_spark.png)
+
+
+- Spark SQL: módulo para trabajar con datos estructurados, permite mezclar sin problemas las consultas SQL con los programas Spark.
+- MLlib: API que implementa algoritmos comunes de aprendizaje automático.
+- Spark Streaming: API que permite crear aplicaciones escalables de tolerancia a fallas.
+- GraphX: API para gráficos y cómputo de gráficos paralelos.
 
 ## Qué lenguajes admite Spark? 
 
@@ -1103,3 +1166,7 @@ Hadoop MapReduce y Apache Spark son dos frameworks de procesamiento de datos dis
 - Flexibilidad: Apache Spark es más flexible que Hadoop MapReduce en términos de procesamiento de datos en diferentes formatos, como JSON, CSV y texto sin formato.
 
 En resumen, si la velocidad y la eficiencia son importantes, Apache Spark es la mejor opción. Si el ecosistema de Hadoop es importante para su organización, Hadoop MapReduce podría ser la mejor opción.
+
+
+# Preguntas
+
