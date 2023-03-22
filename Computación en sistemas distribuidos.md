@@ -873,13 +873,7 @@ Una red de área de almacenamiento (Storage Srea network, SAN) es una red o subr
 - Analizar las características de HDFS.
 - Reconocer el modelo arquitectónico de HDFS.
 
-## 1. Introducción a Hadoop Distributed File System (HDFS)
-
-Hadoop fue diseñado por Michael Carafella en 2005. 
-El equivalente a sistemas de ficheros Hadoop se inspiró inicialmente en el Google File System (GFS). 
-GFS fue reemplazado por Colossus en 2010
-Colossus es un sistema de ficheros orientado al procesamiento en Tiempo Real. 
-Colossus ya no usa la tecnología MapReduce para el cálculo de los índices de búscqueda, por estar orientado a procesos batch. 
+## Apache Hadoop
 
 Apache Hadoop es un proyecto de software *open source* para computación distribuida, escalable y de confianza. Además, ofrece un framework que permite la computación distribuida de grandes conjuntos de datos, usando clústeres de ordenadores y mediante el uso de modelos de programación simples.
 
@@ -889,10 +883,58 @@ El framework está diseñado para detectar y tratar fallos a nivel de aplicació
 
 Actualmente, Hadoop es un proyecto de código abierto bajo licencia Apache.
 
+Es importante aclarar que no es una base de datos y no es un sistema de procesamiento en tiempo real, ya que no se pueden garantizar plazos fijos de ejecución.
+
+Actualmente, Hadoop es un proyecto de código abierto bajo licencia Apache.
+
 Hadoop se compone de tres elementos principales: 
 1. MapReduce
 2. Hadoop Common 
 3. HDFS.
+
+MapReduce es el nombre dado a la combinación de dos procesos separados y necesarios para la extracción de valores de un gran número de orígenes de datos distintos. 
+
+La etapa *map* funciona como extractor y asigna valores a determinadas claves para un único documento. La etapa *reduce* realiza la función de acumulación y combina las claves de múltiples documentos para crear un valor reducido, o combinado, único para cada clave a partir de los múltiples valores generados.
+
+Un trabajo grande puede dividirse en varias tareas, razón por la cual se pueden emplear varias máquinas para resolver cada una de estas. Debido a que el trabajo realizado puede ser dividido en varias tareas y a su vez, estas tareas pueden ser ejecutadas en paralelo en diversas máquinas diferentes, se provee un enorme poder de procesamiento, lo cual brinda una gran escalabilidad horizontal.
+
+Como los datos se encuentran replicados en las máquinas que conforman el clúster, tiene una alta tolerancia a fallos, de tal forma que, si uno de los nodos deja de estar disponible por algún motivo, otro nodo se puede ocupar de su lugar.
+
+Hadoop proporciona un entorno de ejecución bajo el modelo de programación MapReduce. En este modelo, la ejecución de una aplicación se presenta en dos etapas: map y reduce.
+
+### Mapping 
+
+El número de tareas que serán capaces de correr en paralelo, depende del número de nodos que conforman el clúster, teniendo en cuenta el número de slots configurado para las tareas de mapping de cada nodo.
+
+
+En la etapa map es donde se realiza la ingestión y la transformación de los datos de entrada, en la cual, los registros de entrada pueden ser procesados en paralelo dependiendo del particionamiento de los datos de entrada. Por otro lado, en la etapa reduce procesaremos la agregación o resumen de los datos de la etapa Map, donde todos los registros asociados entre sí deben ser procesados juntos por una misma entidad. 
+
+#### Map I
+
+En la primera etapa de map, se recibe como valor de entrada un par (clave, valor) y el sistema genera como resultado intermedio uno o varios pares (clave, valor) donde cada uno de estos pares es una lista de elementos clave-valor, como se puede observar en el diagrama.
+
+![](/img/computacion/map_1.png)
+
+#### Map II
+
+En la segunda etapa del mapping, se mezclan y ordenan los resultados intermedios en función de las claves en un mismo nodo. Esta etapa es de vital importancia, ya que permite optimizar y reducir el uso de la red durante la siguiente etapa.
+
+![](/img/computacion/map_2.png)
+
+#### Reduce
+
+Durante la etapa *reduce* se combina la lista de valores de cada una de las claves en un único par (clave, valor). Al igual que en la etapa *map*, el *reduce* se ejecuta en paralelo y el número de reducers que componen se pueden correr al mismo tiempo dependiendo del número de nodos que conformen el clúster,
+
+![](/img/computacion/reduce.png)
+
+##  Introducción a Hadoop Distributed File System (HDFS)
+
+- Hadoop fue diseñado por Michael Carafella y David Dutting en 2005. 
+- El equivalente a sistemas de ficheros Hadoop se inspiró inicialmente en el Google File System (GFS). 
+- GFS fue reemplazado por Colossus en 2010
+- Colossus es un sistema de ficheros orientado al procesamiento en Tiempo Real. Colossus ya no usa la tecnología MapReduce para el cálculo de los índices de búscqueda, por estar orientado a procesos batch. 
+
+
 
 
 Hadoop incorpora la tecnología Hadoop Distributed File System (HDFS) para el almacenamiento de grandes cantidades de datos, la tecnología Map Reduce para el procesamiento de la información YARN (Yet Another Resource Negotiatior) como gestior del clúster (a partir de la version 2.0). 
