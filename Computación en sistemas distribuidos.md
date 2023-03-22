@@ -2,14 +2,14 @@
 
 Profesor: Alfonso Antolínez García
 
-# Tabla de Contenidos
+# Contenido del Curso
 
-- Unidad 0. Objetivos del curso
-    - Competencias específicas
-    - Resultados del aprendizaje
-- Unidad 1. Sistemas altamente distribuidos
-    - Los sistemas distribuidos en el mundo Big Data
-    - Introducción a los sistemas distribuidos
+- [Unidad 0. Objetivos del curso](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/Computaci%C3%B3n%20en%20sistemas%20distribuidos.md#unidad-0-objetivos-del-curso)
+    - [Competencias específicas](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/Computaci%C3%B3n%20en%20sistemas%20distribuidos.md#unidad-0-objetivos-del-curso)
+    - [Resultados del aprendizaje](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/Computaci%C3%B3n%20en%20sistemas%20distribuidos.md#resultados-de-aprendizaje)
+- [Unidad 1. Sistemas altamente distribuidos](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/Computaci%C3%B3n%20en%20sistemas%20distribuidos.md#1-sistemas-altamente-distribuidos)
+    - [Los sistemas distribuidos en el mundo Big Data](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/Computaci%C3%B3n%20en%20sistemas%20distribuidos.md#los-sistemas-distribuidos-en-el-mundo-del-big-data)
+    - [Introducción a los sistemas distribuidos](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/Computaci%C3%B3n%20en%20sistemas%20distribuidos.md#introducci%C3%B3n-a-los-sistemas-distribuidos)
     - Paradigma de programación paralela
     - Tolerancia a fallos en sistemas distribuidos
 - Unidad 2. Sistemas cloud y virtualización de servicios
@@ -22,11 +22,11 @@ Profesor: Alfonso Antolínez García
     - Hadoop Distributed File System
     - Arquitectura de cómputo de Hadoop.
     - Ejecución de aplicaciones en Apache Hadoop.
-- Unidad 4. Programación en Scala
-    - Introducción al lenguaje Scala
-    - Estructuras de control y definición de funciones
-    - Listas y contenedores
-    - Programación funcional
+- <s>Unidad 4. Programación en Scala</s>
+    - <s>Introducción al lenguaje Scala</s>
+    - <s>Estructuras de control y definición de funciones</s>
+    - <s>Listas y contenedores</s>
+    - <s>Programación funcional</s>
 - Unidad 5. Computación distribuida con Apache Spark
     - Introducción a Apache Spark
     - Programación de aplicaciones con Apache Spark
