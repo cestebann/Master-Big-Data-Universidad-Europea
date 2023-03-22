@@ -22,11 +22,11 @@ Profesor: Alfonso Antolínez García
     - Hadoop Distributed File System
     - Arquitectura de cómputo de Hadoop.
     - Ejecución de aplicaciones en Apache Hadoop.
-- Unidad 4. Programación en Scala
-    - Introducción al lenguaje Scala
-    - Estructuras de control y definición de funciones
-    - Listas y contenedores
-    - Programación funcional
+- <s>Unidad 4. Programación en Scala</s>
+    - <s>Introducción al lenguaje Scala</s>
+    - <s>Estructuras de control y definición de funciones</s>
+    - <s>Listas y contenedores</s>
+    - <s>Programación funcional</s>
 - Unidad 5. Computación distribuida con Apache Spark
     - Introducción a Apache Spark
     - Programación de aplicaciones con Apache Spark
