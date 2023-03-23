@@ -939,9 +939,6 @@ Durante la etapa *reduce* se combina la lista de valores de cada una de las clav
 
 Hadoop incorpora la tecnología Hadoop Distributed File System (HDFS) para el almacenamiento de grandes cantidades de datos, la tecnología Map Reduce para el procesamiento de la información YARN (Yet Another Resource Negotiatior) como gestior del clúster (a partir de la version 2.0). 
 
-### 
-
-
 
 ![](/img/computacion/hadoop2.0.png)
 
@@ -1104,8 +1101,6 @@ YARN permite que diferentes motores de procesamiento de datos, como el procesami
 - Utilización del clúster: YARN permite la utilización dinámica de recursos del clúster, esto permite un más óptimo aprovechamiento de los datos. 
 - Multiusuario (Multi-tenancy): Permite el acceso a múltiples motores Hadoop, lo que brinda a las organizaciones la capacidad de configurarlso como multipropietario. Esto permite reducir costes. 
 
-
-
 ### Cuáles son los componentes de YARN? 
 
 - **Cliente**: Es quien envía las tareas map-reduce (solo en v1.0).
@@ -1131,9 +1126,61 @@ La función *map* es aplicar una función sobre el bloque para obtener una soluc
 En Map Reduce todas las entradas y salidad del sistema se realizan en forma de lista. Map Reduce divide cada trabajo en tareas independientes y posteriormente las procesa en los nodos esclavos. 
 La filosofía de operación de Map se basa en procesar la información, allí donde la información reside. Esto se conoce como estrategia "data-centric" o "data-driven". Es menos costoso enviar la computación/proceso a los nodos donde se encuentra la información, en lugar de traer los datos hacia donde se encuentra el procesamiento. 
 
-
 En la fase Map, las funciones definidas por el usuario procesasn l ainformación de netradas. Etas funciones incluyen la lógica de negocio. 
 En la fase Reduce, se compone de subfases: shuffle y reduce, propoiande deicha. La entrada a esta fase, se corresponde con los datos de salidad de la fase map anterior. Los datos recibidos desde el paso anterior map, son pasalos al Reducer. 
+
+### Arquitectura de Cómputo de Hadoop
+
+![](/img/computacion/ecosistema_apache_hadoop_1.png)
+
+En naranja, mostramos los elementos fundamentales de la arquitectura de Hadoop, MapReduce y HDFS. 
+En rojo, se muestran las distintas soluciones que hacen uso de Hadoop para el manejo procesamiento de datos. Por ejemplo, Apache Hive, el cual proporciona un sistema de acceso a la información basado en consultas SQL de datos que son almacenados en HDFS. 
+En color verde, podemos tener paquetes adicionales. Por citar algunos: procesamiento de grafos con Pegasus, análisis estadístico con RHadoop o incluso aprendizaje automático gracias a Mahout.
+
+![](/img/computacion/tarea_abstraccion_computo.png)
+
+El pilar del procesamiento paralelo de las aplicaciones en Hadoop es la tarea. Hadoop dividirá de forma automática nuestro conjunto de datos inicial en tareas de tipo map y reduce.
+
+Típicamente los bloques del sistema de ficheros tienen un tamaño de 64 a 128 megabytes.
+
+Precisaremos de un administrador de recursos que se encargue de generar, asignar y monitorizar todas las tareas sobre los distintos recursos hardware, en este caso, los nodos esclavos que forman parte de nuestro clúster Hadoop.
+
+A su vez, cada vez que una tarea es completada, y con el objetivo de garantizar la tolerancia a fallos, los datos intermedios son almacenados temporalmente en el sistema HDFS.
+
+Por último, Hadoop creará un fichero de salida en HDFS por cada una de las tareas reduce creadas durante el proceso de ejecución. La escritura del conjunto de datos resultante se puede hacer de forma paralela, reduciendo significativamente los tiempos de escritura en HDFS.
+
+![](/img/computacion/arquitectura_mapreduce.png)
+
+#### JobTracker 
+El JobTracker es un planificador de tareas encargado de distribuir el trabajo entrante a los nodos que conforman el clúster.
+
+Mantiene los trabajos lo más cerca posible de la máquina que emitió la información a procesar, de forma que se pueda reducir el tráfico en la red principal del clúster. Si se da el caso que el total de slots disponibles en el nodo para la tarea a realizar se encuentren ocupados, el JobTracker intentará asignar los trabajos en los nodos del mismo rack o armario.
+
+#### TaskTracker 
+
+Los TaskTracker son los nodos que conforman el clúster, y estos aceptan operaciones de map, reduce y mezcla, tarea que se mencionó antes durante la etapa map. Cada TaskTracker es configurado con un número de slots que indican el número de tareas que se pueden aceptar. Se especifica un número de slots para las tareas de map y otro para las de reduce, típicamente el número de slots disponibles para hacer el map es mayor que para ejecutar tareas de reduce. Además, el número de slots en cada nodo no necesariamente será el mismo, ya que no todas las máquinas deben tener expresamente la misma capacidad de cómputo.
+
+El TaskTracker lleva un control de las tareas que se encuentran en ejecución y notifica al JobTracker cuando estas tareas terminan. Así mismo, el TaskTracker envía al JobTracker una señal de still alive o latido, cada cierto tiempo para notificar que está operativo. Estos mensajes también le informan al JobTracker acerca del número de slots disponibles para que este pueda delegar nuevos trabajos en caso de ser necesario. Si un TaskTracker falla o se produce un timeout, esta parte del trabajo se replanifica en otro TaskTracker.
+
+#### Apache Hadoop 1.0. 
+
+Cada nodo o servidor aloja un componente del sistema de cómputo, TaskTracker, y un componente del sistema de almacenamiento, Datanode. La idea es llevar el cómputo donde están almacenados los datos que precisan estas tareas generadas por el JobTracker.
+
+![](/img/computacion/Hadoop1.0.png)
+
+#### Hadoop 2.0.
+
+En primer lugar, los clientes solicitan recursos al componente ResourceManager donde a su vez, residirá el componente NameNode, que forma parte del sistema de almacenamiento HDFS.
+
+En el componente ApplicationMaster es donde residirán nuestros JobTracker, en caso de usar Apache Hadoop. Los ApplicationMasters son específicos de cada framework de procesamiento y, por lo tanto, MapReduce es solo una de las posibilidades. En este caso, contaremos con dos ApplicationMaster distintos, y sobre cada uno de ellos, ejecutaremos una aplicación distinta. Finalmente, en los nodos esclavos desplegaremos el componente NodeManager que se encargará de gestionar los recursos de cada nodo en forma de contenedores. En estos nodos esclavos, convivirá tanto el cómputo como el almacenamiento, en forma de contenedores o DataNodes.
+
+![](/img/computacion/hadoop2.1.png)
+
+#### Comparación entre versiones
+
+La mayor diferencia entre las versiones 1 y 2 de Apache Hadoop es la incorporación del sistema YARN (Yet Another Resource Negociator).  En YARN nos permite ofrecer un sistema multi-usuario y multi-aplicación dentro de Hadoop. Además, facilita el despliegue de distintos tipos de aplicaciones, como aplicaciones basadas en procesamiento batch, interactivas o en streaming o pseudo tiempo real.
+
+![](/img/computacion/comparacion_hadoop.png)
 
 
 16/12/22
