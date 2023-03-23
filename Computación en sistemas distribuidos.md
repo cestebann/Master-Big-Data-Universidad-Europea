@@ -1100,30 +1100,32 @@ Por defecto son:
 
 ### Qué es Hadoop YARN 
 
-Apache Hadoop Yarn (o simplemente, YARN) es un marco de cógido abierto para la programación de trabajos (job scheduler). 
+Apache Hadoop Yet Another Resource Negotiator (o simplemente, YARN) es un marco de cógido abierto para la programación de trabajos (job scheduler) y la gestión de recursos de clústers. 
 
 ![](/img/computacion/yarn.png)
 
 
-YARN permite que diferentes motores de procesamiento de datos, como el procesamiento de gráficos (graph processing), el procesamiento interactivo (interactive processing)
+YARN permite que diferentes motores de procesamiento de datos, como el procesamiento de gráficos (graph processing), el procesamiento interactivo (interactive processing), el procesamiento secuential (stream processing) y el procesamiento por lotes (batch processing) procesen datos en HDFS, lo que lo hace más eficiente. 
 
 
 ### ¿Cuáles son las características de YARN?
 
  - Escalabilidad: el programador de recursos de YARN permite de forma sencilla, ampliar y gestionar la arquitectura Hadoop llegando a miles de nodos. 
-- Compatibilidad: YARN es compatible con las aplicaciones map reduce existentes en Hadoop 1.0 lo que permite compatibilidad de las apps existentes. 
+- Compatibilidad: YARN es compatible con las aplicaciones map-reduce existentes en Hadoop 1.0 lo que permite compatibilidad de las apps existentes. 
 - Utilización del clúster: YARN permite la utilización dinámica de recursos del clúster, esto permite un más óptimo aprovechamiento de los datos. 
-- Multiusuario (Multi-tenancy): Permite el acceso a múltiples motores Hadoop, lo que brinda a las organizaciones la capacidad de configurarlso como multipropietario. Esto permite reducir costes. 
+- Multiusuario (Multi-tenancy): Permite el acceso a múltiples motores Hadoop, lo que brinda a las organizaciones la capacidad de configurarlos como multipropietario. Esto permite reducir costes. 
 
-### Cuáles son los componentes de YARN? 
+### ¿Cuáles son los componentes de YARN? 
+
+![](/img/computacion/arquitectura_yarn.png)
 
 - **Cliente**: Es quien envía las tareas map-reduce (solo en v1.0).
-- **Gestor de recursos**: Es el responsable de la asignación y gestión de recursos entre las aplicaciones. Cuando recibe una petición, la envía al gestor de nodos (node manager) y provisiona los recuross necesarios para su ejecución. 
-    - Programador o schedular: es el responsable de la programación de trabajos en función de los recusos disponibles. Su función es la de puro programador. 
-    - Gestor de aplicaciones: es el repsonable del lanzamiento de la app y negociar con el gestor de recursos la creación del contenedor (container). Es también responsable de relanzar el contenedor maestro de la pp en caso de fallo (App Master Container).
-- Gestor de nodos: Es el responsable de la gestión de nodos individuales, así como de la gestión de las apps y flujos de trabajo en ese nodo. 
-- El gestor de aplicaciones: una app es un trabajo enviado a Hadoop para su ejecución. Es el responsable de la obtención de recursos del Gestor de recursos, supervisar el estado y progreso de una app. 
-- El contenedor: --.
+- **Gestor de recursos (resource manager)**: Es el responsable de la asignación y gestión de recursos entre las aplicaciones. Cuando recibe una petición, la envía al gestor de nodos (node manager) y provisiona los recursoss necesarios para su ejecución. 
+    - Programador o scheduler: es el responsable de la programación de trabajos en función de los recusos disponibles. Su función es la de puro programador. 
+    - Gestor de aplicaciones (app manager): es el responable del lanzamiento de la app y negociar con el node manager la creación del contenedor (container). Es también responsable de relanzar el contenedor maestro de la app en caso de fallo (App Master Container).
+- **Gestor de nodos**: Es el responsable de la gestión de nodos individuales, así como de la gestión de las apps y flujos de trabajo en ese nodo. 
+- **El gestor de aplicaciones**: una app es un trabajo enviado a Hadoop para su ejecución. Es el responsable de la obtención de recursos del Gestor de recursos, supervisar el estado y progreso de una app. 
+- El contenedor: Corresponde al conjunto de recursos físicos como RAM, CPU, disco, etc. existentes en un nodo.
 
 ### Hadoop Map Reduce
 
@@ -1131,17 +1133,35 @@ YARN permite que diferentes motores de procesamiento de datos, como el procesami
 
 ![](/img/computacion/hadoop_3.png)
 
+#### ¿Qué es Map-Reduce?
+
 Map Reduce es la capa de procesos de datos de Hadoop. Es un framework diseñado para procesar ingentes volúmenes de información en paralelo. 
 
 ![](/img/computacion/map_reduce.png)
 
+#### ¿Cómo funciona MapReduce?
+
 La función *map* es aplicar una función sobre el bloque para obtener una solución parcial. 
 
-En Map Reduce todas las entradas y salidad del sistema se realizan en forma de lista. Map Reduce divide cada trabajo en tareas independientes y posteriormente las procesa en los nodos esclavos. 
+Los sistemas Hadoop se diseñaron especialmente para funcionar con sistemas de disco. La información se lee y se graba en un disco. La arquitectura distribuida en Hadoop consiste en trocear un problema, distribuirlo a diferentes nodos (map), resolver una solución parcial local y luego ensamblar las soluciones parciales en una solución global (reduce). Esto se realiza gracias a **map reduce**. *Map* es aplicar a los nodos una función troceada.  En Map pasas una función y una lista a la que hay que aplicarle la función y el sistema itera en cada uno de los índices de la lista aplicándole la función. *Reduce* significa una vez tengo las soluciones parciales, agregarlas y convetirlas en una sola solución.
+
+
 La filosofía de operación de Map se basa en procesar la información, allí donde la información reside. Esto se conoce como estrategia "data-centric" o "data-driven". Es menos costoso enviar la computación/proceso a los nodos donde se encuentra la información, en lugar de traer los datos hacia donde se encuentra el procesamiento. 
 
-En la fase Map, las funciones definidas por el usuario procesasn l ainformación de netradas. Etas funciones incluyen la lógica de negocio. 
-En la fase Reduce, se compone de subfases: shuffle y reduce, propoiande deicha. La entrada a esta fase, se corresponde con los datos de salidad de la fase map anterior. Los datos recibidos desde el paso anterior map, son pasalos al Reducer. 
+
+#### ¿En qué consiste la fase Map? 
+
+En la fase Map, las funciones definidas por el usuario procesan la información de entradas. Estas funciones incluyen la lógica de negocio que se quiere aplicar a la información.
+
+La salida de la fase Mpa está constituida por resultados intermedios y se alojan temporalmente en el disco local del nodo. 
+
+#### ¿En qué consiste las fase Reduce?
+
+En la fase Reduce, se compone de subfases: shuffle y reduce.
+
+ La entrada a esta fase, se corresponde con los datos de salidad de la fase map anterior. Los datos recibidos desde el paso anterior map, son pasados al Reducer, donde son agregados.
+
+![](/img/computacion/map%20reduce.png)
 
 ### Arquitectura de Cómputo de Hadoop
 
@@ -1201,26 +1221,20 @@ La mayor diferencia entre las versiones 1 y 2 de Apache Hadoop es la incorporaci
 
 NetBIOS es el protocolo de unidades de red que implementa Windows, y es el software que hace visible los recursos de un equipo a través de la red para que lo utilicen otros, para compartir de un PC a otros. Linux y la comunidad hicieron algo parecido, SAMBA, no solo se puede compartir recursos y ficheros entre SOs Windows, sino también entre SOs Linux y Windows. NFS (Network File System) es un protocolo que permite compartir recursos entre SO Linux. 
 
-¿Qué es YARN? - Es el clúster que Permite que las aplicaciones que corren en el clúster tengan alta disponibilidad independientemente de los fallos que ocurran, por medio de los nodos en el sistema. 
-
-¿Qué es Hadoop? - Es el sistema de ficheros distribuido. Es la implementación que nos va a permitir que los nodos compartan sus recursos como si fuesen uno solo disco virtual. Permite que los nodos se interconecten y se compartan los recursos de estos. Permite replicar los datos entre cada uno de los datos, trocearlos y replicarlos, para que en caso de fallo de uno de los nodos, podamos recuperar un fichero completamente siempre.  
-
-- YARN: Gestor del clúster. Keep Alive. Sistema distrbuidor de cargas, se encarga de mantener y distribuir las cargas en los diferentes nodos del clúster. Ahora Hadoop recomienda no utilizar Yarn. 
-- HDFS: Sistema de gestión de ficheros. Se encarga de generar réplicas en distintos nodos, gestiona el acceso a los datos. Tiene su propio formato. 
+¿Qué es YARN? - Es el clúster que Permite que las aplicaciones que corren en el clúster tengan alta disponibilidad independientemente de los fallos que ocurran, por medio de los nodos en el sistema. hora Hadoop recomienda no utilizar Yarn. 
 
 
-En Hadoop, tenemos 
+¿Qué es HDFS? - Es el sistema de ficheros distribuido. Es la implementación que nos va a permitir que los nodos compartan sus recursos como si fuesen uno solo disco virtual. Permite que los nodos se interconecten y se compartan los recursos de estos. Permite replicar los datos entre cada uno de los datos, trocearlos y replicarlos, para que en caso de fallo de uno de los nodos, podamos recuperar un fichero completamente siempre.  
+
+En HDFS, tenemos 
 - **Namenodes.** Es el nodo que actúa como *master* o coordinador general, es el nodo maestro. 
 - **Datanodes.** Nodos que comparten recursos. 
 
 ![](/img/computacion/hadoop.png)
 
-
 Cada cierto tiempo Yarn va a mandarle una llamada a cada uno de los nodos para ver si están funcionando correctamente. Si el nodo no respondiera, el namenode va a mandarle un par de señales más. Si no contesta, el namenode lo va a desconectar, lo va a dar por perdido. 
 
 Vamos a ver los comandos para que podamos navegar por Hadoop. 
-
-Los sistemas Hadoop se diseñaron especialmente para funcionar con sistemas de disco. La información se lee y se graba en un disco. La arquitectura distribuida en Hadoop consiste en trocear un problema, distribuirlo a diferentes nodos (map), resolver una solución parcial local y luego ensamblar las soluciones parciales en una solución global (reduce). Esto se realiza gracias a **map reduce**. *Map* es aplicar a los nodos una función troceada.  En Map pasas una función y una lista a la que hay que aplicarle la función y el sistema itera en cada uno de los índices de la lista aplicándole la función. *Reduce* significa una vez tengo las soluciones |parciales, reducirlas a una sola solución.
 
 Protocolo SSL. Es un protocolo de seguridad para encriptar la información. 
 
@@ -1231,9 +1245,7 @@ En el mundo Big Data se utilizan consultas de ficheros en disco, directamente co
 
 Aparte de permitir la consulta rápida, el formato columnar permite comprimir en disco y ahorrar mucho espacio. 
 
-
 Comandos que permiten la configuración del servicio 
-
 
 ```bash
 
@@ -1244,7 +1256,7 @@ vi mapred-site.yml
 
 ```
 
-Los comnados para entornos de servicios: Configurar o definir cómo se conectan los servicios (.sh/.cmd)
+Los comnandos para entornos de servicios: Configurar o definir cómo se conectan los servicios (.sh (linux) /.cmd (windows))
 
 ```bash
 hadoop-env.sh (Entornos Linux)
