@@ -1235,7 +1235,7 @@ Es un servicio en la nube. MongoDB as a Service.
 ![](/img/bd_nuevas/cuestionario78.png)
 
 
-# Unidad 4. Bases de datos clave-valor y columna ancha
+# 4. Bases de datos clave-valor y columna ancha
 
 ![](/img/bd_nuevas/cassandra_1.png)
 
@@ -1523,7 +1523,7 @@ Esto es porque con la clave secundaria va a acceder a todos los servidores y est
 ![](/img/bd_nuevas/cuestionario88.png)
 
 
-# Motores de Búsqueda 
+# 5. Motores de búsqueda distribuidos
 
 ![](/img/bd_nuevas/motores_busqueda_2.png)
 
@@ -1691,7 +1691,7 @@ Kubana tiene un DevTools.
 ![](/img/bd_nuevas/elasticsearch_18.png)
 
 
-# Sistemas de coles
+# 6. Sistemas de colas
 
 
 La idea de un sistema de colas es desacoplar el sistema de servicio. 
