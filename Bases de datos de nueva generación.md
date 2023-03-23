@@ -1,5 +1,47 @@
-# Contenido
-
+# Bases de Datos de Nueva Generación 
+Profesor: Manuel Gómez Montero
+- [Unidad 0. Objetivos](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/Bases%20de%20datos%20de%20nueva%20generaci%C3%B3n.md#objetivos-del-curso)
+    - [Competencias específicas](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/Bases%20de%20datos%20de%20nueva%20generaci%C3%B3n.md#competencias-espec%C3%ADficas)
+    - [Resultados de Aprendizaje](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/Bases%20de%20datos%20de%20nueva%20generaci%C3%B3n.md#resultados-del-aprendizaje)
+- [Unidad 1. Introducción a nuevas arquitecturas de modelos de datos](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/Bases%20de%20datos%20de%20nueva%20generaci%C3%B3n.md#unidad-1-introducci%C3%B3n-a-nuevas-arquitecturas-de-modelos-de-datos)
+    - Bases de datos y sistemas de información. Conceptos y objetivos
+    - Persistencia Políglota.
+    - Tipos de base de datos.
+- [Unidad 2. Introducción a las bases de datos distribuidas y el teorema del CAP](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/Bases%20de%20datos%20de%20nueva%20generaci%C3%B3n.md#unidad-2-introducci%C3%B3n-a-las-bases-de-datos-distribuidas-y-el-teorema-de-cap)
+    - Modelos distribuidos de BBDD
+    - Sharding
+    - Replicación.
+    - Teorema del CAP
+    - Introducción a la consistencia eventual.
+- [Unidad 3. Sistema de ficheros distribuidos](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/Bases%20de%20datos%20de%20nueva%20generaci%C3%B3n.md#2-sistema-de-ficheros-distribuidos)
+    - Introducción a los modelos primario/secundario
+    - Introducion a HDFS
+    - Gestion básica de HDFS
+    - Caso de uso: HDFS
+- [Unidad 4. Base de datos clave/valor y columna ancha](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/Bases%20de%20datos%20de%20nueva%20generaci%C3%B3n.md#unidad-4-bases-de-datos-clave-valor-y-columna-ancha)
+    - Administración de bases de datos P2P
+    - Tolerancia a fallos y consistencia eventual
+    - Modelo de datos en sistemas clave valor
+    - Caso de uso: Cassandra
+- [Unidad 5. Motores de búsqueda distribuidos](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/Bases%20de%20datos%20de%20nueva%20generaci%C3%B3n.md#motores-de-b%C3%BAsqueda-1)
+    - Lucene
+    - Indexación y modelos de datos.
+    - Agregación y búsqueda
+    - Caso de uso: ElasticSearch
+- [Unidad 6. Sistema de colas](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/Bases%20de%20datos%20de%20nueva%20generaci%C3%B3n.md#sistemas-de-coles)
+    - Modelos de colas distribuidos
+    - Modelo pub/sub
+-    Arquitectura y topología
+    - Caso de uso: Kafka
+- [Unidad 7. Base de datos documental](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/Bases%20de%20datos%20de%20nueva%20generaci%C3%B3n.md#unidad-7-bases-de-datos-documentales)
+    - Modelo de datos
+    - Indexación y búsqueda
+    - Configuración distribuida
+    - Caso de uso: MongoDB
+- <s>Unidad 8. Arquitectura de modelos de datos distribuidas</s>
+    - <s>Desarrollar una arquitectura</s>
+    - <s>Diferentes tipos de arquitectura</s>
+    - <s>Resolución de problemas de arquitectura</s>
 
 
 
