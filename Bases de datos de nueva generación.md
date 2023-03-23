@@ -1,5 +1,7 @@
 # Bases de Datos de Nueva Generación 
 Profesor: Manuel Gómez Montero
+
+# Contenido del Curso
 - [Unidad 0. Objetivos](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/Bases%20de%20datos%20de%20nueva%20generaci%C3%B3n.md#objetivos-del-curso)
     - [Competencias específicas](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/Bases%20de%20datos%20de%20nueva%20generaci%C3%B3n.md#competencias-espec%C3%ADficas)
     - [Resultados de Aprendizaje](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/Bases%20de%20datos%20de%20nueva%20generaci%C3%B3n.md#resultados-del-aprendizaje)
@@ -31,7 +33,7 @@ Profesor: Manuel Gómez Montero
 - [Unidad 6. Sistema de colas](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/Bases%20de%20datos%20de%20nueva%20generaci%C3%B3n.md#sistemas-de-coles)
     - Modelos de colas distribuidos
     - Modelo pub/sub
--    Arquitectura y topología
+    - Arquitectura y topología
     - Caso de uso: Kafka
 - [Unidad 7. Base de datos documental](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/Bases%20de%20datos%20de%20nueva%20generaci%C3%B3n.md#unidad-7-bases-de-datos-documentales)
     - Modelo de datos
