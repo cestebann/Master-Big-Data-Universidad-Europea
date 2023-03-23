@@ -929,26 +929,29 @@ Durante la etapa *reduce* se combina la lista de valores de cada una de las clav
 
 ##  Introducción a Hadoop Distributed File System (HDFS)
 
+### Antecedentes
+
 - Hadoop fue diseñado por Michael Carafella y David Dutting en 2005. 
 - El equivalente a sistemas de ficheros Hadoop se inspiró inicialmente en el Google File System (GFS). 
 - GFS fue reemplazado por Colossus en 2010
-- Colossus es un sistema de ficheros orientado al procesamiento en Tiempo Real. Colossus ya no usa la tecnología MapReduce para el cálculo de los índices de búscqueda, por estar orientado a procesos batch. 
+- Colossus es un sistema de ficheros orientado al procesamiento en Tiempo Real. Colossus ya no usa la tecnología MapReduce para el cálculo de los índices de búsqueda, por estar orientado a procesos batch. 
 
+### Hadoop
 
-
-
-Hadoop incorpora la tecnología Hadoop Distributed File System (HDFS) para el almacenamiento de grandes cantidades de datos, la tecnología Map Reduce para el procesamiento de la información YARN (Yet Another Resource Negotiatior) como gestior del clúster (a partir de la version 2.0). 
+Hadoop incorpora la tecnología Hadoop Distributed File System (HDFS) para el almacenamiento de grandes cantidades de datos, la tecnología Map Reduce para el procesamiento de la información t YARN (Yet Another Resource Negotiatior) como gesir del clúster (a partir de la version 2.0). 
 
 
 ![](/img/computacion/hadoop2.0.png)
 
 ### Limitaciones de Hadoop 1.0
-- NameNode sin escalabilidad horizaontal 
+- NameNode sin escalabilidad horizontal 
     - Metadatos almacenados en la memoria RAM del NameNode. 
     - Cuellos de botella a partir de 4000 nodos. 
-- No permite la disponibilidad en el NameNode. 
+- No permite alta disponibilidad en el NameNode. 
     - El NameNode no permite el modo de espera activo. 
     - Conexión frecuente al NameNode. 
+- Sobrecarga del JobTracker
+- No incorpora la tenología Multi-usuario (Multi-Tenancy)
 
 ## ¿Qué es la tecnología "Multi Tenancy" o multiusuario?
 
@@ -963,33 +966,37 @@ A pesar de que comparten recursos, los clientes de la nube no se conocen entre s
 - Yarn 
     - Mejor control de procesos
 - MultiTenancy 
+    - Los trabajos se dividen en colas (queues: Batch, Streaminf, Interacitve)
+    - Cuotas compartidas entre usuarios
+    - Cada xola tiene una prioridas asoxiada. 
 
 
 ## ¿Cuáles son las características de Hadoop?
+
 La información en el mundo Big Data es por definición, distribuida y con frecuencia no estructurada. 
 La aplicación de MapReduce, permite la extracción de información desde datos distribuidos, estructurados o no. 
 La gestión del ancho de banda de Hadoop también ayuda en el proceso. 
 
 
-### Escalabilidad
-Los clústeres de Hadoop pueden ser ampliados fácilmente con la simple adición de nuevos nodos (escalado horizontal), esto permite crecer, a medida que crece el volumen de datos y no implica tener que modifciar la lógica de aplicación alguna. 
+- Escalabilidad: Los clústeres de Hadoop pueden ser ampliados fácilmente con la simple adición de nuevos nodos (escalado horizontal), esto permite crecer, a medida que crece el volumen de datos y no implica tener que modifciar la lógica de aplicación alguna. 
 
-### Tolerancia a fallos
-La información que reside en clústeres Hadoop se encuentra copiada en diferentes nodos por ello, ante la eventualidad del fallo en un nodo la información se encuentra a salvo y el proceso continua en cualquiera de los nodos activos. 
+-Tolerancia a fallos: La información que reside en clústeres Hadoop se encuentra copiada en diferentes nodos por ello, ante la eventualidad del fallo en un nodo la información se encuentra a salvo y el proceso continua en cualquiera de los nodos activos. 
 
 
 ![](/img/computacion/ecosistema_apache_hadoop.png)
 
+###  HDFS
 
-## ¿Cómo funciona el HDFS
 
-Hdfs es un sistema de archivos distribuidos qu egestiona grandes volúmenes de datos que se ejecuta en hardware de proósito general. Un solo clúster de Apacher Hadoop puede escalar a cientos o miles de nodos. 
+## ¿Cómo funciona el HDFS?
+
+Hdfs es un sistema de archivos distribuidos que egestiona grandes volúmenes de datos que se ejecuta en hardware de propósito general. Un solo clúster de Apache Hadoop puede escalar a cientos o miles de nodos. 
 
 ## ¿Cuáles son los objetivos de Hadoop?
 
-- Recuperaón rápida ente fallos de hardware
+- Recuperación rápida ente fallos de hardware
 - Acceso a transmisión de datos en tiempo real (streaming data)
-- Alojamiento de grandes conjutnos de datos. 
+- Alojamiento de grandes conjuntos de datos. 
 - Portabilidad
 - Coherencia simple
 - Data-driven 
@@ -1004,11 +1011,11 @@ Hadoop está optimizado para mejorar el ancho de banda.
 HDFS esta pensado para tratar gigabytes y terabytes
 
 **Portabilidad**
-Con el fin de facilitar la adopción de HDFS este se diseñó ...
+Con el fin de facilitar la adopción de HDFS este se diseñó pensando en su portabilidad entre múltiples plataformas hardware y empleando diferentes SO (también funciona con MS Windows), cualquier equipo que soporte el lenguaje JAVA puede ejecutar HDFS. 
 
 **Coherencia Simple o Modelo de Coherencia Simple**
 - Las aplicaciones que emplean HDFS se basan en el modelo de acceso a datos "escribe una vez, lee múltiples veces" (write-once-read-many). 
-Simplificando mucho, indica que una vez que los datos son escritos, no se modifican solo se leen tantas veces como sea necesario. Este modelo facilita la coherencia de los dato. 
+Simplificando mucho, indica que una vez que los datos son escritos, no se modifican solo se leen tantas veces como sea necesario. Este modelo facilita la coherencia de los datos y altos ratios de transferencia. 
 
 **Data-Driven**
 
@@ -1023,14 +1030,14 @@ Sigue un paradigma maestro-esclavo.
 Un clúster HDFS consiste en un solo NameNode, el cual es un nodo (servidor) maestro que gestiona el sistema de ficheros (file system namespace) y regula el acceso de los usuarios a los ficheros. 
 El NameNode es el árbitro y responsable de la gestión de los metadatos del HDFS. 
 
-Además el clúster HDFS incorpora un número de DataNodes, generalmente un o por cada nodo del clúster, el cual gestional el almacenamiento físico de cada uno de los nodos del clúster. 
+Además el clúster HDFS incorpora un número de DataNodes, generalmente uno por cada nodo del clúster, el cual gestional el almacenamiento físico de cada uno de los nodos del clúster. 
 Internamente cada fichero es dividido en bloques, y esto bloques son almacenados en un conjunto de DataNodes. Esto implica que un DataNode no almacena ficheros, almacena fragmentos. 
 
 El NameNode ejecuta operaciones del sistema de ficheros tales como apertura, cierre y renombrado de ficheros y directorios. 
 De la misma manera, determina la distribución de bloques en cada Datanode. 
 
-Los dataNodes son los responsalbes de servir las peticiones de lectura y escritura por parte de los usuarios. 
-Los dataNodes se encargan también de la creación de los bloques. 
+Los dataNodes son los responsables de operar las peticiones de lectura y escritura por parte de los usuarios. 
+Los dataNodes se encargan también de la creación de los bloques, borrado y replicación de los datos, según les instruya el NameNode.
 
 ## ¿Cómo funciona el sistema de replicación en HDFS?
 
@@ -1044,45 +1051,52 @@ Cada app puede determinar el número de réplicas de cada fichero.
 
 El NameNode gestiona la réplica de los bloques mediante un "Heartbeat" y un "BlockReport". La recepción periódica de un Heartbeat desde un DataNode significa que este último funciona correctamente. 
 
-Por defecto, el tamaño de los bloques es de 64MB y el factor de replicación es 3. 
+Por defecto, el tamaño de los bloques es de 128MB (Hadoop 1.0, 64MB) y el factor de replicación es 3. 
 
-## ¿Cuál es la importancia de las réplicas en HDFS¡
-El proceso de distribución de las réplicas de bloques crítico para la toleracia a fallos. 
+## ¿Cuál es la importancia de las réplicas en HDFS?
+El proceso de distribución de las réplicas de bloques crítico para la toleracia a fallos y el rendimiento del HDFA. 
 
-HDFS emplea una política denominada "rack-awareness¡
+HDFS emplea una política denominada "rack-awareness" para distribuir las copias de los bloques, y optimizar el ancho de banda de las comunicaciones.
+
 
 ## ¿Qué es Hadoop Rack y Rack awareness"?
 
 Un rack es una colección física de nodos en un clúster Hadoop. Un clúster de Hadoop puede constar de muchos racks. 
-El NameNode usa la información de estos racks para seleccionar el Datanode más cercano y con ello optimizar el proceso con ...
+El NameNode usa la información de estos racks para seleccionar el Datanode más cercano y con ello optimizar el proceso de escritura/lectura y reducir al máximo el tráfico de red.
 
 
-La replicacion de datos en HDFS se realiza nodo a nodo. por lo tanto un arquitectura clúster de Hadoop necesa ser capaz de gestionar (de forma eficiente) grandes volúmenes de datos. 
+La replicación de datos en HDFS se realiza nodo a nodo. por lo tanto un arquitectura clúster de Hadoop necesita ser capaz de gestionar (de forma eficiente) grandes volúmenes de datos. 
 
-Cada rack de un clúster puede disponer de múltiple sdatanodes, almacenando bloques de daot sy sus réñlicas. 
-La capacidad de seleccionar el Data node  más cercano y más rápido ..
+Cada rack de un clúster puede disponer de múltiples datanodes, almacenando bloques de datos y sus réplicas. 
 
-Al ser HDFS un sistema de ficheros "Rack aware" y "layer 3 aware" conoce en todo momento la relación existente entre los servidores existentes en cada uno de los racks o cabinetes switcheches de red que los interconectan. 
+La capacidad de seleccionar el Data node-más cercano y más rápido, así como alojar los bloques y réplicas de un mismo fichero en un mismo rack para optimizar el rendimiento es lo que se conoce como "Rack-awareness". 
 
-El hecho de ser "Layer 3 aware" le permite ser enrutable, es decir hacer uso de las direcciones IP. Esto le permite ser escalable a nivel de emplazamiento físico empleando una red con enrutamiento ECMP, y OSPF para pequeños clústers y BGP para grandes clúster
+Al ser HDFS un sistema de ficheros "Rack aware" y "layer 3 aware" conoce en todo momento la relación existente entre los servidores existentes en cada uno de los racks o cabinetes switches de red que los interconectan. 
+
+El hecho de ser "Layer 3 aware" le permite ser enrutable, es decir hacer uso de las direcciones IP. Esto le permite ser escalable a nivel de emplazamiento físico empleando una red con enrutamiento ECMP y OSPF para pequeños clústers y BGP para grandes clústers
 
 ## ¿Qué son los enrutamientos?
 
 Equal-cost multi-path routing (ECMP) es una estrategia de enrutamiento en la cual, paquetes de datos enviados a un mismo destinatario, pueden tener lugar a trabés de múltiples ruta permitiendo "load balancing" y "fault tolerance". 
 
-Open Shortest Path First (OSPF) forma parte del Interior Gateway Protocol (IGP), el cual ayuda encontrar la mejor ruta entre el origen .......
+Open Shortest Path First (OSPF) forma parte del Interior Gateway Protocol (IGP), el cual ayuda encontrar la mejor ruta entre el origen y el destino de un paquete. 
 
-Por otro lado, el Border Gareway Protocol (BGP) es protocolo que pemrite a Internet funcionar por medio del enrutameinto de la información. Internet es una red de redes, dividdida en millones de redes más pequeñas, las cuales son conocidas como sistemas autónomos (autonomous systemes Ases). 
+ Border Gareway Protocol (BGP) es un protocolo que pemrite a Internet funcionar por medio del enrutameiento de la información. Internet es una red de redes, dividida en millones de redes más pequeñas, las cuales son conocidas como sistemas autónomos (autonomous systemes Ases). 
 
 ## ¿Qué son las políticas de rack awareness?
-Son aquellas que permiten conseuguir un anchod de bando óptima. 
+
+Son aquellas que permiten conseuguir un ancho de bando óptimo y una tolerancia a fallos. 
 
 Por defecto son: 
 - No puede haber más de una copia de un bloque en un mismo Datanode. 
-No se permiten más de dos réplicas de un mismo bloque en un mismo rack. 
-El número de racks en un clúster ha de ser menor que el número de réplicas. 
+- No se permiten más de dos réplicas de un mismo bloque en un mismo rack. 
+- El número de racks en un clúster ha de ser menor que el número de réplicas (*por qué?)*. 
 
 ## ¿Cuáles son las ventajas del rack-awareness?
+
+- El almacenamiento de datos en diferentes racks previene la pérdida de datos.
+- El rack-awareness permite maximizar el ancho de banda de la red.
+- Mejora el rendimiento del clúster y proporciona alta disponibilidad de los datos
 
 ### Qué es Hadoop YARN 
 
@@ -1206,7 +1220,7 @@ Cada cierto tiempo Yarn va a mandarle una llamada a cada uno de los nodos para v
 
 Vamos a ver los comandos para que podamos navegar por Hadoop. 
 
-Los sistemas Hadoop se diseñaron especialmente para funcionar con sistemas de disco. La información se lee y se graba en un disco. La arquitectura distribuida en Hadoop consiste en trocear un problema, distribuirlo a diferentes nodos (map), resolver una solución parcial local y luego ensamblar las soluciones parciales en una solución global (reduce). Esto se realiza gracias a **map reduce**. *Map* es aplicar a los nodos una función troceada.  En Map pasas una función y una lista a la que hay que aplicarle la función y el sistema itera en cada uno de los índices de la lista aplicándole la función. *Reduce* significa una vez tengo las soluciones parciales, reducirlas a una sola solución.
+Los sistemas Hadoop se diseñaron especialmente para funcionar con sistemas de disco. La información se lee y se graba en un disco. La arquitectura distribuida en Hadoop consiste en trocear un problema, distribuirlo a diferentes nodos (map), resolver una solución parcial local y luego ensamblar las soluciones parciales en una solución global (reduce). Esto se realiza gracias a **map reduce**. *Map* es aplicar a los nodos una función troceada.  En Map pasas una función y una lista a la que hay que aplicarle la función y el sistema itera en cada uno de los índices de la lista aplicándole la función. *Reduce* significa una vez tengo las soluciones |parciales, reducirlas a una sola solución.
 
 Protocolo SSL. Es un protocolo de seguridad para encriptar la información. 
 
@@ -1252,31 +1266,30 @@ yarn-env.sh
 
 ``` bash
 
-- Recuperar la configuración inicial del sistema y el URL que debemos introducir para acceder: hdfs getconf -confKey fs.defaultFS (p.ejem. "hudfs://tucan:9000)
-- Recuperar el punto de acceso al clúster (en  proceso de extinción): hdfs getconf -confKey fs.default.name
-- Observar el nombre de los namenodes: hdfs getconf -namenodes
-- Lisa de comandos: hdfs dfs 
-- Enlistar los archivos de Hadoop: hdfs dfs -ls <ruta>
-- Crear un diretorio: hdfs dfs -mkdir <ruta> <nombre de la carpeta>
-- Reemplazar un directorio existente: hdfs dfs -mkdir -p <ruta/nombre de la carpeta>
-- Enlistar los ficheros con sus tamaños correspondientes: hdfs fs -ls -h <ruta>
-- Listar todos los ficheros y directorios recursivamente (con subdirectorios): hdfs dfs -ls -R /
-- Crear un archivo vacío: Hdfs dfs -touchz <ruta> <nombre>.txt
-- Copiar de un sistema local a Hadoop: hdfs dfs -copyFromLocal 
-- Subir un archivo a HDFS: hdfs dfs -put <ruta/nombre del archivo> <ruta de destino>
-- Sobrescribir un archivo existente a HDFS: hdfs dfs -put -f /home/file1 /hadoop
-- Copiar el fichero ‘file1’ de hdfs al sistema de ficheros local: hdfs dfs -get /file1 /home/ <ruta destino>	
-- Leer un archivo de Hadoop: hdfs dfs -cat <ruta/nombre del texto>
-- Eliminar un fichero: rm <ruta/nombre del archivo>
-- Copiar el fichero ‘file1’ del sistema de ficheros local a hdfs y luego lo borra del sist. ficheros local: hdfs dfs -moveFromLocal <ruta/nombre del archivo>
-- Copiar un archivo dentro Hadoop: hdfs dfs -cp <ruta/nombre archivo origen> <ruta/nombre archivo destino>
-- Mover un archivo dentro Hadoop: hdfs dfs -mv <ruta/nombre archivo origen> <ruta/nombre archivo destino>
-- Borrar ficheros en un directorio remoto: hdfs dfs -rm -r <ruta/nombre del archivo>
-- Ver el tamaño de los ficheros y directorios: hdfs dfs -du <ruta/nombre>
-- Ver el tamaño de los ficheros: hdfs dfs -du -s  <ruta/nombre> /* The -s option will result in an aggregate summary of file lengths being displayed, rather than the individual files. */
-- Ver los metadatos de los ficheros: hdfs dfs -stat <ruta>/*  /* el asterisco sirve para que nos dé los metadatos individualmente para cada directorio o fichero individualmente contenido en la ruta. 
-- Cambiar el factor de replicación recursiamente : hdfs dfs -setrep -w <número de réplicas> <ruta/nombre archivo> /* La w es de Wait y solicita que se espere a la finalización de las réplicas para que el commando se complete. /*
- 
+Recuperar la configuración inicial del sistema y el URL que debemos introducir para acceder: hdfs getconf -confKey fs.defaultFS (p.ejem. "hudfs://tucan:9000")
+Recuperar el punto de acceso al clúster (en  proceso de extinción): hdfs getconf -confKey fs.default.name
+Observar el nombre de los namenodes: hdfs getconf -namenodes
+Lisa de comandos: hdfs dfs 
+Enlistar los archivos de Hadoop: hdfs dfs -ls <ruta>
+Crear un diretorio: hdfs dfs -mkdir <ruta> <nombre de la carpeta>
+Reemplazar un directorio existente: hdfs dfs -mkdir -p <ruta/nombre de la carpeta>
+Enlistar los ficheros con sus tamaños correspondientes: hdfs fs -ls -h <ruta>
+Listar todos los ficheros y directorios recursivamente (con subdirectorios): hdfs dfs -ls -R /
+Crear un archivo vacío: Hdfs dfs -touchz <ruta> <nombre>.txt
+Copiar de un sistema local a Hadoop: hdfs dfs -copyFromLocal 
+Subir un archivo a HDFS: hdfs dfs -put <ruta/nombre del archivo> <ruta de destino>
+Sobrescribir un archivo existente a HDFS: hdfs dfs -put -f /home/file1 /hadoop
+Copiar el fichero ‘file1’ de hdfs al sistema de ficheros local: hdfs dfs -get /file1 /home/ <ruta destino>	
+Leer un archivo de Hadoop: hdfs dfs -cat <ruta/nombre del texto>
+Eliminar un fichero: rm <ruta/nombre del archivo>
+Copiar el fichero ‘file1’ del sistema de ficheros local a hdfs y luego lo borra del sist. ficheros local: hdfs dfs -moveFromLocal <ruta/nombre del archivo>
+Copiar un archivo dentro Hadoop: hdfs dfs -cp <ruta/nombre archivo origen> <ruta/nombre archivo destino>
+Mover un archivo dentro Hadoop: hdfs dfs -mv <ruta/nombre archivo origen> <ruta/nombre archivo destino>
+Borrar ficheros en un directorio remoto: hdfs dfs -rm -r <ruta/nombre del archivo>
+Ver el tamaño de los ficheros y directorios: hdfs dfs -du <ruta/nombre>
+Ver el tamaño de los ficheros: hdfs dfs -du -s  <ruta/nombre> /* The -s option will result in an aggregate summary of file lengths being displayed, rather than the individual files. */
+Ver los metadatos de los ficheros: hdfs dfs -stat <ruta>/*  /* el asterisco sirve para que nos dé los metadatos individualmente para cada directorio o fichero individualmente contenido en la ruta. 
+Cambiar el factor de replicación recursiamente : hdfs dfs -setrep -w <número de réplicas> <ruta/nombre archivo> /* La w es de Wait y solicita que se espere a la finalización de las réplicas para que el commando se complete. /* 
 ```
 
 
@@ -1330,7 +1343,6 @@ HDFS no tiene capacidad sobre sí mismo, le entrega las tareas o aplicaciones a 
 yarn jar /usr/local/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-examples-3.2.1.jar wordcount <ruta/nombre_archivo>
 
 Con este comando, yarn ejecuta la tarea en lugar de HDFS.
-
 
 
 7/02/23
