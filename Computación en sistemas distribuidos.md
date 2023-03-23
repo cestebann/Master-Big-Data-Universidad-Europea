@@ -20,7 +20,7 @@ Profesor: Alfonso Antolínez García
 - [Unidad 3. Hadoop como sistema de cómputo en plataformas Big Data](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/Computaci%C3%B3n%20en%20sistemas%20distribuidos.md#3-hadoop-como-sistema-de-c%C3%B3mputo-en-sistemas-distribuidos)
     - [Apache Hadoop](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/Computaci%C3%B3n%20en%20sistemas%20distribuidos.md#apache-hadoop)
     - [Hadoop Distributed File System](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/Computaci%C3%B3n%20en%20sistemas%20distribuidos.md#introducci%C3%B3n-a-hadoop-distributed-file-system-hdfs)
-    - Arquitectura de cómputo de Hadoop.
+    - [Arquitectura de cómputo de Hadoop](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/Computaci%C3%B3n%20en%20sistemas%20distribuidos.md#arquitectura-de-c%C3%B3mputo-de-hadoop)
     - Ejecución de aplicaciones en Apache Hadoop.
 - <s> Unidad 4. Programación en Scala </s>
     - <s>Introducción al lenguaje Scala</s>
