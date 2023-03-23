@@ -32,11 +32,11 @@ Profesor: Alfonso Antolínez García
     - Programación de aplicaciones con Apache Spark
     - Acceso a fuentes de datos con Apache Spark
     - Gestión de trabajos Spark con Apache YARN
-- Unidad 6. Apache Spark avanzado
-    - Spark Streaming
-    - Ingestión de datos de Twitter mediante Apache Streaming
-    - Aprendizaje automático con Mllib
-    - Despliegue de aplicaciones con Maven y SBT
+- [Unidad 6. Apache Spark avanzado](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/Computaci%C3%B3n%20en%20sistemas%20distribuidos.md#6-apache-spark-avanzado)
+    - [Spark Streaming](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/Computaci%C3%B3n%20en%20sistemas%20distribuidos.md#spark-streaming)
+    - <s>Ingestión de datos de Twitter mediante Apache Streaming</s>
+    - [Aprendizaje automático con Mllib](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/Computaci%C3%B3n%20en%20sistemas%20distribuidos.md#aprendizaje-autom%C3%A1tico-con-mlib)
+    - <s>Despliegue de aplicaciones con Maven y SBT</s>
 
 # Unidad 0. Objetivos del curso
 
