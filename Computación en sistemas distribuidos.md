@@ -1373,6 +1373,10 @@ De cara al examen.
 
 ## Introducción a Apache Spark 
 
+### Apache Spark
+
+#### ¿Qué es Apache Spark?
+
 Apache Spark es un motor multilingüe aplicado a la ingeniería de datos, ciencia de datos y el aprendizaje automático en volúmentes de datos big data. Spark puede ejecutarse en clústeres o máquinas de un solo nodo. 
 
 Apache Spark es un framework de programación distribuida, que ofrece un alto rendimiento tanto para procesamiento por lotes como interactivo. Expone las API para Java, Python y Scala, y tiene una cantidad significativa de proyectos relacionados:
@@ -1419,25 +1423,44 @@ Spark corre con Java, pero admite los siguientes lenguajes:
 
 ![](/img/computacion/apache_spark.png)
 
-Spark SQL es un módulo Spark para el procesamiento de datos estructurados. Permite la lectura y estructura de datos desde y hacia cualquiera de los siguientes formatos: CSV, XML y JSON, y los formatos de datos binarios más comunes como son Avro, Parquet y ORC. 
+Spark SQL es un módulo Spark para el procesamiento de datos estructurados. Permite la lectura y estructura de datos desde y hacia cualquiera de los siguientes formatos: CSV, XML y JSON, y los formatos de datos binarios más comunes como son Avro, Parquet y ORC.
 
-Un DataFrame es una colección distribuida de datos cuya estructura está definida por un esquema. Es una colección distribuida de datos organizada en filas, cada fila consta de un conjunto de datos. 
 
-Los datasets son un oclección de datos inmutable y con fuerte control del tipo de datos. Como los DataFraemes, los datos se encuentrean siguiendo un esquema definida. Los datasets proporcionan seguridad en el momento de la compilación. Los datasets usan los llammados "encoders" para convertir los objetos definidos por el usuario.
+- **DataFrame** es una colección distribuida de datos cuya estructura está definida por un esquema. Es una colección distribuida de datos organizada en filas, cada fila consta de un conjunto de datos. 
+- **Dataset** colección de datos inmutable y con fuerte control del tipo de datos. Como los DataFrames, los datos se encuentran siguiendo un esquema definido. Los datasets proporcionan seguridad en el momento de la compilación. Los datasets usan los llammados "encoders" para convertir los objetos definidos por el usuario en un formato binario.
 
-Esto se traduce en una reducción del uso de la memoria siempre y cuando un cojunto de datos quepa en la memoria caché, así como una reducción en la cantidad de datos que Spark necesiata mover ........
+Esto se traduce en una reducción del uso de la memoria siempre y cuando un cojunto de datos quepa en la memoria caché, así como una reducción en la cantidad de datos que Spark necesita mover que Spark necesita mover a través de una red durante el proceso de shuffling.
+
+# 6. Apache Spark Avanzado 
+
+## Aprendizaje automático con MLib
+
+### Qué es Spark MLlib?
+
+Es el componente de aprendizaje automático de Apache Spark. Su objetivo es hacer que en la práctica el aprendizaje automático sea escalable y fácil. 
+
+### Cuáles son los componentes principales?
+
+- Algoritmos de ML
+- Caracterización: Extracción de características, transformación, reducción de dimensionalidad, etc. 
+- Pipelines: herramientas para construir, evaluar y ajustar ML Pipelines. 
+- Persistencia: guardado y carga de algoritmos, modelos y pipelines. 
+- MLlib. A partir de SPark 2.x la biblioteca MLlib comenzó a ser relegada en favor de Spark ML. Está basada en RDDs mientas que Spark ML está basada en DataFrames. 
+- Mllib al ser la primera está más evolucionada que los DataFrames. 
+
+## Spark Streaming
 
 ### QUé es Spark Streaming?
 
-Spark streaming corresponde al análisis de información en tiempo real. 
+Spark Streaming corresponde al análisis de información en tiempo real. 
 
 ### Cuántas fuentes de Streaming existen? 
 
 Existen dos tipos de fuentes en Spark Streaming: 
-- Fuentes básicas: Forman parte del núcleo de Spark Streaming
+1. Fuentes básicas: Forman parte del núcleo de Spark Streaming
     - Socket Streaming (Puerto que estamos escuchando). 
     - Ficheros (compatibles con HDFS). 
-- Fuentes Avanzadas: Requieren conectores epeciales para acceso a las mismas. Sismilar a los drivers de los SOs. 
+2. Fuentes Avanzadas: Requieren conectores epeciales para acceso a las mismas. Similar a los drivers de los SOs. 
     - Apache Kafka
     - AWS Kinesis.
 
@@ -1447,24 +1470,24 @@ Spark streaming incoporora dos tipos de gestores de streamings:
 
 ![](/img/computacion/spark_streaming.png)
 
-Dstreams. Es un proceso discreto de Streaming, se representa como una secuencia de RDDs. 
+![](/img/computacion/spark_streaming_2.png)
 
-El streaming estructurado es un motore de proc
+### ¿Cómo funciona el Spark Streaming? 
 
-## QUé es Spark MLlib?
+Rcibe flujos de datos de entrada de forma continua y los divide en lotes, que luego son procesados por el motor de Spark para generar el flujo final de resultados en lotes.
 
-Su objetivo es hacer que en la práctica el aprendizaje automático sea escalable y fácil. 
+![](/img/computacion/speark_streaming_3.png)
 
-## Cuáles son los componentes princicpales?
+### ¿Qué es el Spark Streaming Estructurado?
 
-- 
-- Caracterización: Extracción de características, transformación, reducción de dimensionalidad, etc. 
-- Pipelines: herramientas para construir, evaluar y ajustar ML Pipelines. 
-- Persistencia: guardado y carga de algoritmos, modelos y pipelines. 
-- MLlib. A partir de SPark 2.x la biblioteca Mllib comenzó a ser relegada en vaor de Spark ML. Está basada en RDDs mientas que Spark ML está basada en DataFrames. 
-- Mllib al ser la primera está más evolucionada que los DataFrames. 
+El streaming estructurado es un motor de procesamiento de flujo escalable y tolerante a errores basado en el motor Spark SQL.
 
-## Diferencias entre MapReduce y Apache Spark 
+Puede procesar los datos recibidos en vivo de la misma manera que lo realizaría en un proceso por lotes (batch) con datos estáticos.
+
+El motor Spark SQL se encarga de ejecutar el proceso de forma incremental, continua y de actualizar el resultado final en tanto sigan llegando datos.
+
+
+### Diferencias entre MapReduce y Apache Spark 
 
 
 Hadoop MapReduce y Apache Spark son dos frameworks de procesamiento de datos distribuidos ampliamente utilizados en el mundo de Big Data. Aquí están algunas diferencias clave entre ambos:
