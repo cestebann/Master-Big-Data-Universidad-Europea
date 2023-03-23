@@ -943,7 +943,7 @@ Hadoop incorpora la tecnología Hadoop Distributed File System (HDFS) para el al
 
 ![](/img/computacion/hadoop2.0.png)
 
-### Limitaciones de Hadoop 1.0
+#### Limitaciones de Hadoop 1.0
 - NameNode sin escalabilidad horizontal 
     - Metadatos almacenados en la memoria RAM del NameNode. 
     - Cuellos de botella a partir de 4000 nodos. 
@@ -953,25 +953,24 @@ Hadoop incorpora la tecnología Hadoop Distributed File System (HDFS) para el al
 - Sobrecarga del JobTracker
 - No incorpora la tenología Multi-usuario (Multi-Tenancy)
 
-## ¿Qué es la tecnología "Multi Tenancy" o multiusuario?
-
-La tenencia múltiple significa que varios clientes de un proveedor de la nube utlizan los mismos recuross informáticos. 
-A pesar de que comparten recursos, los clientes de la nube no se conocen entre sí. 
-
-
-### Hadoop 2.0 
+#### Hadoop 2.0 
 - Federación HDFS
     - Varios NameNode y varios Namespaces
 - Alta disponibilidad del NameNode
 - Yarn 
     - Mejor control de procesos
 - MultiTenancy 
-    - Los trabajos se dividen en colas (queues: Batch, Streaminf, Interacitve)
+    - Los trabajos se dividen en colas (queues: Batch, Streaming, Interacitve)
     - Cuotas compartidas entre usuarios
-    - Cada xola tiene una prioridas asoxiada. 
+    - Cada cola tiene una prioridad asociada. 
+
+#### ¿Qué es la tecnología "Multi Tenancy" o multiusuario?
+
+La tenencia múltiple significa que varios clientes de un proveedor de la nube utlizan los mismos recuross informáticos. 
+A pesar de que comparten recursos, los clientes de la nube no se conocen entre sí. 
 
 
-## ¿Cuáles son las características de Hadoop?
+#### ¿Cuáles son las características de Hadoop?
 
 La información en el mundo Big Data es por definición, distribuida y con frecuencia no estructurada. 
 La aplicación de MapReduce, permite la extracción de información desde datos distribuidos, estructurados o no. 
@@ -988,11 +987,11 @@ La gestión del ancho de banda de Hadoop también ayuda en el proceso.
 ###  HDFS
 
 
-## ¿Cómo funciona el HDFS?
+#### ¿Cómo funciona el HDFS?
 
 Hdfs es un sistema de archivos distribuidos que egestiona grandes volúmenes de datos que se ejecuta en hardware de propósito general. Un solo clúster de Apache Hadoop puede escalar a cientos o miles de nodos. 
 
-## ¿Cuáles son los objetivos de Hadoop?
+#### ¿Cuáles son los objetivos de Hadoop?
 
 - Recuperación rápida ente fallos de hardware
 - Acceso a transmisión de datos en tiempo real (streaming data)
@@ -1020,7 +1019,7 @@ Simplificando mucho, indica que una vez que los datos son escritos, no se modifi
 **Data-Driven**
 
 
-## Cuál es la arcquitectura de HDFS?
+#### Cuál es la arcquitectura de HDFS?
 
 Sigue un paradigma maestro-esclavo. 
 
@@ -1039,7 +1038,7 @@ De la misma manera, determina la distribución de bloques en cada Datanode.
 Los dataNodes son los responsables de operar las peticiones de lectura y escritura por parte de los usuarios. 
 Los dataNodes se encargan también de la creación de los bloques, borrado y replicación de los datos, según les instruya el NameNode.
 
-## ¿Cómo funciona el sistema de replicación en HDFS?
+#### ¿Cómo funciona el sistema de replicación en HDFS?
 
 ![](/img/computacion/replicacion_bloques.png)
 
@@ -1053,13 +1052,13 @@ El NameNode gestiona la réplica de los bloques mediante un "Heartbeat" y un "Bl
 
 Por defecto, el tamaño de los bloques es de 128MB (Hadoop 1.0, 64MB) y el factor de replicación es 3. 
 
-## ¿Cuál es la importancia de las réplicas en HDFS?
+#### ¿Cuál es la importancia de las réplicas en HDFS?
 El proceso de distribución de las réplicas de bloques crítico para la toleracia a fallos y el rendimiento del HDFA. 
 
 HDFS emplea una política denominada "rack-awareness" para distribuir las copias de los bloques, y optimizar el ancho de banda de las comunicaciones.
 
 
-## ¿Qué es Hadoop Rack y Rack awareness"?
+#### ¿Qué es Hadoop Rack y Rack awareness"?
 
 Un rack es una colección física de nodos en un clúster Hadoop. Un clúster de Hadoop puede constar de muchos racks. 
 El NameNode usa la información de estos racks para seleccionar el Datanode más cercano y con ello optimizar el proceso de escritura/lectura y reducir al máximo el tráfico de red.
@@ -1075,7 +1074,7 @@ Al ser HDFS un sistema de ficheros "Rack aware" y "layer 3 aware" conoce en todo
 
 El hecho de ser "Layer 3 aware" le permite ser enrutable, es decir hacer uso de las direcciones IP. Esto le permite ser escalable a nivel de emplazamiento físico empleando una red con enrutamiento ECMP y OSPF para pequeños clústers y BGP para grandes clústers
 
-## ¿Qué son los enrutamientos?
+#### ¿Qué son los enrutamientos?
 
 Equal-cost multi-path routing (ECMP) es una estrategia de enrutamiento en la cual, paquetes de datos enviados a un mismo destinatario, pueden tener lugar a trabés de múltiples ruta permitiendo "load balancing" y "fault tolerance". 
 
@@ -1083,7 +1082,7 @@ Open Shortest Path First (OSPF) forma parte del Interior Gateway Protocol (IGP),
 
  Border Gareway Protocol (BGP) es un protocolo que pemrite a Internet funcionar por medio del enrutameiento de la información. Internet es una red de redes, dividida en millones de redes más pequeñas, las cuales son conocidas como sistemas autónomos (autonomous systemes Ases). 
 
-## ¿Qué son las políticas de rack awareness?
+#### ¿Qué son las políticas de rack awareness?
 
 Son aquellas que permiten conseuguir un ancho de bando óptimo y una tolerancia a fallos. 
 
@@ -1092,78 +1091,14 @@ Por defecto son:
 - No se permiten más de dos réplicas de un mismo bloque en un mismo rack. 
 - El número de racks en un clúster ha de ser menor que el número de réplicas (*por qué?)*. 
 
-## ¿Cuáles son las ventajas del rack-awareness?
+#### ¿Cuáles son las ventajas del rack-awareness?
 
 - El almacenamiento de datos en diferentes racks previene la pérdida de datos.
 - El rack-awareness permite maximizar el ancho de banda de la red.
 - Mejora el rendimiento del clúster y proporciona alta disponibilidad de los datos
 
-### Qué es Hadoop YARN 
 
-Apache Hadoop Yet Another Resource Negotiator (o simplemente, YARN) es un marco de cógido abierto para la programación de trabajos (job scheduler) y la gestión de recursos de clústers. 
-
-![](/img/computacion/yarn.png)
-
-
-YARN permite que diferentes motores de procesamiento de datos, como el procesamiento de gráficos (graph processing), el procesamiento interactivo (interactive processing), el procesamiento secuential (stream processing) y el procesamiento por lotes (batch processing) procesen datos en HDFS, lo que lo hace más eficiente. 
-
-
-### ¿Cuáles son las características de YARN?
-
- - Escalabilidad: el programador de recursos de YARN permite de forma sencilla, ampliar y gestionar la arquitectura Hadoop llegando a miles de nodos. 
-- Compatibilidad: YARN es compatible con las aplicaciones map-reduce existentes en Hadoop 1.0 lo que permite compatibilidad de las apps existentes. 
-- Utilización del clúster: YARN permite la utilización dinámica de recursos del clúster, esto permite un más óptimo aprovechamiento de los datos. 
-- Multiusuario (Multi-tenancy): Permite el acceso a múltiples motores Hadoop, lo que brinda a las organizaciones la capacidad de configurarlos como multipropietario. Esto permite reducir costes. 
-
-### ¿Cuáles son los componentes de YARN? 
-
-![](/img/computacion/arquitectura_yarn.png)
-
-- **Cliente**: Es quien envía las tareas map-reduce (solo en v1.0).
-- **Gestor de recursos (resource manager)**: Es el responsable de la asignación y gestión de recursos entre las aplicaciones. Cuando recibe una petición, la envía al gestor de nodos (node manager) y provisiona los recursoss necesarios para su ejecución. 
-    - Programador o scheduler: es el responsable de la programación de trabajos en función de los recusos disponibles. Su función es la de puro programador. 
-    - Gestor de aplicaciones (app manager): es el responable del lanzamiento de la app y negociar con el node manager la creación del contenedor (container). Es también responsable de relanzar el contenedor maestro de la app en caso de fallo (App Master Container).
-- **Gestor de nodos**: Es el responsable de la gestión de nodos individuales, así como de la gestión de las apps y flujos de trabajo en ese nodo. 
-- **El gestor de aplicaciones**: una app es un trabajo enviado a Hadoop para su ejecución. Es el responsable de la obtención de recursos del Gestor de recursos, supervisar el estado y progreso de una app. 
-- El contenedor: Corresponde al conjunto de recursos físicos como RAM, CPU, disco, etc. existentes en un nodo.
-
-### Hadoop Map Reduce
-
-![](/img/computacion/sistema_tradicional.png)
-
-![](/img/computacion/hadoop_3.png)
-
-#### ¿Qué es Map-Reduce?
-
-Map Reduce es la capa de procesos de datos de Hadoop. Es un framework diseñado para procesar ingentes volúmenes de información en paralelo. 
-
-![](/img/computacion/map_reduce.png)
-
-#### ¿Cómo funciona MapReduce?
-
-La función *map* es aplicar una función sobre el bloque para obtener una solución parcial. 
-
-Los sistemas Hadoop se diseñaron especialmente para funcionar con sistemas de disco. La información se lee y se graba en un disco. La arquitectura distribuida en Hadoop consiste en trocear un problema, distribuirlo a diferentes nodos (map), resolver una solución parcial local y luego ensamblar las soluciones parciales en una solución global (reduce). Esto se realiza gracias a **map reduce**. *Map* es aplicar a los nodos una función troceada.  En Map pasas una función y una lista a la que hay que aplicarle la función y el sistema itera en cada uno de los índices de la lista aplicándole la función. *Reduce* significa una vez tengo las soluciones parciales, agregarlas y convetirlas en una sola solución.
-
-
-La filosofía de operación de Map se basa en procesar la información, allí donde la información reside. Esto se conoce como estrategia "data-centric" o "data-driven". Es menos costoso enviar la computación/proceso a los nodos donde se encuentra la información, en lugar de traer los datos hacia donde se encuentra el procesamiento. 
-
-
-#### ¿En qué consiste la fase Map? 
-
-En la fase Map, las funciones definidas por el usuario procesan la información de entradas. Estas funciones incluyen la lógica de negocio que se quiere aplicar a la información.
-
-La salida de la fase Mpa está constituida por resultados intermedios y se alojan temporalmente en el disco local del nodo. 
-
-#### ¿En qué consiste las fase Reduce?
-
-En la fase Reduce, se compone de subfases: shuffle y reduce.
-
- La entrada a esta fase, se corresponde con los datos de salidad de la fase map anterior. Los datos recibidos desde el paso anterior map, son pasados al Reducer, donde son agregados.
-
-![](/img/computacion/map%20reduce.png)
-
-### Arquitectura de Cómputo de Hadoop
+## Arquitectura de Cómputo de Hadoop
 
 ![](/img/computacion/ecosistema_apache_hadoop_1.png)
 
@@ -1217,6 +1152,76 @@ La mayor diferencia entre las versiones 1 y 2 de Apache Hadoop es la incorporaci
 ![](/img/computacion/comparacion_hadoop.png)
 
 
+#### Qué es Hadoop YARN 
+
+Apache Hadoop Yet Another Resource Negotiator (o simplemente, YARN) es un marco de cógido abierto para la programación de trabajos (job scheduler) y la gestión de recursos de clústers. 
+
+![](/img/computacion/yarn.png)
+
+
+YARN permite que diferentes motores de procesamiento de datos, como el procesamiento de gráficos (graph processing), el procesamiento interactivo (interactive processing), el procesamiento secuential (stream processing) y el procesamiento por lotes (batch processing) procesen datos en HDFS, lo que lo hace más eficiente. 
+
+
+#### ¿Cuáles son las características de YARN?
+
+ - Escalabilidad: el programador de recursos de YARN permite de forma sencilla, ampliar y gestionar la arquitectura Hadoop llegando a miles de nodos. 
+- Compatibilidad: YARN es compatible con las aplicaciones map-reduce existentes en Hadoop 1.0 lo que permite compatibilidad de las apps existentes. 
+- Utilización del clúster: YARN permite la utilización dinámica de recursos del clúster, esto permite un más óptimo aprovechamiento de los datos. 
+- Multiusuario (Multi-tenancy): Permite el acceso a múltiples motores Hadoop, lo que brinda a las organizaciones la capacidad de configurarlos como multipropietario. Esto permite reducir costes. 
+
+#### ¿Cuáles son los componentes de YARN? 
+
+![](/img/computacion/arquitectura_yarn.png)
+
+- **Cliente**: Es quien envía las tareas map-reduce (solo en v1.0).
+- **Gestor de recursos (resource manager)**: Es el responsable de la asignación y gestión de recursos entre las aplicaciones. Cuando recibe una petición, la envía al gestor de nodos (node manager) y provisiona los recursoss necesarios para su ejecución. 
+    - Programador o scheduler: es el responsable de la programación de trabajos en función de los recusos disponibles. Su función es la de puro programador. 
+    - Gestor de aplicaciones (app manager): es el responable del lanzamiento de la app y negociar con el node manager la creación del contenedor (container). Es también responsable de relanzar el contenedor maestro de la app en caso de fallo (App Master Container).
+- **Gestor de nodos**: Es el responsable de la gestión de nodos individuales, así como de la gestión de las apps y flujos de trabajo en ese nodo. 
+- **El gestor de aplicaciones**: una app es un trabajo enviado a Hadoop para su ejecución. Es el responsable de la obtención de recursos del Gestor de recursos, supervisar el estado y progreso de una app. 
+- El contenedor: Corresponde al conjunto de recursos físicos como RAM, CPU, disco, etc. existentes en un nodo.
+
+### Hadoop Map Reduce
+
+![](/img/computacion/sistema_tradicional.png)
+
+![](/img/computacion/hadoop_3.png)
+
+#### ¿Qué es Map-Reduce?
+
+Map Reduce es la capa de procesos de datos de Hadoop. Es un framework diseñado para procesar ingentes volúmenes de información en paralelo. 
+
+![](/img/computacion/map_reduce.png)
+
+#### ¿Cómo funciona MapReduce?
+
+La función *map* es aplicar una función sobre el bloque para obtener una solución parcial. 
+
+Los sistemas Hadoop se diseñaron especialmente para funcionar con sistemas de disco. La información se lee y se graba en un disco. La arquitectura distribuida en Hadoop consiste en trocear un problema, distribuirlo a diferentes nodos (map), resolver una solución parcial local y luego ensamblar las soluciones parciales en una solución global (reduce). Esto se realiza gracias a **map reduce**. *Map* es aplicar a los nodos una función troceada.  En Map pasas una función y una lista a la que hay que aplicarle la función y el sistema itera en cada uno de los índices de la lista aplicándole la función. *Reduce* significa una vez tengo las soluciones parciales, agregarlas y convetirlas en una sola solución.
+
+
+La filosofía de operación de Map se basa en procesar la información, allí donde la información reside. Esto se conoce como estrategia "data-centric" o "data-driven". Es menos costoso enviar la computación/proceso a los nodos donde se encuentra la información, en lugar de traer los datos hacia donde se encuentra el procesamiento. 
+
+
+#### ¿En qué consiste la fase Map? 
+
+En la fase Map, las funciones definidas por el usuario procesan la información de entradas. Estas funciones incluyen la lógica de negocio que se quiere aplicar a la información.
+
+La salida de la fase Mpa está constituida por resultados intermedios y se alojan temporalmente en el disco local del nodo. 
+
+#### ¿En qué consiste las fase Reduce?
+
+En la fase Reduce, se compone de subfases: shuffle y reduce.
+
+ La entrada a esta fase, se corresponde con los datos de salidad de la fase map anterior. Los datos recibidos desde el paso anterior map, son pasados al Reducer, donde son agregados.
+
+![](/img/computacion/map%20reduce.png)
+
+## Parte práctica de Hadoop
+
+En esta sección se registran los laboratorios hechos con el profesor asociados a HDFS y Yarn.
+
+
 16/12/22
 
 NetBIOS es el protocolo de unidades de red que implementa Windows, y es el software que hace visible los recursos de un equipo a través de la red para que lo utilicen otros, para compartir de un PC a otros. Linux y la comunidad hicieron algo parecido, SAMBA, no solo se puede compartir recursos y ficheros entre SOs Windows, sino también entre SOs Linux y Windows. NFS (Network File System) es un protocolo que permite compartir recursos entre SO Linux. 
@@ -1267,13 +1272,6 @@ yarn-env.cmd
 yarn-env.sh
 ```
 
-
-
-
-
-
-
-
 17/01/2023
 
 ``` bash
@@ -1303,8 +1301,6 @@ Ver el tamaño de los ficheros: hdfs dfs -du -s  <ruta/nombre> /* The -s option 
 Ver los metadatos de los ficheros: hdfs dfs -stat <ruta>/*  /* el asterisco sirve para que nos dé los metadatos individualmente para cada directorio o fichero individualmente contenido en la ruta. 
 Cambiar el factor de replicación recursiamente : hdfs dfs -setrep -w <número de réplicas> <ruta/nombre archivo> /* La w es de Wait y solicita que se espere a la finalización de las réplicas para que el commando se complete. /* 
 ```
-
-
 24/01/2023
 
 Se puso a hablar de bare-metal hypervisor
@@ -1319,7 +1315,7 @@ Comienza así:
 - para savber el factor de replicación: hdfs dfs -stat %r
 
 
-#### Cómo ejecutamos trabajos en Hadoop 
+### Cómo ejecutamos trabajos en Hadoop 
 
 Vamos a ver cómo se ejecutan problemas en Hadoop...
 
@@ -1352,10 +1348,11 @@ Los sistemas de alta disponibilidad particionan los ficheros. Como el acceso a d
 
 HDFS no tiene capacidad sobre sí mismo, le entrega las tareas o aplicaciones a ejecutar al clúster de Yarn. 
 
+``` bash
 yarn jar /usr/local/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-examples-3.2.1.jar wordcount <ruta/nombre_archivo>
+```
 
 Con este comando, yarn ejecuta la tarea en lugar de HDFS.
-
 
 7/02/23
 
@@ -1372,7 +1369,7 @@ De cara al examen.
 - El examen va a ser tipo test. 
 
 
-# Unidad 4. Apache Spark 
+# 4. Apache Spark 
 
 ## Introducción a Apache Spark 
 
