@@ -1632,6 +1632,9 @@ al realizar una consulta a Elasticsearch, necesitamos conocer qué shards posee 
 
 Todos los nodos tienen una copia del cluster-state pero solo el nodo master activo tiene la capacidad de modificarlo. 
 
+Aunque el cluster state se almacena en cada nodo del clúster con el objetivo, entre otros, de poder redirigir las operaciones siempre al nodo adecuado solo el nodo master, puede realizar modificaciones del cluster state.
+Es fácil presuponer que este cluster state es un límite en nuestra escalabilidad horizontal, ya que es una estructura que debe mantenerse en todos los nodos, por lo que no puede crecer indefinidamente. Algunas buenas prácticas, como no tener índices con una gran dimensionalidad, ni shards muy pequeños, favorecen a que el cluster state se mantenga en un tamaño óptimo.
+
 ### Réplicas 
 
 
@@ -1649,7 +1652,7 @@ Esta es una de las grandes fortalezas de los motores de búsqueda.
 
 Elasticsearch hace uso de los índices invertidos. 
 
-> Índice invertido: Va a extraer diferentes térmminos o tokens que tenemos en la colección de documentos. Y nos va a decir dónde aparece un término para cada documento. 
+> Índice invertido: Va a extraer diferentes términos o tokens que tenemos en la colección de documentos. Y nos va a decir dónde aparece un término para cada documento. 
 
 ![](/img/bd_nuevas/elasticsearch_9.png)
 
@@ -1707,16 +1710,33 @@ Kubana tiene un DevTools.
 
 # 6. Sistemas de colas
 
+## 1. Cola de mensajes y sistemas pub/sub
 
-La idea de un sistema de colas es desacoplar el sistema de servicio. 
+Para encontrarle sentido a los sistemas de colas, vamos a imaginarnos un servicio que es invocado por diferentes clientes (que en una arquitectura distribuida serían otros servicios), este servicio responde a las peticiones de cada uno de sus clientes de forma síncrona siguiendo los siguientes pasos:
+1. Un cliente invoca al servicio y se queda esperando respuesta.
+2. El servicio, tras realizar su trabajo, responde al cliente.
+3. El cliente recibe la respuesta y continúa con su operativa.
+
+Sin embargo, hay escenarios en los que la situación se puede complicar. Los más usuales son: la alta demanda (un pico elevado de clientes que no podemos procesar) y una posible caída del servicio invocado.   
+
+La idea de un sistema de colas es desacoplar el sistema de servicio. Las colas, en un escenario distribuido, consisten en un middleware que nos ayuda a desacoplar servicios dotando a nuestra arquitectura de una mayor resiliencia frente a picos de carga o caídas.
 
 ![](/img/bd_nuevas/colas.png)
+
+1.  Un cliente deja un mensaje en una cola (con los parámetros necesarios para la ejecución del servicio). A continuación, continúa con su operativa.
+2. La cola almacena, de forma ordenada, los mensajes de los diferentes clientes.
+3. El servicio, a su ritmo, realiza su trabajo. Para ello, consume los mensajes de la cola y extrae las peticiones de los clientes. Si fuera necesario responder al cliente, utilizaría otra cola. En una cola de mensajes, al consumir el mensaje este se borra asegurándonos que cada petición solo se consume una vez.
 
 El servicio puede ir consumiendo a su ritmo sin saturarse porque la cola atiende las peticiones de los clientes. A nivel de cliente, tenemos una alta disponibilidad.
 
 ![](/img/bd_nuevas/colas_2.png)
 
 ## Limitaciones del sistema de colas
+
+Para encontrarle sentido a los sistemas de colas, vamos a imaginarnos un servicio que es invocado por diferentes clientes (que en una arquitectura distribuida serían otros servicios), este servicio responde a las peticiones de cada uno de sus clientes de forma síncrona siguiendo los siguientes pasos:
+1. Un cliente invoca al servicio y se queda esperando respuesta.
+2. El servicio, tras realizar su trabajo, responde al cliente.
+3. El cliente recibe la respuesta y continúa con su operativa.
 
 Cuando tenemos diferentes servicios que necesitamos el mismo contenido. 
 
