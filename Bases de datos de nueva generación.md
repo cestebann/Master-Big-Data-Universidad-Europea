@@ -212,7 +212,7 @@ Se pueden clasificar en si están pensadas en escalar por medio de un clúster o
 
 ### BBDD de agregados
 
-No almacenan la información en tuplas con tablas estrcuturadas, formadas por atributos fijos, sino que se almacena por medio de objetos anidados o listas semiestructuradas (tipo documentos JSON o XML).
+No almacenan la información en tuplas con tablas estructuradas, formadas por atributos fijos, sino que se almacena por medio de objetos anidados o listas semiestructuradas (tipo documentos JSON o XML).
 
 La información se coloca de manera desnormalizada. 
 
@@ -657,7 +657,7 @@ No obstante, en un sistema peer-to-peer el problema se agrava ya que  todos los 
 
 Usualmente, si pensamos en un modelo relacional, los datos están repartidos en varias tablas y es común que cuando tengamos que realizar modificaciones en la BBDD tengamos que realizarlas en diferentes registros, que pueden estar a su vez en diferentes tablas. Si en el periodo entre el inicio de la actualización y el final de la misma, otra persona accediera a las diferentes tablas se encontraría con una BBDD inconsistente. Este tipo de conflictos se denominan conflictos de lectura-escritura y debemos evitarlo para mantener en nuestra BBDD una consistencia local, es decir, asegurar que todo el conjunto de datos tiene sentido juntos.
 
-Como ya vimos, las BBDD relacionales resuelven estos conflictos con las transacciones que cumplen las propiedades ACID, garantizando, entre otros, el aislamiento entre transacciones. Evitando este tipo de conflictos aseguramos la consistencia lógica de nuestra BBDD
+Como ya vimos, las BBDD relacionales resuelven estos conflictos con las transacciones que cumplen las propiedades ACID, garantizando, entre otros, el aislamiento entre transacciones. Evitando este tipo de conflictos aseguramos la consistencia lógica de nuestra BBDD.
 
 En las BBDD NoSQL de agregados no se suelen cumplir estas transacciones ACID y solo se garantiza la atomicidad y el aislamiento cuando modificamos un único agregado. Esto significa que obtenemos consistencia lógica únicamente cuando trabajamos con los agregados de forma individual, de otro modo tendremos un tiempo denominado ventana de inconsistencia en el que no tendríamos consistencia lógica en nuestra BBDD
 
@@ -688,6 +688,7 @@ El quorum de lectura se trata del número de nodos necesarios para garantizar qu
 
 - N: Factor de replicación
 - W: El número de confirmaciones necesario para la escritura
+
 El número de lecturas necesaria sería N-(W-1).
 
 Este modelo aplica a una distribución peer-to-peer, ya que como hemos hablado hasta ahora en un modelo maestro-esclavo podemos evitar los conflictos accediendo directamente al nodo máster.
@@ -699,7 +700,7 @@ Este modelo aplica a una distribución peer-to-peer, ya que como hemos hablado h
 1. **Atomicidad.** En los modelos de agregados garantizar la consistencia entre agregados se vuelve una tarea compleja y costosa computacionalmente por lo que la mayoría de estas tecnologías únicamente garantizan esta atomicidad a nivel de agregado.La consistencia nos indica que al ejecutar la transacción debemos partir de un estado válido de la BBDD y concluir en otro estado igualmente válido.
 2. **Consistencia**. La consistencia nos indica que al ejecutar la transacción debemos partir de un estado válido de la BBDD y concluir en otro estado igualmente válido. Aún quedándonos a nivel de agregado, es posible que nuestra BBDD no tenga la consistencia fuerte de las BBDD relacionales debido a la replicación y, en función de la configuración que hagamos, tengamos que optar por una consistencia eventual.
 3. **Aislamiento.** El aislamiento hace referencia a que la ejecución de una transacción no debe afectar a otras transacciones. Es decir, el estado intermedio de una transacción no debe ser visible por otras transacciones.consistencia. Ya vimos que si trabajábamos con diferentes agregados otro cliente podría ver el estado intermedio de nuestras modificaciones. Por lo tanto, al igual que la atomicidad, el aislamiento solo puede garantizarse a nivel de agregado.
-4. Durabilidad. La durabilidad nos garantiza que una vez que se ha realizado una transacción, esta debe persistir en la BBDD y no se podrá deshacer incluso ante un fallo del sistema. Depende de la configuración, hay casos de uso que puede sacrificarse la durabilidad como en una memoria caché. 
+4. **Durabilidad**. La durabilidad nos garantiza que una vez que se ha realizado una transacción, esta debe persistir en la BBDD y no se podrá deshacer incluso ante un fallo del sistema. Depende de la configuración, hay casos de uso que puede sacrificarse la durabilidad como en una memoria caché. 
 
 
 ![](/img/bd_nuevas/acid_no_sql.png)
@@ -708,9 +709,9 @@ Este modelo aplica a una distribución peer-to-peer, ya que como hemos hablado h
 
 El Modelo BASE surge en contraposición del modelo ACID, ya que deja de ser válido en las BBDD NoSQL orientadas a agregados. 
 
-- **Basically Available¨**: Los modelos NoSQL que hemos descrito a lo largo de este tema dejan de centrarse en la consistencia total de la BBDD para, mediante la distribución de datos con shards y réplicas, asegurar la disponibilidad.
+- **Basically Available**: Los modelos NoSQL que hemos descrito a lo largo de este tema dejan de centrarse en la consistencia total de la BBDD para, mediante la distribución de datos con shards y réplicas, asegurar la disponibilidad.
 - **Soft state**: De nuevo debido a las posibles inconsistencias lógicas no podemos garantizar el estado de nuestra BBDD como lo hacen las BBDD ACID, quedando esta responsabilidad delegada a la parte de la aplicación.
-- **Eventually consistency**: Como hemos visto hay escenarios en nuestras BBDD distribuidas, no todos, en el que nos encontramo
+- **Eventually consistency**: Como hemos visto hay escenarios en nuestras BBDD distribuidas, no todos, en el que nos encontramos consistencia eventual. 
 
 ## Teorema del CAP
 
@@ -724,8 +725,8 @@ Cuando diseñamos la arquitectura de nuestra BBDD los servidores donde se encuen
 
 - **En un mismo rack:** Dentro del mismo rack podemos tener diferentes servidores. La comunicación entre ellos es muy confiable, pero tenemos bastantes elementos en común (alimentación, red…) que hacen que un fallo en uno de ellos pueda provocar la pérdida de todas las réplicas.
 - **En diferentes racks:** Es una práctica habitual, que, aunque los servidores se encuentren en la misma sala de un CPD (o zona si hablamos de Cloud), estos se encuentren en diferentes RACK para asegurar su disponibilidad en caso de fallo en alguno de los componentes comunes. La comunicación en este caso sigue siendo bastante confiable.
-• **En diferentes zonas/salas de un mismo CPD/Región:** Podemos pensar que teniendo toda la información en la misma sala aún corremos bastante riesgo de que haya fallos generales que afecten a toda la sala; por este motivo podemos distribuir los datos entre diferentes salas (zonas si hablamos de Cloud) aumentando de este modo la disponibilidad. En este caso los nodos estarán conectados por comunicaciones entre salas, que, aunque estén más expuestas que los casos anteriores siguen siendo confiables.
-• **En diferentes regiones/CPD:** Por último, podemos pensar en separar nuestras réplicas en diferentes CPDs (regiones si hablamos de Cloud) ofreciendo redundancia geográfica que nos proteja ante cualquier desastre (p.e. un corte de luz en nuestro CPD). En este caso la disponibilidad aumenta considerablemente, pero, a cambio, la comunicación entre nuestros nodos se debe realizar a través de internet, que es una red bastante menos confiable que las redes privadas descritas en los casos anteriores.
+- **En diferentes zonas/salas de un mismo CPD/Región:** Podemos pensar que teniendo toda la información en la misma sala aún corremos bastante riesgo de que haya fallos generales que afecten a toda la sala; por este motivo podemos distribuir los datos entre diferentes salas (zonas si hablamos de Cloud) aumentando de este modo la disponibilidad. En este caso los nodos estarán conectados por comunicaciones entre salas, que, aunque estén más expuestas que los casos anteriores siguen siendo confiables.
+-  **En diferentes regiones/CPD:** Por último, podemos pensar en separar nuestras réplicas en diferentes CPDs (regiones si hablamos de Cloud) ofreciendo redundancia geográfica que nos proteja ante cualquier desastre (p.e. un corte de luz en nuestro CPD). En este caso la disponibilidad aumenta considerablemente, pero, a cambio, la comunicación entre nuestros nodos se debe realizar a través de internet, que es una red bastante menos confiable que las redes privadas descritas en los casos anteriores.
 
 ![](/img/bd_nuevas/ubicacion-particion.png)
 
@@ -798,7 +799,7 @@ Existe un sistema de master-esclavo: un solo servidor master y varios servidores
 - El servidor máster guarda el árbol de archivos. Tiene el conocimiento de la jerarquía de los directorios.
 - Todos los ficheros los divide en fragmentos llamados chunks de 64 MB. 
 - El master tiene mapeado el fichero con el número fragmentos, sus ubicaciones y además las ubicaciones de sus réplicas en los chunkservers. 
-- Aunque el master tiene información del árbol de archivos la tiene en una memoria temporal (no la persiste), periódicamente los chunkservers le comunican qué chunks almacenan ellos y así no saturan su disco duro. Mantiene un estado de todos los cambios que se van realizando por medio de un Operations log. Este Operations Log es volcado en un Checkpoint.
+- Aunque el master tiene información del árbol de archivos la tiene en una memoria temporal (no la persiste), periódicamente los chunkservers le comunican qué chunks almacenan ellos y así no saturan su disco duro. Mantiene un estado de todos los cambios que se van realizando por medio de un Operations Log. Este Operations Log es volcado en un Checkpoint.
 - El master se comunica con los chunkservers por medio de un heartbeat para informar que "están vivos" u operativos. Además van a pasarle información de los fragmentos que tienen cada uno de ellos, el máster no tiene información permanente de esto, se fía de los informes de los chunkservers. 
 - El master es un punto único de fallo. No podemos perderlo de ninguna manera porque solo hay uno y perderíamos el árbol de archivos. 
 - Google habla de tener dos servidores máster, por si cae el servidor principal (shadow master)
@@ -817,7 +818,7 @@ Existe un sistema de master-esclavo: un solo servidor master y varios servidores
 1. Cuando un cliente quiere leer un fichero, se lo comunica al máster. 
 2. El servidor máster le da el mapa de los fragmentos (el nombre de los chunks, *chunk handle*, y la ubicación que tienen). 
 3. El cliente solicita directamente a los chunkservers los fragmentos del fichero que quiere, normalmente con aquellos que tienen las réplicas físicamente más cerca. 
-4. El cliente recibe el fichero redudido (desfragmentado).
+4. El cliente recibe el fichero reducido (entero, desfragmentado).
 
 Notas. La petición la guarda el cliente en caché para evitar que se sature el master ya que como es uno solo, queremos evitar que tenga la mínima carga posible para atender todas las solicitudes que le generen múltiples clientes en tiempos de respuesta cortos. 
 
@@ -975,7 +976,7 @@ Hadoop es más que HDFS.
 
 ![](/img/bd_nuevas/hadoop_universo.png)
 
-## Introducción a Kubernets
+## Introducción a Kubernetes
 
 ### ¿Qué son los contenedores?
 
@@ -1000,7 +1001,7 @@ Los contenedores no tienen hipervisor ni SO. También tienen un peso comparativa
 
 ### Qué es Kubernetes 
 
-- Tecnología open-source para despligue automático, escalado y gestión de clúster de contenedores y aplicaciones *containerizadas*
+- Tecnología open-source para despliegue automático, escalado y gestión de clúster de contenedores y aplicaciones *containerizadas*
 - Desarrollado por Google como su propio mecanismo de gestión de aplicaciones *containerizadas*. 
 
 ### Recursos básicos Kubernetes para BBDD
@@ -1047,7 +1048,7 @@ Por qué vamos a usar Kubernetes?
 
 ![](/img/bd_nuevas/consistencia_2.png)
 
-El documento es el concepto principal: son ficheeros XML, JSON que contiene información semiestructurada, elementos embebidos, etc. 
+El documento es el concepto principal: son ficheros XML, JSON que contiene información semiestructurada, elementos embebidos, etc. 
 
 La BBDD documental más popular es mongoDB. 
 
@@ -1121,16 +1122,16 @@ Mongo también añade otro componente a la arquitectura: el configserver, que es
 
 El Config Server es un replica set. 
 
-En MongoDB, el tamaño que tiene el config Server en comporación con una base de datos, necesitamos 10MB por cada 1TB. 
+En MongoDB, el tamaño que tiene el config Server en comparación con una base de datos, necesitamos 10MB por cada 1TB. 
 
-Dentro de una base de datos de Mongo, podemos tener colecciones distribuidas y colecciones que no están distribuidas. El config Server solo almacenar{a info de las colecciones distribuidas.
+Dentro de una base de datos de Mongo, podemos tener colecciones distribuidas y colecciones que no están distribuidas. El config Server solo almacenaría info de las colecciones distribuidas.
 
 ![](/img/bd_nuevas/mongodb_distribuci%C3%B3n.png)
 
 
 ### Sharding - arquitectura
 
-Mongo sirve como un router para llevarnos al chard adecuado. 
+Mongo sirve como un router para llevarnos al shard adecuado. 
 
 ![](/img/bd_nuevas/mongodb_arquitectura.png)
 
@@ -1282,13 +1283,13 @@ El snitch nos indica la topología: los racks y datacenters que tiene nuestro cl
 
 ### Escritura 
 
-Cassandra está bastante optimizada para escritura, porque se esribe en memoria. 
+Cassandra está bastante optimizada para escritura, porque se escribe en memoria. 
 
 ![](/img/bd_nuevas/cassandra_9.png)
 
 Cuando escribimos un dato tenemos un número de partición (hash). Va a escribir en memoria en una tabla denominada Memtable, y en disco va a aparecer como un log de transacciones, que es un fichero de solo Append.
 
-Cuando se llena la memoria RAM o tras un periodo determinado se ejecuta un "flush" o volcado de memoria en una estructura en disco denominado SSable, que es inmutable. Esto tiene algunas implicaciones: estamos escibiendo sin ver lo que estamos grabando en disco, vamos a escribir a alta velocidad, no vamos a poder verificar si un dato ya existe durante un *update* o un *insert*.
+Cuando se llena la memoria RAM o tras un periodo determinado se ejecuta un "flush" o volcado de memoria en una estructura en disco denominado SSTable, que es inmutable. Esto tiene algunas implicaciones: estamos escibiendo sin ver lo que estamos grabando en disco, vamos a escribir a alta velocidad, no vamos a poder verificar si un dato ya existe durante un *update* o un *insert*.
         
 ### Escritura - Actualizaciones y borrados
 
@@ -1316,9 +1317,9 @@ Primero el cliente va a ir a caché para ver si está su consulta ahí para no t
 
 ![](/img/bd_nuevas/cassandra_13.png)
 
-Para ser más eficientes, la estructura de las SSTable tienen la siguiente esctructura. 
+Para ser más eficientes, la estructura de las SSTable tienen la siguiente estructura. 
 
--**Bloom filter:** Indica si es prabable que un fichero esté en la SSTable o no. 
+-**Bloom filter:** Indica si es probable que un fichero esté en la SSTable o no. 
 - **Caché de claves:** Las claves de partición que más frecuentemente se acceden y su ubicación dentro de la SSTable. 
 - **Partition summary:** Muestreo de la SSTable, que indica la ubicación de esa muestra.
 - **En disco se encuentra el Partition Index**, que es un índice, e indice el offset exacto en el que se encuentra una clave. 
@@ -1483,11 +1484,11 @@ Esto es porque con la clave secundaria va a acceder a todos los servidores y est
 
 ![](/img/bd_nuevas/motores_busqueda_2.png)
 
-Nos permite funcionalidades más allá de una BBDD convencional. Podemos hacer consultas más complejas de als que harías mos en otra BBDD. 
+Nos permite funcionalidades más allá de una BBDD convencional. Podemos hacer consultas más complejas de las que haríamos en otra BBDD. 
 
 Lo que pretendemos con búsquedas de texto libre es que podamos hacer consultas que no han sido categorizadas previamente. 
 
-Los primeros resultadoas son los que más se encajan dentro de la consulta que estoy buscando. 
+Los primeros resultados son los que más se encajan dentro de la consulta que estoy buscando. 
 
 #### De Lucene a Elasticsearch
 
@@ -1495,9 +1496,9 @@ Los primeros resultadoas son los que más se encajan dentro de la consulta que e
 
 Lucene es una librería Java, no es una base de datos ni un motor distribuido, que nos permite indexar información y luego realizar búsquedas sobre esa información. Se usa en LinkedIn, Netflix, etc. No obstante, es complicada de utlizar, que requiere programación. 
 
-Elasticsearch utiliza Lucene pero nos proporciona una gran capa de abstracción y actúa commo una BBDD, no so lo como una librería. 
+Elasticsearch utiliza Lucene pero nos proporciona una gran capa de abstracción y actúa commo una BBDD, no solo como una librería. 
 
-#### You know for Search 
+#### You know, for Search 
 
 Cuando clasifica la información, Elasticsearch indexa los archivos. 
 
@@ -1507,11 +1508,13 @@ Cuando clasifica la información, Elasticsearch indexa los archivos.
 
 ### Elasticsearch - Clasificación de la información 
 
+Almacena la información en forma de documentos (en formato JSON) como si de una BBDD documental se tratara; sin embargo, no solo almacena esta información, sino que además indexa por defecto todos los campos de cada documento con el objetivo de que podamos realizar búsquedas sobre el mismo.
+
 La clasificación que se hace es que la información se almacena en índices. Comparándolo con la analogía en el modelo relacional, es lo equivalente a una tabla o a una conexión en MongoDB. 
 
 Por defecto todos los campos se indexan.
 
-Diferencias con BBDD documentales.
+#### Diferencias con BBDD documentales.
 - Toda la información que va en un documento se indexa, independientemente del tipo de campo. 
 - La información está esquematizada. Un índice tiene algo que se denomina mapping y define el esquema de los datos (todos los datos en un campo deben ser del mismo tipo). 
 
@@ -1521,17 +1524,19 @@ Tenemos un campo ID que si no lo asignamos, el sistema lo va a asignar por defec
 
 #### Index vs. Index vs. Index
 
-1. **Índice**: Colección de documentos. 
+1. **Índice**: Colección de documentos, al igual que en otras BBDD documentales se agrupan en colecciones. 
 2. **Indexar**: Insertar un documento. Cada campo es indexado. 
 3. **Shard**: Índice en Lucene. 
 
+En Elasticsearch no tenemos diferenciación por bases de datos, esquemas o keyspace, por lo que directamente accedemos a los índices.
+
 ### Estructura de los índices
 
-1. Configuración
+1. Configuración/Settings
 2. Mappings 
-    - Es parecido a deifnir las columnas en una tabla. La diferencia es que un mapping es dinámico. El índice va a determinar automáticamente el mapping en base a una serie de reglas que determinemos. 
+    - Es definir la estructura de los documentos almacenados, o parecido a definir las columnas en una tabla. La diferencia es que un mapping es dinámico. El índice va a determinar automáticamente el mapping en base a una serie de reglas que determinemos. 
 3. Alias
-    - Es análogo a las vistas en las bases de datos relacionales. 
+    - Sirve para acceder a la totalidad del índice o a un subconjunto de los documentos de este.Es análogo a las vistas en las bases de datos relacionales. 
 
 Todo esto se puede definir en un "index template" para replicar la estructura en diferentes bases de datos. 
 
