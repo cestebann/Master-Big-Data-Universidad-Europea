@@ -42,218 +42,122 @@ Unidad 3. Análisis y modelado avanzados
 
 - Comparación y contraste críticos de múltiples modelos de sistemas distribuidos y sus tecnologías habilitantes asociadas.
 
+# Unidad 1. Variables y Estimadores
 
-## Unidad 1. 
+## Probabilidad y variables estimatorias
 
-### Teoría de muestreo y partición de datos
-
-Los objetivos que se pretenden alcanzar con este recurso son los siguientes:
-- Entender los conceptos básicos de teoría de muestreo.
--  Entender los objetivos del análisis estadístico clásico o tradicional y su relación con la ciencia de datos.
--  Entender las diferencias entre estadística clásica y estadística computacional.
- - Entender la relación entre el concepto de estimación paramétrica propia de la estadística y la construcción de modelo mediante el ajuste de parámetros.
-- Conocer los conceptos relativos a partición de datos y cómo y para qué usarla.
-
-#### Introducción 
-
-¿Qué es la ciencia de datos? La transformación de datos en concoimiento con el objetivo de dar respuestas a preguntas, sacar conclusiones y aplicarlas con un objetivo concreto. 
-A nivel empresarial rata de poder ayydar a tomar decisiones basadas en datos. 
-Un punto importante de la ciencia de datos es la modelización de los datos, o sea la construcción de un modelo que sea capaz de explicar los datos que  nos permita extrae conclusiones. 
-
-Para describir los datos, en estadística se consideran modelos estocásticos que tienen en cuenta la incertidumbre debido a la aleatoriedad de los datos. Los modelos probabilísticos son ejemplos de estos modelos. 
-
-La inferencia estadística nos proporciona herramientas para la construcción de estos modelos, como la estimación paramétrica. La inferencia clásica se basa en modelos establecidos que son matemáticamente tra tables y analizables. Asume que los datos provienen de una población con una distribución probabilística que sigue un modelo conocido. 
-
-Cuando disponemos de grandes volúmenes de datos que además no siguen un patrón/modelo conocido, tenemos que recurrir a la estadística computacional. 
-
-#### Metodología para el análisis de datos
-
-1. Análisis de datos. 
-    1.1 Recogida de los datos. 
-    1.2 Tratamiento de los datos (campos nulos, datos duplicados, registros marginales).
-2. Análisis estadístico
-    2.1. Análisis exploratorio de datos (Exploratory Data Analysis, EDA)
-        - Vemos la distribución de las variables
-    2.2 Análisis estadístico. 
-        - Medidas de descriptivas y de dispersión (media, mediana, percentiles, desviación estándar.)
-        - Correlaciones
-    2.3. Estadística inferencial. 
-        - ¿Nuestros datos se ajustan a un modelo probabilístico? 
-3. Aprendizaje sobre el fenómeno. 
-    3.1. Construir el modelo. 
-        - No solo queremos describir/explicar el fenómeno, queremos dar una predicción de los datos que no han formado parte del entrenamiento del modelo, para anticiparnos y tomar decisiones más acertadas. 
-    3.2. Validar y probar el modelo 
-    3.3. Mejorar el modelo 
+- Espacio muestral: Al conjunto de todos los escenarios posibles de un experimento .
+- Suceso elemental: Cada uno de los posibles resultados de un experimento contenido en un espacio muestral. 
+- Suceso compuesto: subconjunto del espacio muestral o una agrupación de espacios muestrales. 
+- Sucesos disjuntos o mutuamente excluyentes: si pasa uno el otro no puede pasar. 
+- Enfoque frecuentista de la probabilidad: cree que la probabilidad de que los sucesos elementales sucedan es igual. Cree que en la tendencia a un resultado si lo repetimos una y otra vez. 
+- Enfoque axiomático: cree que los sucesos elementales no son igualmente probables de ocurrir. Considera en que la suma de todas las probabilidades de los sucesos elementales debe ser igual a 1. 
+- Variable aleatoria: mide una propiedad de la 
+- Variables aleatorias discretas --> función de masa 
+- Variables aleatorias continuas --> función de densidad  
+- Modelos probabilísticos típicos: 
+	- Binomial: Dos sucesos elementales: éxito/fracaso.
+	- Poisson: modelar las probabilidades un tiempo determinado 
+	- Exponencial 
+	- Uniforme
+	-  Modelo normal: sigue el teorema central del límite. 
 
 
-![](/img/estadistica_avanzada/metodologia_analisis_datos.png)
 
+## Teoría de muestreo y partición de datos
 
-### Teoría de muestreo 
+- Metodología para el análisis de datos: 
+	- Preparación de los datos
+		- Recogida
+		- Limpieza de los datos (eliminar datos duplicados, errores, campos vacíos y nulos).
+		- Transformación de variables categóricas en numéricas. 
+	- Análisis estadístico
+		- Estadística descriptiva: Aplicamos un análisis exploratorio de datos (EDA), sin preguntarnos por la población ni hacer inferenc. 
+		- Análisis estadístico: se buscan modelos que se ajusten a nuestros datos
+		- Aprendizaje sobre el fenómeno
+		- Creamos un modelo que sea capaz de predecir el comportamiento de una variable futura. 
+Teoría de muestreo 
+	- Muestra vs. Población 
+		- Población -objetivo: es un subconjunto del universo que engloba a toda la población que cumple las condiciones para realizar un experimento. 
+		- Muestra: una parte representativa de la población. 
+	- Distribución muestral 
+		- Necesitamos conocer el nivel de incertidumbre de nuestros estadísticos y para ello debemos conocer la distribución muestral
+	- Parámetros vs Estadístico
+		- Parámetro: es una medida descriptiva de una población
+		- Estadístico: es una medida descriptiva de la muestra. 
+- Inferencia estadística
+	- Objetivos 
+		- Obtener modelo poblacional mediante sus parámetros. 
+		- Medir la exactitud del modelo obtenido y sus estimadores. 
+	- Métodos de inferencia
+		- Clásicos
+		- Computacionales
+			- Monte-Carlo
+			- BootStrappping
+			- Estimadores bayesianos 
+Estimación paramétrica 
+	- Un estimador:  Es un estadístico que se deben acercar al parámetro. 
+	- Formas de evaluar un estimador: 
+		- Sesgo
+		- Error cuadrático medio
+		- Eficiencia relativa 
+		- Error estándar 
+- Diferencias entre estadística clásica vs. Computacional: 
+	- Tamaño de las muestras
+	- Distribución de los datos (homogéneos vs. No homogéneos) 
+	- Manualmente tratable vs. Computacionalmente tratable
+	- Algoritmos sencillos vs. Algoritmos complicados
+- Modelización: 
+	- El objetivo de un modelo es explicar los datos y que sea capaz de predecir, y podamos sacar conclusiones y tomar decisiones. 
+	- Debemos encontrar los parámetros que mejor representen a la población.
+	- Hiperparámetros: parámetros propios del modelo. 
+- Partición de datos 
+	- Training sets: Entrenar el modelo (70%)
+	- Validation sets: Si el modelo tiene hiperparámetros, evaluaríamos y seleccionaríamos los valores óptimos de los hiperparámetros. (15%)
+	- Test sets: Se usan para probar el rendimiento de nuestro modelo con datos que no se usaron para el entrenamiento (10-20%)
+- Validación cruzada (k-fold validation): 
+	- Se usa para determinar el error predictivo del modelo. 
+	- Consiste en dividir los datos disponibles en k particiones. En la primera iteración se utilizan k-1 particiones para entrenar el modelo y la k-esíma partición se usa para probar el modelo. En la segunda iteración utilizamosuna k-sima partición diferente a la primera iteración y se repite el proceso. Iteramos k-veces, es decir, hasta que todas las particiones hayan pasado como test sets. 
+	- Este es el modelo que escogemos para seleccionar los hiperparámetros del modelo. 
 
-#### Muestra vs. población 
+## Estadística Computacional e Introducción al Aprendizaje Automático 
 
-**La población objetivo** es el conjunto total de individuos u objetos (elementos) sobre los que necesitamos recopilar cierta información. 
-
-Normalmente es inviable recopilar la información necesaria de todos los miembros de una población, bien porque la población es demasiado
-grande, o bien porque hay futuros miembros que todavía no existen (futuros componentes a fabricar). Por este motivo, normalmente se selecciona una parte de ella que sea representativa de toda la población, a la que se denomina **muestra**.
-
-#### Tipo de muestras
-
-- **Muestra aleatoria simple (MAS):** se elige de forma aleatoria entre todos los candidatos a ser muestra. Los elementos de la muestra son independientes entre sí. 
-- **Muestra aleatoria estratificada (MAE)**: se divide a la población en estratos o niveles y se toma una MAS de cada estrato. El tamaño de la MAS en cada nivel debe ser proporcional al tamaño del estrato.
-
-#### Parámetro vs. Estadísitico
-
-**Un parámetro** es una medida descriptiva de una población, (o de una distribución de probabilidad); es decir, nos da información sobre la población (media, la varianza, proporciones, coeficientes de correlación). 
-
-**Un estadístico**, en cambio, es una medida descriptiva de la muestra tomada. Es una función que depende de las variables aleatorias medidas u observadas en la muestra aleatoria tomada. Aquí van a interactuar intervalos de confianza. 
-
-**Distribución muestral**: El valor v aa depender de la muestra, por lo tanto el estadístico va a tener un intervalo de confianza asociado. para toda la población. Para poder cuantificar di cha incertidumbre,
-es necesario conocer la distribución muestral del estadístico, esto es, la densidad de probabilidad que lleva asociada.
-Una vez conocida la distribución muestral del estadístico, se pueden calcular intervalos de confianza o hipótesis. 
-
-
-### Inferencia estadística. 
-
-Los objetivos son generalmente dos: 
-
-1. Obtener un modelo poblacional mediante la estimación de sus parámetros.
-2. Medir qué tan exacto es el modelo obtenido con respecto a la población. 
-
-#### Principales métodos de inferencia
-
-- Métodos de estimación de parámetros
-    - Clásicos
-    - Computacionales
--Métodos de obtención de intervalos de confianza del parámetro
-- Métodos de contraste de hipótesis mediante test estadísticos
-
-### Estimación paramétrica 
-
-#### Definición de estimador 
-
-Un estimador es un estadístico cuyo valor debe acercarse lo más posible al parámetro
-𝜃 de la población que se quiere determinar o modelizar. Lo denotaremos como T. Un estimador se determina usando una muestra aleatoria. Su valor, por tanto, depende de la muestra aleatoria seleccionada, y por lo tanto el propio estimador es una variable aleatoria, la cual lleva asociada una distribución muestral. Pa ra poder cuantificar la precisión del estimador, se necesita conocer su distribución muestral.
-
-Abajo tenemos un ejemplo de un estimador (la media muestral)
-
-![](/img/estadistica_avanzada/media_muestral.png)
-
-### Diferencias entre estadística clásica y computacional
-
-!! Completar
-
-## Modelización 
-
-El objetivo de la modelización de datos es crear un modelo que sirva para explicar los datos y nos ayude a hacer predicciones, extraer conclusiones y tomar decisiones.
-
-El aprendizaje automático nos ayuda a construir estos modelos para un gran volumen de datos.
-
-Podemos clasificar los problemas de modelización en dos grandes grupos:
-- problemas de predicción, en el que conocida una variable X queremos determinar
-una variable Y, 
-- y problemas de clasificación, en las que, dado un elemento, queremos determinar a qué clase pertenece.
-
-Algunos modelos tienen asociados unos parámetros propios a los que se les da el nombre general de hiperparámetros.
-
-La validación de un modelo consiste en ver cómo se comporta el modelo con los
-datos que no han sido utilizados para entrenar. 
-
-> La modelización consiste en encontrar los parámetros del modelo poblacional. La estadística nos ayuda a determinar la incertidumbre de los parámetros del modelo.
-
-## Partición de datos 
-
-
-### Training y test data sets
-Si se disponen de grandes volúmenes de datos, lo normal es partirlos en dos o incluso en tres partes y usar una parte para entrenar el modelo (70%-80%) y otra para validación/testeo.
-
-
-Conjunto de datos de validación: en el caso de que el modelo tenga hiperparámetros, una vez entrenados los posibles modelos con los distintos hiperparámetros con los datos de entrenamiento, se emplearían los datos de validación para evaluarlos y posteriormente seleccionar los valores óptimos de los hiperparámetros. Para este proceso se usa en torno al 15% de los datos disponibles. El conjunto de validación está dentro del de entrenamiento y se reserva una parte para validar. 
-
-Conjunto de datos para el test: son los datos que se usan para evaluar el rendimiento del modelo finalmente seleccionado. Se emp lean el 10 o 20% para este proceso.
-
-### Validación cruzada (K-fold cross-validation)
-
-Es una herramienta que se usa para determinar el error predictivo de un modelo de predicción. Consiste en
-dividir los datos disponibles en K particiones. particiones. En una primera iteración, se
-ajustaría el modelo usando K 1 particiones y la restante se usaría para test. En una segunda iteración, se usarían K 1 particiones para entrenamiento y la restante (distinta a la de la primera iteración) se usaría para test. Se procedería así sucesivamente hasta que cada una de las K particiones hubiera sido usada como test. Habría que hacer por tanto K ajustes del modelo.
-
-![](/img/estadistica_avanzada/validacion_cruzada.png)
-
-## Unidad 1. Aprendizaje estadístico
-
-Los problemas supervisados se pueden dividr a su vez en dos grandes gruopos: 
-- Problemas de predicción. Consisten en estimar el valor de una variable dependiente, también llamada variable respuesta, sabiendo el valor de las variables de las que depende (varaibles independientes). Es por tantgo un problema de modelización en el que tenmeos que construir un modelo que describa a la variable respuesta. 
-
-- Problemas de clasificación. 
-
+Los problemas de ML y aprendizaje automático se dividen en dos: 
+- Supervisados: para cada valor de una variable entrada tenemos otra de salida. 
+	- Predicción 
+	- Clasificación 
+- No supervisados: no tenemos una variable respuesta asociada
+- Metodos de Monte Carlo para la inferencia: siguen una aproximación paramétrica, es decir, que los datos analizados siguen una distribución con parámetros conocidos 
+	- Se basan en la generación de un gran número de muestras aleatorias, por lo que requieren de gran potencia computacional. 
+- Métodos bootstrapping: Siguen una aproximación no paramétrica. No se asume que los datos siguen una distribución conocida. 
+- Aprendizaje bayesiano: Se usa el teorema de Bayes para actualizar la probabilidad de una hipótesis a medida que tenemos más información o evidencias . 
+- Modelan la distribución de incertidumbre de los valores de los parámetros desconocidos como si fuera una probabilidad. 
+	- Es excelente para: 
+		- Reconocimiento de patrones
+- Funciones de pérdidas
+	- También llamada función de costes, es una forma de cuantificar lo bien que funciona un modelo. 
+	- Si el modelo se ajusta bien a los datos, el valor de la función de coste será bajo. 
+	- La función de pérdidas es la función objetivo a minimizar por el algoritmo optimizador  en el algoritmo de ML. 
+		- Funciones de pérdida para regresión 
+			- Error cuadrático medio  (MSE): es la media artimética de la diferencia al cuadrado del valor real de la variable respuesta y el valor predicho. Intensifica la importancia de los valores atípicos. 
+				- Error Cuadrático Medio Modificado: MSE/2
+			- Error medio absoluto (MAE): Es parecido al anterior pero en lugar de la diferencia al cuadrado, es la diferencia absoluta. Es difícil calcular su derivada. 
+			- Error medio absoluto suavizado (Huber loss): función a trozos, introduce un nuevo hiperparámetro. La elección de este parámetro es crítico porque determinará qué valores son outliers. 
+		- Funciones de pérdida para clasificación 
+			- Cross-entropy: 
+				- Función usada en regresión logística
+				- Se usa para problemas de clasificación binarias. 
+		- Hinge Loss
+			-  Se usa papra algoritmos llamados Support Vector Machine
+			-  Se puede usar para problemas de clasificación categóricas
 
 ## Regresión lineal univariable
-
-### Introducción 
-
-## Regresión lineal multivariable y no lineal
-
-### Regresión lineal multivariable
-
-
-#### Introducción al problema e hipótesis
-
-> Un modelo multivariable es aquel en el que la variable respuesta depende de varias variable independientes o de entrada, también llamadas variables explicativas.
-
-#### Normalización o tipificación 
-
-La hipótesis del modelo de regresión lineal multivariable es:
-
-![](/img/estadistica_avanzada/lineal.png)
-
-Aquí, h𝜃(x) representa el valor predicho para la variable respuesta y, xi son
-las variables de entrada y 𝜃i son los parámetros a estimar mediante el algoritmo de ML.
-
-Las variables representan distintas magnitudes, por lo que su rango de valores puede ser muy distinto.
-
-![](/img/estadistica_avanzada/normalizaci%C3%B3n.png)
-
- Para evitar los problemas que surgen de esto, lo que se hace es normalizar los datos, que consiste en hacer una
-transformación tal que los datos queden aproximadamente en el rango entre -1 y 1. Esto se puede conseguir de varias formas, siendo lo más común restar el valor medio y dividir por un estadístico que represente la dispersión de los datos, normalmente la desviación típica, pero también se usa el rango (la diferencia entre el valor máximo y el valor mínimo). 
-
-
-#### El problema de la colinealidad
-
-Una de las condiciones para que el modelo de regresión múltiple funcione correctamente es que las variables de entrada sean independientes entre sí. Matemáticamente, esto implica que una de ellas no pueda expresarse como como combinación lineal de otras. No obstante, aunque matemáticamente sean independientes, a veces existe una gran correlación entre dos variables, y este hecho puede dar lugar a problemas de colinealidad.
-
-La colinealidad es un efecto muy indeseable, ya que puede dar lugar a un mal ajuste del modelo, a valores de los parámetros muy inestables y a que la determinación de la importancia de cada variable de entrada sobre la de salida sea muy difícil de determinar.
-
-Una forma sencilla de determinar si existe colinealidad es calcular la matriz de correlación de las variables de entrada, y observar si el coeficiente de correlación es muy alto para algunas de ellas. Esto no resuelve en sí el problema, pero al menos ayuda a seleccionar mejor el modelo.
-
-
-## Regresión no lineal de una variable 
-
-### Introducción e hipótesis
-
-En muchas ocasiones, al representar los datos en un diagrama de dispersión, se aprecia claramente que los datos siguen una relación no lineal. Ésta puede ser cuadrática, cúbica, logarítmica, exponencial, etc…
-
-Los ajustes polinómicos de alto orden son una buena manera para parametrizar la línea de tendencia. 
-
-![](/img/estadistica_avanzada/relacion_no_lineal.png)
-
-
-![](/img/estadistica_avanzada/no_lineal.png)
-
-### Formulación del problema 
-
-La hipótesis del modelo se podría escribir como: 
-
-![](/img/estadistica_avanzada/no_lineal_2.png)
-
-donde cada variable xi representa cada uno de los términos no lineales de la variable x. Por tanto, a la hora de formular el problema no hay diferencia entre el problema lineal multivariable y el problema no lineal.
-
-![](/img/estadistica_avanzada/no_lineal_3.png)
-
-
-Conviene expresar el problema en forma matricial. Sea X una matriz de tamaño [m,n+1] donde cada columna es cada una de las variables explicativas/términos no lineales, y cada fila representa un experimento
-o una muestra.
-
-## Métodos de resolución 
-
+-  Minimizar la función de coste
+	- Para encontrar el mínimo de una función, hay que hallar la derivada de esta e igualarla a cero. Observando la fórmula de la función de coste, vemos que tiene forma de paraboloide.
+	- Existen diversos métodos para minimizar la función de coste; el más común para ML es el del descenso del gradiente
+- Descenso del Gradiente
+	- Empezar con un valor inicial de ( 𝜃0, 𝜃1
+	- Calcular el valor de las derivadas parciales de J para dichos valores y actualizar los valores ( 𝜃0, 𝜃1 ).
+	- Repetir hasta que el valor de J no varíe y hayamos encontrado su
+		mínimo.
+	- para los problemas de regresión lineal, la función de coste siempre tendrá forma convexa, por tanto, el algoritmo del descenso del gradiente siempre va a converger al mínimo absoluto.
