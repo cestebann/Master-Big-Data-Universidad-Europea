@@ -20,17 +20,17 @@ Profesor: Manuel Gómez Montero
     - Introducion a HDFS
     - Gestion básica de HDFS
     - Caso de uso: HDFS
-- [Unidad 4. Base de datos clave/valor y columna ancha](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/Bases%20de%20datos%20de%20nueva%20generaci%C3%B3n.md#unidad-4-bases-de-datos-clave-valor-y-columna-ancha)
+- [Unidad 4. Base de datos clave/valor y columna ancha](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/Bases%20de%20datos%20de%20nueva%20generaci%C3%B3n.md#4-bases-de-datos-clave-valor-y-columna-ancha)
     - Administración de bases de datos P2P
     - Tolerancia a fallos y consistencia eventual
     - Modelo de datos en sistemas clave valor
     - Caso de uso: Cassandra
-- [Unidad 5. Motores de búsqueda distribuidos](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/Bases%20de%20datos%20de%20nueva%20generaci%C3%B3n.md#motores-de-b%C3%BAsqueda-1)
+- [Unidad 5. Motores de búsqueda distribuidos](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/Bases%20de%20datos%20de%20nueva%20generaci%C3%B3n.md#5-motores-de-b%C3%BAsqueda-distribuidos)
     - Lucene
     - Indexación y modelos de datos.
     - Agregación y búsqueda
     - Caso de uso: ElasticSearch
-- [Unidad 6. Sistema de colas](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/Bases%20de%20datos%20de%20nueva%20generaci%C3%B3n.md#sistemas-de-coles)
+- [Unidad 6. Sistema de colas](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/Bases%20de%20datos%20de%20nueva%20generaci%C3%B3n.md#6-sistemas-de-colas)
     - Modelos de colas distribuidos
     - Modelo pub/sub
     - Arquitectura y topología
@@ -1868,6 +1868,6 @@ el rendimiento de lecturas
     - Verdadero
     - Falso
 66. Para considerar una réplica como “in-Sync” Kafka se basa en;
-    - El tiempo
-    - El número de mensajes
-    - el ACK. 
+    a. El tiempo
+    b. El número de mensajes
+    c. el ACK. 
