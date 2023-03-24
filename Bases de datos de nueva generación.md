@@ -1570,7 +1570,7 @@ Tenemos un campo ID que si no lo asignamos, el sistema lo va a asignar por defec
 
 1. **Índice**: Colección de documentos, al igual que en otras BBDD documentales se agrupan en colecciones. 
 2. **Indexar**: Insertar un documento. Cada campo es indexado. 
-3. **Shard**: Índice en Lucene. 
+3. **Shard**: Partición del índice y es un índice en Lucene. El número de shards se configura a nivel de índice mediante el parámetro number_of_shards.
 
 En Elasticsearch no tenemos diferenciación por bases de datos, esquemas o keyspace, por lo que directamente accedemos a los índices.
 
@@ -1581,6 +1581,8 @@ En Elasticsearch no tenemos diferenciación por bases de datos, esquemas o keysp
     - Es definir la estructura de los documentos almacenados, o parecido a definir las columnas en una tabla. La diferencia es que un mapping es dinámico. El índice va a determinar automáticamente el mapping en base a una serie de reglas que determinemos. 
 3. Alias
     - Sirve para acceder a la totalidad del índice o a un subconjunto de los documentos de este.Es análogo a las vistas en las bases de datos relacionales. 
+
+
 
 Todo esto se puede definir en un "index template" para replicar la estructura en diferentes bases de datos. 
 
@@ -1598,6 +1600,8 @@ Todo esto se puede definir en un "index template" para replicar la estructura en
 ![](/img/bd_nuevas/elasticsearch_4.png)
 
 ## Arquitectura
+
+Teniendo en cuenta el campo de _routing y el número de shards, Elasticsearch aplica un hash al identificador al operar con cada documento, y obtiene el resto de dividir ese hash entre el number_ of_shards. El resultado es el identificador del shard en el que se encuentra o debe almacenarse el documento.
 
 Los nodos principales son los nodos master y nodos de datos. 
 
@@ -1620,6 +1624,12 @@ No hay que confundir shard con lo visto en MongoDB. Es equivalente a un chunk o 
 
 ![](/img/bd_nuevas/elasticsearch_7.png)
 
+al realizar una consulta a Elasticsearch, necesitamos conocer qué shards posee el índice consultado y la ubicación de dichos shards. Para ello Elasticsearch posee el **cluster state**, una estructura de datos que almacena diversa información a nivel de clúster, entre otros aspectos:
+▪ Configuraciones a nivel de clúster.
+▪ Nodos que forman parte del clúster.
+▪ Índices con sus configuraciones, mappings, analizadores, alias, etc.
+▪ Los shards asociados a cada índice y la ubicación en la que estos se encuentran
+
 Todos los nodos tienen una copia del cluster-state pero solo el nodo master activo tiene la capacidad de modificarlo. 
 
 ### Réplicas 
@@ -1627,8 +1637,7 @@ Todos los nodos tienen una copia del cluster-state pero solo el nodo master acti
 
 ![](/img/bd_nuevas/elasticsearch_8.png)
 
-Elasticsearch sigue un modelo de maestro-esclavo pero la replicación es síncrona. El ACK, la confirmación al cliente, no se va a devolver hasta que la información esté replicada. Así se protege Elasticsearch de no dejar tareas de escritura/lectura pendientes. 
-
+Elasticsearch sigue un modelo de maestro-esclavo: el todas las escrituras se hacen en el shard primario pero la replicación es síncrona. Esto significa que el ACK, la confirmación al cliente, no se va a devolver hasta que la información esté replicada en los shards secundiarios. Así se protege Elasticsearch de no dejar tareas de escritura/lectura pendientes. Esto puede producir una consistencia eventual. 
 
 Para cada shard vamos a tener un número de réplicas definido a nivel de índice. 
 Por cada grupo de réplicas va a existir un shard definido como primario, y es ahí donde se van a realizar las escrituras (como pasan en los modelos de replicación m-e), pero la lectura se va a poder ejecutar en cualquier nodo. 
