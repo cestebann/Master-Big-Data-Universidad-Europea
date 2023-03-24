@@ -1837,37 +1837,37 @@ Esta pérdida de valor del dato provoca que las empresas no se conformen con alm
 ## Cuestionario 
 
 57. Los sistemas de colas tradicionales nos permiten desacoplar servicios
-    a. Verdadero
-    b. Falso
+    - Verdadero
+    - Falso
 58. En el modelo Pub/Sub es necesario duplicar la información para cada suscriptor
-    a. Verdadero
-    b. Falso (en el sistema de colas tradicional sí, pero no en el Pub/Sub)
+    - Verdadero
+    - Falso (en el sistema de colas tradicional sí, pero no en el Pub/Sub)
 59. El rol de coordinador en Kafka lo realiza
-    a. Un broker (ese broker que jugaba el papel de controller. Cuando ese broker se cae se nombra otro controlador)
-    b. Zookeeper
-    c. Un nodo especial
+    - Un broker (ese broker que jugaba el papel de controller. Cuando ese broker se cae se nombra otro controlador)
+    - Zookeeper
+    - Un nodo especial
 60. Los metadatos de Kafka se almacenan en:
-    a. Coordinador
-    b. Zookeeper
-    c. Brokers
+    - Coordinador
+    - Zookeeper
+    - Brokers
 61. En Kafka cada consumidor puede procesar los mensajes a su propio ritmo
-    a. Verdadero
-    b. Falso
+    - Verdadero
+    - Falso
 62. Los grupos de consumidores pueden escalar en consumidores sin limitaciones
-    a. Verdadero
-    b. Falso (vamos a depender del número de particiones que tengamos)
+    - Verdadero
+    - Falso (vamos a depender del número de particiones que tengamos)
 63. La replicación en Kafka sigue el modelo
-    a. Maestro -Esclavo
-    b. Peer to Peer
-    c. Propio de la tecnología
+    - Maestro -Esclavo
+    - Peer to Peer
+    - Propio de la tecnología
 64. La replicación en Kafka al seguir un modelo maestro/esclavo nos permite aumentar
 el rendimiento de lecturas
-    a. Verdadero
-    b. Falso (es verdad que maestro-esclavo nos permite escalar en lecturas pero en Kafka eso no está permitido)
+    - Verdadero
+    - Falso (es verdad que maestro-esclavo nos permite escalar en lecturas pero en Kafka eso no está permitido)
 65. Por defecto Kafka espera que todas las réplicas confirmen su escritura.
-    a. Verdadero
-    b. Falso
+    - Verdadero
+    - Falso
 66. Para considerar una réplica como “in-Sync” Kafka se basa en;
-    a. El tiempo
-    b. El número de mensajes
-    c. el ACK. 
+    - El tiempo
+    - El número de mensajes
+    - el ACK. 
