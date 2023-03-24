@@ -1733,32 +1733,141 @@ El servicio puede ir consumiendo a su ritmo sin saturarse porque la cola atiende
 
 ## Limitaciones del sistema de colas
 
-Para encontrarle sentido a los sistemas de colas, vamos a imaginarnos un servicio que es invocado por diferentes clientes (que en una arquitectura distribuida serían otros servicios), este servicio responde a las peticiones de cada uno de sus clientes de forma síncrona siguiendo los siguientes pasos:
-1. Un cliente invoca al servicio y se queda esperando respuesta.
-2. El servicio, tras realizar su trabajo, responde al cliente.
-3. El cliente recibe la respuesta y continúa con su operativa.
-
-Cuando tenemos diferentes servicios que necesitamos el mismo contenido. 
-
+pero un sistema de este tipo requeriría construir una cola para cada consumidor. Por estos motivos surge el patrón publicador-subscritor o pub/sub.
 
 ![](/img/bd_nuevas/colas_3.png)
 ![](/img/bd_nuevas/colas_4.png)
-
-![](/img/bd_nuevas/colas_3.png)
-
-![](/img/bd_nuevas/colas_4.png)
-
 
 ## Apache Kafka - Introducción 
 
+Apache Kafka es un sistema de mensajes pub-sub que es a menudo descrito como una plataforma distribuida de streaming. Kafka surgió en LinkedIn con el objetivo de solucionar problemas en diferentes flujos de datos de la compañía.
+
 ![](/img/bd_nuevas/colas_5.png)
 
+### Mensajes y lotes (batches)
+
+La unidad mínima de información en Kafka son los mensajes. Si, como en unidades anteriores, continuamos con la analogía con las bases de datos relacionales tradicionales, podemos pensar en estos mensajes como una fila o un registro.
+
+Los mensajes en Kafka son opacos, es decir, consisten en un array de bytes que puede contener cualquier tipo de información. Usualmente los mensajes contienen también una clave consistente en un array de bytes.
 
 
+Para mejorar la eficiencia, los mensajes son escritos por lotes (batches) en Kafka.
 
-![](/img/bd_nuevas/colas_6.png)
+Un batch es simplemente una agrupación de mensajes escritos en un mismo topic y partición de Kafka (en el siguiente punto analizaremos los conceptos de topics y partición)
 
-![](/img/bd_nuevas/colas_7.png)
+### Topics y particiones
+
+Los mensajes en Kafka se almacenan en topics. Continuando con la analogía con las BBDD relacionales, podemos pensar en un topic como una tabla de una BBDD que contiene registros(mensajes). Los topics a su vez se dividen en particiones, el orden en Kafka solo se puede asegurar a nivel de particiones
+
+### Productores y consumidores 
+
+- Los productores son los encargados de crear nuevos mensajes (en otros sistemas pub/sub son llamados publicadores). 
+Estos mensajes se producen para un topic específico
+- Los consumidores son los encargados de leer los mensajes (en otros sistemas pub/sub son llamados suscriptores o lectores). Estos consumidores se suscriben a uno o más topic y leen los mensajes en el mismo orden en el que han sido producidos (en el apartado de arquitectura veremos que con algunos matices). Los consumidores conservan un offset, un entero, que representa el número de mensajes leídos por ese consumidor. De este modo, un consumidor tiene la posibilidad de parar el procesamiento y volver a continuar por un punto específico o de reprocesar la información desde un determinado punto.
+
+![](/img/bd_nuevas/kafka_10.png)
+
+### Arquitectura 
+
+#### Nodos
+
+- Brokers: Cada uno de los servidores de Kafka. El broker es el encargado de recibir mensajes de los productores, asignarles un offset y persistirlos en disco. El broker también es el encargado de servir los mensajes a los consumidores. Dependiendo de su configuración, un solo broker puede ser capaz de manejar miles de particiones y millones de mensajes por segundo.
+
+Existe una función especial que es la de controlador y que sólo es realizada por un broker al mismo tiempo (en caso de caída un nuevo coordinador será asignado). Este controlador es responsable de diferentes tareas de gestión, como la monitorización del resto de brokers y el reparto de particiones.
+
+#### Zookeeper 
+
+Más allá de los brokers, Kafka requiere de una capa de almacenamiento central que le ayude a mantener sus metadatos: dónde están las particiones, cuáles son las réplicas primarias, qué nodo es el controlador,ACLs, etc. Para todo este almacenamiento Kafka, al igual que vimos en Hadoop, hace uso de Zookeeper.
+
+En recientes versiones Kafka está intentando eliminar a Zookeeper y reemplazarlo por un quorum controller que unifica los datos del nodo-controlador y el Zookeeper, pero todavía es una fase en desarrollo. 
+
+### Particionamiento 
+
+A la hora de distribuir los datos entre los brokers, Kafka lo realiza a nivel de particiones. Cada topic se compone de una o más particiones, cada una de las cuales deben ser almacenadas en un único nodo. El número de particiones de cada topic es definido en el proceso de creación.
+
+A la hora de publicar en un topic, seguimos dos aproximaciones diferentes para elegir la partición en la que escribiremos nuestro mensaje (o lote de mensajes) en función de:
+- Si no existe una clave (key) definida: Publicaremos los mensajes en las diferentes particiones siguiendo un mecanismo de round robin.
+- Si se ha definido una clave: Aplicaremos un hash sobre la clave y, en función del resto resultante al dividir ese hash por el número de particiones, asignaremos la partición para ese mensaje.
+
+El encargado de asignar las particiones a los diferentes nodos será el controller, cada vez que se cree una partición la asignará, modificará los metadatos en Zookeeper y los distribuirá al resto de brokers. De este modo todos los brokers tienen conocimiento de los metadatos, lo que les permite redirigir las peticiones de los clientes.
+
+### Replicación 
+
+En Kafka la replicación se configura a nivel de topic, creando el mismo número de réplicas para todas las particiones contenidas en el topic. Kafka sigue un modelo de replicación maestro-esclavo teniendo dos tipos de réplicas:
+
+ - Réplica Leader: Cada partición tiene una sola réplica designada como leader. Todas las operaciones de escritura y lectura realizadas por productores y consumidores respectivamente utilizan esta réplica con el objetivo de garantizar la consistencia.
+  Réplica Follower: El resto de las réplicas se consideran followers. El único objetivo de las réplicas followers es replicar los mensajes del líder sincronizándose con esta réplica.
+
+  Como podemos observar en el caso de Kafka, la replicación no nos otorga escalabilidad en lecturas ni escrituras; “únicamente” nos proporciona un mecanismo de tolerancia a fallos.
+
+  Existen diferentes parámetros que debemos tener en cuenta al configurar la replicación en Kafka. Los más relevantes son:
+  - acks: El número de confirmaciones que el líder debe de tener para devolver la confirmación al productor. Se configura a nivel de productor y puede configurarse con los valores:
+    - 0: No esperamos ninguna confirmación, el offset devuelto por la escritura es siempre de -1.
+    - 1: Esperamos únicamente la confirmación del leader.
+    - all: Propiedad por defecto, la réplica líder espera la confirmación de todas las réplicas followers antes de confirmar la escritura al productor.
+- In-Sync Replica (replica.lag.time.max.ms): Kafka mantiene una lista de las réplicas followers que están sincronizadas con la réplica líder. Para ello, se basa en que la réplica líder haya recibido al menos una petición en este periodo definido. Al usar el acks con valor all, Kafka solo tendrá en cuenta las réplicas sincronizadas para la confirmación.
+- Minimum In-Sync Replica: Especifica el número mínimo de réplicas que deben estar sincronizadas para poder realizar una escritura. Se puede modificar a nivel de topic.
+
+  ### Soluciones empresariales
 
 
+- Cloudera: En las distintas distribuciones de Hadoop ofrece la posibilidad de desplegar Apache Kafka, además da soporte como al resto de servicios.
+- Red Hat: Bajo AMQ Streams (parte de la familia de productos Red Hat AMQ) ofrece una solución para desplegar Kafka en Kubernetes.
+- Confluent: Empresa formada a partir del equipo fundador de Kafka y la principal empresa que ofrece soporte de Kafka.
 
+
+#### Casos de uso
+
+
+##### Fast-Data
+
+Tecnologías como Kafka hacen que sea posible disponer de un flujo de datos continuo en tiempo real; la capacidad de poder aplicar analítica a este flujo es lo que se conoce como Fast Data.
+
+El Fast Data, muy ligado a las arquitecturas orientadas a eventos, ha ido cobrando protagonismo ya que según recientes estudios el dato pierde valor desde que se genera.
+Esta pérdida de valor del dato provoca que las empresas no se conformen con almacenar grandes cantidades de datos y procesar estos históricos; si no que quieren ser capaces de analizar la información en tiempo real y reaccionar ante ella.
+
+##### Top 5- Casos de uso 2022
+
+1. Arquitecturas Kappa: Las arquitecturas Kappa consisten en un único pipeline de eventos. El objetivo de estos casos de uso es reemplazar la arquitectura Lambda como el estándar en arquitecturas Big Data
+2. Omnicanalidad hiper-personalizada
+3. Arquitectura multi-cloud
+4. Edge Analytics
+5. Ciberseguridad en tiempo real
+
+## Cuestionario 
+
+57. Los sistemas de colas tradicionales nos permiten desacoplar servicios
+    a. Verdadero
+    b. Falso
+58. En el modelo Pub/Sub es necesario duplicar la información para cada suscriptor
+    a. Verdadero
+    b. Falso (en el sistema de colas tradicional sí, pero no en el Pub/Sub)
+59. El rol de coordinador en Kafka lo realiza
+    a. Un broker (ese broker que jugaba el papel de controller. Cuando ese broker se cae se nombra otro controlador)
+    b. Zookeeper
+    c. Un nodo especial
+60. Los metadatos de Kafka se almacenan en:
+    a. Coordinador
+    b. Zookeeper
+    c. Brokers
+61. En Kafka cada consumidor puede procesar los mensajes a su propio ritmo
+    a. Verdadero
+    b. Falso
+62. Los grupos de consumidores pueden escalar en consumidores sin limitaciones
+    a. Verdadero
+    b. Falso (vamos a depender del número de particiones que tengamos)
+63. La replicación en Kafka sigue el modelo
+    a. Maestro -Esclavo
+    b. Peer to Peer
+    c. Propio de la tecnología
+64. La replicación en Kafka al seguir un modelo maestro/esclavo nos permite aumentar
+el rendimiento de lecturas
+    a. Verdadero
+    b. Falso (es verdad que maestro-esclavo nos permite escalar en lecturas pero en Kafka eso no está permitido)
+65. Por defecto Kafka espera que todas las réplicas confirmen su escritura.
+    a. Verdadero
+    b. Falso
+66. Para considerar una réplica como “in-Sync” Kafka se basa en;
+    a. El tiempo
+    b. El número de mensajes
+    c. el ACK. 
