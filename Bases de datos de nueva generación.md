@@ -1867,7 +1867,7 @@ el rendimiento de lecturas
 65. Por defecto Kafka espera que todas las réplicas confirmen su escritura.
     - Verdadero
     - Falso
-66. Para considerar una réplica como “in-Sync” Kafka se basa en;
-    a. El tiempo
-    b. El número de mensajes
-    c. el ACK. 
+66. Para considerar una réplica como “in-Sync” Kafka se basa en:
+    - El tiempo
+    - El número de mensajes
+    - el ACK. 
