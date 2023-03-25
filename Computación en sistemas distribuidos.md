@@ -610,7 +610,7 @@ Objetivos: Hacer que la información sea localizable y accesible desde cualquier
 
 Transformar la infraestructura de IT en un servicio que permita "conectarse" a la infraestructura desde cualquier parte, a través de Internet y usar los recursos TI sin tener que instalarlos ni mantenerlos en nuestras instalaciones. 
 
-Facilitan mucho el desarrollo de start-ups. Ahorra los costos de adquisición de recursos físicos para implementar productos y servicios (0 EUR de entrada y de instalación, solo pagas por los recursos que utilizas), dinamiza la aparición de empresas, la tecnología deja de ser una barrera inicial. 
+Facilitan mucho el desarrollo de start-ups. Ahorra los costos de adquisición de recursos físicos para implementar proSeguridadductos y servicios (0 EUR de entrada y de instalación, solo pagas por los recursos que utilizas), dinamiza la aparición de empresas, la tecnología deja de ser una barrera inicial. 
 
 
 ### ¿Qué es la computación en la nube?
@@ -740,7 +740,7 @@ Como consecuencia, el cliente debe comunicarse con muchas APIs diferentes. FaaS 
 
 ### ¿Qué es el back-end como servicio, BaaS?
 
-Busca solucionar las limitaciones del Function-as-a-Service. La idea es combinar la facilidad de la funión como servicio con todas las API y capacidades que requieren los sitios web o las aplicaciones móviles típicas. 
+Busca solucionar las limitaciones del Function-as-a-Service. La idea es combinar la facilidad de la función como servicio con todas las API y capacidades que requieren los sitios web o las aplicaciones móviles típicas. 
 
 ![](/img/computacion/BaaS.png)
 
@@ -808,21 +808,21 @@ La consolidación de servicios basada en máquinas virtuales (MV) es una técnic
 
 Es un proceso que permite una utilización más eficiente de hardware físico y es la base de la computación en la nube. 
 
-La virtualización utiliza software para crear una capa de abstracción sobre le hardware de la computadora tal que permite que los elementos de hardware se dividan en varias ocmputaodras virtuales comúnmente llamadas máquinas virtuales
+La virtualización utiliza software para crear una capa de abstracción sobre le hardware de la computadora tal que permite que los elementos de hardware se dividan en varias computadoras virtuales comúnmente llamadas máquinas virtuales
 
 ![](/img/computacion/consolidacion.png)
 
 Cada máquina virtual ejecuta su propio sistema operativo y se comporta como una computadora independiente, aunque solo tiene acceso a una parte del hardware de la computadora subyacente real. 
 
-De lo anterior se deduce que la virtualización permite una utilización m+ás eficiente del hardware físico y con ello un mayor retorno de la inversión del hardware de una empresa. 
+De lo anterior se deduce que la virtualización permite una utilización más eficiente del hardware físico y con ello un mayor retorno de la inversión del hardware de una empresa. 
 
 La consolidación de servidores es un enfoque para el uso eficiente de los recursos de los servidores, con el objetivo de reducir el número total de servidores o ubicaciones de servidores que una organización necesita. Su implementación responde al problema de la **dispersión de servidores**, una situación en la que varios servidores infrautilizados ocupan más espacio y consumen más recursos de los que su carga de trabajo puede justificar.
 
 #### ¿Cuáles son los beneficios de la virtualización?
 
-La virtualización asporta varios beneficios a los operadores de centros de datos y proveeedores de servicios: 
+La virtualización aporta varios beneficios a los operadores de centros de datos y proveeedores de servicios: 
 - Ahorro de recursos, coste y reinversión de los fondos: Cada servidor de aplicaciones requería su propia CPU física dedicada. Los recursos sobrantes no se aprovechaban cuando estaban separados.
-- Mejora de la administración de TI y mejora del proceso de toma de decisiones. Reemplazar las computaodras físicas con máquinas virtuales definidas por software facilita el uso y la administración del software. 
+- Mejora de la administración de TI y mejora del proceso de toma de decisiones. Reemplazar las computadoras físicas con máquinas virtuales definidas por software facilita el uso y la administración del software. 
 - Tiempo de inactividad mínimo: Los fallos del SO y de las aplicaciones pueden causar tiempo de inactividad e interrumpir 
 - Aprovisionamiento más rápido: Comprar, instalar y configurar hardware para cada aplicación requiere mucho tiempo. Si se dispone de hardware ya instalado, el aprovisionamiento de máquinas virutales es significativamente más rápido. Incluso puede automatizarse utilizando un software de gestión e integrarlo en los flujos de trabajo existentes. 
 - Mejor seguridad
@@ -838,7 +838,7 @@ Existen tres formas de crear servidores virtuales:
 #### ¿Cuántas soluciones de virtualización conoces? 
 
 - **VMware** especializada en virtualización de servidores, escritorios, redes y almacenamiento. 
-- **Microsoft Hyper-V** se enfoca en virtualización de servidores y PCs de escriotrio. 
+- **Microsoft Hyper-V** se enfoca en virtualización de servidores y PCs de escritorio. 
 - **Citrix** tiene su nicho en la virtualización de aplicaciones, también ofrece virtualización de servidores y soluciones de escritorio virtual. 
 - **Oracle VirtualBox** es un hipervisor que permite crear máquinas x86 virtuales. 
 - **IBM Linux for System z** permite ejecutar Linux en un sistema S/390 o System Z
@@ -852,7 +852,7 @@ El objetivo de la virtualización de red es mejorar el rendimiento general de un
 
 #### ¿Cuál es la virtualización de redes SAN?
 
-Una red de área de almacenamiento (Storage Srea network, SAN) es una red o subred dedicada de alta velocidad que se interconecta y presenta grupos compartidos de dispositvos de almacenamiento a varios servidores. 
+Una red de área de almacenamiento (Storage Area network, SAN) es una red o subred dedicada de alta velocidad que se interconecta y presenta grupos compartidos de dispositvos de almacenamiento a varios servidores. 
 
 
 ![](/img/computacion/san.png)
@@ -989,7 +989,7 @@ La gestión del ancho de banda de Hadoop también ayuda en el proceso.
 
 #### ¿Cómo funciona el HDFS?
 
-Hdfs es un sistema de archivos distribuidos que egestiona grandes volúmenes de datos que se ejecuta en hardware de propósito general. Un solo clúster de Apache Hadoop puede escalar a cientos o miles de nodos. 
+Hdfs es un sistema de archivos distribuidos que gestiona grandes volúmenes de datos que se ejecuta en hardware de propósito general. Un solo clúster de Apache Hadoop puede escalar a cientos o miles de nodos. 
 
 #### ¿Cuáles son los objetivos de Hadoop?
 
@@ -1001,7 +1001,7 @@ Hdfs es un sistema de archivos distribuidos que egestiona grandes volúmenes de 
 - Data-driven 
 
 **Acceso a la transmisión de datos o datos en streaming**
-Aunque HDFS está especialmente diseañdo para procesos batch más que el procesado interactivo en tiempo real, su arquitectura está pensada para proveer altos ratios de transferencia de datos, lo que le hace también apto, para procesado de datos en continuo (tiempo real). 
+Aunque HDFS está especialmente diseñado para procesos batch más que el procesado interactivo en tiempo real, su arquitectura está pensada para proveer altos ratios de transferencia de datos, lo que le hace también apto, para procesado de datos en continuo (tiempo real). 
 
 Hadoop está optimizado para mejorar el ancho de banda. 
 
@@ -1019,7 +1019,7 @@ Simplificando mucho, indica que una vez que los datos son escritos, no se modifi
 **Data-Driven**
 
 
-#### Cuál es la arcquitectura de HDFS?
+#### Cuál es la arquitectura de HDFS?
 
 Sigue un paradigma maestro-esclavo. 
 
@@ -1029,7 +1029,7 @@ Sigue un paradigma maestro-esclavo.
 Un clúster HDFS consiste en un solo NameNode, el cual es un nodo (servidor) maestro que gestiona el sistema de ficheros (file system namespace) y regula el acceso de los usuarios a los ficheros. 
 El NameNode es el árbitro y responsable de la gestión de los metadatos del HDFS. 
 
-Además el clúster HDFS incorpora un número de DataNodes, generalmente uno por cada nodo del clúster, el cual gestional el almacenamiento físico de cada uno de los nodos del clúster. 
+Además el clúster HDFS incorpora un número de DataNodes, generalmente uno por cada nodo del clúster, el cual gestiona el almacenamiento físico de cada uno de los nodos del clúster. 
 Internamente cada fichero es dividido en bloques, y esto bloques son almacenados en un conjunto de DataNodes. Esto implica que un DataNode no almacena ficheros, almacena fragmentos. 
 
 El NameNode ejecuta operaciones del sistema de ficheros tales como apertura, cierre y renombrado de ficheros y directorios. 
@@ -1044,7 +1044,7 @@ Los dataNodes se encargan también de la creación de los bloques, borrado y rep
 
 HDFS almacena todos los ficheros en forma de secuencia de bloques. Todos los bloques, excepto el último, son del mismo tamaño. 
 
-La toleracioa a fallos se consigue copiando los bloques anteriroes en múltiples DataNodes. 
+La tolerancia a fallos se consigue copiando los bloques anteriores en múltiples DataNodes. 
 El tamaño del bloque y el factor de replicación es configurable, a nivel de fichero. 
 Cada app puede determinar el número de réplicas de cada fichero. 
 
@@ -1053,7 +1053,7 @@ El NameNode gestiona la réplica de los bloques mediante un "Heartbeat" y un "Bl
 Por defecto, el tamaño de los bloques es de 128MB (Hadoop 1.0, 64MB) y el factor de replicación es 3. 
 
 #### ¿Cuál es la importancia de las réplicas en HDFS?
-El proceso de distribución de las réplicas de bloques crítico para la toleracia a fallos y el rendimiento del HDFA. 
+El proceso de distribución de las réplicas de bloques crítico para la toleracia a fallos y el rendimiento del HDFS. 
 
 HDFS emplea una política denominada "rack-awareness" para distribuir las copias de los bloques, y optimizar el ancho de banda de las comunicaciones.
 
@@ -1084,7 +1084,7 @@ Open Shortest Path First (OSPF) forma parte del Interior Gateway Protocol (IGP),
 
 #### ¿Qué son las políticas de rack awareness?
 
-Son aquellas que permiten conseuguir un ancho de bando óptimo y una tolerancia a fallos. 
+Son aquellas que permiten conseguir un ancho de bando óptimo y una tolerancia a fallos. 
 
 Por defecto son: 
 - No puede haber más de una copia de un bloque en un mismo Datanode. 
@@ -1143,7 +1143,7 @@ En primer lugar, los clientes solicitan recursos al componente ResourceManager d
 
 En el componente ApplicationMaster es donde residirán nuestros JobTracker, en caso de usar Apache Hadoop. Los ApplicationMasters son específicos de cada framework de procesamiento y, por lo tanto, MapReduce es solo una de las posibilidades. En este caso, contaremos con dos ApplicationMaster distintos, y sobre cada uno de ellos, ejecutaremos una aplicación distinta. Finalmente, en los nodos esclavos desplegaremos el componente NodeManager que se encargará de gestionar los recursos de cada nodo en forma de contenedores. En estos nodos esclavos, convivirá tanto el cómputo como el almacenamiento, en forma de contenedores o DataNodes.
 
-![](/img/computacion/hadoop2.1.png)
+![](/img/computacion/hadoop2.0.png)
 
 #### Comparación entre versiones
 
