@@ -200,7 +200,7 @@ En un paradigma varios procesadores comparten los recursos hardware. Ej: Varios 
 
 Un sistema MPP, está físicamente disperso. 
 - El rendimiento mejora al no compartir recursos físicos. 
-- El sistema escala agregando commputadoras, disco y memoria. 
+- El sistema escala agregando computadoras, disco y memoria. 
 - Un sistema de archivos se comparte por medio de red. 
 - Los archivos de programa se pueden compartir en el sistema en lugar de copiarse en cada disco individual .
 
@@ -271,7 +271,7 @@ A raíz de la formulación para obtener la mejor configuración y solventar los 
 
 ### Tipos de sistemas distribuidos 
 
-- **Sistemas clusters y supercomputadores (sistemas informáticos distribuidos)**. Un cluster de cómputo se define como un conjunto de máquinas conectadas entre sí, que permiten resolver un problema de forma distribuida, ofreciendo una alta capacidad de cómputo.Los sistemas cluster son sistema centralizados, basados en la agrupación de computadores genéricos (commodity) de forma barata y ampliable. En prácticamente todos los casos, la computación de clusters se utiliza para la programación paralela en la que un único programa, de computación intensiva, se ejecuta en paralelo en múltiples máquinas.
+- **Sistemas clusters y supercomputadores (sistemas informáticos distribuidos)**. Un cluster de cómputo se define como un conjunto de máquinas conectadas entre sí, que permiten resolver un problema de forma distribuida, ofreciendo una alta capacidad de cómputo. Los sistemas cluster son sistema centralizados, basados en la agrupación de computadores genéricos (commodity) de forma barata y ampliable. En prácticamente todos los casos, la computación de clusters se utiliza para la programación paralela en la que un único programa, de computación intensiva, se ejecuta en paralelo en múltiples máquinas.
 - **Grid Computing (sistemas de información distribuidos)**. En 1999, Ian Foster y Carl Kesselman plantearon un sistema distribuido como una analogía con el suministro eléctrico: el usuario debe tener acceso a los recursos computacionales en condiciones similares a las que tiene para utilizar la energía eléctrica, es decir, desde cualquier sitio (geográficamente dispersos), con una interfaz uniforme, pudiendo confiar en su funcionamiento (fiables, robustos) y a un coste asequible. Este concepto se basa en agregar y compartir recursos en un ecosistema distribuido.
 - **Cloud Computing (sistemas omnipresentes)***. El cloud computing se caracteriza por un conjunto fácilmente utilizable y accesible de recursos virtualizados. Los recursos y cómo se utilizan pueden configurarse de forma dinámica, proporcionando la base para la escalabilidad, si se necesita más trabajo, un cliente puede simplemente adquirir más recursos. Estos sistemas pueden proporcionar un beneficio mutuo o bidireccional a las empresas. Empresas con exceso de capacidad de cómputo pueden, de forma rentable, dejar usar sus sistemas a distintos clientes. Por otro lado, las empresas con demanda de capacidad de cómputo, pueden buscar alquilar la infraestructura de quién le ofrezca mejor precio, servicio o relación entre ellos.
 
@@ -621,13 +621,13 @@ Cloud computing se define como un uso de recursos computacionales escalables, ac
 
 #### Características principales
 
-a. Autoservicio bajo demanda.
-b. Permitir el acceso desde la red, ya sea pública, privada, híbrida.
-c. La asignación de recursos en modo multi-usuario.
-d. La capacidad de rápido crecimiento.
-e. Servicio medido.
-f. Elasticidad y escalabilidad.
-g. Seguridad.
+- Autoservicio bajo demanda.
+- Permitir el acceso desde la red, ya sea pública, privada, híbrida.
+- La asignación de recursos en modo multi-usuario.
+- La capacidad de rápido crecimiento.
+- Servicio medido.
+- Elasticidad y escalabilidad.
+- Seguridad.
 
 ### ¿Cuáles son las ventajas/inconvenientes de la computacion en la nube? 
 
