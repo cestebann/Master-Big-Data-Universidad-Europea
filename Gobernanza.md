@@ -1,6 +1,6 @@
 # Gobernanza del Ciclo de Vida del Dato
 
-Profesor: Joaquín García Onrubia
+=Profesor: Joaquín García Onrubia=
 
 
 # Contenido del curso 
