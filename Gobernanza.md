@@ -765,12 +765,18 @@ Sesión 6. 22/12/2022
 
 ## Ciclo de vida del dato
 
-![](/img/gobernanza/ciclo-de-vida.png)
+> La gestión del ciclo de vida de datos es el proceso de gestión de la información siguiendo la vida de los datos desde el momento en que se crean y almacenan por primera vez, hasta el momento en que se archivan o destruyen cuando dejan de ser útiles incluyendo la compartición interna y externa de los mismos a lo largo del ciclo de vida.
+
 
 ### Tipos de datos
 
 - **Datos calientes.** Se refiere a los datos almacenados en la plataforma por un tiempo determinado y durante ese tiempo nunca se borran. 
 - **Datos fríos.** orientado a datos históricos, hacen referencia a los datos de que pasado un tiempo sin uso no requieren ocupar espacio en el almacén de datos calientes, por lo que pasan a un estado de almacenamiento secundario.
+
+### Metodología de gestión 
+
+![](/img/gobernanza/ciclo-de-vida.png)
+
 
 ## Gestión de Modelos de Aprendizaje Automático (MLOps)
 

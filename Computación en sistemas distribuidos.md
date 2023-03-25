@@ -128,7 +128,7 @@ Las redes de datos permiten conectar usuarios y “maquinas” a recursos que es
 
 #### ¿Qué son los protocolos de red y cuántos conoces? 
 
-Son estándares formales compuestos por reglas, metodología y configuracionesque definen la comunicación entre dos o más dispositivos a través de una red.
+Son estándares formales compuestos por reglas, metodología y configuraciones que definen la comunicación entre dos o más dispositivos a través de una red.
 Para poder enviar y recibir información, los dispositivos a la red deben seguir estos protocolos.
 
 - **Network Time Protocol (NTP):** es un protocolo que sincroniza los relojes de los sistemas informáticos a través de las redes de datos. NTP permite que los dispositivos conectados a la red sincronicen su configuración horaria con el servidor NTP.
@@ -159,10 +159,10 @@ Los sistemas distribuidos están commpuestos por los siguientes elementos:
 - **Programa**: Conjunto de instrucciones
 - **Proceso**: Secuencia de ejecución.
 - **Datos**: Información ejecutada por el programa. 
--**Componente**:Elemento HW o SW que soporta la ejecución sistema.
--**Red de computadoras**: Un conjunto de computadores conectados por una red de interconexión.
--**Protocolo**: Un conjunto de reglas e instrucciones que gobiernan la comunicación en un sistema distribuido, es decir, el intercambio de mensajes.
--**Middleware**: Software que soporta la ejecución de aplicaciones distribuidas.
+- **Componente**:Elemento HW o SW que soporta la ejecución sistema.
+- **Red de computadoras**: Un conjunto de computadores conectados por una red de interconexión.
+- **Protocolo**: Un conjunto de reglas e instrucciones que gobiernan la comunicación en un sistema distribuido, es decir, el intercambio de mensajes.
+- **Middleware**: Software que soporta la ejecución de aplicaciones distribuidas.
  
 #### ¿Ventajas?
 - Compartir recursos (HW, SW, datos).
