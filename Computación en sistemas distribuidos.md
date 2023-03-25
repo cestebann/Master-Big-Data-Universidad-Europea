@@ -1143,7 +1143,7 @@ En primer lugar, los clientes solicitan recursos al componente ResourceManager d
 
 En el componente ApplicationMaster es donde residirán nuestros JobTracker, en caso de usar Apache Hadoop. Los ApplicationMasters son específicos de cada framework de procesamiento y, por lo tanto, MapReduce es solo una de las posibilidades. En este caso, contaremos con dos ApplicationMaster distintos, y sobre cada uno de ellos, ejecutaremos una aplicación distinta. Finalmente, en los nodos esclavos desplegaremos el componente NodeManager que se encargará de gestionar los recursos de cada nodo en forma de contenedores. En estos nodos esclavos, convivirá tanto el cómputo como el almacenamiento, en forma de contenedores o DataNodes.
 
-![](/img/computacion/hadoop2.png)
+![](/img/computacion/hadoop2.1.png)
 
 #### Comparación entre versiones
 
