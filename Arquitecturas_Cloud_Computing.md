@@ -475,7 +475,7 @@ AWS se compone de 4 grandes familias:
 
 # Hands-on
 
-- VPC creatio n
+- VPC creation
 - Elastic IP en instancias EC2
 - RDS
 
@@ -484,6 +484,19 @@ AWS se compone de 4 grandes familias:
 
 # 6ta sesión
 21/03/22
+
+Contenido del examen teórico
+    - Sistemas distribuidos
+    - Modelos de servicios en la nube 
+    - Aspectos económicos de la nube
+    - Virtualización
+    - Contenedores
+    - Infrastructura de red y sistema de almacenamiento
+    - Plafaformas y servicios
+    - Seguridad
+    - Modelo de responsabilidad compartida
+
+
 
 ![](/img/arquitectura/pregunta_ejemplo.png)
 
