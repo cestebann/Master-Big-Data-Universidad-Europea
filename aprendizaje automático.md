@@ -154,4 +154,109 @@ Las más conocidas son:
 
 ### Anaconda / Miniconda
 - Distribución de Python más extendida
-- 
+
+## Práctica
+
+- KneighborClassifier(n_neighbors=3)
+
+
+7/03/23
+
+### Aplicaciones
+
+#### Sector financiero
+- Asistentes virtuales (banca online)
+- Valoración de riesgo de crédito 
+- Detección de fraude y blanqueo de capitales
+- Asesoría de inversiones, seguros, etc. 
+
+#### Sector industrial
+- Automatización de cadenas de producción 
+- Coche autónomo 
+- Gestión de stocks y demandas
+- Ayuda en los diagnósticos
+
+
+### Ingeniería de características
+
+#### La maldición de la dimensionalidad
+- Al aumentar la dimensionalidad de los datos, el volumen que ocupan crece exponencialmente y estos se hace más dispersos en el espacio, lo cual dificulta el entrenamiento de modelos de Aprendizaje Automático que generalicen correctamente
+
+En la imagen de abajo vemos cómo cambia el espacio muestral cuando aumentamos el número de variables explicativas. Como consecuencia nuestros modelos pueden predecir erróneamente.
+
+![](/img/aprendizaje_automatico/aumento_dimensionalidad.png)
+
+#### Principio de Parsimonia / navaja de Okham 
+
+"En igualda de condiciones, la expllicación más sencilla suele ser la más probable". 
+
+En Aprendizaje Automático: "cuantas menos variables utilice el modelo (y por lo tanto menos hiperparámetros), mejor."
+
+#### Mejora en las predicciones
+
+Los resultados con un mismo modelo y algoritmo de entrenamiento pueden mejorar mucho si se utilizan las las cracterísticas correctas. 
+
+Por ejemplo , un modelo lineal puede ser capaz de resolver problemas no lineales si se le suministran las características apropiadas, construidas manualmente como funciones no lineales de las características apropiadas, construidas manualmente como funciones no lineales de las características originales. 
+
+#### Selección de variables
+
+Se trata de seleccionar el subconjunto de variables que sea más adecuado para resolver el problema. 
+
+Algunas técnicas habituales son: 
+- Eliminación de variables con poca varianza. 
+- Uso de tests estadísticos univariantes (chi cuadrado)
+- Eliminación recursiva de variables, métodos wrapper, etc.  (es un método muy costoso porque selecciona las mejores variables para producir el modelo más efectivo al probar todas las variables).
+
+``` python 
+
+from sklearn.datasets import make.classification 
+```
+
+#### Transformación de variables
+En este caso en lugar de seleecionar un subconjunto de variables se generan variables nuevas, "sintéticas", a partir de las originales, esperando que sean más útiles para resolver el problema. 
+
+La técnica general más habitual es el análisis de componentes principales (PCA), aunque hay muchos métodos específicos para transformación de texto, imágenes, etc. 
+
+- Principal Component Analysis: Realiza una proyección de los datos originales en un espacio de dimensión menor en el que se maximiza la varianza. Las nuevas variables son combinaciones lineales de las originales. No utiliza la variable target, es una técnica no supervisada.
+
+- Linear Discriminant Analysis (solo clasificación): Realiza una proyección de los datos originales en un espacio de dimensión menor en el que se maximiza la separabilidad. Las nuevas variables son combinacviones lineales de las originales. 
+
+![](/img/aprendizaje_automatico/lda.png)
+
+
+### Práctica 
+
+
+14/03/23
+
+# Aprendizaje Supervisado 
+
+
+## Modelos Lineales
+
+![](/img/aprendizaje_automatico/modelo_lineal.png)
+
+### Ventajas
+- Eficaces (resuelven problemas usando pocos paramétricos)
+- Rápidos al predecir
+- Interpretalbes (un parámetro pro cada variable de entrada indicando su relevancia).
+- Estables (cambios pequeños en las variables de entrada suponen cambios pequeños en los parámetros al entrenar.)
+
+### Desventajas
+- Poder expresivo limitado por su naturaleza lineal. 
+
+#### ¿Qué quiere decir que el sistema sea capaz de aprender?
+- No debería necesitar que un humano codifique el conocimiento.
+- Debería aprender únicamente observando los datos.
+- El aprendizaje debería ser acumulativo. 
+
+
+#### Solución iteratia
+- Basada en descenso de gradiente.
+- Permite entrenar poco a poco un modelo, 
+
+
+Modelos Lineales: Regresión Lineal 
+Modelos Lineales: Regresión Logística
+Ejercicio Práctico
+
