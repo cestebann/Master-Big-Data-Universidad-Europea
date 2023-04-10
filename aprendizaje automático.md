@@ -236,8 +236,12 @@ La técnica general más habitual es el análisis de componentes principales (PC
 
 ![](/img/aprendizaje_automatico/modelo_lineal.png)
 
+Los modelos lineales funcionan muy bien para predecir variables que se pueden modelizar con una variable explicativa. 
+
+
 ### Ventajas
-- Eficaces (resuelven problemas usando pocos paramétricos)
+- Eficaces (resuelven problemas usando pocas variables paramétricas)
+    - Los modelos lineales son el claro ejemplo de un modelo paramétrico: son modelos que al entrenarse guardan información del proceso en variables internas, y al momento de predecir sobre unas variables desconocidas utilizan esos parámetros. 
 - Rápidos al predecir
 - Interpretalbes (un parámetro pro cada variable de entrada indicando su relevancia).
 - Estables (cambios pequeños en las variables de entrada suponen cambios pequeños en los parámetros al entrenar.)
@@ -245,18 +249,91 @@ La técnica general más habitual es el análisis de componentes principales (PC
 ### Desventajas
 - Poder expresivo limitado por su naturaleza lineal. 
 
-#### ¿Qué quiere decir que el sistema sea capaz de aprender?
+### Modelos Lineales: Regresión Lineal 
+
+![](/img/aprendizaje_automatico/regresion_lineal.png)
+
+
+y = variable a predecir
+y con gorro = predicción del modelo. 
+x= variable explicativa o independiente.
+m = parámetro interno del modelo que se perfecciona durante el entrenamiento
+b = parámetro interno del modelo que se llama sesgo (bias) o intercepto. 
+
+Hipótesis
+- Linealidad: La variable respuesta es combinación lineal de las variables independientes. 
+- Ausencia de multicolinealidad: no hay colinealidad entre las variables independientes. 
+- Homocedasticidad: la varianza de los residuos (errores) es constante entre observaciones. 
+- Ausencia de autocorrelación en los errores: los errores no están correlacionados entre observaciones. 
+
+#### Solución directa 
+
+Ordinary Least Squares:Estamos buscando el parámetro que dé el mínimo error. 
+
+![](/img/aprendizaje_automatico/se.png)
+
+En esta solución no puede haber dependencias lineales entre las variables (hipótesis 2), porque de lo contrario no podremos calcular la función inversa. 
+
+Este modelo no podría aplicarse para datasets grandes. 
+
+
+##### ¿Qué quiere decir que el sistema sea capaz de aprender?
 - No debería necesitar que un humano codifique el conocimiento.
 - Debería aprender únicamente observando los datos.
 - El aprendizaje debería ser acumulativo. 
 
 
-#### Solución iteratia
-- Basada en descenso de gradiente.
-- Permite entrenar poco a poco un modelo, 
+#### Solución iterativa: solución aproximada
+
+![](/img/aprendizaje_automatico/solucion_iterativa.png)
 
 
-Modelos Lineales: Regresión Lineal 
-Modelos Lineales: Regresión Logística
-Ejercicio Práctico
+#### Regularización 
 
+![](/img/aprendizaje_automatico/regularizacion.png)
+
+
+![](/img/aprendizaje_automatico/regularizacion_2.png)
+
+peso=parámetros
+
+##### Variables categóricas
+- Los modelos lineales funcionan únicamente con datos numéricos. 
+- Las variables categóricas deben ser transformadas a codificación one-hot (codifica cada categoría como una combinación de 0s y 1s.)
+
+
+### Modelos Lineales: Regresión logística
+
+![](/img/aprendizaje_automatico/regresion_logistica.png)
+
+![](/img/aprendizaje_automatico/regresion_logistica_2.png)
+
+![](/img/aprendizaje_automatico/regresion_logistica_3.png)
+
+28/03/23
+
+### Linear SVC (Support Vector Classifier)
+
+Más que cambiar el modelo, lo que hace este modelo es cambiar la forma en que se entrena. 
+
+A partir de ahora siempre vamos a estar hablando de métodos iterativos (ya que el método directo es muy costoso.)
+
+
+
+![](/img/aprendizaje_automatico/linear_svc.png)
+
+La idea de este modelo es ser estricto a la hora de escoger cuál solución nos quedamos, y es donde entra el concepto de margen, y aquí es donde entramos a definri el margen de separación. 
+
+![](/img/aprendizaje_automatico/linear_svc_2.png)
+
+La recta H1 es mala. En cambio, las rectas H2 y H3 clasifican perfectamente el dataset. Pero el H3 tiene un margen de separación más grande que H2, que están deterinados por los vectores de soporte (la distancia mínima a un punto). 
+
+De acuerdo a este modelo, la recta H3 es la solución más robusta ya que cuando incorporemos datos de test, es probable que se acerquen a la frontera y el modelo que tenga el mayor margen de separación es el que menos errores va a cometer y por ende va a cometer menos errores de clasificación. 
+
+![](/img/aprendizaje_automatico/linear_svc_3.png)
+
+### Linear SVR
+
+## Modelos Kernel
+
+## Modelos Naive Bayes
