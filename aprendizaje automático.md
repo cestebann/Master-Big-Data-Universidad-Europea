@@ -2,36 +2,36 @@
 Profesor: David Díaz Vico
 
 
-Unidad 1. Introducción al aprendizaje automático
-- Introducción al aprendizaje automático
-- Aplicación de la IA al entorno empresarial.
-- Principales proveedores de IA.
-- Procesos del aprendizaje automático
-Unidad 2. Aprendizaje Supervisado
-- Métodos de predicción lineal
-- Métodos simbólicos
-- Fundamentos de Deep Learning
-- Problemas del aprendizaje predictivo
-Unidad 3. Otras técnicas de Aprendizaje
-- No Supervisado - Agrupamiento
-- No Supervisado – Reducción de dimensiones
-- Sistemas de Recomendación
-- Aprendizaje de métricas y ordenaciones
-Unidad 4. Evaluación del aprendizaje
-- Conceptos de Evaluación.
-- Evaluación del aprendizaje supervisado
-- Cálculo de medidas de efectividad del aprendizaje supervisado
-- Shap Values
-- Evaluación del aprendizaje no supervisado
-Unidad 5. Análisis de textos y contenidos multimedia
-- Análisis semántico y sentimientos.
-- Clasificación de imágenes con ML ‘clásico’
-- Introducción a Pytorch.
-- Detección de imágenes con Deep learning
-Unidad 6. Ética de la Inteligencia Artificial
-- Directrices éticas para el desarrollo de modelos de IA
-- Detección de sesgos
-- Ejemplos de dilemas éticos
+- Unidad 1. Introducción al aprendizaje automático
+    - Introducción al aprendizaje automático
+    - Aplicación de la IA al entorno empresarial.
+    - Principales proveedores de IA.
+    - Procesos del aprendizaje automático
+- Unidad 2. Aprendizaje Supervisado
+    - Métodos de predicción lineal
+    - Métodos simbólicos
+    - Fundamentos de Deep Learning
+    - Problemas del aprendizaje predictivo
+- Unidad 3. Otras técnicas de Aprendizaje
+    - No Supervisado - Agrupamiento
+    - No Supervisado – Reducción de dimensiones
+    - Sistemas de Recomendación
+    - Aprendizaje de métricas y ordenaciones
+- Unidad 4. Evaluación del aprendizaje
+    - Conceptos de Evaluación.
+    - Evaluación del aprendizaje supervisado
+    - Cálculo de medidas de efectividad del aprendizaje supervisado
+    - Shap Values
+    - Evaluación del aprendizaje no supervisado
+- Unidad 5. Análisis de textos y contenidos multimedia
+    - Análisis semántico y sentimientos.
+    - Clasificación de imágenes con ML ‘clásico’
+    - Introducción a Pytorch.
+    - Detección de imágenes con Deep learning
+- Unidad 6. Ética de la Inteligencia Artificial
+    - Directrices éticas para el desarrollo de modelos de IA
+    - Detección de sesgos
+    - Ejemplos de dilemas éticos
 
 # Unidad 1. Introducción al aprendizaje automático
 
@@ -229,7 +229,7 @@ La técnica general más habitual es el análisis de componentes principales (PC
 
 14/03/23
 
-# Aprendizaje Supervisado 
+# 2. Aprendizaje Supervisado 
 
 
 ## Modelos Lineales
@@ -318,8 +318,6 @@ Más que cambiar el modelo, lo que hace este modelo es cambiar la forma en que s
 
 A partir de ahora siempre vamos a estar hablando de métodos iterativos (ya que el método directo es muy costoso.)
 
-
-
 ![](/img/aprendizaje_automatico/linear_svc.png)
 
 La idea de este modelo es ser estricto a la hora de escoger cuál solución nos quedamos, y es donde entra el concepto de margen, y aquí es donde entramos a definri el margen de separación. 
@@ -332,8 +330,41 @@ De acuerdo a este modelo, la recta H3 es la solución más robusta ya que cuando
 
 ![](/img/aprendizaje_automatico/linear_svc_3.png)
 
-### Linear SVR
+![](/img/aprendizaje_automatico/linear_svc_4.png)
+
+![](/img/aprendizaje_automatico/linear_svc_5.png)
+
+Es como una regresión logística pero con una función de coste distinta. Gracias a ello conseguimos un modelo lineal con un margen de separación máximo. 
+
+
+### Linear SVR (Support Vector Regrresion)
+
+En este modelo queremos conseguir que todos los puntos estén contenidos en un ancho de tubo estrecho. 
+
+![](/img/aprendizaje_automatico/svr_1.png)
+![](/img/aprendizaje_automatico/svr_2.png)
+
 
 ## Modelos Kernel
 
+- Los modelos lineales tienen muchas virtudes, pero su expresividad está muy limitada por su naturaleza lineal. 
+
+- Por suerte, existe un truco matemático para hacer questos modelos funcionen en un espacio de dimensiónn muy alto o incluso infinito, en el cual los problemas de clasificación son siempre linealmente separables y los problemas de regresión siempre se pueden resolver con una forma lineal, evitando tener que realizar operaciones matemáticas extremadamente costosas en dicho espacio de alta dimensión. Es el llamado "truco del kernel". 
+- Para ello, es necesario que el modelo pueda expresarse en términos de x=xxt en lugar de Z. Las SVM cumplen esta condición. 
+- Sin embargo, estos métodos tienen un coste de entrenamiento y de predicción muy superior al de sus contrapartidas lineales, y su uso está limitado a datasets pequeños. 
+
+![](/img/aprendizaje_automatico/kernel.png)
+
+Este es un modelo bastante potente pero no es óptimo para datasets grandes ya que puede ser muy lento. A raíz de esto, han surgido las redes neuronales. No obstante, este no deja de ser es un modelo muy potente. 
+
+
 ## Modelos Naive Bayes
+
+Este es un modelo que en la práctica no se suele utilizar y funciona estrictamente para problemas de clasificación. 
+
+![](/img/aprendizaje_automatico/naive_bayes.png)
+![](/img/aprendizaje_automatico/naive_bayes_2.png)
+
+
+### Práctica 
+https://ml-playground.com/
