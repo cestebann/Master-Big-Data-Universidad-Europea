@@ -1,6 +1,8 @@
 
 Profesor: David Díaz Vico
 
+# Contenido del Curso
+
 
 - Unidad 1. Introducción al aprendizaje automático
     - Introducción al aprendizaje automático
