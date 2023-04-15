@@ -11,7 +11,7 @@
 -  11 de Mayo: Elena Igualada (Finanzas)
 
 
-## 30.03 - Jordi Malo (TIC)
+# 30.03 - Jordi Malo (TIC)
 
 ![](/img/business_analytics/jordi_malo.png)
 
@@ -119,3 +119,78 @@ Distingamos máquina e IoT. IoT describ elos objetos físicos como sensores, cap
 ![](/img/business_analytics/jordi_malo_29.png)
 
 ![](/img/business_analytics/jordi_malo_30.png)
+
+#  13 de Abril: Daniel Domínguez: Ciencia de datos espaciales
+
+## Contenido
+
+- Presentación
+    - Sobre mí
+    - Sobre Geoblink
+- Introducción a "Location Intelligence"
+
+
+![](/img/business_analytics/contenido_daniel.png)
+
+## Presentación 
+
+![](/img/business_analytics/daniel_2.png)
+![](/img/business_analytics/daniel_3.png)
+![](/img/business_analytics/daniel_4.png)
+![](/img/business_analytics/daniel_5.png)
+![](/img/business_analytics/daniel_6.png)
+![](/img/business_analytics/daniel_7.png)
+![](/img/business_analytics/daniel_8.png)
+![](/img/business_analytics/daniel_9.png)
+![](/img/business_analytics/daniel_10.png)
+![](/img/business_analytics/daniel_11.png)
+
+
+## Introducción a la ciencia de datos espacial 
+
+![](/img/business_analytics/daniel_12.png)
+![](/img/business_analytics/daniel_13.png)
+
+La geometría que generan dos coordenadas hace especial los datos espaciales. 
+
+![](/img/business_analytics/daniel_14.png)
+
+![](/img/business_analytics/daniel_15.png)
+
+![](/img/business_analytics/daniel_16.png)
+
+![](/img/business_analytics/daniel_17.png)
+
+![](/img/business_analytics/daniel_18.png)
+
+![](/img/business_analytics/daniel_19.png)
+
+![](/img/business_analytics/daniel_20.png)
+
+![](/img/business_analytics/daniel_21.png)
+
+![](/img/business_analytics/daniel_22.png)
+
+![](/img/business_analytics/daniel_23.png)
+
+![](/img/business_analytics/daniel_24.png)
+
+![](/img/business_analytics/daniel_25.png)
+![](/img/business_analytics/daniel_26.png)
+
+
+4. ## Casos de estudio 
+
+![](/img/business_analytics/daniel_27.png)
+![](/img/business_analytics/daniel_28.png)
+![](/img/business_analytics/daniel_29.png)
+![](/img/business_analytics/daniel_30.png)
+![](/img/business_analytics/daniel_31.png)
+![](/img/business_analytics/daniel_32.png)
+![](/img/business_analytics/daniel_33.png)
+
+
+
+geopandas.spatialjoin
+
+![](/img/business_analytics/daniel_34.png)

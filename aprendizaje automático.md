@@ -310,7 +310,24 @@ peso=parámetros
 
 ![](/img/aprendizaje_automatico/regresion_logistica_3.png)
 
+## Práctica 1
+
+- Es un problema de clasificación binaria, donde debeos hacer un modelo de supervisión de clasificación binaria (debe clasificar a los clientes entre propensos a contrar y no propensos a contatar.)
+
+``` bash
+conda env create -f <nombre del fichero>
+# luego de crear el entorno con sus dependencias lo activamos
+conda activate <nombre del entorno>
+#ahora vamos a utilizar jupyter notebooks dentro del entorno, para ello aplicamos este código
+python -m ipykernel install --user --name nombre_del_kernel --display-name "Nombre del kernel"
+#Reemplaza nombre_del_kernel con el nombre que deseas dar al kernel de Python dentro del entorno virtual y Nombre del kernel con el nombre que deseas que aparezca en Jupyter Notebook.
+#por último ya ejecutamos jupyter notebook 
+jupyter notebook
+```
+
 28/03/23
+
+## Máquinas de Vector De Soporte
 
 ### Linear SVC (Support Vector Classifier)
 
@@ -368,3 +385,85 @@ Este es un modelo que en la práctica no se suele utilizar y funciona estrictame
 
 ### Práctica 
 https://ml-playground.com/
+
+
+11/04/23
+
+## Redes Neuronales Artificiales
+
+### Limitaciones del modelo lineal
+
+Problemas no linealmente separables: Si el problema no es linealmente separable, un modelo lineal no es suficientemente expresivo como para resolverlo.
+
+Las redes neuronales resuelven esta limitación que tienen los modelos lineales.
+
+### Componentes del error
+
+1. Estimación: determinado por el tamaño y la calidad de los datos. 
+2. Aproximación: determinado por la expresividad del modelo.
+3. Optimización: determinado por el método de entrenamiento. 
+
+Ahora mismo, los modelos lineales tienen problemas de aproximación que las redes neuronales sí son capaces de resolver. 
+
+### Inspiración biológica
+
+> Red neuronal artificial: “Paradigma de aprendizaje y procesamiento automático inspirado en la forma en que
+funciona el sistema nervioso biológico. Se trata de un sistema de interconexión de neuronas
+que colaboran entre sí para producir un estímulo de salida.”
+
+![](/img/aprendizaje_automatico/neurona_naturall.png)
+
+![](/img/aprendizaje_automatico/neurona_artificial.png)
+
+![](/img/aprendizaje_automatico/neurona_artificial_2.png)
+
+![](/img/aprendizaje_automatico/neurona_artificial_3.png)
+
+![](/img/aprendizaje_automatico/neurona_artificial_4.png)
+
+Como podemos ver, el perceptrón es un modelo lineal. No hay nada nuevo hasta ahora. 
+La parte innovadora no es en el concepto del perceptrón, sino en el conjunto de perceptrones. El modelo que se utiliza actualmente es el de perceptrón multicapa. 
+En la imagen tenemos 3 variables de entrada (círculos rojos, no son neuronas).
+Tenemos 4 neuronas o 4 unidades en una capa oculta y una capa de salida de dos neuronas, tenemos una capa de dos dimensiones. 
+Solo podemos conectar cada capa con la siguiente. 
+
+- X = variables de entrada
+- W1 = pesos (hiperparámetros) de las neuronas de la capa oculta
+- W2 = pesos de las neuronas de la capa de salida. 
+- F1 = Función de activación de la capa oculta. 
+- F2 = Función de activación de la capa de salida
+
+¿por qué ya no nos vale el método del descenso del gradiente? 
+
+
+![](/img/aprendizaje_automatico/neurona_artificial_5.png)
+
+#### Back-propagation
+
+Tenemos una fase hacia adelante donde calculamos la activación desde la entrada hasta la salida. 
+A partir de eso, calculamos la activación de la salida. 
+
+### Teorema de Aproximación Universal
+
+![](/img/aprendizaje_automatico/teorema_aproximacion_universal.png)
+
+Este teorema nos dice qué se puede resolver con una red neuronal y qué no se puede resolver con una red neuronal. 
+
+### El perceptrón Multicapa
+
+- Cuanto más ancho y profundo es un perceptrón multicapa, más expresivo es. 
+- Vamos a verlo con más detalle con algunos problemas de clasificación binaria en el plano. 
+
+### Dificultades
+
+- Mínimos locales más frecuentes cuantas más capas y unidades tiene el modelo
+- Sobreajuste si el modelo es demasiado expresivo y no hay muchos datos
+
+![](/img/aprendizaje_automatico/redes_neuronales.png)
+
+
+El early stopping nos dice el número máximo de iteraciones. 
+Una iteración es una época. 
+Los datos de validación evalúan el error por cada época o iteración. 
+
+![](/img/aprendizaje_automatico/early_stopping.png)
