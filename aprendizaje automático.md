@@ -469,3 +469,130 @@ Una iteración es una época.
 Los datos de validación evalúan el error por cada época o iteración. 
 
 ![](/img/aprendizaje_automatico/early_stopping.png)
+
+### Deep Learning
+
+18/04
+
+![](/img/aprendizaje_automatico/representation_learning.png)
+
+El Deep Learning consiste en redes neuronales con muchas capas. Básicamente, los modelos de Deep learning van creando representaciones de los datos, una tras otra cada vez más sofisticadas, cada una a partir de la anterior.
+Y llega un momento que la representación es tan buena que el problema ya es muy fácil de resolver. Lo que pretenden es ahorrar buena parte (no todo, porque siempre hay que siempre hay que preparar un poco los datos), del ETL (del procesamiento previo de los datos antes de de alimentar con ellos al modelo predictivo), pues tradicionalmente se ha hecho de forma manual, lo que es el Feature Engineering. Pues esto con el Deep learning.
+
+
+
+#### Representation Learning 
+
+![](/img/aprendizaje_automatico/representation_learning_2.png)
+
+
+#### ¿Por qué no añadir más y más capas para conseguir mejores resultados?
+
+A medida que pasa por más capas de la red neuronal, la información mejora, pero con 3 o 4 capas comienzan a surgir problemas.
+
+##### Vanishing Gradient
+- Desvanecimiento del gradiente. El gradiente se refiere al gradiente de la función de error respecto a los parámetros de la red, que es lo que en el método de back-propagation se va calculando capa a capa desde la salida hacia la entrada.
+- Se observó es que este gradiente en las capas más cercanas a la salida de la red tenía un módulo grande al comienzo pero al entrenar el modelo de iteración a iteración, a medida que se iba propagando a través de las capas hacia la entrada de la red, el gradiente sigue haciendo cada vez más pequeño: se iba desvaneciendo el gradiente.
+Durante el back-propagation entonces,  si el gradiente es muy pequeño, las capas no se entrenan porque los valores de sus parámetros apenas varían de iteración en iteración. 
+
+
+###### Causas del vanishing gradient 
+
+1. EL uso de funciones de pérdidas inapropiadas: en regresión, MSE y en clasificación cross-entropy. Aunque es el menor de los problemas porque hoy en día se sabe qué función de pérdida se debe utilizar para el tipo de modelo de aprendizaje (predicción o clasificación)
+2. Función de activación escogida: 
+    - Las funciones de activación tradicionales están acotadas y se saturan fácilmente. 
+    - Esto hace que al apilar muchas capas el gradiente de la función de error tiende a 0. Las capas ya no pueden entrenar más.
+    - Si el gradiente es muy pequeño, el entrenamiento es muy lento. 
+    - Uno de los problemas es la función de activación que se estaba usando que era la función sigmoide (tiene asíntotas horizontales en los extremos)
+    - Por lo tanto, se introdujo una nueva función que se llama ReLU, que es muy fácil de computar. Como beneficio es que podemos tener más ciclos de entrenamiento. 
+3. Inicialización de los pesos de las neuronas: 
+    - Tradicionalmente en una red neuronal los pesos se inicializan aleatoriamente, lo que se hacía para generar esos valores aleatorios iniciales era una distribución uniforme en un intervalo que venía determinado por el número de neuronas que tenía cada capa. Por ejemplo, si estoy inicializando una capa de 10 neuronas, pues levanto una distribución uniforme con los intervalos definidos en función de esas 10 unidades.
+    - Glorot y Bengio demostraron en el paper *Understanding the difficulty of training deep feedforward neural networks*" que para conseguir que el gradiente de la función de error, se mantenga en unas magnitudes más o menos constantes, capa a capa, hay que tener en cuenta no solo el tamaño de la propia capa que se está inicializando, sino también el tamaño de la siguiente capa (aquella donde le llega el error) y además, la función de activación que se usa en las capas. En función de ya no solo las unidades de la capa, sino en función de estas 3 cosas, la incialización del back propagation funciona muchísimo mejor. 
+
+
+![Función relu](/img/aprendizaje_automatico/relu.png)
+
+
+![Función sigmoide](/img/aprendizaje_automatico/funcion_sigmoide.png)
+
+
+Cuando se abordan estos 3 puntos el vanishing gradient deja de ser un problema. No obstante, cuando tenemos una gran cantidad de datos, otro problema puede surgir. 
+
+
+##### Internal Covariate Shift
+- Los modelos lineales y las redes neuronales necesitan entradas estandarizadas para entrenarse correctamente con métodos basados en descenso por gradiente. 
+- Las capas ocultas reciben las activaciones de las capas previas no estandarizadas
+    - Si estandarizas las variables te quitas el problema en la primera capa pero la primera capa transforma los datos con una función de activación que devuelve una salidas con rangos muy heterogéneos: unas serán muy grandes, otras serán muy pequeñas.
+    - Estandarizar la variable solo te resuelve el problema en el primer nivel. 
+- Esto produce los problemas de convergencia que teníamos al entrenar una regresión sin variables estandarizadas.
+
+**¿Cómo se debe resolver esto?**
+
+Se hace una estandarización, capa por capa por por mini-batches durante el entrenamiento, o sea, las activaciones de cada capa se estandarizan con cada mini batch de datos. Esta es una técnica que en general no suele hacer falta, pero puede ser un problema en una red neuronal muy grande.
+
+##### Recomendaciones al crear un modelo de Deep Learning: inicalización, activación y regulación
+
+- Se debe inicializar los pesos con una distribución que produzca gradientes del error
+grandes y de la misma magnitud en todas las capas
+- Hay que utilizar funciones de activación que no saturen tan fácilmente como las
+clásicas
+- Se deben utilizar técnicas de regularización basadas en ruido y normalizar batches
+de datos entre las capas ocultas (batch-normalization para evitar el internal covariate shift y también técnicas basadas en ruido para evitar sobreajustes, como el dropout, que es una técnica de regularización que desactiva aleatoriamente durante el entrenamiento unidades en la capa. Como consecuencia, el modelo tiene el entrenamiento más complicado para evitar el sobreajuste y que cada una de las neuronas sean "útiles" sin confiar  que las demás vayan a serlo, ya que si desactivamos una neuronas, el modelo debe ser consistente para procesar la información con la la misma calidad de aprendizaje que con las neuronas activadas). 
+
+
+![](/img/aprendizaje_automatico/convolucion.png)
+
+
+### Datos espaciales y redes convolucionales 
+
+Las redes convolucionales están adaptados para una estructura espacial o en forma de rejilla (imágenes por ejemplo). El orden de las columnas de la matriz sí importa. 
+
+Un modelo clásico no entiende que pueda haber un orden en las columnas (una neurona simple, un árbol de decisión). Le da igual que las columnas vengan en un orden u otro. 
+
+![](/img/aprendizaje_automatico/redes_convolucionales.png)
+
+![](/img/aprendizaje_automatico/convolucionales-2.png)
+
+Ejemplo de una red convolucional
+
+![](/img/aprendizaje_automatico/convolucionales-3.png)
+
+Las redes neuronales no solo aplican para imágenes o videos sino también para cualquier dato que esté en forma de rejilla (datos meteorológicos)
+
+### Datos temporales y redes recurrentes 
+
+Los datos temporales pueden ser los datos bursátiles, donde las filas tienen un orden cronológico por timestamp. 
+
+¿Cómo consiguen la memoria las neuronas recurrentes para saber que lo que están recibiendo son datos con estructura temporal? Bueno, pues la forma básica de neuronas recurrente es simplemente coger una neurona y hacerle una, una conexión de realimentación.
+
+Le da a la neurona una memoria muy corta. 
+
+![](/img/aprendizaje_automatico/redes_recurrentes_2.png)
+
+Ejemplos de información que funcionan bien con redes recurrentes son: videos, lenguaje natural, etc. 
+
+
+![](/img/aprendizaje_automatico/redes_recurrentes.png)
+
+###  Transformers y NLP
+
+![](/img/aprendizaje_automatico/nlp_transformer.png)
+
+### Resumen 
+
+Funciona bien en los problelmas en los que: 
+- Los datos tienen estructura espacial o temporal. 
+- El conjunto de datos es grande. 
+
+Ejemplos: 
+- Imágenes (convolucional)
+- Video (convolucional y recurrente)
+- Procesamietno de voz (recurrente)
+- Lenguaje natural (recurrente o transformer)
+- Series temporales (recurrente)
+
+### Librerías
+
+- Keras (es como Scikit-learn pero más complicado)
+- Torch / PyTorch
+- Las GPU ayudan mucho 
