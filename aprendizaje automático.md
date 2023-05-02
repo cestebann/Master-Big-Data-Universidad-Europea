@@ -596,3 +596,101 @@ Ejemplos:
 - Keras (es como Scikit-learn pero más complicado)
 - Torch / PyTorch
 - Las GPU ayudan mucho 
+
+
+
+
+## Aprendizaje supervisado 
+25/04
+
+### Aprendizaje de reglas
+
+#### Métodos simbólicos
+
+- La corriente dominante de la IA hasta el auge del Aprendizaje Automático fue la de los Métodos Simbólicos.
+- Los Sistemas Expertos forman parte de esta rama de la IA.
+- Hoy en día son menos populares que el Aprendizaje Automático, pero siguen siendo muy utilizados y en muchas ocasiones complementan a los modelos de Aprendizaje Automático.
+- Producen modelos fácilmente comprensibles e interpretables gracias a su manipulación explícita de las variables.
+- La principal limitación de los Sistemas Expertos es el enorme coste que tiene la generación de su base de datos de reglas de conocimiento. Esto llevó al desarrollo de algoritmos de aprendizaje de reglas buscando al automatización de dicho proceso.
+- Existen numerosos algoritmos de aprendizaje de reglas. PRISM es un ejemplo.
+
+
+#### PRISM 
+
+- PRISM (Programming In Statistical Modeling) es uno de los algoritmos de aprendizaje de reglas más conocidos.
+- En cada paso construye una regla con un test sobre una variable que cubre un conjunto de ejemplares y se mide su nivel de acierto para el target. Se guarda la regla con mejor nivel de acierto. Se continua el proceso iterativo con los ejemplares cubiertos por la regla. El proceso termina al conseguir reglas con 100% de acierto para todos los ejemplares o cuando ya no hay más variables que utilizar.
+- La evolución de este tipo de procedimientos da lugar a los modelos simbólicos de Aprendizaje Automático. En particular los Árboles de Decisión.
+
+### Árbol de decisión 
+
+- Son modelos de caja blanca (muy fáciles de interpretar, junto con los modelos lineales y de K-vecinos.)
+- Son modelos de Aprendizaje Automático en los que las variables se manipulan de forma explícita, siendo los más fácilmente interpretables y sencillos de comprender junto con los modelos lineales y de vecinos.
+- Los Árboles de Decisión son una evolución de los Sistemas Expertos y los algoritmos de Aprendizaje de Reglas. Los Árboles de Decisión construyen un conjunto de reglas de manera automática a partir de los datos etiquetados.
+
+![](/img/aprendizaje_automatico/arbol_decision.png)
+
+En este diagrama podemos apreciar que tiene una profundidad de 4 ramas, las ramas son los recuadros con bifurcaciones. Además, tenemos las hojas que son los recuadros al final de de las ramas. Sumando todas las hojas, debe resultar el tamaño del dataset utilizado 
+
+#### Parámetros
+
+- **Profundidad:** El número de ramas que puede tener el árbol. Habitualmente, se usa una profundidad de 3-6. El número de hojas va a a ser 2^n, siendo n la profundiad. 
+- Criterio de calidad de los cortes
+- Estrategia para realizar el corte
+- Número mínimo de elementos por hoja
+- Número mínimo de elementos para cortar
+
+![](/img/aprendizaje_automatico/arbol_decision_2.png)
+
+Las fronteras de clasificación utilizando el modelo de árbol de decisión son perpendiculares a los ejes y tiene sentido porque estamos cortando las variables. 
+
+![](/img/aprendizaje_automatico/arbol_decision_3.png)
+
+### Ensembles
+
+Un solo árbol de decisión, por lo general no son muy potentes. Existen formas de mejorar un modelo de machine learning, que es construir *ensembles*: combinar modelos que ayudan a obtener mejores resultados. Aplica a los árboles de decisiones especialmente, porque si les cortamos la profundiad, son muy robustos y ajustan muy poco: son weak learners. 
+
+
+Técnicas de combinación de modelos (ensembles)
+• Bagging (Bootstrap aggregating)
+• Boosting
+• Stacking
+• Otras
+
+#### Bagging (Bootstrap aggregating)
+
+Es una forma de construir ensembles. Una característica que tenemos que asegurar en los modelos es que exista diversidad: los modelos deben ser muy distintos entre ellos, porque así mejoramos la predicición de los datos. 
+
+- En bagging, la diversidad la conseguimos particionando el dataset. 
+- Utilizamos varios árboles de decisión y les damos a cada uno una partición del dataset.
+-  Se entrenan por separado y en paralelo. 
+- Cada árbol emite su voto de predicción. 
+- Se elige como predicción global la clase mayoritaria más votada. 
+- Como resultado, reduce la varianza de las predicciones. 
+- El modelo más popular es el Random Forest. Funciona excelentemente para datos tabulares. No es un bagging simple, agrega una característica mayor a la diversidad: No solo reparte una partición del dataset a cada variable, sino que también discrimina las variables y las reparte a los diferentes árboles de decisión. De esa manera diversifica la capacidad de predicción de los modelos. 
+
+
+#### Boosting 
+
+- Cada modelo se entrena dando más importancia al subconjunto de los datos que obtuvo malas predicciones con los modelos entrenados anteriormente. 
+    - Una vez entrenado el árbol de decisión, se pasa sobre el dataset, se generan las predicciones, se calculan las métricas de de los scores.
+    - Y los datos para los que las métricas son peores se les da más importancia en el dataset para la siguiente iteración: se sobremuestrean.
+    - Tenemos un nuevo dataset en el que están los datos originales, pero además los datos para los que la predicción del modelo entrenado en primer lugar no fue muy buena, esos aparecen más veces y tienen más peso claro, van a tener más influencia en el entrenamiento del siguiente modelo. 
+    - Se entrena un segundo árbol de decisión y esta vez con el data SET ya modificado. Entonces, ese nuevo rol de decisión va a aprender a hacer mejores predicciones en los datos en los que el primero falló porque esos datos aparecen más durante su entrenamiento.
+    - Añadimos este segundo árbol de decisión al ensemble que ya teníamos con el primer árbol de decisión, lo aplicamos al dataset de entrenamiento, y otra vez habrá datos con buenas predicciones y malas predicciones. 
+    - Los datos con malas predicciones se vuelven a sobremuestrear y así se entrena un tercer modelo y se añaden al ensemble, y así sucesivamente. 
+    - En resumen, se agrega un nuevo modelo en cada iteración, y el nuevo modelo se enfoca en los datos para los que no se predice bien en el ensemble hasta ese momento. 
+-  Entrenamiento secuencial, no paralelizable. 
+- Reduce el sesgo de las predicciones
+- Los ejemplos más conocidos son AdaBoost(Scikit-learn), Gradient Boosting (Scikit-learn) y Extreme Gradient Boosting (**es excelente para datos tabulares, junto con los random forests**).
+
+![](/img/aprendizaje_automatico/bagging.png)
+
+
+#### Stacking
+
+- No es muy utilizado. 
+- Se entrena un modelo para combinar las predicciones de un conjunto heterogéneo de modelos (una red neuronal, un árbol de decisión, máquina de soporte, un random forest, etc.)
+
+
+
+

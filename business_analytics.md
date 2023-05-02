@@ -6,8 +6,8 @@
 - 30 de Marzo: Jordi Malo (TIC)
 - 13 de Abril: Daniel Domínguez (geolocalización)
 - 20 de Abril: Marta Abanades (sábado) (RRHH)
--  27 de Abril: Mónica Tévar (Gestión de clientes - CRM)
--3 de Mayo: Hugo Tamashiro (Marketing)
+- 27 de Abril: Mónica Tévar (Gestión de clientes - CRM)
+- 3 de Mayo: Hugo Tamashiro (Marketing)
 -  11 de Mayo: Elena Igualada (Finanzas)
 
 
