@@ -14,8 +14,11 @@ Máster Online Big Data Analytics de la Universidad Europea de Madrid 2022/23
 # Segundo Semestre
 
 1. [Aprendizaje Automático](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/aprendizaje%20autom%C3%A1tico.md)
-2. Business Analytics
+2. [Business Analytics](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/business_analytics.md)
 3. Procesamiento de datos
+4. [Visualización de Datos](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/Visualizaci%C3%B3n%20de%20datos.md)
+
+# Optativas
 
 
 # Experto Universitario
