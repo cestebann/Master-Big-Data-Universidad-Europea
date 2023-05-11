@@ -694,3 +694,101 @@ Es una forma de construir ensembles. Una característica que tenemos que asegura
 
 
 
+5/05/2023 
+
+Práctica 2
+- Hacer un estudio con técnicas no supervisadas para agrupar los clientes en distintas categorías y luego qué se puede hacer con ello. 
+- Ser rigurosos con la metodología. 
+
+
+Práctica 3. Reconocimiento de dígitos manuscritos
+
+- Hacer una mejora en el código. 
+
+# Aprendizaje no supervisado 
+
+En este caso el target (y) no está disponible como en el caso del Aprendizaje Supervisado.
+Veremos dos tipos de técnicas de Aprendizaje No Supervisado:
+
+- Clustering: El objetivo es agrupar los datos. 
+- Reducción dimensialidad. 
+
+## Clustering 
+
+El objetivo es agrupar los datos en un número prefijado de categorías o “clusters” que tengan sentido. 
+
+Aunque el target no está disponible, y por tanto no hay una “respuesta correcta”, sí hay una serie de métricas que permiten estimar la bondad de los clusters obtenidos.
+
+
+![](/img/aprendizaje_automatico/clustering.png)
+
+La inercia es equivalente al MSE en regresión pero extrapolado a la clasificación. La inercia es la suma de la distancia de los puntos y los puntos del centroide del clúster asignado a esos puntos. Esa distancia se llama residuos. En pocas palabras, la inercia es la suma de los residuos. Cuanto menor sea la inercia, más concentrados estarán los puntos. 
+
+### K-means
+
+Una vez elegido el número de clusters K y el umbral mínimo de su loss function (normalmente inertia), sigue un proceso iterativo:
+
+-  Elige aleatoriamente K centroides entre las muestras
+- Itera los siguientes pasos:
+- Asigna a cada muestra el centroide más cercano
+-  Crea nuevos centroides como la media de las muestras asignadas a cada cluster
+-  Si la loss cae debajo del umbral, termina
+
+https://youtu.be/2kfY0R34Dy0?t=156
+
+- No funciona bien cuando hay clusters de tamaños muy distintos
+- Es muy inestable y sensible a outliers
+- Su resultado depende de la inicialización
+
+![](/img/aprendizaje_automatico/k_means.png)
+
+![](/img/aprendizaje_automatico/k_means_2.png)
+
+![](/img/aprendizaje_automatico/k_means_3.png)
+
+![](/img/aprendizaje_automatico/k_means_4.png)
+
+![](/img/aprendizaje_automatico/k_means_5.png
+
+### Hierarchical Clustering
+
+
+-  Es una familia de métodos de clustering que funcionan generando una jerarquía de clusters anidados que dividen o unifican
+sucesivamente
+- Tipo aglomerativo: enfoque bottom-up, empieza con un cluster por cada dato y va fusionando clusters
+- Tipo divisivo: enfoque top-down, empieza con un cluster para todos los datos y va dividiendo clusters
+
+
+### Gaussian Mixture
+
+- Supone que los datos están generados por una mezcla de un número finito de distribuciones gaussianas con parámetros
+desconocidos. Cada una de esas gaussianas se corresponde con un cluster.
+- Es parecido al modelo K-Means, pero además de los centroides estima también las covarianzas de los datos.
+- Se entrena con el algoritmo Expectation-Maximization (EM)
+
+https://en.wikipedia.org/wiki/Expectation%E2%80%93maximization_algorithm#Examples
+
+![](/img/aprendizaje_automatico/comparacion.png)
+
+## Reducción de Dimensionalidad
+
+### Principal Component Analysis 
+
+![](/img/aprendizaje_automatico/pca.png)
+
+
+### Kernel Principal Component Analysis 
+
+- PCA se expresa en términos de XtX, por tanto se puede utilizar el truco del kernel para aumentar su expresividad y conseguir transformaciones no lineales.
+- Al igual que con otros métodos kernel, existen una gran variedad opciones como kernel, pero la más habitual es de nuevo el kernel RBF o gaussiano.
+- El uso de kernel confiere a PCA mucha más expresividad, a cambio de un coste computacional mayor en entrenamiento e inferencia.
+
+### Indpendent Component Analysis 
+
+- También es un método de transformación lineal
+- En este caso, el criterio es el de minimizar la información mutua entre las distintas componentes generadas
+- Su uso más habitual es el de separar señales, por ejemplo en una grabación de audio en la que se oye a varias personas hablar, se podría utilizar ICA para obtener por separado las señales de audio de cada persona.
+
+
+## Ejercicio práctico
+

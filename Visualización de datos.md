@@ -55,12 +55,37 @@ Profesor: Sandra Becker
 
 # Unidad 1. Introducción a la visualización de datos
 
+## Objetivos
+Los objetivos que se pretenden alcanzar con este recursos son los siguientes: 
+- Conocer el mundo y cómo se define la visualización de datos
+- Aprender los objetivo sy el por qué de la visualización de datos. 
+- Familiarizarse con el flujo de la creación a través de algunos ejemplos. 
+
+## Intro
+
+### ¿Qué significa la visualización de datos? 
+
+![](/img/visualizacion/insights.png)
+
+> El objetivos de la visualización es de elucidar a las personas. No es de entretener a ellos, no es de vender productos, servicios o ideas a ellos, es de informarles. Es tan fácil  y tan complicado como eso. - A. Cairo. 
+
+### Flujo de la Creación 
+
+![](/img/visualizacion/flujo_creacion.png)
+
+
 ¿Para qué necesitamos visualizar los datos? 
 
 - Para entender los datos de manera sencilla
-- Para tomar decisiones rápidamente. 
+- Para tomar decisiones rápidamente.
+- Proponer nuevas preguntas
+- Conoctar ideas. 
+- Responder a preguntas. 
+- Mostrar patrones
+- Descubrir los unknown unknowns. 
 
-¿Cómo ha cambiado el Big Data a la visualización de datos? 
+
+### Caso de uso: ¿Cómo ha cambiado el Big Data a la visualización de datos? 
 
 - La compilación de muchos datos en pocas gráficas. 
 - Le agrega complejidad, para la limpieza y el procesamiento de datos. 
@@ -85,7 +110,9 @@ El big data nos permite hacer un zoom out enorme de nuestros datos para encontra
 ![](/img/visualizacion/big_data_3.png)
 
 
-## Predicción 
+### Caso de uso: Predicción 
+
+Las predicciones tienen mucho peso hoy en día, pero son naturalmente inciertas, lo cual se puede representar visualmente con la transparencia por ejemplo. 
 
 Si vamos a generar predicciones, también tenemos que calcular la predicción de que ocurra dicha predicción. 
 
@@ -93,3 +120,150 @@ Si vamos a generar predicciones, también tenemos que calcular la predicción de
 
 ![](/img/visualizacion/pasos.png)
 
+### Caso de uso: simulación 
+
+![](/img/visualizacion/simulacion.png)
+
+
+### Caso de uso: Storytelling
+
+![](/img/visualizacion/stortytelleing.png)
+
+
+### Caso de uso: algoritmo 
+
+![](/img/visualizacion/algoritmo.png)
+
+### Data Art
+
+La visualización de datos también incluye un aspecto de belleza que a veces es la única razón para su creación y se llama "DataArt"
+
+![](/img/visualizacion/art.png)
+
+
+## Tipos de visualización de datos 
+
+### Objetivos
+
+- Conocer lso diferentes tipos de visualización 
+- Aprender la importancia de elegir el tipo adecuado. 
+- Entender cómo el uso de la interactividad puede influir el tipo de la visualización 
+
+### Diferentes tipos de la visualización de datos
+
+![](/img/visualizacion/un_conjunto_25_vis.png)
+
+
+#### Un conjunto de datos, 25 visualizaciones
+
+https://flowingdata.com/2017/01/24/one-dataset-visualized-25-ways/
+
+
+#### Catálogos
+
+[Data viz project](https://www.datavizproject.com)
+
+
+[Data viz project. Muestra qué tipo de visualización se puede crear en función de la información](https://www.data-to-viz.com)
+
+![](/img/visualizacion/catalogo)
+
+
+
+### Spaguetti plot
+
+![](/img/visualizacion/catalogo)
+
+Con todas las líneas, coloes y puntos es muy difícil ver el comportamiento y los patrones de los datos. 
+
+
+#### Highlighting
+
+en el fondo siguen las líneas, pero con el highlighting reforzamos las líneas que que queremos que el usuario vea. 
+
+![](/img/visualizacion/highlighting.png)
+
+#### Filtering
+
+
+![](/img/visualizacion/filtering.png)
+
+#### Small Multiple
+
+La idea es mostrar a lo largo del itempo varias visualizaciones a la vez. 
+
+![](/img/visualizacion/small_multiple.png)
+
+#### Filtering & Linked Highlighting
+
+![](/img/visualizacion/filtering_linked_highlighting.png)
+
+#### Small multiple, Filtering & Highlighting
+
+![](/img/visualizacion/small_multiple_filtering_highlighting.png)
+
+## Visual Encodings
+
+### Objetivos
+
+- Entender qué son los visual encodings y cómo se usan. 
+- Presentar los diferentes tipos de visual encodings y su fiuncionamiento a través de diferentes ejemplos: colores y posición. 
+- Demostrar el uso adecuado de los visual encodings. 
+
+### ¿Qué es un visual encoding? 
+
+#### Seeing = Understanding
+
+![](/img/visualizacion/visual_encoding.png)
+
+
+
+#### ¿Qué es un visual encoding? 
+
+Un visual encoding es traducir cualquier información cuantitativa o categórica a un elemento visual, y por otro lado cuando la persona mira a la visualización, pueda descodificar esta información intuitivamente. 
+
+![](/img/visualizacion/visual_encoding_2.png)
+
+
+De acuerdo a los tipos: 
+
+![](/img/visualizacion/visual_encoding_3.png)
+
+Los más importantes son: 
+
+- Color
+- Posición 
+- Saturación 
+- Tamaño 
+
+
+
+#### Los más adecuados 
+
+![](/img/visualizacion/los_mas_adecuados.png)
+
+### Color 
+
+
+
+#### Color wheel
+
+![](/img/visualizacion/color.png)
+
+
+
+#### Herramientas online
+
+![](/img/visualizacion/color_brewer.png)
+
+![](/img/visualizacion/color_adobe.png)
+
+![](/img/visualizacion/viz_palette.png)
+
+#### Ejemplos
+
+![](/img/visualizacion/ejemplo.png)
+
+![](/img/visualizacion/ejemplo_2.png)
+
+![](/img/visualizacion/ejemplo_3|.png)
