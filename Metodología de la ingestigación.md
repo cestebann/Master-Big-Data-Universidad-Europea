@@ -30,6 +30,12 @@ La evaluación se hace mediante dos actividades. Las actividades son parte de la
 
 Cubrir los apartados del formulario. 
 
+### Recursos para las actividades
+
+- ScienceDirect
+- Google Academico 
+- Web of Science
+
 # Unidad 1. Proceso de investigación científica
 
 
