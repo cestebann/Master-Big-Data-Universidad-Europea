@@ -55,3 +55,24 @@ Unidad 6. Análisis de documentos y textos
 Fuentes de datos: kaggle.com
 
 
+# Examen
+
+- Variables númerica
+- iloc /loc
+- media /mediana / moda
+- métodos robustos
+- boxcox, normalización
+- 
+
+## Práctico
+
+- Con código 
+- Importar libs
+- tamaño
+- head / tail
+- contar valores faltantes
+- medias estadísticas
+- histogramas, boxplot
+- filtrar df
+- usar lambda y apply 
+- 

@@ -790,5 +790,182 @@ https://en.wikipedia.org/wiki/Expectation%E2%80%93maximization_algorithm#Example
 - Su uso más habitual es el de separar señales, por ejemplo en una grabación de audio en la que se oye a varias personas hablar, se podría utilizar ICA para obtener por separado las señales de audio de cada persona.
 
 
-## Ejercicio práctico
 
+# Unidad 4. Evaluación del aprendizaje
+
+## Métricas e interpretabilidad 
+
+La selección de la métrica es una de las decisiones más importantes y primeras que se deben hacer .
+
+### Métricas 
+
+- Ayudan a entender si el modelo entrenado será de utilidad en la práctica.
+-  Se aplican una vez el modelo está entrenado, ya sea a una partición de test o haciendo validación cruzada.
+- Suelen ser más fácilmente interpretables que las funciones de pérdida que se usan para entrenar los modelos. A veces una función de pérdida se puede utilizar también como métrica (MSE, por ejemplo).
+- Elegir una métrica apropiada puede tener gran importancia para conseguir el modelo más adecuado para un problema dado. Por ejemplo, cuando se trabaja con un problema de clasificación muy desbalanceada o cuando un error de clasificación puede tener mayor o menor gravedad dependiendo de la clase.
+
+#### Clasificación 
+
+- **Eficacia del modelo:** cómo de bueno es realizando predicciones.
+- **Eficiencia del modelo:** su velocidad a la hora de entrenarse o predecir, el coste computacional y de almacenamiento, etc.
+- **Compacidad y expresividad del modelo:** la cantidad de parámetros que tiene (Principio de Parsimonia/Navaja de Okham),las hipótesis que hace sobre los datos, la capacidad expresiva que tiene, etc.
+- **Claridad e inteligibilidad del modelo:** lo fácil que es entenderlo e interpretar sus predicciones (caja blanca, caja negra). 
+
+#### Tipos 
+
+##### Regresión 
+
+![](/img/aprendizaje_automatico/metricas_regresion.png)
+
+
+![](/img/aprendizaje_automatico/metricas_regresion_2.png)
+
+##### Clasificación
+
+![](/img/aprendizaje_automatico/metrica_clasificacion.png)
+
+
+- Matriz de confusión: Además de indicar los aciertos y errores, indica en qué clases es más propenso el modelo a fallar. 
+- Curva ROC
+- AUC: Es una muy buena métrica para clasificación desbalanceada. Es mejor que *accuracy*. Por defecto, está definida para clasificación binaria. 
+
+
+#### Clustering 
+
+![](/img/aprendizaje_automatico/metricas_clustering.png)
+
+### Interpretabilidad 
+
+- Algunos modelos como los lineales o los árboles de decisión son fáciles de interpretar y es sencillo determinar qué peso ha tenido cada variable en sus predicciones.
+- Sin embargo, en modelos como los métodos kernel o las redes neuronales, esto no es así. Estos modelos se llaman por ello modelos “de caja negra”.
+- En algunas aplicaciones, esta dificultad para interpretar los modelos y sus predicciones hace que los modelos de caja negra deban ser descartados, a pesar de que puedan ofrecer mejores resultados que modelos más fácilmente interpretables.
+- En los últimos años se han desarrollado algunas técnicas para poder entender mejor el funcionamiento interno de los modelos de caja negra y atribuir “pesos” a las variables de entrada a la hora de hacer predicciones.
+
+#### SHAP Values
+
+
+- Es una técnica de Teoría de Juegos, y permite explicar las predicciones de un modelo de Aprendizaje Automático midiendo la contribución marginal de cada una de las variables en la predicción.
+
+https://shap.readthedocs.io/en/latest/example_notebooks/overviews/An%20introduction%20to%20explainable%20AI%20with%20Shapley%20values.html#Explaining-a-linear-regression-model
+
+- LIME (https://github.com/marcotcr/lime)
+- ELI5 (https://eli5.readthedocs.io)
+
+# Búsqueda de metaparámetros 17/05
+
+Práctica de la red convolucional
+
+- Scikit-learn
+- keras
+- Tensor Flow
+
+¿Cómo elegir los mejores meta-parámetros para cada modelo?
+
+Normalmente no se sabe que meta-parámetros van a producir el mejor modelo, así que se prueban distintas combinaciones (habitualmente no se pueden probar todas) y se elige la mejor.
+
+## Técnica de búsqueda de meta-parámetros 
+- Rejilla
+- Aleatoria
+- Bayesianas
+- Otras
+
+Se suele usar CV para evaluar cada una de las combinaciones de meta-parámetros. 
+
+## Búsqueda en rejilla (GridSearchCV)
+
+- Se especifican los posibles valores que puede tomar cada meta-parámetro.
+- Se prueban todas las combinaciones posibles.
+- Para más de 2 ó 3 meta-parámetros suele ser poco práctico.
+- Paralelizable (con varios CPUs o un clúster en HDFS o Spark)
+
+## Búsqueda aleatoria (RandomizedSearchCV)
+
+- Se especifican las distribuciones de probabilidad de cada meta-parámetro
+- Se prueba un número fijo de combinaciones
+- Es la opción más utilizada cuando la búsqueda en rejilla no es posible
+- Paralelizable
+
+![](/img/aprendizaje_automatico/metaparametros.png)
+
+## Búsqueda Bayesiana (BayesSearchCV)
+
+- Se especifican las distribuciones de probabilidad de cada meta-parámetro
+- Se prueba un número fijo de combinaciones
+- Un modelo predictivo (normalmente un proceso gaussiano) guía la búsqueda hacia regiones donde los resultados son mejores
+- Es la opción más costosa y no es paralelizable, pero es muy interesante para modelos complejos
+
+![](/img/aprendizaje_automatico/bayesSearch.png)
+
+Voy probando con varios parámetros, entreno el modelo con esa configuración y guardo el score. A partir de esta información construimos un "metamodelo" regresor que nos permite predecir los valores del score a partir de una configuración de parámetros. Por lo tanto, cuando se seleccionan los metaparámetros se predice el score, si es muy bajo, entonces no se utiliza para el entrenamiento y se descarta. 
+
+
+Cross-Val anidado vs. No anidado 
+
+https://scikit-learn.org/stable/auto_examples/model_selection/plot_nested_cross_validation_iris.html#sphx-glr-auto-examples-model-selection-plot-nested-cross-validation-iris-py
+
+
+Para abrir el notebook es necesario descargar: 
+
+
+´´´ bash
+scikit-optimize con conda forge 
+´´´
+
+## Otras
+
+- Particle Swarm 
+- Algoritmos Genéticos y Estrategias Evolutivas (https://rednuht.org/genetic_cars_2/)
+
+
+
+# Unidad 1. Introducción al aprendizaje automático
+
+## Objetivos 
+
+Los objetivos que se pretenden alcanzar en este recurso son los siguientes:
+- Conocer las aplicaciones del aprendizaje automático.
+- Comprender en qué consiste este proceso y cuál es su motivación.
+- Entender el contexto del proceso y su relación, sobre todo, con otros conceptos como la inteligencia artificial, la ciencia de datos y otros relacionados
+
+![](/img/aprendizaje_automatico/intro.png)
+
+## Sistemas basados en conocimientos
+
+![](/img/aprendizaje_automatico/sistema_basado_en_conocimiento.png)
+
+![](/img/aprendizaje_automatico/sistema_basado_en_conocimiento_2.png)
+
+## Aprendizaje automático 
+
+> Aprendizaje automático: "Sistemas que aprenden a cambiar su comportamiento de modo que resulten m{as efectivos en el futuro". 
+
+> A computer program is said to learn from experience E with respecto to some Task T and some performance measure P, if its performance on T, as measured by P, impreves with experience E." - Tom Mitchell, Carnegie Mellon University
+
+### Ventajas e inconvenientes
+
+![](/img/aprendizaje_automatico/ventajas_inconvenientes.png)
+
+![](/img/aprendizaje_automatico/ejemplo_aprendizaje_auto.png)
+
+### Léxico 
+
+- Data mining - fase de aprendizaje propiamente dicho. 
+- Data analysis fase de comprensión y preparación del dato previa al aprendizaje
+- Data Science, ciencia de datos - Todos los procesos relacionados incluyendo con el aprendizaje y también de negocio, incluyendo desde la captura de requisitos y definiciión del caso de uso, análisis, aprendizaje autommático y reporting de resultados, hasta la operativización o industrialización de los modelos construidos. 
+
+
+
+## El marco de la IA 
+
+La inteligencia artificial es la ciencia que se encarga de desarrollar sistemas y de investigar cómo realizan los seres humanos unas determinadas tareas. Son sistemas que tienen que estar orientados a automatizar o a imitar las capacidades humanas en ámbitos en los que actualmente los sistemas o seres humanos son mucho más efectivos que las máquinas
+
+![](/img/aprendizaje_automatico/IA.png)
+
+## Conclusiones
+
+- El objetivo final del AA es la automatización de tareas realizadas usualmente por seres humanos. 
+- Se contrapone fundamentalmente a los sistemas expertos, en los que las decisiones se toman por medio de reglas introducidas por un ingeniero del concoimiento en base a un experto (médico, etc. )
+- El AA es la capacidad de un sistema software de mejorar su rendimiento con la experiencia. 
+- Son sistemas automáticos, portables, eficaces y escalables. 
+- Se corresponde con la fase de minería de datos en el KDD, y está en el centro de la ciencia de datos y de la analítica. 
+- Se corresponde con una de las capacidades humanas que son objeto de estudio por la IA. 

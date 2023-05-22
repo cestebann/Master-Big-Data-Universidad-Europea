@@ -267,3 +267,20 @@ Los más importantes son:
 ![](/img/visualizacion/ejemplo_2.png)
 
 ![](/img/visualizacion/ejemplo_3|.png)
+
+Unidad 3. Visualización dinámica con D3.js/Observable - I
+
+El objetivo de esta unidad es familiarizarse con el mundo de la programación y específicamente la librería de D3.js. Se muestra sobre todo el funcionamiento de las tecnologías fundamentales, en el entorno de D3.js. Después se explica cómo manejar los datos y los funciones principales de D3.js (selecciones, escalas y ejes).
+
+## D3 - Data-Driven Documents
+
+https://d3js.org/
+
+![](/img/visualizacion/d3.png)
+
+![](/img/visualizacion/svelte.png)
+
+D3.js es una librería escrita en Javascript, pero afecta a la página. 
+
+![](/img/visualizacion/d3_2.png)
+
