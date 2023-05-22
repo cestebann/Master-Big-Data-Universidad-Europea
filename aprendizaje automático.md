@@ -29,7 +29,10 @@ Profesor: David Díaz Vico
     - Análisis semántico y sentimientos.
     - Clasificación de imágenes con ML ‘clásico’
     - Introducción a Pytorch.
-    - Detección de imágenes con Deep learning
+    - Detección de imágenes con 
+    
+    
+    
 - Unidad 6. Ética de la Inteligencia Artificial
     - Directrices éticas para el desarrollo de modelos de IA
     - Detección de sesgos
@@ -570,6 +573,9 @@ Le da a la neurona una memoria muy corta.
 ![](/img/aprendizaje_automatico/redes_recurrentes_2.png)
 
 Ejemplos de información que funcionan bien con redes recurrentes son: videos, lenguaje natural, etc. 
+
+Para más información 
+http://colah.github.io/posts/2015-08-Understanding-LSTMs/
 
 
 ![](/img/aprendizaje_automatico/redes_recurrentes.png)
