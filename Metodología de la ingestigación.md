@@ -36,6 +36,10 @@ Cubrir los apartados del formulario.
 - Google Academico 
 - Web of Science
 
+![](/img/optativas/web_science.png)
+
+![](/img/optativas/web_science_2.png)
+
 # Unidad 1. Proceso de investigación científica
 
 
