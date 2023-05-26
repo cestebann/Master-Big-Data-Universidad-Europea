@@ -31,12 +31,31 @@ Profesor: David Díaz Vico
     - Introducción a Pytorch.
     - Detección de imágenes con 
     
-    
-    
 - Unidad 6. Ética de la Inteligencia Artificial
     - Directrices éticas para el desarrollo de modelos de IA
     - Detección de sesgos
     - Ejemplos de dilemas éticos
+
+
+# Examen 
+1. 20 preguntas tipo test. Contenido: PDFs.
+2. Ejercicio de programación en un Jupyter. 
+
+![](/img/aprendizaje_automatico/examen.png)
+
+![](/img/aprendizaje_automatico/examen_2.png)
+
+
+Coger un dataset, hacer el modelo y evaluarlo con train-test, cross-validation y hacer una búsqueda de metaparámetros. 
+
+- Escoger RandomizedSearch sobre GridSearch
+- Escoger CrossValidate sobre Train Test
+- Conseguir los datos
+- Hacer particiones
+- CV
+- Seleccionar modelo
+- configurar como es debido
+- Elegir una buena métrica (no nos va a pedir ninguna métrica). Por ejemplo Sacar scores sobre las predicciones. 
 
 # Unidad 1. Introducción al aprendizaje automático
 
@@ -922,6 +941,23 @@ scikit-optimize con conda forge
 - Particle Swarm 
 - Algoritmos Genéticos y Estrategias Evolutivas (https://rednuht.org/genetic_cars_2/)
 
+# 12. Ética en la IA
+
+## Principios éticos
+
+- **Respeto a la autonomía humana:** los sistemas de IA no deben subordinar, coaccionar, engañar, manipular...
+injustificadamente a humanos.
+- **Prevención de daños:** los sistemas de IA no deben causar ni agravar los daños ni afectar negativamente a los seres humanos.
+- **Equidad:** se debe garantizar una distribución equitativa y justa tanto de los beneficios como de los costes, y asegurar que los
+individuos y los grupos estén libres de prejuicios injustos, discriminación y estigmatización.
+- **Explicabilidad:** los procesos deben ser transparentes, las capacidades y el propósito de los sistemas de IA deben ser comunicados abiertamente.
+
+## Sesgos 
+
+- Infrarrepresentación de grupos por falta de datos
+- Sesgo en los datos (p.ej. ligeras diferencias en las mediciones en distintos lugares,
+etc.)
+- Adecuación del modelo a los datos (puede ser buena elección para un grupo pero no para otro)
 
 
 # Unidad 1. Introducción al aprendizaje automático

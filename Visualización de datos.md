@@ -268,9 +268,69 @@ Los más importantes son:
 
 ![](/img/visualizacion/ejemplo_3|.png)
 
-Unidad 3. Visualización dinámica con D3.js/Observable - I
+## Percepción humana
+
+- Transmitir las reglas básicas de la percepción humana. 
+- Introducir diferentes conceptos y cómo pueden afectar a la comprensión de las visualizaciones. 
+    - El concepto Weber's Law. 
+    - El concepto Gestalt Principles
+    - El concepto Cuarteto de Anscombee. 
+    - Introducir diferentes conceptos y cómo pueden afectar a la comprensión de las visualizaciones. 
+- Introducir la perspectiva del usuario y los conceptos relativos como por ejemplo evitar el chart junk, presentar la verdad y mostrar datos marginales. 
+
+
+### Conceptos de la percepción 
+
+> ¿ Por qué nos debería interesar la visualización? Porque el sistema visual humano es un buscador de patrones de enorme poder y sutileza. El ojo y la corteza visual del cerebro forman un procesador masivamente paralelo que proporciona el canal de mayor ancho de banda a los centros cognitivos humanos. En los niveles más altos de procesamiento, la percepción y la cognición están estrechamente relacionadas, por lo que las palabras "comprender" y "ver" son sinónimos. - *Information Visualization, Second Edition, Colin Ware, Morgan Kaufmann Publishers, 2004, page 21. 
+
+#### Weber's Law
+
+![](/img/visualizacion/weber's%20law.png)
+
+![](/img/visualizacion/webers_law.png)
+
+
+#### Gestalt's - formato vs. colores
+
+Gesalt dice que los colores tienen un poder mucho más fuerte para distinguir diferentes clases que las formas. 
+
+![](/img/visualizacion/gestalt.png)
+
+![](/img/visualizacion/gestalt_2.png)
+
+#### Cuarteto de Anscombee
+
+![](/img/visualizacion/cuarteto_anscombee.png)
+
+![](/img/visualizacion/cuarteto_anscombee.png)
+
+## ¿Quién va a ser el usuario de la visualización? 
+
+Cuando estemos haciendo visualizaciones 
+
+- Para qué sirve este elemento. 
+- Cuánto sirve
+- Cuánto pesa (espacio visual, atención. )
+
+### Evitar el chartjunk
+
+![](/img/visualizacion/chart_junk.png)
+
+### Presentar la verdad 
+
+![](/img/visualizacion/presentar_verdad.png)
+
+### Cómo presentar outliers 
+
+![](/img/visualizacion/como_ver_outliers.png)
+
+# Unidad 3. Visualización dinámica con D3.js/Observable - I
 
 El objetivo de esta unidad es familiarizarse con el mundo de la programación y específicamente la librería de D3.js. Se muestra sobre todo el funcionamiento de las tecnologías fundamentales, en el entorno de D3.js. Después se explica cómo manejar los datos y los funciones principales de D3.js (selecciones, escalas y ejes).
+
+
+
+
 
 ## D3 - Data-Driven Documents
 
