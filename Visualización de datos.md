@@ -322,25 +322,167 @@ Cuando estemos haciendo visualizaciones
 
 ### Cómo presentar outliers 
 
+Vemos un gráfico de áreas con diferentes categorías: cómo se mencionan diferentes temas a lo largo del tiempo. Haciendo un rescaling podemos ver los detalles y en valor absoluto con respecto al valor absoluto. 
+
 ![](/img/visualizacion/como_ver_outliers.png)
+
+
+# Unidad 2
+
+
+
+
+
 
 # Unidad 3. Visualización dinámica con D3.js/Observable - I
 
 El objetivo de esta unidad es familiarizarse con el mundo de la programación y específicamente la librería de D3.js. Se muestra sobre todo el funcionamiento de las tecnologías fundamentales, en el entorno de D3.js. Después se explica cómo manejar los datos y los funciones principales de D3.js (selecciones, escalas y ejes).
 
 
+## INTRO TO D3.JS
 
+![Página web con los apuntes](https://observablehq.com/@sandraviz/html-css-intro?collection=@sandraviz/ue-visualizacion-dinamica-con-d3-js)
 
-
-## D3 - Data-Driven Documents
+D3.js es una librería escrita en Javascript, pero afecta a la página, para hacer visualizaciones dinámicas. 
 
 https://d3js.org/
 
 ![](/img/visualizacion/d3.png)
 
-![](/img/visualizacion/svelte.png)
 
-D3.js es una librería escrita en Javascript, pero afecta a la página. 
+Como llevan algunos años, muchas visualizaciones encontradas en muchas páginas web, se basan en esta librería. Vamos a ver 3 ejemplos prácticos: 
+
+
+[Visual Introduction to machine learning](http://www.r2d3.us/visual-intro-to-machine-learning-part-1/)
+[The unwelcomed](https://www.alhadaqa.com/wp-content/uploads/2019/11/the_unwelcomed_v2.html)
+[Olympic Feathers](https://olympicfeathers.visualcinnamon.com/)
+
+
+Estas visualizaciones son muy personalizadas, justo cuadran con el objetivo que pretenden lograr. 
+
+
+### ¿Por qué D3? 
+
+No solo porque D3.js sigue siendo la biblioteca más importante para las visualizaciones dinámicas basadas en la web, sino también porque muchas otras herramientas de visualización de datos se construyen sobre o junto con d3.js. Además, aprender d3 también significa aprender lo que realmente significa visualizar datos.
+
+Flourish se basa en D3. 
+
+
+
+### Qué es D3? 
+
+> "Efficient manipulation of documents based on data."- Mike Bostock 
+
+No solo es una librería de Javascript, sino que ahora es un ecosistema de visualizaciónnes Es un lenguaje de etiquetas definido por SVG que modifica páginas web (HTML y CSS).
+
 
 ![](/img/visualizacion/d3_2.png)
 
+### Intro to HTML, SVG y CSS
+
+HTML stands for HyperText Markup Language, which creates a structure to hold the content of your webpage; it does this using what it calls elements.
+
+#### texto simple 
+
+``` html 
+
+<body>
+
+<p>When <strong> a tree falls </strong> in the forest</p>
+<p> there are <strong> other trees listening. </strong> </p>
+  
+</body> 
+
+```
+
+#### Listas 
+
+``` html
+<body>
+
+
+
+<p>My cat <strong>Felicita</strong> is</p>
+  
+<ul> 
+  <li>relaxed</li>
+  <li>sweet</li>
+  <li>always in the moment</li>
+</ul>
+  
+</body> 
+
+```
+
+#### SVG
+
+SVG stands for Scalable Vector Graphics and are an XML-based markup language for describing two-dimensional based vector graphics. When doing data visualisation, we use mainly the SVG TAGs listed below to draw the visual elements into our webpage. 
+
+![](/img/visualizacion/svg.png)
+
+``` html 
+
+<svg width="950" height="170">
+   <circle cx="150" cy="100" r=60 fill="#4DF772"></circle>  
+   <circle cx="220" cy="100" r=60 fill="#3DC45A"></circle>
+   <circle cx="100" cy="100" r=60 fill="#98F9AD"></circle>
+   <circle cx="280" cy="100" r=60 fill="#257837"></circle>
+</svg>
+
+<style>
+  
+circle {
+   opacity:0.4; 
+}
+  
+</style>
+
+```
+
+## D3.js & Observable
+
+![INTRO TO DATA IN JS](https://observablehq.com/@sandraviz/intro-to-data-in-js?collection=@sandraviz/ue-visualizacion-dinamica-con-d3-js)
+
+
+29/05/23
+
+1 notebook para la primera visualización
+1 notebook para el gráfico de dispersión. 
+
+ 
+
+ ## StoryTelling
+
+ El storytelling es narrar los datos por medio de visualizaciones y una historia que las une a ellas para comunicar la importancia de los datos en sí y de su análisis/procesamiento .
+
+ ¿Cuál es la diferencia con una presentación ordinaria? 
+
+ - Tiene un inicio y un final
+ - Contiene personajes
+ - Tiene un hilo de coherencia. 
+ - Tiene momentos de tensión, acción que provocan emociones en el espectador. 
+ - Se resuelve el momento de tensión 
+
+
+
+Es una buena idea conectar los datos con un tema con la que la audiencia pueda sentirse conectada. 
+Puedes utilizar recursos que las personas utilizan/saben con cotidianeidad. 
+
+Podemos comenzar muy abstracto para generar una conexión emocional hablando de un caso particular o un ejemplo, y luego magnificar todo hablando sobre todos los datos. 
+
+Recomendaciones
+
+1. Poner en contexto. 
+2. Utilizar un ejemplo particular que cause atención. 
+3. Crear tensión
+4. Conclusiones
+
+![](/img/visualizacion/author_driven.png)
+
+![](/img/visualizacion/viewer_driven.png)
+
+
+
+Análisis de un storytelling: elegimos un ejemplo
+- estructura
+- author-driven, viewer-driven. 
