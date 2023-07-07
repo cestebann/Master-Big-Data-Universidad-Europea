@@ -5,10 +5,10 @@
 
 - 30 de Marzo: Jordi Malo (TIC)
 - 13 de Abril: Daniel Domínguez (geolocalización)
-- 20 de Abril: Marta Abanades (sábado) (RRHH)
+- 20 de Abril: Marta Abanades (RRHH)
 - 27 de Abril: Mónica Tévar (Gestión de clientes - CRM)
 - 3 de Mayo: Hugo Tamashiro (Marketing)
--  11 de Mayo: Elena Igualada (Finanzas)
+- 11 de Mayo: Elena Igualada (Finanzas)
 
 
 # 30.03 - Jordi Malo (TIC)
@@ -31,6 +31,13 @@
 ![](/img/business_analytics/jordi_malo_4.png)
 
 ![](/img/business_analytics/jordi_malo_5.png)
+
+![](/img/business_analytics/jordi_30.png)
+
+![](/img/business_analytics/jordi_31.png)
+
+![](/img/business_analytics/jordi_32.png)
+
 
 ## IoT 
 
@@ -94,13 +101,26 @@ Distingamos máquina e IoT. IoT describ elos objetos físicos como sensores, cap
 
 ![](/img/business_analytics/jordi_malo_18.png)
 
+![](/img/business_analytics/jordi_33.png)
+
 ![](/img/business_analytics/jordi_malo_19.png)
+
+## Cloud y sostenibilidad
+
+![](/img/business_analytics/jordi_34.png)
+
+![](/img/business_analytics/jordi_35.png)
+
+![](/img/business_analytics/jordi_36.png)
+
 
 ![](/img/business_analytics/jordi_malo_20.png)
 
 ![](/img/business_analytics/jordi_malo_21.png)
 
 ## Seguridad
+
+![](/img/business_analytics/jordi_37.png)
 
 ![](/img/business_analytics/jordi_malo_22.png)
 
@@ -117,6 +137,11 @@ Distingamos máquina e IoT. IoT describ elos objetos físicos como sensores, cap
 ![](/img/business_analytics/jordi_malo_28.png)
 
 ![](/img/business_analytics/jordi_malo_29.png)
+
+![](/img/business_analytics/jordi_38.png)
+
+
+![](/img/business_analytics/jordi_39.png)
 
 ![](/img/business_analytics/jordi_malo_30.png)
 
@@ -315,6 +340,125 @@ Posiblemente, al levantar un caso, identifique previamente las causas del númer
 TMO 
 Tiempo medio de las llamadas
 Desbordamiento
+
+# 4. RRHH - Marta Abanades (20 de abril)
+
+## Introducción en la transformación digital en el área de RR.HH.
+
+### Objetivos 
+
+- Entender la evolución hacia la tecnología digital y su aporte en el plano empresarial.
+-  Conocer el concepto y la gestión de los departamentos de recursos humanos.
+- Identificar las macrofunciones de los departamentos de recursos humanos.
+- Conocer los inicios del big data dentro de las empresas.
+
+### La globalización 
+
+¿Es fundamental la buena gestión de los recursos humanos para el éxito de las fundamentaciones? Indudablemente, sí.
+
+### Gestión de los RRHH
+
+El departamento de RRHH ha pasado de gestionar registros, pasando por los empleados y la preocupación por el bienestar de estos, hasta la completa gestión de los recursos humanos.
+
+
+#### Concepto de RRHH 
+
+Es el conjunto de actuaciones y técnicas que intentan establecer una fórmula planificada, práctica y evaluable para desarrollar y seleccionar las posibilidades de los trabajadores dentro de la empresa.
+
+### Objetivos de la gestión de los recursos humanos
+
+La función general sería el estudio y el desarrollo de métodos y técnicas que puedan favorecer la integración eficaz de los empleados en el seno de la empresa.
+
+La eficacia en la gestión de los recursos humanos es conseguir unos recursos humanos eficientes dentro de la empresa mediante el reclutamiento, la selección y la contratación adecuados para que una vez se encuentren en la organización centrarse en la:
+
+- Motivación 
+- Comunicación 
+- Liderazgo 
+- Integración de las personas a la empresa
+
+### Herramientas de gestión de los recursos humanos
+
+A continuación, detallamos cuáles se podrían externalizar y cuáles deberían gestionarse internamente:
+- El análisis y la descripción de puestos de trabajo.
+- La evaluación de puestos de trabajo y desempeño.
+- La capacitación y el desarrollo.
+- El plan de carreras profesionales.
+- La planificación de beneficios sociales.
+- Mejoras en la política salarial.
+- La estrategia retributiva de la organización.
+- La seguridad e higiene en el trabajo.
+
+A continuación, pasamos a detallar algunas que, aun siendo propiamente del departamento de recursos humanos, se podrían externalizar:
+- Los procesos de reclutamiento y selección.
+- La investigación de salarios y beneficios.
+- La investigación de mercados de recursos humanos.
+- Las relaciones con instituciones de formación profesional.
+- La legislación laboral.
+
+### Macrofunciones de los departamentos de recursos humanos
+
+Para finalizar y entender el escenario de la gestión de los recursos humanos vamos a describir cada una de las macrofunciones que realizan estos departamentos:
+-  Adscripción de los recursos humanos.
+- Organización de los recursos humanos.
+- Gestión de los recursos humanos.
+- Desarrollo de los recursos humanos.
+- Relaciones laborales.
+
+###  Big Data
+
+La importancia no se encuentra en la cantidad de los datos que tenga la empresa, sino en el análisis de estos para poder tomar mejores decisiones y acciones estratégicas de negocio. Por el momento, el concepto de big data no lo encontramos en la RAE, aunque en uno de sus tuits confirma que la equivalencia más acertada sería “macrodatos”.
+
+Poder analizar los datos en las organizaciones permite entender mucho mejor a los trabajadores, descubrir aspectos de compensación, encontrar brechas salariales, mejorar el desempeño, analizar las características e incluso conocer qué riesgos tiene la organización si se encuentran desmotivados.
+
+Los datos permiten dar un paso hacia adelante en los procesos de selección para intentar descartar las primeras impresiones, los currículos mal expresados o redactados. 
+
+Cuando se analizan los datos de una plantilla de trabajadores, una empresa puede obtener la siguiente información:
+- Analítica del talento. 
+. Estrategia de retención de capital humano: Lo     s responsables de los departamentos de recursos humanos pueden obtener un escenario sobre las personas que se marchan y si esto se repite en otras que buscan empleo en otras empresas.
+- Realizar procesos de contratación de manera inteligente: Cuando las organizaciones buscan nuevos empleados, puede verificar los datos para revisar redes sociales y encontrar a personas que más se ajusten al perfil deseado para ocupar el puesto a cubrir. 
+    - Con el fenómeno del big data son las organizaciones mediante los nethunters los que buscan perfiles más cualificados en las redes sociales.
+    - Nethunter es un nuevo concepto para definir a aquella persona encargada de seleccionar posibles candidatos. Para realizar esto va a rastrear en Google, en los perfiles que tiene en las redes sociales, buscara imágenes de esos candidatos, conversaciones en las redes y sus posibles relaciones.
+    - Este novedoso concepto se centra en poder encontrar talentos mediante la web 2.0 y concretamente en las redes sociales. Son capaces de seguir la huella digital que vamos dejando y analizan todas las redes sociales que tiene el candidato, las fotografías que publica, etc. También valora la comunidad online de esa persona, su posible capacidad para relacionarse con otras personas de su sector profesional, su proactividad y la calidad de los contenidos que emite y publica.
+
+- Encontrar a la persona adecuada en el momento adecuado: el fenómeno del big data ha sido un valor añadido para poder encontrar a las personas adecuadas para trabajos específicos. La organización puede enfocarse en aspectos más importantes en el momento de poder realizar una contratación.
+
+- Intentar medir de manera eficaz el desempeño: es otra de las incertidumbres que tienen las empresas, el saber medir el desempeño de sus trabajadores. Los datos nos pueden ofrecer posibilidades como:
+    -  Saber qué trabajadores son más productivos y en qué turnos.
+    -  Qué trabajadores tienen un alto rendimiento y así poder aplicar políticas de recompensa.
+    - Mejorar la formación de los trabajadores y garantizar que lo aplican en su trabajo. La utilización de los datos para la empresa no deja de ser una inversión de dinero, pero a medio y largo plazo puede suponen un ahorro
+- La transformación digital en las empresas: el saber analizar los datos es otra manera de saber aprovechar el potencial que tiene la organización.
+
+## La funcionalidad de los RR. HH. en la transformación digital de la empresa
+
+### Objetivos
+
+- Entender el concepto de people analytics.
+- Conocer las ventajas y desventajas del big data.
+- Identificar propuestas para trabajar el big data dentro de los departamentos de recursos humanos.
+
+### People Analytics
+
+El término más conocido que relaciona la analítica de las personas a través de los datos es el people analytics, ya que capacita a los departamentos de recursos humanos para tomar decisiones permitiéndoles asesorar a las empresas de consecuencias mediante la información obtenida de los datos. 
+
+### Ventajas y desventajas del big data
+
+Obtener grandes cantidades de información será una ventaja competitiva de tanto en cuanto esté sostenida por una infraestructura de recursos humanos capacitados y calificados para aprovechar al máximo los beneficios, de ahí la marcada demanda de profesionales del big data en el mercado laboral. 
+
+#### Ventajas
+
+- Mejora de la toma de decisiones.
+- Conocimiento del mercado.
+- Tener un feedback en tiempo real: Con esta tecnología tan ágil se obtiene información en tiempo real que a las empresas les puede servir para lanzamiento de productos, o como resultado de alguna estrategia.
+- La tecnología del presente y del futuro: el trabajar con la ciencia de los datos ya es un elemento diferenciador y de éxito dentro de las organizaciones y llega para quedarse. 
+
+#### Desventajas
+
+- El exceso de los datos: si se almacenan y analizan de manera indiscriminada solo se convertirán en ruido y ralentizarán y obstaculizarán aún más las tareas, o si no tenemos la rapidez suficiente para procesarlos, analizarlos y tomar decisiones antes de que se vuelvan arcaicos, no aprovecharemos al máximo sus beneficios. El papel de estos profesionales será tener la capacidad seleccionar y priorizar los datos y patrones que serán de utilidad, antes de que se vuelvan obsoletos. 
+- Ciberseguridad: el mayor reto para las organizaciones es proteger sus datos, la vulnerabilidad de la enorme cantidad de datos que tienen las empresas es el objetivo para los ciberataques.
+- Políticas de protección de datos: debido a lo comentado con anterioridad, se hace necesario más consenso y protocolos que puedan definir hasta qué punto la tecnología podría considerarse intrusiva y cómo poder protegerla.
+- Tecnofobia: en la sociedad actual podemos encontrar reacciones desfavorables por parte de los usuarios que pueden considerar que se vulnera su privacidad.
+
+
 
 # 5. Marketing - Hugo Tamashiro Comesaña
 

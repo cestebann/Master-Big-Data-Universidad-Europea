@@ -451,14 +451,18 @@ circle {
 
  
 
- ## StoryTelling
+ # StoryTelling
 
- El storytelling es narrar los datos por medio de visualizaciones y una historia que las une a ellas para comunicar la importancia de los datos en sí y de su análisis/procesamiento .
+ El Data Storytelling es narrar los datos por medio de visualizaciones y una historia que las une a ellas para comunicar la importancia de los datos en sí y de su análisis/procesamiento .
+
+El elemento más importante es la visualización en sí misma. 
+
 
  ¿Cuál es la diferencia con una presentación ordinaria? 
 
  - Tiene un inicio y un final
- - Contiene personajes
+ - Contiene personajes.
+ - Tiene una conexión temporal. 
  - Tiene un hilo de coherencia. 
  - Tiene momentos de tensión, acción que provocan emociones en el espectador. 
  - Se resuelve el momento de tensión 
@@ -466,23 +470,53 @@ circle {
 
 
 Es una buena idea conectar los datos con un tema con la que la audiencia pueda sentirse conectada. 
+Se puede introducir la humanización de los datos con data storytelling para sensibilizar algunos datos. 
+
 Puedes utilizar recursos que las personas utilizan/saben con cotidianeidad. 
 
 Podemos comenzar muy abstracto para generar una conexión emocional hablando de un caso particular o un ejemplo, y luego magnificar todo hablando sobre todos los datos. 
 
+
 Recomendaciones
 
 1. Poner en contexto. 
-2. Utilizar un ejemplo particular que cause atención. 
+2. Utilizar un ejemplo particular que cause atención. Utilizar outliers para crear tensión. 
 3. Crear tensión
 4. Conclusiones
 
-![](/img/visualizacion/author_driven.png)
-
-![](/img/visualizacion/viewer_driven.png)
 
 
 
 Análisis de un storytelling: elegimos un ejemplo
 - estructura
 - author-driven, viewer-driven. 
+
+## Lenguaje visual 
+
+En el storytelling utilizamos el color para lo más importante, normalmente en un storytelling lo más importante es los personajes: ciudades, marcas de teléfono, países, etc. 
+
+Cuando casamos los colores con sus personajes, ya no es necesario colocar la leyenda todo el tiempo porque el observador va a asociar ambos conceptos indistintamente. 
+
+No obstante, a veces usamos los colores para marcar cambios o eventos con íconos y patrones para historias. 
+
+## Creación de un Data Storytelling
+
+1. Poner en contexto el tema: hacer una introducción.
+2. Poner en contexto la visualización. 
+3. Empezar con un incidente que es muy fácil de entender para poner en perspectiva al autor. Queremos conectarnos con la audiencia y debemos utilizar una instancia digerible para que puedan entrar a la historia sin mucho esfuerzo.
+4. Utilizamos datos marginales o un aumento de la complejidad para incrementar la tensión. 
+5. Se relaja la historia por medio de una recapitulación o una solución a la tensión. 
+6. Se permite al usuario interactuar con los datos y recrear su propia historia. 
+
+
+## Conceptos: Scroll-y-telling, Martini Glass Structure, Drill-Down
+
+![](/img/visualizacion/author_driven.png)
+
+![](/img/visualizacion/viewer_driven.png)
+
+- **Scroll-y-telling:** 
+- **Martini Glass Structure**: El inicio es author-driven y luego se abre a una posibilidad de encontrar su propia historia. 
+- **Drill-Down**:
+
+
