@@ -1,17 +1,34 @@
 # Business Analytics
 
 
+
+
 ## Contenido del Curso 
 
-- 30 de Marzo: Jordi Malo (TIC)
-- 13 de Abril: Daniel Domínguez (geolocalización)
-- 20 de Abril: Marta Abanades (RRHH)
-- 27 de Abril: Mónica Tévar (Gestión de clientes - CRM)
-- 3 de Mayo: Hugo Tamashiro (Marketing)
-- 11 de Mayo: Elena Igualada (Finanzas)
 
+- ![Objetivos del curso](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/business_analytics.md#objetivos-del-curso)
+- ![30 de Marzo: Jordi Malo - IoT y Edge Computing ](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/business_analytics.md#3003---jordi-malo---iot-y-edge-computing)
+- ![13 de Abril: Daniel Domínguez - Ciencia de Datos Espaciales ](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/business_analytics.md#13-de-abril-daniel-dom%C3%ADnguez-ciencia-de-datos-espaciales)
+- [20 de Abril: Marta Abanades - RRHH](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/business_analytics.md#4-rrhh---marta-abanades-20-de-abril)
+- ![27 de Abril: Mónica Tévar - Gestión de clientes, CRM)](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/business_analytics.md#27-de-abril-m%C3%B3nica-t%C3%A9var-gesti%C3%B3n-de-clientes---crm)
+- ![3 de Mayo: Hugo Tamashiro - Marketing](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/business_analytics.md#5-marketing---hugo-tamashiro-comesa%C3%B1a)
+- ![11 de Mayo: Elena Igualada - Modelización financiera](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/business_analytics.md#modelizaci%C3%B3n-financiera---elena-igualada-1105)
 
-# 30.03 - Jordi Malo (TIC)
+  
+
+# Objetivos del curso 
+
+## Objetivos específicos
+- CE4. Diseñar y ejecutar un proceso completo de descubrimiento de conocimiento, incluyendo las
+fases de almacenamiento, procesamiento y visualización de los datos.
+- CE9. Evaluar las posibilidades de la gestión masiva de datos y la inteligencia artificial en el
+desarrollo del negocio en los diferentes sectores de aplicación (banca, salud, comunicaciones,
+gobierno, etc.).
+## Resultados de aprendizaje:
+- RA3: Desarrollar modelos de uso y aplicación de analítica de negocio en diferentes sectores de la
+industria
+
+# 30.03 - Jordi Malo - IoT y Edge Computing
 
 ![](/img/business_analytics/jordi_malo.png)
 
@@ -41,7 +58,7 @@
 
 ## IoT 
 
-Distingamos máquina e IoT. IoT describ elos objetos físicos como sensores, capacidad de procesamiento, software y otras tecnologías que se conectan e interconectan e intercambian datos con otros dispositivos y sistemas a través de internet u otras reded de comunicaciones. En pocas palabras, un dispositivo es considerado IoT si se puede conectar a la red. 
+Distingamos máquina e IoT. IoT describe los objetos físicos como sensores, capacidad de procesamiento, software y otras tecnologías que se conectan e interconectan e intercambian datos con otros dispositivos y sistemas a través de internet u otras redes de comunicaciones. En pocas palabras, un dispositivo es considerado IoT si se puede conectar a la red. 
 
 ### Aplicaciones
 
@@ -55,7 +72,7 @@ Distingamos máquina e IoT. IoT describ elos objetos físicos como sensores, cap
     - Incendios
     - Transporte/ Smart Cars
     - Transporte inteligente
-    - Ciudades ingeligentes
+    - Ciudades inteligentes
     - Nivel de vida
     - Redes sociales
     - Entrenimiento 
@@ -149,11 +166,6 @@ Distingamos máquina e IoT. IoT describ elos objetos físicos como sensores, cap
 
 ## Contenido
 
-- Presentación
-    - Sobre mí
-    - Sobre Geoblink
-- Introducción a "Location Intelligence"
-
 
 ![](/img/business_analytics/contenido_daniel.png)
 
@@ -231,7 +243,7 @@ geopandas.spatialjoin
 
 ![](/img/business_analytics/crm_2.png)
 
-CRM es el arcónimo de Customer Relationship Management, es una estrategia de de gestión de todas las relaciones e interacciones de tu compañía con tus clientes potenciales y clientes actuales. 
+CRM es el arcónimo de Customer Relationship Management, es una estrategia de gestión de todas las relaciones e interacciones de tu compañía con tus clientes potenciales y clientes actuales. 
 
 Aúna un cambio de filosofía empresarial que sitúa al cliente en el centro y una parte fundamental de esta idea es la recopilación de la información sobre el mismo para adecuar la oferta de valor. 
 
@@ -244,8 +256,6 @@ El CRM es una estrategia que necesita de la tecnología para poder llevarse a ca
 Por otro lado, utilizar un buen software de CRM puede ayudarte a obtener el éxito, pero no lo conseguirá solo. Un programa de CRM solo se convertirá en una herramienta útil si la acompañas de una estrategia e implementación adecuada. 
 
 > CRM es un modelo estratégico que pone al cliente en el centro de interés. CRM es también un software que nos permite llevar a cabo de forma eficiente la gestión de este modelo estratégico. 
-
-![](/img/business_analytics/crm_2.png)
 
 ![](/img/business_analytics/crm_3.png)
 
