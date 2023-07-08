@@ -58,7 +58,7 @@ industria
 
 ## IoT 
 
-Distingamos máquina e IoT. IoT describ elos objetos físicos como sensores, capacidad de procesamiento, software y otras tecnologías que se conectan e interconectan e intercambian datos con otros dispositivos y sistemas a través de internet u otras reded de comunicaciones. En pocas palabras, un dispositivo es considerado IoT si se puede conectar a la red. 
+Distingamos máquina e IoT. IoT describe los objetos físicos como sensores, capacidad de procesamiento, software y otras tecnologías que se conectan e interconectan e intercambian datos con otros dispositivos y sistemas a través de internet u otras redes de comunicaciones. En pocas palabras, un dispositivo es considerado IoT si se puede conectar a la red. 
 
 ### Aplicaciones
 
@@ -72,7 +72,7 @@ Distingamos máquina e IoT. IoT describ elos objetos físicos como sensores, cap
     - Incendios
     - Transporte/ Smart Cars
     - Transporte inteligente
-    - Ciudades ingeligentes
+    - Ciudades inteligentes
     - Nivel de vida
     - Redes sociales
     - Entrenimiento 
@@ -165,11 +165,6 @@ Distingamos máquina e IoT. IoT describ elos objetos físicos como sensores, cap
 #  13 de Abril: Daniel Domínguez: Ciencia de datos espaciales
 
 ## Contenido
-
-- Presentación
-    - Sobre mí
-    - Sobre Geoblink
-- Introducción a "Location Intelligence"
 
 
 ![](/img/business_analytics/contenido_daniel.png)
