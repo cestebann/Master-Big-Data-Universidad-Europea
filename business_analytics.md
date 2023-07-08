@@ -1,8 +1,12 @@
 # Business Analytics
 
 
+
+
 ## Contenido del Curso 
 
+
+- Objetivos del curso
 - 30 de Marzo: Jordi Malo (TIC)
 - 13 de Abril: Daniel Domínguez (geolocalización)
 - 20 de Abril: Marta Abanades (RRHH)
@@ -10,6 +14,17 @@
 - 3 de Mayo: Hugo Tamashiro (Marketing)
 - 11 de Mayo: Elena Igualada (Finanzas)
 
+#Objetivos del curso 
+
+## Objetivos específicos
+- CE4. Diseñar y ejecutar un proceso completo de descubrimiento de conocimiento, incluyendo las
+fases de almacenamiento, procesamiento y visualización de los datos.
+- CE9. Evaluar las posibilidades de la gestión masiva de datos y la inteligencia artificial en el
+desarrollo del negocio en los diferentes sectores de aplicación (banca, salud, comunicaciones,
+gobierno, etc.).
+## Resultados de aprendizaje:
+- RA3: Desarrollar modelos de uso y aplicación de analítica de negocio en diferentes sectores de la
+industria
 
 # 30.03 - Jordi Malo (TIC)
 
