@@ -7,7 +7,7 @@
 
 
 - ![Objetivos del curso](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/business_analytics.md#objetivos-del-curso)
-- ![30 de Marzo: Jordi Malo - IoT y Edge Computing ](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/business_analytics.md#3003---jordi-malo-tic)
+- ![30 de Marzo: Jordi Malo - IoT y Edge Computing ](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/business_analytics.md#3003---jordi-malo---iot-y-edge-computing)
 - ![13 de Abril: Daniel Domínguez - Ciencia de Datos Espaciales ](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/business_analytics.md#13-de-abril-daniel-dom%C3%ADnguez-ciencia-de-datos-espaciales)
 - [20 de Abril: Marta Abanades - RRHH](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/business_analytics.md#4-rrhh---marta-abanades-20-de-abril)
 - ![27 de Abril: Mónica Tévar - Gestión de clientes, CRM)](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/business_analytics.md#27-de-abril-m%C3%B3nica-t%C3%A9var-gesti%C3%B3n-de-clientes---crm)
