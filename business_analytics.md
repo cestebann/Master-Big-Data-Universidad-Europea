@@ -243,7 +243,7 @@ geopandas.spatialjoin
 
 ![](/img/business_analytics/crm_2.png)
 
-CRM es el arcónimo de Customer Relationship Management, es una estrategia de de gestión de todas las relaciones e interacciones de tu compañía con tus clientes potenciales y clientes actuales. 
+CRM es el arcónimo de Customer Relationship Management, es una estrategia de gestión de todas las relaciones e interacciones de tu compañía con tus clientes potenciales y clientes actuales. 
 
 Aúna un cambio de filosofía empresarial que sitúa al cliente en el centro y una parte fundamental de esta idea es la recopilación de la información sobre el mismo para adecuar la oferta de valor. 
 
@@ -256,8 +256,6 @@ El CRM es una estrategia que necesita de la tecnología para poder llevarse a ca
 Por otro lado, utilizar un buen software de CRM puede ayudarte a obtener el éxito, pero no lo conseguirá solo. Un programa de CRM solo se convertirá en una herramienta útil si la acompañas de una estrategia e implementación adecuada. 
 
 > CRM es un modelo estratégico que pone al cliente en el centro de interés. CRM es también un software que nos permite llevar a cabo de forma eficiente la gestión de este modelo estratégico. 
-
-![](/img/business_analytics/crm_2.png)
 
 ![](/img/business_analytics/crm_3.png)
 
