@@ -737,9 +737,9 @@ Hay que tener en cuenta una serie de reglas y requisitos publicadas por los dife
 
 ## Ciclo de vida de un proyecto de Modelización 
 
-![](/img/business_analytics/ciclo_vida.png|)
+![](/img/business_analytics/ciclo_vida.png)
 
-![](/img/business_analytics/ciclo_vida_2.png|)
+![](/img/business_analytics/ciclo_vida_2.png)
 
 ## Caso práctica 
 
