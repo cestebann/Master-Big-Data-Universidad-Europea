@@ -14,7 +14,7 @@
 - 3 de Mayo: Hugo Tamashiro (Marketing)
 - 11 de Mayo: Elena Igualada (Finanzas)
 
-#Objetivos del curso 
+# Objetivos del curso 
 
 ## Objetivos específicos
 - CE4. Diseñar y ejecutar un proceso completo de descubrimiento de conocimiento, incluyendo las
