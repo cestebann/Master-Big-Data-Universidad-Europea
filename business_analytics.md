@@ -28,7 +28,7 @@ gobierno, etc.).
 - RA3: Desarrollar modelos de uso y aplicación de analítica de negocio en diferentes sectores de la
 industria
 
-# 30.03 - Jordi Malo (TIC)
+# 30.03 - Jordi Malo - IoT y Edge Computing
 
 ![](/img/business_analytics/jordi_malo.png)
 
