@@ -374,11 +374,11 @@ A partir de ahora siempre vamos a estar hablando de métodos iterativos (ya que 
 
 ![](/img/aprendizaje_automatico/linear_svc.png)
 
-La idea de este modelo es ser estricto a la hora de escoger cuál solución nos quedamos, y es donde entra el concepto de margen, y aquí es donde entramos a definri el margen de separación. 
+La idea de este modelo es ser estricto a la hora de escoger cuál solución nos quedamos, y es donde entra el concepto de margen, y aquí es donde entramos a definir el margen de separación. 
 
 ![](/img/aprendizaje_automatico/linear_svc_2.png)
 
-La recta H1 es mala. En cambio, las rectas H2 y H3 clasifican perfectamente el dataset. Pero el H3 tiene un margen de separación más grande que H2, que están deterinados por los vectores de soporte (la distancia mínima a un punto). 
+La recta H1 es mala. En cambio, las rectas H2 y H3 clasifican perfectamente el dataset. Pero el H3 tiene un margen de separación más grande que H2, que están determinados por los vectores de soporte (la distancia mínima a un punto). 
 
 De acuerdo a este modelo, la recta H3 es la solución más robusta ya que cuando incorporemos datos de test, es probable que se acerquen a la frontera y el modelo que tenga el mayor margen de separación es el que menos errores va a cometer y por ende va a cometer menos errores de clasificación. 
 
@@ -388,7 +388,7 @@ De acuerdo a este modelo, la recta H3 es la solución más robusta ya que cuando
 
 ![](/img/aprendizaje_automatico/linear_svc_5.png)
 
-Es como una regresión logística pero con una función de coste distinta. Gracias a ello conseguimos un modelo lineal con un margen de separación máximo. 
+Es como una regresión logística pero con una función de coste distinta, la hinge-loss. Gracias a ello conseguimos un modelo lineal con un margen de separación máximo. 
 
 
 ### Linear SVR (Support Vector Regrresion)
@@ -403,7 +403,7 @@ En este modelo queremos conseguir que todos los puntos estén contenidos en un a
 
 - Los modelos lineales tienen muchas virtudes, pero su expresividad está muy limitada por su naturaleza lineal. 
 
-- Por suerte, existe un truco matemático para hacer questos modelos funcionen en un espacio de dimensiónn muy alto o incluso infinito, en el cual los problemas de clasificación son siempre linealmente separables y los problemas de regresión siempre se pueden resolver con una forma lineal, evitando tener que realizar operaciones matemáticas extremadamente costosas en dicho espacio de alta dimensión. Es el llamado "truco del kernel". 
+- Por suerte, existe un truco matemático para hacer que estos modelos funcionen en un espacio de dimensiónn muy alto o incluso infinito, en el cual los problemas de clasificación son siempre linealmente separables y los problemas de regresión siempre se pueden resolver con una forma lineal, evitando tener que realizar operaciones matemáticas extremadamente costosas en dicho espacio de alta dimensión. Es el llamado "truco del kernel". 
 - Para ello, es necesario que el modelo pueda expresarse en términos de x=xxt en lugar de Z. Las SVM cumplen esta condición. 
 - Sin embargo, estos métodos tienen un coste de entrenamiento y de predicción muy superior al de sus contrapartidas lineales, y su uso está limitado a datasets pequeños. 
 
