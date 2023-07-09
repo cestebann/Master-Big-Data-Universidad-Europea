@@ -2,6 +2,17 @@
 Profesor: David Díaz Vico
 
 # Contenido del Curso
+- 1. 1/03 - Introducción al aprendizaje automático.
+- 2. 7/03 - Aplicaciones e ingeniería de características. 
+- 3. 14/03 - Aprendizaje supervisado: Modelos Lineales
+- 4. 28/03 - Aprendizaje supervisado: Máquinas de soporte, modelos kernel y Naive Bayes
+- 5. 11/04 - Aprendizaje supervisado: Redes neuronales
+-  6. 18/04 - Aprendizaje supervisado: Deep Learning
+-  7. 25/04 - Aprendizaje supervisado: Árboles de Decisión 
+-  8. 5/05 - Aprendizaje no supervisado
+-  9. 9/05 - Métricas e interpratibilidad
+-  10. 17/05 - Optimización de hiperparámetros
+-  11. 24/05 - Etica de la IA y repaso
 
 
 - Unidad 1. Introducción al aprendizaje automático
@@ -30,7 +41,6 @@ Profesor: David Díaz Vico
     - Clasificación de imágenes con ML ‘clásico’
     - Introducción a Pytorch.
     - Detección de imágenes con 
-
 - Unidad 6. Ética de la Inteligencia Artificial
     - Directrices éticas para el desarrollo de modelos de IA
     - Detección de sesgos
