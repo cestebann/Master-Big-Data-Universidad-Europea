@@ -227,15 +227,15 @@ En la imagen de abajo vemos cómo cambia el espacio muestral cuando aumentamos e
 
 #### Principio de Parsimonia / navaja de Okham 
 
-"En igualda de condiciones, la expllicación más sencilla suele ser la más probable". 
+"En igualdad de condiciones, la expllicación más sencilla suele ser la más probable". 
 
 En Aprendizaje Automático: "cuantas menos variables utilice el modelo (y por lo tanto menos hiperparámetros), mejor."
 
 #### Mejora en las predicciones
 
-Los resultados con un mismo modelo y algoritmo de entrenamiento pueden mejorar mucho si se utilizan las las cracterísticas correctas. 
+Los resultados con un mismo modelo y algoritmo de entrenamiento pueden mejorar mucho si se utilizan las características correctas. 
 
-Por ejemplo , un modelo lineal puede ser capaz de resolver problemas no lineales si se le suministran las características apropiadas, construidas manualmente como funciones no lineales de las características apropiadas, construidas manualmente como funciones no lineales de las características originales. 
+Por ejemplo , un modelo lineal puede ser capaz de resolver problemas no lineales si se le suministran las características apropiadas, construidas manualmente como funciones no lineales de las características originales. 
 
 #### Selección de variables
 
@@ -258,7 +258,7 @@ La técnica general más habitual es el análisis de componentes principales (PC
 
 - Principal Component Analysis: Realiza una proyección de los datos originales en un espacio de dimensión menor en el que se maximiza la varianza. Las nuevas variables son combinaciones lineales de las originales. No utiliza la variable target, es una técnica no supervisada.
 
-- Linear Discriminant Analysis (solo clasificación): Realiza una proyección de los datos originales en un espacio de dimensión menor en el que se maximiza la separabilidad. Las nuevas variables son combinacviones lineales de las originales. 
+- Linear Discriminant Analysis (solo clasificación): Realiza una proyección de los datos originales en un espacio de dimensión menor en el que se maximiza la separabilidad. Las nuevas variables son combinaciones lineales de las originales. 
 
 ![](/img/aprendizaje_automatico/lda.png)
 
@@ -1859,9 +1859,9 @@ En este caso, un modelo se considera justo si los errores se distribuyen de form
 La mayoría de las definiciones de equidad se basan en la equidad de grupo, que trata de la equidad estadística en toda la población. Como complemento, está la equidad individual, que establece que los individuos similares deben ser tratados de forma similar, independientemente de su pertenencia al grupo.
 
 - **Paridad demográfica**, o estadística, sugiere que un predictor es insesgado si la predicción 𝑦̂ es independiente del atributo protegido p de modo que: Pr(𝑦̂|𝑝)=Pr (𝑦̂)
-- **Igualdad de probabilidades:** se satisface si la predicción 𝑦̂ es condicionalmente independiente del atributo protegido p, dado el valor verdadero y. Pr(𝑦̂|𝑦,𝑝)=Pr (𝑦̂|𝑦) 
-- **Igualdad de oportunidades.** La igualdad de oportunidades tiene la misma formulación matemática que la igualdad de probabilidades, pero se centra en una etiqueta particular y=1:  Pr(𝑦̂|𝑦=1,𝑝)=Pr (𝑦̂|𝑦=1). 
-    - La desviación de la igualdad de oportunidades se mide por la diferencia de oportunidades:SPD= Pr(𝑦̂=1|𝑦=1,𝑝=1)−Pr (𝑦̂=1|𝑦=1,𝑝=0). 
+- **igualdadd de probabilidades:** se satisface si la predicción 𝑦̂ es condicionalmente independiente del atributo protegido p, dado el valor verdadero y. Pr(𝑦̂|𝑦,𝑝)=Pr (𝑦̂|𝑦) 
+- **igualdadd de oportunidades.** La igualdadd de oportunidades tiene la misma formulación matemática que la igualdadd de probabilidades, pero se centra en una etiqueta particular y=1:  Pr(𝑦̂|𝑦=1,𝑝)=Pr (𝑦̂|𝑦=1). 
+    - La desviación de la igualdadd de oportunidades se mide por la diferencia de oportunidades:SPD= Pr(𝑦̂=1|𝑦=1,𝑝=1)−Pr (𝑦̂=1|𝑦=1,𝑝=0). 
 
 ### Algoritmos de mitigación de sesgo
 
