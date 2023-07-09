@@ -5,17 +5,17 @@ Profesor: David Díaz Vico
 
 ## Clases 
 
-[1. 1/03 - Introducción al aprendizaje automático](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/aprendizaje%20autom%C3%A1tico.md#1-103---introducci%C3%B3n-al-aprendizaje-autom%C3%A1tico)
-[2. 7/03 - Aplicaciones e ingeniería de características del aprendizaje automático](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/aprendizaje%20autom%C3%A1tico.md#2-703---aplicaciones-e-ingenier%C3%ADa-de-caracter%C3%ADsticas-del-aprendizaje-autom%C3%A1tico)
-[3. 14/03 - Aprendizaje supervisado: Modelos Lineales](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/aprendizaje%20autom%C3%A1tico.md#3-1403---aprendizaje-supervisado-modelos-lineales)
-[4. 28/03 - Aprendizaje supervisado: Máquinas de soporte, modelos kernel y Naive Bayes](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/aprendizaje%20autom%C3%A1tico.md#4-2803---aprendizaje-supervisado-m%C3%A1quinas-de-soporte-modelos-kernel-y-naive-bayes)
-[5. 11/04 - Aprendizaje supervisado: Redes neuronales](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/aprendizaje%20autom%C3%A1tico.md#5-1104---aprendizaje-supervisado-redes-neuronales)
-[6. 18/04 - Aprendizaje supervisado: Deep Learning](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/aprendizaje%20autom%C3%A1tico.md#6-1804---aprendizaje-supervisado-deep-learning)
-[7. 25/04 - Aprendizaje supervisado: Árboles de Decisión](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/aprendizaje%20autom%C3%A1tico.md#7-2504---aprendizaje-supervisado-%C3%A1rboles-de-decisi%C3%B3n)
-[8. 5/05 - Aprendizaje no supervisado](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/aprendizaje%20autom%C3%A1tico.md#8-505---aprendizaje-no-supervisado)
-[9. 9/05 - Métricas e interpretaibilidad](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/aprendizaje%20autom%C3%A1tico.md#9-905---m%C3%A9tricas-e-interpretaibilidad)
-[10. 17/05 - Optimización de hiperparámetros](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/aprendizaje%20autom%C3%A1tico.md#10-1705---optimizaci%C3%B3n-de-hiperpar%C3%A1metros)
-[11. 24/05 - Etica de la IA y repaso](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/aprendizaje%20autom%C3%A1tico.md#11-2405---etica-de-la-ia-y-repaso)
+1. [ 1/03 - Introducción al aprendizaje automático](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/aprendizaje%20autom%C3%A1tico.md#1-103---introducci%C3%B3n-al-aprendizaje-autom%C3%A1tico)
+2. [ 7/03 - Aplicaciones e ingeniería de características del aprendizaje automático](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/aprendizaje%20autom%C3%A1tico.md#2-703---aplicaciones-e-ingenier%C3%ADa-de-caracter%C3%ADsticas-del-aprendizaje-autom%C3%A1tico)
+3. [14/03 - Aprendizaje supervisado: Modelos Lineales](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/aprendizaje%20autom%C3%A1tico.md#3-1403---aprendizaje-supervisado-modelos-lineales)
+4. [28/03 - Aprendizaje supervisado: Máquinas de soporte, modelos kernel y Naive Bayes](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/aprendizaje%20autom%C3%A1tico.md#4-2803---aprendizaje-supervisado-m%C3%A1quinas-de-soporte-modelos-kernel-y-naive-bayes)
+5. [11/04 - Aprendizaje supervisado: Redes neuronales](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/aprendizaje%20autom%C3%A1tico.md#5-1104---aprendizaje-supervisado-redes-neuronales)
+6. [18/04 - Aprendizaje supervisado: Deep Learning](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/aprendizaje%20autom%C3%A1tico.md#6-1804---aprendizaje-supervisado-deep-learning)
+7. [25/04 - Aprendizaje supervisado: Árboles de Decisión](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/aprendizaje%20autom%C3%A1tico.md#7-2504---aprendizaje-supervisado-%C3%A1rboles-de-decisi%C3%B3n)
+8. [5/05 - Aprendizaje no supervisado](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/aprendizaje%20autom%C3%A1tico.md#8-505---aprendizaje-no-supervisado)
+9. [9/05 - Métricas e interpretaibilidad](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/aprendizaje%20autom%C3%A1tico.md#9-905---m%C3%A9tricas-e-interpretaibilidad)
+10. [17/05 - Optimización de hiperparámetros](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/aprendizaje%20autom%C3%A1tico.md#10-1705---optimizaci%C3%B3n-de-hiperpar%C3%A1metros)
+11. [24/05 - Etica de la IA y repaso](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/aprendizaje%20autom%C3%A1tico.md#11-2405---etica-de-la-ia-y-repaso)
 
 
 ## Apuntes
