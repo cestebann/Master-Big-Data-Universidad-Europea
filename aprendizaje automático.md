@@ -151,14 +151,14 @@ Las más conocidas son:
 
 ![](/img/aprendizaje_automatico/metodologia.png)
 
-# Principales proveedores de IA y casos de éxito 
+## Principales proveedores de IA y casos de éxito 
 
 - IBM 
 - Amazon 
 - Microsoft 
 - Google 
 
-## IBM 
+### IBM 
 - Cloud computing, computación cuántica, consultoría
 - Watson
     - Responde a preguntas en lenguaje natural (DeepQA)
@@ -166,17 +166,17 @@ Las más conocidas son:
     - Clasificación, detección de relación entre entidades. 
     - Generación, puntuación y ranking de hipótesis. 
 
-## Amazon 
+### Amazon 
 - Marketplace 
 - Cloud Computing (AWS)
 - Alexa 
 
-## Microsoft 
+### Microsoft 
 - Sistema operativo, ofimática. 
 - Cloud Computing (Azure)
 - Cortana 
 
-## Google 
+### Google 
 - Buscador, correo, Maps, Android
 - Cloud Computing (Google Cloud)
 - Asistente Google
