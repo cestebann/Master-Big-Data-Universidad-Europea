@@ -2,17 +2,17 @@
 Profesor: David Díaz Vico
 
 # Contenido del Curso
-- 1. 1/03 - Introducción al aprendizaje automático.
-- 2. 7/03 - Aplicaciones e ingeniería de características. 
-- 3. 14/03 - Aprendizaje supervisado: Modelos Lineales
-- 4. 28/03 - Aprendizaje supervisado: Máquinas de soporte, modelos kernel y Naive Bayes
-- 5. 11/04 - Aprendizaje supervisado: Redes neuronales
--  6. 18/04 - Aprendizaje supervisado: Deep Learning
--  7. 25/04 - Aprendizaje supervisado: Árboles de Decisión 
--  8. 5/05 - Aprendizaje no supervisado
--  9. 9/05 - Métricas e interpratibilidad
--  10. 17/05 - Optimización de hiperparámetros
--  11. 24/05 - Etica de la IA y repaso
+1. [1/03 - Introducción al aprendizaje automático](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/aprendizaje%20autom%C3%A1tico.md#unidad-1-introducci%C3%B3n-al-aprendizaje-autom%C3%A1tico)
+2. 7/03 - Aplicaciones e ingeniería de características del aprendizaje automático
+3. 14/03 - Aprendizaje supervisado: Modelos Lineales
+4. 28/03 - Aprendizaje supervisado: Máquinas de soporte, modelos kernel y Naive Bayes
+5. 11/04 - Aprendizaje supervisado: Redes neuronales
+6. 18/04 - Aprendizaje supervisado: Deep Learning
+7. 25/04 - Aprendizaje supervisado: Árboles de Decisión 
+8. 5/05 - Aprendizaje no supervisado
+9. 9/05 - Métricas e interpretaibilidad
+10. 17/05 - Optimización de hiperparámetros
+11. 24/05 - Etica de la IA y repaso
 
 
 - Unidad 1. Introducción al aprendizaje automático
@@ -67,7 +67,7 @@ Coger un dataset, hacer el modelo y evaluarlo con train-test, cross-validation y
 - configurar como es debido
 - Elegir una buena métrica (no nos va a pedir ninguna métrica). Por ejemplo Sacar scores sobre las predicciones. 
 
-# Unidad 1. Introducción al aprendizaje automático
+# 1. 1/03 - Introducción al aprendizaje automático
 
 ## Objetivos
 
@@ -194,7 +194,7 @@ Las más conocidas son:
 - KneighborClassifier(n_neighbors=3)
 
 
-7/03/23
+# 2. 7/03 - Aplicaciones e ingeniería de características del aprendizaje automático
 
 ### Aplicaciones
 
@@ -261,9 +261,7 @@ La técnica general más habitual es el análisis de componentes principales (PC
 ### Práctica 
 
 
-14/03/23
-
-# 2. Aprendizaje Supervisado 
+# 3. 14/03 - Aprendizaje supervisado: Modelos Lineales
 
 
 ## Modelos Lineales
@@ -359,7 +357,7 @@ python -m ipykernel install --user --name nombre_del_kernel --display-name "Nomb
 jupyter notebook
 ```
 
-28/03/23
+# 4. 28/03 - Aprendizaje supervisado: Máquinas de soporte, modelos kernel y Naive Bayes
 
 ## Máquinas de Vector De Soporte
 
@@ -421,9 +419,7 @@ Este es un modelo que en la práctica no se suele utilizar y funciona estrictame
 https://ml-playground.com/
 
 
-11/04/23
-
-## Redes Neuronales Artificiales
+# 5. 11/04 - Aprendizaje supervisado: Redes neuronales
 
 ### Limitaciones del modelo lineal
 
@@ -502,9 +498,7 @@ Los datos de validación evalúan el error por cada época o iteración.
 
 ![](/img/aprendizaje_automatico/early_stopping.png)
 
-### Deep Learning
-
-18/04
+# 6. 18/04 - Aprendizaje supervisado: Deep Learning
 
 ![](/img/aprendizaje_automatico/representation_learning.png)
 
@@ -634,11 +628,7 @@ Ejemplos:
 
 
 
-
-## Aprendizaje supervisado 
-25/04
-
-### Aprendizaje de reglas
+# 7. 25/04 - Aprendizaje supervisado: Árboles de Decisión 
 
 #### Métodos simbólicos
 
@@ -729,7 +719,7 @@ Es una forma de construir ensembles. Una característica que tenemos que asegura
 
 
 
-5/05/2023 
+# 8. 5/05 - Aprendizaje no supervisado
 
 Práctica 2
 - Hacer un estudio con técnicas no supervisadas para agrupar los clientes en distintas categorías y luego qué se puede hacer con ello. 
@@ -739,8 +729,6 @@ Práctica 2
 Práctica 3. Reconocimiento de dígitos manuscritos
 
 - Hacer una mejora en el código. 
-
-# Aprendizaje no supervisado 
 
 En este caso el target (y) no está disponible como en el caso del Aprendizaje Supervisado.
 Veremos dos tipos de técnicas de Aprendizaje No Supervisado:
@@ -826,7 +814,7 @@ https://en.wikipedia.org/wiki/Expectation%E2%80%93maximization_algorithm#Example
 
 
 
-# Unidad 4. Evaluación del aprendizaje
+# 9. 9/05 - Métricas e interpretaibilidad
 
 ## Métricas e interpretabilidad 
 
@@ -869,6 +857,7 @@ La selección de la métrica es una de las decisiones más importantes y primera
 
 ![](/img/aprendizaje_automatico/metricas_clustering.png)
 
+
 ### Interpretabilidad 
 
 - Algunos modelos como los lineales o los árboles de decisión son fáciles de interpretar y es sencillo determinar qué peso ha tenido cada variable en sus predicciones.
@@ -886,7 +875,7 @@ https://shap.readthedocs.io/en/latest/example_notebooks/overviews/An%20introduct
 - LIME (https://github.com/marcotcr/lime)
 - ELI5 (https://eli5.readthedocs.io)
 
-# Búsqueda de metaparámetros 17/05
+# 10. 17/05 - Optimización de hiperparámetros
 
 Práctica de la red convolucional
 
@@ -951,7 +940,7 @@ scikit-optimize con conda forge
 - Particle Swarm 
 - Algoritmos Genéticos y Estrategias Evolutivas (https://rednuht.org/genetic_cars_2/)
 
-# 12. Ética en la IA
+# 11. 24/05 - Etica de la IA y repaso
 
 ## Principios éticos
 
