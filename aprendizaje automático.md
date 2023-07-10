@@ -680,11 +680,11 @@ Las fronteras de clasificación utilizando el modelo de árbol de decisión son 
 Un solo árbol de decisión, por lo general no son muy potentes. Existen formas de mejorar un modelo de machine learning, que es construir *ensembles*: combinar modelos que ayudan a obtener mejores resultados. Aplica a los árboles de decisiones especialmente, porque si les cortamos la profundiad, son muy robustos y ajustan muy poco: son weak learners. 
 
 
-Técnicas de combinación de modelos (ensembles)
-• Bagging (Bootstrap aggregating)
-• Boosting
-• Stacking
-• Otras
+Técnicas de combinación de modelos (ensembles):
+- Bagging (Bootstrap aggregating)
+- Boosting
+- Stacking
+- Otras
 
 #### Bagging (Bootstrap aggregating)
 
