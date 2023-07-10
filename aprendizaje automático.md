@@ -3,6 +3,22 @@ Profesor: David Díaz Vico
 
 # Contenido del Curso
 
+## Clases 
+
+1. [ 1/03 - Introducción al aprendizaje automático](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/aprendizaje%20autom%C3%A1tico.md#1-103---introducci%C3%B3n-al-aprendizaje-autom%C3%A1tico)
+2. [ 7/03 - Aplicaciones e ingeniería de características del aprendizaje automático](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/aprendizaje%20autom%C3%A1tico.md#2-703---aplicaciones-e-ingenier%C3%ADa-de-caracter%C3%ADsticas-del-aprendizaje-autom%C3%A1tico)
+3. [14/03 - Aprendizaje supervisado: Modelos Lineales](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/aprendizaje%20autom%C3%A1tico.md#3-1403---aprendizaje-supervisado-modelos-lineales)
+4. [28/03 - Aprendizaje supervisado: Máquinas de soporte, modelos kernel y Naive Bayes](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/aprendizaje%20autom%C3%A1tico.md#4-2803---aprendizaje-supervisado-m%C3%A1quinas-de-soporte-modelos-kernel-y-naive-bayes)
+5. [11/04 - Aprendizaje supervisado: Redes neuronales](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/aprendizaje%20autom%C3%A1tico.md#5-1104---aprendizaje-supervisado-redes-neuronales)
+6. [18/04 - Aprendizaje supervisado: Deep Learning](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/aprendizaje%20autom%C3%A1tico.md#6-1804---aprendizaje-supervisado-deep-learning)
+7. [25/04 - Aprendizaje supervisado: Árboles de Decisión](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/aprendizaje%20autom%C3%A1tico.md#7-2504---aprendizaje-supervisado-%C3%A1rboles-de-decisi%C3%B3n)
+8. [5/05 - Aprendizaje no supervisado](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/aprendizaje%20autom%C3%A1tico.md#8-505---aprendizaje-no-supervisado)
+9. [9/05 - Métricas e interpretaibilidad](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/aprendizaje%20autom%C3%A1tico.md#9-905---m%C3%A9tricas-e-interpretaibilidad)
+10. [17/05 - Optimización de hiperparámetros](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/aprendizaje%20autom%C3%A1tico.md#10-1705---optimizaci%C3%B3n-de-hiperpar%C3%A1metros)
+11. [24/05 - Etica de la IA y repaso](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/aprendizaje%20autom%C3%A1tico.md#11-2405---etica-de-la-ia-y-repaso)
+
+
+## Apuntes
 
 - Unidad 1. Introducción al aprendizaje automático
     - Introducción al aprendizaje automático
@@ -19,8 +35,8 @@ Profesor: David Díaz Vico
     - No Supervisado – Reducción de dimensiones
     - Sistemas de Recomendación
     - Aprendizaje de métricas y ordenaciones
-- Unidad 4. Evaluación del aprendizaje
-    - Conceptos de Evaluación.
+- [Unidad 4. Evaluación del aprendizaje](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/aprendizaje%20autom%C3%A1tico.md#unidad-4-evaluaci%C3%B3n-del-aprendizaje)
+    - [Conceptos de Evaluación](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/aprendizaje%20autom%C3%A1tico.md#conceptos-de-evaluaci%C3%B3n)
     - Evaluación del aprendizaje supervisado
     - Cálculo de medidas de efectividad del aprendizaje supervisado
     - Shap Values
@@ -30,7 +46,6 @@ Profesor: David Díaz Vico
     - Clasificación de imágenes con ML ‘clásico’
     - Introducción a Pytorch.
     - Detección de imágenes con 
-
 - Unidad 6. Ética de la Inteligencia Artificial
     - Directrices éticas para el desarrollo de modelos de IA
     - Detección de sesgos
@@ -57,7 +72,7 @@ Coger un dataset, hacer el modelo y evaluarlo con train-test, cross-validation y
 - configurar como es debido
 - Elegir una buena métrica (no nos va a pedir ninguna métrica). Por ejemplo Sacar scores sobre las predicciones. 
 
-# Unidad 1. Introducción al aprendizaje automático
+# 1. 1/03 - Introducción al aprendizaje automático
 
 ## Objetivos
 
@@ -136,14 +151,14 @@ Las más conocidas son:
 
 ![](/img/aprendizaje_automatico/metodologia.png)
 
-# Principales proveedores de IA y casos de éxito 
+## Principales proveedores de IA y casos de éxito 
 
 - IBM 
 - Amazon 
 - Microsoft 
 - Google 
 
-## IBM 
+### IBM 
 - Cloud computing, computación cuántica, consultoría
 - Watson
     - Responde a preguntas en lenguaje natural (DeepQA)
@@ -151,17 +166,17 @@ Las más conocidas son:
     - Clasificación, detección de relación entre entidades. 
     - Generación, puntuación y ranking de hipótesis. 
 
-## Amazon 
+### Amazon 
 - Marketplace 
 - Cloud Computing (AWS)
 - Alexa 
 
-## Microsoft 
+### Microsoft 
 - Sistema operativo, ofimática. 
 - Cloud Computing (Azure)
 - Cortana 
 
-## Google 
+### Google 
 - Buscador, correo, Maps, Android
 - Cloud Computing (Google Cloud)
 - Asistente Google
@@ -184,7 +199,7 @@ Las más conocidas son:
 - KneighborClassifier(n_neighbors=3)
 
 
-7/03/23
+# 2. 7/03 - Aplicaciones e ingeniería de características del aprendizaje automático
 
 ### Aplicaciones
 
@@ -212,15 +227,15 @@ En la imagen de abajo vemos cómo cambia el espacio muestral cuando aumentamos e
 
 #### Principio de Parsimonia / navaja de Okham 
 
-"En igualda de condiciones, la expllicación más sencilla suele ser la más probable". 
+"En igualdad de condiciones, la expllicación más sencilla suele ser la más probable". 
 
 En Aprendizaje Automático: "cuantas menos variables utilice el modelo (y por lo tanto menos hiperparámetros), mejor."
 
 #### Mejora en las predicciones
 
-Los resultados con un mismo modelo y algoritmo de entrenamiento pueden mejorar mucho si se utilizan las las cracterísticas correctas. 
+Los resultados con un mismo modelo y algoritmo de entrenamiento pueden mejorar mucho si se utilizan las características correctas. 
 
-Por ejemplo , un modelo lineal puede ser capaz de resolver problemas no lineales si se le suministran las características apropiadas, construidas manualmente como funciones no lineales de las características apropiadas, construidas manualmente como funciones no lineales de las características originales. 
+Por ejemplo , un modelo lineal puede ser capaz de resolver problemas no lineales si se le suministran las características apropiadas, construidas manualmente como funciones no lineales de las características originales. 
 
 #### Selección de variables
 
@@ -243,7 +258,7 @@ La técnica general más habitual es el análisis de componentes principales (PC
 
 - Principal Component Analysis: Realiza una proyección de los datos originales en un espacio de dimensión menor en el que se maximiza la varianza. Las nuevas variables son combinaciones lineales de las originales. No utiliza la variable target, es una técnica no supervisada.
 
-- Linear Discriminant Analysis (solo clasificación): Realiza una proyección de los datos originales en un espacio de dimensión menor en el que se maximiza la separabilidad. Las nuevas variables son combinacviones lineales de las originales. 
+- Linear Discriminant Analysis (solo clasificación): Realiza una proyección de los datos originales en un espacio de dimensión menor en el que se maximiza la separabilidad. Las nuevas variables son combinaciones lineales de las originales. 
 
 ![](/img/aprendizaje_automatico/lda.png)
 
@@ -251,9 +266,7 @@ La técnica general más habitual es el análisis de componentes principales (PC
 ### Práctica 
 
 
-14/03/23
-
-# 2. Aprendizaje Supervisado 
+# 3. 14/03 - Aprendizaje supervisado: Modelos Lineales
 
 
 ## Modelos Lineales
@@ -349,7 +362,7 @@ python -m ipykernel install --user --name nombre_del_kernel --display-name "Nomb
 jupyter notebook
 ```
 
-28/03/23
+# 4. 28/03 - Aprendizaje supervisado: Máquinas de soporte, modelos kernel y Naive Bayes
 
 ## Máquinas de Vector De Soporte
 
@@ -361,11 +374,11 @@ A partir de ahora siempre vamos a estar hablando de métodos iterativos (ya que 
 
 ![](/img/aprendizaje_automatico/linear_svc.png)
 
-La idea de este modelo es ser estricto a la hora de escoger cuál solución nos quedamos, y es donde entra el concepto de margen, y aquí es donde entramos a definri el margen de separación. 
+La idea de este modelo es ser estricto a la hora de escoger cuál solución nos quedamos, y es donde entra el concepto de margen, y aquí es donde entramos a definir el margen de separación. 
 
 ![](/img/aprendizaje_automatico/linear_svc_2.png)
 
-La recta H1 es mala. En cambio, las rectas H2 y H3 clasifican perfectamente el dataset. Pero el H3 tiene un margen de separación más grande que H2, que están deterinados por los vectores de soporte (la distancia mínima a un punto). 
+La recta H1 es mala. En cambio, las rectas H2 y H3 clasifican perfectamente el dataset. Pero el H3 tiene un margen de separación más grande que H2, que están determinados por los vectores de soporte (la distancia mínima a un punto). 
 
 De acuerdo a este modelo, la recta H3 es la solución más robusta ya que cuando incorporemos datos de test, es probable que se acerquen a la frontera y el modelo que tenga el mayor margen de separación es el que menos errores va a cometer y por ende va a cometer menos errores de clasificación. 
 
@@ -375,7 +388,7 @@ De acuerdo a este modelo, la recta H3 es la solución más robusta ya que cuando
 
 ![](/img/aprendizaje_automatico/linear_svc_5.png)
 
-Es como una regresión logística pero con una función de coste distinta. Gracias a ello conseguimos un modelo lineal con un margen de separación máximo. 
+Es como una regresión logística pero con una función de coste distinta, la hinge-loss. Gracias a ello conseguimos un modelo lineal con un margen de separación máximo. 
 
 
 ### Linear SVR (Support Vector Regrresion)
@@ -390,7 +403,7 @@ En este modelo queremos conseguir que todos los puntos estén contenidos en un a
 
 - Los modelos lineales tienen muchas virtudes, pero su expresividad está muy limitada por su naturaleza lineal. 
 
-- Por suerte, existe un truco matemático para hacer questos modelos funcionen en un espacio de dimensiónn muy alto o incluso infinito, en el cual los problemas de clasificación son siempre linealmente separables y los problemas de regresión siempre se pueden resolver con una forma lineal, evitando tener que realizar operaciones matemáticas extremadamente costosas en dicho espacio de alta dimensión. Es el llamado "truco del kernel". 
+- Por suerte, existe un truco matemático para hacer que estos modelos funcionen en un espacio de dimensiónn muy alto o incluso infinito, en el cual los problemas de clasificación son siempre linealmente separables y los problemas de regresión siempre se pueden resolver con una forma lineal, evitando tener que realizar operaciones matemáticas extremadamente costosas en dicho espacio de alta dimensión. Es el llamado "truco del kernel". 
 - Para ello, es necesario que el modelo pueda expresarse en términos de x=xxt en lugar de Z. Las SVM cumplen esta condición. 
 - Sin embargo, estos métodos tienen un coste de entrenamiento y de predicción muy superior al de sus contrapartidas lineales, y su uso está limitado a datasets pequeños. 
 
@@ -411,9 +424,7 @@ Este es un modelo que en la práctica no se suele utilizar y funciona estrictame
 https://ml-playground.com/
 
 
-11/04/23
-
-## Redes Neuronales Artificiales
+# 5. 11/04 - Aprendizaje supervisado: Redes neuronales
 
 ### Limitaciones del modelo lineal
 
@@ -492,9 +503,7 @@ Los datos de validación evalúan el error por cada época o iteración.
 
 ![](/img/aprendizaje_automatico/early_stopping.png)
 
-### Deep Learning
-
-18/04
+# 6. 18/04 - Aprendizaje supervisado: Deep Learning
 
 ![](/img/aprendizaje_automatico/representation_learning.png)
 
@@ -624,11 +633,7 @@ Ejemplos:
 
 
 
-
-## Aprendizaje supervisado 
-25/04
-
-### Aprendizaje de reglas
+# 7. 25/04 - Aprendizaje supervisado: Árboles de Decisión 
 
 #### Métodos simbólicos
 
@@ -675,11 +680,11 @@ Las fronteras de clasificación utilizando el modelo de árbol de decisión son 
 Un solo árbol de decisión, por lo general no son muy potentes. Existen formas de mejorar un modelo de machine learning, que es construir *ensembles*: combinar modelos que ayudan a obtener mejores resultados. Aplica a los árboles de decisiones especialmente, porque si les cortamos la profundiad, son muy robustos y ajustan muy poco: son weak learners. 
 
 
-Técnicas de combinación de modelos (ensembles)
-• Bagging (Bootstrap aggregating)
-• Boosting
-• Stacking
-• Otras
+Técnicas de combinación de modelos (ensembles):
+- Bagging (Bootstrap aggregating)
+- Boosting
+- Stacking
+- Otras
 
 #### Bagging (Bootstrap aggregating)
 
@@ -697,7 +702,7 @@ Es una forma de construir ensembles. Una característica que tenemos que asegura
 #### Boosting 
 
 - Cada modelo se entrena dando más importancia al subconjunto de los datos que obtuvo malas predicciones con los modelos entrenados anteriormente. 
-    - Una vez entrenado el árbol de decisión, se pasa sobre el dataset, se generan las predicciones, se calculan las métricas de de los scores.
+    - Una vez entrenado el árbol de decisión, se pasa sobre el dataset, se generan las predicciones, se calculan las métricas de los scores.
     - Y los datos para los que las métricas son peores se les da más importancia en el dataset para la siguiente iteración: se sobremuestrean.
     - Tenemos un nuevo dataset en el que están los datos originales, pero además los datos para los que la predicción del modelo entrenado en primer lugar no fue muy buena, esos aparecen más veces y tienen más peso claro, van a tener más influencia en el entrenamiento del siguiente modelo. 
     - Se entrena un segundo árbol de decisión y esta vez con el data SET ya modificado. Entonces, ese nuevo rol de decisión va a aprender a hacer mejores predicciones en los datos en los que el primero falló porque esos datos aparecen más durante su entrenamiento.
@@ -719,7 +724,7 @@ Es una forma de construir ensembles. Una característica que tenemos que asegura
 
 
 
-5/05/2023 
+# 8. 5/05 - Aprendizaje no supervisado
 
 Práctica 2
 - Hacer un estudio con técnicas no supervisadas para agrupar los clientes en distintas categorías y luego qué se puede hacer con ello. 
@@ -729,8 +734,6 @@ Práctica 2
 Práctica 3. Reconocimiento de dígitos manuscritos
 
 - Hacer una mejora en el código. 
-
-# Aprendizaje no supervisado 
 
 En este caso el target (y) no está disponible como en el caso del Aprendizaje Supervisado.
 Veremos dos tipos de técnicas de Aprendizaje No Supervisado:
@@ -773,7 +776,7 @@ https://youtu.be/2kfY0R34Dy0?t=156
 
 ![](/img/aprendizaje_automatico/k_means_4.png)
 
-![](/img/aprendizaje_automatico/k_means_5.png
+![](/img/aprendizaje_automatico/k_means_5.png)
 
 ### Hierarchical Clustering
 
@@ -816,7 +819,7 @@ https://en.wikipedia.org/wiki/Expectation%E2%80%93maximization_algorithm#Example
 
 
 
-# Unidad 4. Evaluación del aprendizaje
+# 9. 9/05 - Métricas e interpretaibilidad
 
 ## Métricas e interpretabilidad 
 
@@ -859,6 +862,7 @@ La selección de la métrica es una de las decisiones más importantes y primera
 
 ![](/img/aprendizaje_automatico/metricas_clustering.png)
 
+
 ### Interpretabilidad 
 
 - Algunos modelos como los lineales o los árboles de decisión son fáciles de interpretar y es sencillo determinar qué peso ha tenido cada variable en sus predicciones.
@@ -876,7 +880,7 @@ https://shap.readthedocs.io/en/latest/example_notebooks/overviews/An%20introduct
 - LIME (https://github.com/marcotcr/lime)
 - ELI5 (https://eli5.readthedocs.io)
 
-# Búsqueda de metaparámetros 17/05
+# 10. 17/05 - Optimización de hiperparámetros
 
 Práctica de la red convolucional
 
@@ -941,7 +945,7 @@ scikit-optimize con conda forge
 - Particle Swarm 
 - Algoritmos Genéticos y Estrategias Evolutivas (https://rednuht.org/genetic_cars_2/)
 
-# 12. Ética en la IA
+# 11. 24/05 - Etica de la IA y repaso
 
 ## Principios éticos
 
@@ -1876,9 +1880,9 @@ En este caso, un modelo se considera justo si los errores se distribuyen de form
 La mayoría de las definiciones de equidad se basan en la equidad de grupo, que trata de la equidad estadística en toda la población. Como complemento, está la equidad individual, que establece que los individuos similares deben ser tratados de forma similar, independientemente de su pertenencia al grupo.
 
 - **Paridad demográfica**, o estadística, sugiere que un predictor es insesgado si la predicción 𝑦̂ es independiente del atributo protegido p de modo que: Pr(𝑦̂|𝑝)=Pr (𝑦̂)
-- **Igualdad de probabilidades:** se satisface si la predicción 𝑦̂ es condicionalmente independiente del atributo protegido p, dado el valor verdadero y. Pr(𝑦̂|𝑦,𝑝)=Pr (𝑦̂|𝑦) 
-- **Igualdad de oportunidades.** La igualdad de oportunidades tiene la misma formulación matemática que la igualdad de probabilidades, pero se centra en una etiqueta particular y=1:  Pr(𝑦̂|𝑦=1,𝑝)=Pr (𝑦̂|𝑦=1). 
-    - La desviación de la igualdad de oportunidades se mide por la diferencia de oportunidades:SPD= Pr(𝑦̂=1|𝑦=1,𝑝=1)−Pr (𝑦̂=1|𝑦=1,𝑝=0). 
+- **igualdadd de probabilidades:** se satisface si la predicción 𝑦̂ es condicionalmente independiente del atributo protegido p, dado el valor verdadero y. Pr(𝑦̂|𝑦,𝑝)=Pr (𝑦̂|𝑦) 
+- **igualdadd de oportunidades.** La igualdadd de oportunidades tiene la misma formulación matemática que la igualdadd de probabilidades, pero se centra en una etiqueta particular y=1:  Pr(𝑦̂|𝑦=1,𝑝)=Pr (𝑦̂|𝑦=1). 
+    - La desviación de la igualdadd de oportunidades se mide por la diferencia de oportunidades:SPD= Pr(𝑦̂=1|𝑦=1,𝑝=1)−Pr (𝑦̂=1|𝑦=1,𝑝=0). 
 
 ### Algoritmos de mitigación de sesgo
 
