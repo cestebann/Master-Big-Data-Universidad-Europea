@@ -702,7 +702,7 @@ Es una forma de construir ensembles. Una característica que tenemos que asegura
 #### Boosting 
 
 - Cada modelo se entrena dando más importancia al subconjunto de los datos que obtuvo malas predicciones con los modelos entrenados anteriormente. 
-    - Una vez entrenado el árbol de decisión, se pasa sobre el dataset, se generan las predicciones, se calculan las métricas de de los scores.
+    - Una vez entrenado el árbol de decisión, se pasa sobre el dataset, se generan las predicciones, se calculan las métricas de los scores.
     - Y los datos para los que las métricas son peores se les da más importancia en el dataset para la siguiente iteración: se sobremuestrean.
     - Tenemos un nuevo dataset en el que están los datos originales, pero además los datos para los que la predicción del modelo entrenado en primer lugar no fue muy buena, esos aparecen más veces y tienen más peso claro, van a tener más influencia en el entrenamiento del siguiente modelo. 
     - Se entrena un segundo árbol de decisión y esta vez con el data SET ya modificado. Entonces, ese nuevo rol de decisión va a aprender a hacer mejores predicciones en los datos en los que el primero falló porque esos datos aparecen más durante su entrenamiento.
@@ -776,7 +776,7 @@ https://youtu.be/2kfY0R34Dy0?t=156
 
 ![](/img/aprendizaje_automatico/k_means_4.png)
 
-![](/img/aprendizaje_automatico/k_means_5.png
+![](/img/aprendizaje_automatico/k_means_5.png)
 
 ### Hierarchical Clustering
 
