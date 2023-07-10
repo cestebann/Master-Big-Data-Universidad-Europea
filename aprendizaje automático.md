@@ -1656,7 +1656,7 @@ Los errores se corresponden con las celdas en las que encontramos valores falsos
 
 ![](/img/aprendizaje_automatico/precision.png)
 
-- Specifity
+- Especifidad (Specifity )
 
 ![](/img/aprendizaje_automatico/specifity.png)
 
@@ -1674,14 +1674,35 @@ Combina la precisión y el recall en una sola métrica para comparar de forma se
 
 La curva ROC (Receiver Operating Characteristic) es otra herramienta típica usada en clasificadores binarios. 
 
-la curva ROC compara el True Positive Rate (Recall) y el False Positive Rate (specifity).
+La curva ROC compara el True Positive Rate (Recall) o Sensibilidad  y el False Positive Rate (1- especificidad).
 
 
 Otra forma de comparar clasificadores es comparando el área bajo la curva ROC (Area Under the Curve, AUC). Este parámetro tiene cómo límite superior 1, mientras que un valor de 0.5 corresponde a un clasificador completamente aleatorio.
 
 ![](/img/aprendizaje_automatico/auc.png)
 
-En casos no balanceados o cuando una clase nos importa más que la otra, la curva PR nos aportará más información que la curva ROC.
+![](/img/aprendizaje_automatico/roc.jpg)
+
+![](/img/aprendizaje_automatico/roc_ideal.jpg)
+
+Esta es una situación ideal. Cuando dos curvas no se superponen en absoluto, el modelo tiene una medida ideal de separación. Es perfectamente capaz de distinguir entre clase positiva y clase negativa
+
+![](/img/aprendizaje_automatico/roc_random.jpg)
+
+![](/img/aprendizaje_automatico/roc_curve_interpretabilidad.png)
+
+Esta es la peor situación. Cuando el AUC es aproximadamente 0.5, el modelo no tiene capacidad de discriminación para distinguir entre clase positiva y clase negativa.
+
+![](/img/aprendizaje_automatico/roc_0.jpg)
+
+![](/img/aprendizaje_automatico/roc_curve_interpretabilidad.png)
+
+Cuando AUC es aproximadamente 0, el modelo en realidad está correspondiendo las clases. Significa que el modelo predice la clase negativa como una clase positiva y viceversa.
+
+En casos no balanceados o cuando una clase nos importa más que la otra, la curva PR nos aportará más información que la curva ROC-AUC. 
+
+
+
 
 ## 3. Shap Values
 

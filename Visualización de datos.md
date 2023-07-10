@@ -1,4 +1,4 @@
-# Visualización de Datos 
+ # Visualización de Datos 
 
 Profesor: Sandra Becker
 
@@ -476,15 +476,12 @@ Puedes utilizar recursos que las personas utilizan/saben con cotidianeidad.
 
 Podemos comenzar muy abstracto para generar una conexión emocional hablando de un caso particular o un ejemplo, y luego magnificar todo hablando sobre todos los datos. 
 
-
 Recomendaciones
 
 1. Poner en contexto. 
 2. Utilizar un ejemplo particular que cause atención. Utilizar outliers para crear tensión. 
 3. Crear tensión
 4. Conclusiones
-
-
 
 
 Análisis de un storytelling: elegimos un ejemplo
@@ -520,3 +517,41 @@ No obstante, a veces usamos los colores para marcar cambios o eventos con ícono
 - **Drill-Down**:
 
 
+
+
+# Clase 10/07
+
+Podemos llevar un storytelling propio.  
+
+## Tips
+- No repitamos el texto. 
+
+
+1. PErspectiva del autor: author-driven, viewer-driven
+2. Dar ejemplos, está introduciendo. No nos da el ejemplo de los cortes al principio para crear interés y suspenso. 
+3.  Tras ver el gráfico de duración, podemos ver que las categorías que tienen más frecuencia son las relacionadas con sexo, LGBT y faltas de respeto hacia China. 
+4. Es poco interactivo, claramente definido por el autor, quiere convencerte de su punto de vista. 
+
+# Cómo se crea el desarrollo de la historia
+
+1. La portada del la historia: aplica una censura sobre el título para dar una introducción visual a lo que vamos a hablar. Se utilizan imágenes que ejemplifican 
+2. Él aplica un ejemplo particular personal para apelar a la cercanía y facilitar la conexión. "Se usa la forma de un ejemplo personal para identificarse con el lector para introducirte el efecto censura, para que el espectador sienta que un programa tan familiar como Big Bang fue censurado". 
+2. Te exponen ejemplos particulares para que compares y las evalúes moralmente, y te sientas involucrado. Luego el autor pasa de esos ejemplos particulares a una perspectiva panorámica, con lo cual se aleja en detalle pero continúa o magnifica la tensión hacia el espectador para que entienda de que existe una gran cantidad de momentos como los que juzgó anteriormente en toda la muestra tomada. 
+3. La gráfica de barcode empieza vacía y no tiene ejes, esto provoca expectativa porque el espectador sabe que no va a quedarse así. 
+4. Se relaja la tensión y continúa con el hilo de la historia. Se produce interés intuitivo por medio de imágens y frases cortas. 
+5. Vuelve a introducir ejemplos, que para el espectador puede generar un poco de hastío o aburrimiento, pero estos ejemplos son los más absurdos de censura para que al espectador le llame la atención que la censura es bastante subjetiva. 
+6. Vuelve a generarse tensión y provocación porque el autor expone otra idea que es exponiendo películas locales comparando escenas  que fueron censuradas con otras similares del programa. Las imágenes son muy explícitas y visuales y mantienen la atención del lector. 
+7. Termina con una reflexión personal, sin visualizaciones. Hace un resumen, a manera más de generar una reflexión en los espectadores. La anulación de visualizaciones produce un desenlace y relajación ene l espectador. 
+8. La línea de coherencia de la historia es un poco desordenada, trae muchos ejemplos en diferentes partes, trae 
+
+
+¿Cuáles son los lenguajes visuales que se utilizan? 
+
+https://pudding.cool/2022/08/censorship/
+
+
+- Es un gráfico de barcode 
+- Los colores representan las categorías y es fácil recordar las etiquetas que representan porque son solo 3 colores. Los colores contrastan muy bien con el fondo. Los colores son poco representativos para los temas que hablan, pero existe una tendencia actualmente de utilizar colores neutrales para descontextualizar los temas con otras historias y que los temas a traer a mención se centren únicamente en la información brindada dentro de la narrativa.  
+- La duración es fácil de identificar, da una sensación de cuál largo o cuán corto es una categoría con respecto a otra y cuánto ocupa en el episodio completamente. 
+- Utiliza mucho el verde, puede ser porque apela al tema más censurado que es el sexo pero en una parte que habla específicamente de "falta de respeto" que tenía asignado el color amarillo, el espectador esperaría esos colores y sin embargo, utilizó el amarillo. 
+- 
