@@ -35,8 +35,8 @@ Profesor: David Díaz Vico
     - No Supervisado – Reducción de dimensiones
     - Sistemas de Recomendación
     - Aprendizaje de métricas y ordenaciones
-- Unidad 4. Evaluación del aprendizaje
-    - Conceptos de Evaluación.
+- [Unidad 4. Evaluación del aprendizaje](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/aprendizaje%20autom%C3%A1tico.md#unidad-4-evaluaci%C3%B3n-del-aprendizaje)
+    - [Conceptos de Evaluación](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/aprendizaje%20autom%C3%A1tico.md#conceptos-de-evaluaci%C3%B3n)
     - Evaluación del aprendizaje supervisado
     - Cálculo de medidas de efectividad del aprendizaje supervisado
     - Shap Values
