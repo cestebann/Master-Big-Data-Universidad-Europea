@@ -20,16 +20,16 @@ Profesor: David Díaz Vico
 
 ## Apuntes
 
-- Unidad 1. Introducción al aprendizaje automático
-    - Introducción al aprendizaje automático
+- [Unidad 1. Introducción al aprendizaje automático](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/aprendizaje%20autom%C3%A1tico.md#unidad-1-introducci%C3%B3n-al-aprendizaje-autom%C3%A1tico)
+    - [Introducción al aprendizaje automático](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/aprendizaje%20autom%C3%A1tico.md#unidad-1-introducci%C3%B3n-al-aprendizaje-autom%C3%A1tico)
     - Aplicación de la IA al entorno empresarial.
-    - Principales proveedores de IA.
-    - Procesos del aprendizaje automático
-- Unidad 2. Aprendizaje Supervisado
-    - Métodos de predicción lineal
-    - Métodos simbólicos
-    - Fundamentos de Deep Learning
-    - Problemas del aprendizaje predictivo
+    - [Principales proveedores de IA](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/aprendizaje%20autom%C3%A1tico.md#principales-proveedores-de-ia)
+    - [Procesos del aprendizaje automático](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/aprendizaje%20autom%C3%A1tico.md#procesos)
+- [Unidad 2. Aprendizaje Supervisado](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/aprendizaje%20autom%C3%A1tico.md#unidad-2-aprendizaje-supervisado)
+    - [Métodos de predicción lineal](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/aprendizaje%20autom%C3%A1tico.md#m%C3%A9todos-de-predicci%C3%B3n-lineal)
+    - [Métodos simbólicos](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/aprendizaje%20autom%C3%A1tico.md#%C3%A1rboles-de-decisi%C3%B3n)
+    - [Fundamentos de Deep Learning](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/aprendizaje%20autom%C3%A1tico.md#deep-learning)
+    - [Problemas del aprendizaje predictivo](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/aprendizaje%20autom%C3%A1tico.md#problemas-del-aprendizaje-predictivo)
 - Unidad 3. Otras técnicas de Aprendizaje
     - No Supervisado - Agrupamiento
     - No Supervisado – Reducción de dimensiones
@@ -37,19 +37,19 @@ Profesor: David Díaz Vico
     - Aprendizaje de métricas y ordenaciones
 - [Unidad 4. Evaluación del aprendizaje](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/aprendizaje%20autom%C3%A1tico.md#unidad-4-evaluaci%C3%B3n-del-aprendizaje)
     - [Conceptos de Evaluación](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/aprendizaje%20autom%C3%A1tico.md#conceptos-de-evaluaci%C3%B3n)
-    - Evaluación del aprendizaje supervisado
-    - Cálculo de medidas de efectividad del aprendizaje supervisado
-    - Shap Values
+    - [Evaluación del aprendizaje supervisado](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/aprendizaje%20autom%C3%A1tico.md#2-evaluaci%C3%B3n-del-aprendizaje-supervisado)
+    - [Cálculo de medidas de efectividad del aprendizaje supervisado](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/aprendizaje%20autom%C3%A1tico.md#evaluaci%C3%B3n-del-aprendizaje-no-supervisado)
+    - [Shap Values](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/aprendizaje%20autom%C3%A1tico.md#3-shap-values)
     - Evaluación del aprendizaje no supervisado
 - Unidad 5. Análisis de textos y contenidos multimedia
     - Análisis semántico y sentimientos.
     - Clasificación de imágenes con ML ‘clásico’
     - Introducción a Pytorch.
     - Detección de imágenes con 
-- Unidad 6. Ética de la Inteligencia Artificial
-    - Directrices éticas para el desarrollo de modelos de IA
-    - Detección de sesgos
-    - Ejemplos de dilemas éticos
+- [Unidad 6. Ética de la Inteligencia Artificial](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/aprendizaje%20autom%C3%A1tico.md#unidad-6-%C3%A9tica-de-la-inteligencia-artificial)
+    - [Directrices éticas para el desarrollo de modelos de IA](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/aprendizaje%20autom%C3%A1tico.md#1-directrices-%C3%A9ticas-para-el-desarrollo-de-modelos-de-ia)
+    - [Detección de sesgos](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/aprendizaje%20autom%C3%A1tico.md#2-detecci%C3%B3n-de-sesgos)
+    - [Ejemplos de dilemas éticos](https://github.com/cestebann/Master-Big-Data-Universidad-Europea/blob/master/aprendizaje%20autom%C3%A1tico.md#3-ejemplos-de-dilemas-%C3%A9ticos)
 
 
 # Examen 
